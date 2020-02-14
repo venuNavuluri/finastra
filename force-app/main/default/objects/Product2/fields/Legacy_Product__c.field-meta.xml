@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Legacy_Product__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checkbox that indicates if this is a Legacy Product. Legacy Products can only be sold to existing customers and are hidden on Net New quotes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checkbox that indicates if this is a Legacy Product. Legacy Products can only be sold to existing customers and are hidden on Net New quotes.</inlineHelpText>
+        <label>Legacy Product?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </CustomField>

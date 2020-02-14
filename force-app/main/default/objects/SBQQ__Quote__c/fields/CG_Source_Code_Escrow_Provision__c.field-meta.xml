@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CG_Source_Code_Escrow_Provision__c</fullName>
+        <description>If an order contains a SKU for standard source code escrow, the order must include the standard source code escrow provision.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If an order contains a SKU for standard source code escrow, the order must include the standard source code escrow provision.</inlineHelpText>
+        <label>CG Source Code Escrow Provision</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

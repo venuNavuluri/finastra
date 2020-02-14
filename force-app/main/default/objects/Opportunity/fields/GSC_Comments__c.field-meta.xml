@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GSC_Comments__c</fullName>
+    <description>RUBX-532 - Field to capture GSC Comments value</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Any comments from Global Solution Consultants team</inlineHelpText>
+    <label>GSC Comments</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

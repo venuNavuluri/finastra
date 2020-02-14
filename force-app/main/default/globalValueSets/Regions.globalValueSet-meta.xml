@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Americas</fullName>
+        <default>false</default>
+        <label>Americas</label>
+    </customValue>
+    <customValue>
+        <fullName>Asia Pacific</fullName>
+        <default>false</default>
+        <label>Asia Pacific</label>
+    </customValue>
+    <customValue>
+        <fullName>Europe</fullName>
+        <default>false</default>
+        <label>Europe</label>
+    </customValue>
+    <customValue>
+        <fullName>MEA</fullName>
+        <default>false</default>
+        <label>MEA</label>
+    </customValue>
+    <customValue>
+        <fullName>NACM</fullName>
+        <default>false</default>
+        <label>NACM</label>
+    </customValue>
+    <description>RUBX-1560 : List of all Sales Regions</description>
+    <masterLabel>Regions</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

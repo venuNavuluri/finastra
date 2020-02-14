@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>NACM Digital Banking</fullName>
+        <default>false</default>
+        <label>NACM Digital Banking</label>
+    </customValue>
+    <customValue>
+        <fullName>NACM US Retail</fullName>
+        <default>false</default>
+        <label>NACM US Retail</label>
+    </customValue>
+    <customValue>
+        <fullName>NACM Mid- Atlantic</fullName>
+        <default>false</default>
+        <label>NACM Mid- Atlantic</label>
+    </customValue>
+    <customValue>
+        <fullName>NACM Northeast</fullName>
+        <default>false</default>
+        <label>NACM Northeast</label>
+    </customValue>
+    <customValue>
+        <fullName>NACM Southeast</fullName>
+        <default>false</default>
+        <label>NACM Southeast</label>
+    </customValue>
+    <customValue>
+        <fullName>NACM Southwest</fullName>
+        <default>false</default>
+        <label>NACM Southwest</label>
+    </customValue>
+    <customValue>
+        <fullName>NACM Upper Midwest</fullName>
+        <default>false</default>
+        <label>NACM Upper Midwest</label>
+    </customValue>
+    <customValue>
+        <fullName>NACM West</fullName>
+        <default>false</default>
+        <label>NACM West</label>
+    </customValue>
+    <customValue>
+        <fullName>Digital/Inside Sales</fullName>
+        <default>false</default>
+        <label>Digital/Inside Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>NAM</fullName>
+        <default>false</default>
+        <label>NAM</label>
+    </customValue>
+    <customValue>
+        <fullName>LAM</fullName>
+        <default>false</default>
+        <label>LAM</label>
+    </customValue>
+    <description>RUBX-1560 : List of all Sales Sub-Regions</description>
+    <masterLabel>Sub Regions</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

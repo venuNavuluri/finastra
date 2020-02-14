@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Added_by_ATG_For_MVP__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag to indicate that this was a new product added into this environment for MVP</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag to indicate that this was a new product added into this environment for MVP</inlineHelpText>
+        <label>Added by ATG For MVP</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </CustomField>

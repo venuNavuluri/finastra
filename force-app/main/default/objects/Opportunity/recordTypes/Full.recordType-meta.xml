@@ -1,0 +1,3045 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full</fullName>
+    <active>true</active>
+    <businessProcess>Finastra Sales Process</businessProcess>
+    <description>RUBX-1467: Pipeline opportunity record type</description>
+    <label>Full</label>
+    <picklistValues>
+        <picklist>CAT_Logging_Stage__c</picklist>
+        <values>
+            <fullName>Awaiting CAT Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAT Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAT Review Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAT Review In Progress</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deal_Category__c</picklist>
+        <values>
+            <fullName>100%25 New%2FIncremental Rev</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contains some element of existing rev %28RLF%2FACV%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Finastra_Forecast__c</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contingency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exempt</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Likely</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Advertisement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google AdWords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchased List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loss_Reason__c</picklist>
+        <values>
+            <fullName>Lost to Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget %2F Lost Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Decision %2F Non-Responsive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MainProduct__c</picklist>
+        <values>
+            <fullName>---P%26C Products---</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ARIS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Almonde</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BACS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bankmaster</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CLS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CLX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Carbon Trading</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cash Portal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cashier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Confirmation Matching Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Quest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Risk Vantage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digiwave</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EIPP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eagleye</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Cash Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Corporate Channels</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Credit Management Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB CrowdLending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Equation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Digital Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Gameo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence IPD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Islamic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Loan Origination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Mobile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Mobile PFM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Online</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence PFM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Party Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Single Customer View</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Essence Teller</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Fees and Billing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Insight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Loan IQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Meridian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Message Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Midas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Payment Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB Trade Innovation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC Global Components</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC Kondor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC Opics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC PTP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC Sophis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC Summit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - RT Platform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Total Messaging%2FScreening</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusion Cash Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FusionBanking Corporate Banking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FusionBanking Corporate Portal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FusionFabric Dot Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FusionInvest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FusionRisk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GMS Service Bureau</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GeoGuard %28B%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Global Cash Pooling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Global Payments - FTS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Global Payments - Global PAYplus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IND Solutions %28B%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>InFusion Partner Programme</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KGR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KVAR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kondor Trade Processing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lendercomm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loan Coordinator %28T%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loan Portal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MTP Multibank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meridian Middleware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Midas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys Business Intelligence %28B%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys MERS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys Message Manager %28B%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys Mobile %28B%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys Origination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys Payment Manager %28B%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys Portfolio Dashboard %28S%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys RRS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys Risk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys Risk %28S%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opics Risk Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other FS Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payments - Internet Payments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payments - RDC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal Finance Portal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portal For FC Opics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prometeia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Risk Vision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ST-Pymnts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SigCap</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Smartstream %28TLM%2FCorona%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sybase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Third Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TopOffice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Portal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TradeWatch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>US Payments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>iSophis %28S%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Main_Competitor__c</picklist>
+        <values>
+            <fullName>360 View</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3rd Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3rd Party Custom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3rd Party POS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ABS Bank Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ACT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ARTA Deposit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ARTA Lending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASC - PowerLender</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aasys Group  %28Southeast%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accenture</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accenture Mortgage Cadence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Alkami</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Andera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appro %28consumer%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Argo-Bank Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Attorney</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automated Systems - Insite Banking System</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Baker Hill</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Baker Hill B2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Baker Hill B2B %26 B2C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Black Night</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bottomline Technologies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Buker%E2%80%99s</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Byte</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Byte - Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Byte - Online</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CARDINAL SYSTEMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CMC%2FFLEX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COOP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRIF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRIF ACTion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CSI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CSI Computer Services%2C Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CU Direct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CUSO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Calyx - Point</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Calyx - WebCaster</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cavion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Co-Pilot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compushare Management Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Core System</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corelation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creative Thinking - CreativeVisions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creative Vision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Risk Management-Credit Leader</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cypress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DCI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DCI - ICORE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DocuSign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dynatek - MorVision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EPL Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Easylender</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ellie Mae - Encompass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ellie Mae - Encompass 360</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ellie Mae - Encompass Web Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FICS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FICS - Loan Producer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIPCO - Compliance Concierge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS - Bankway %28fna Kirchman%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS - Horizon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS - Metavante IBS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS - Miser</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS Flow</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FPS Gold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Tools</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>First Data Resources -FDR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiscal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv %E2%80%93 Cleartouch %28fna Vision%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv %E2%80%93 Cleartouch Milwaukee %28fna Vision%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv %E2%80%93 Precision %28fna BIAS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - Acumen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - DNA %28fna OSI%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - EasyLender</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - LoanLaunch %28fna COP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - TCCUS%2FTCBS %28fna OSI%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - Velocity Streamlend %28fna OSI%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - XP Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv Nautilus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv Premier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv-TBD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gallagher Net Oxygen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GlobalWave</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Harte-Hanks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IMM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA - Destiny</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ISGN - LSAMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - CIF 20%2F20</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Core Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Onboard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Silverlake</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Streamline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Symitar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Symitar Episys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LendingQB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LoanVantage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MarkIV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marquis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meridian Link - LoansPQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Modern Banking Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Moodys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Moodys RiskCalc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mortgage Builder - B2C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mortgage Computer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None or Manual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open Close</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opening Act</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opening Act  %28Jack Henry%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCLender%2ECom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PDF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prime Alliance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Profit Stars %28Jack Henry%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proprietary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Raddon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roostify</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sageworks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Share One%2C Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sharetec Systems%2C Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sound Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Star %28aka MAC or Concord%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sub-Servicer %28Cenlar%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suntell - Square 1 Credit Suite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Synergent %28MECUL%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Members Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vantiv</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visa DPS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WRK Systems%2C Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WebEquity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer - Cash Suite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer - Rembrandt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer T-SoftPlus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer- CASH Suite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer-Bankers Systems Inc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer-Compliance One</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer-Expere</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer-VMP 1-32</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Other_Competitors__c</picklist>
+        <values>
+            <fullName>360 View</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3rd Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3rd Party Custom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3rd Party POS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ABS Bank Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ACT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ARTA Deposit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ARTA Lending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASC - PowerLender</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aasys Group  %28Southeast%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accenture</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accenture Mortgage Cadence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Alkami</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Andera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appro %28consumer%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Argo-Bank Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Attorney</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automated Systems - Insite Banking System</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Baker Hill</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Baker Hill B2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Baker Hill B2B %26 B2C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Black Night</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bottomline Technologies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Buker%E2%80%99s</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Byte</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Byte - Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Byte - Online</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CARDINAL SYSTEMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CMC%2FFLEX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COOP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRIF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRIF ACTion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CSI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CSI Computer Services%2C Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CU Direct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CUSO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Calyx - Point</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Calyx - WebCaster</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cavion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Co-Pilot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compushare Management Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Core System</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corelation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creative Thinking - CreativeVisions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creative Vision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Risk Management-Credit Leader</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cypress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DCI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DCI - ICORE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DocuSign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dynatek - MorVision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EPL Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Easylender</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ellie Mae - Encompass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ellie Mae - Encompass 360</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ellie Mae - Encompass Web Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FICS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FICS - Loan Producer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIPCO - Compliance Concierge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS - Bankway %28fna Kirchman%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS - Horizon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS - Metavante IBS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS - Miser</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIS Flow</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FPS Gold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Tools</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>First Data Resources -FDR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiscal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv %E2%80%93 Cleartouch %28fna Vision%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv %E2%80%93 Cleartouch Milwaukee %28fna Vision%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv %E2%80%93 Precision %28fna BIAS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - Acumen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - DNA %28fna OSI%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - EasyLender</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - LoanLaunch %28fna COP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - TCCUS%2FTCBS %28fna OSI%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - Velocity Streamlend %28fna OSI%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv - XP Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv Nautilus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv Premier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiserv-TBD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gallagher Net Oxygen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GlobalWave</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Harte-Hanks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IMM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA - Destiny</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ISGN - LSAMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - CIF 20%2F20</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Core Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Onboard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Silverlake</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Streamline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Symitar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack Henry - Symitar Episys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LendingQB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LoanVantage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MarkIV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marquis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meridian Link - LoansPQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Modern Banking Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Moodys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Moodys RiskCalc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mortgage Builder - B2C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mortgage Computer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None or Manual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open Close</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opening Act</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opening Act  %28Jack Henry%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCLender%2ECom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PDF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prime Alliance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Profit Stars %28Jack Henry%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proprietary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Raddon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roostify</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sageworks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Share One%2C Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sharetec Systems%2C Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sound Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Star %28aka MAC or Concord%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sub-Servicer %28Cenlar%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suntell - Square 1 Credit Suite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Synergent %28MECUL%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Members Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vantiv</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visa DPS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WRK Systems%2C Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WebEquity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer - Cash Suite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer - Rembrandt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer T-SoftPlus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer- CASH Suite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer-Bankers Systems Inc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer-Compliance One</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer-Expere</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolters Kluwer-VMP 1-32</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pricing_Country__c</picklist>
+        <values>
+            <fullName>Afghanistan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Albania</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Algeria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Andorra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Angola</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Anguilla</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Antigua and Barbuda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Argentina</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Armenia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aruba</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Australia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Austria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Azerbaijan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bahamas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bahrain</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bangladesh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Barbados</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Belarus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Belgium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Belize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Benin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bermuda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bhutan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bolivia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bosnia and Herzegovina</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Botswana</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brazil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>British Virgin Islands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brunei</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bulgaria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Burkina Faso</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Burundi</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambodia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cameroon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cape Verde Islands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Caribbean Netherlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cayman Islands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central African Republic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>China</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Colombia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Comoros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Congo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Congo %28Democratic Republic%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Costa Rica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Croatia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cuba</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Curacao</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cyprus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Czech Republic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Denmark</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Djibouti</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dominica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dominican Republic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>East Timor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ecuador</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Egypt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>El Salvador</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equatorial Guinea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eritrea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Estonia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ethiopia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Falkland Islands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Faroe Islands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Federated States Of Micronesia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiji</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>France</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>French Guiana</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>French Polynesia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gabon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gambia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Georgia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Germany</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ghana</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gibraltar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Greece</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Greenland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grenada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guatemala</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guernsey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guinea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guinea-Bissau</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guyana</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Haiti</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Honduras</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hong Kong</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hungary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Iceland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>India</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indonesia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Iran</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Iraq</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ireland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Isle Of Man</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Israel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Italy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ivory Coast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jamaica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Japan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jersey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jordan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kazakhstan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kenya</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kiribati</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kosovo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kuwait</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kyrgyzstan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Laos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Latvia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lebanon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lesotho</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liberia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Libya</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liechtenstein</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lithuania</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Luxembourg</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Macau</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Macedonia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Madagascar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malawi</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malaysia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maldives</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mali</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marshall Islands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mauritania</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mauritius</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mexico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Moldova</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monaco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mongolia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Montenegro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Morocco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mozambique</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Myanmar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Namibia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nauru</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nepal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netherlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netherlands Antilles</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Caledonia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Zealand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nicaragua</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Niger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nigeria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Norfolk Island</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Norway</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oman</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pakistan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Palau</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Palestine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Panama</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Papua New Guinea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paraguay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Peru</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Philippines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Poland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portugal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Puerto Rico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qatar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reunion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Romania</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Russia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rwanda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saint Kitts and Nevis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saint Lucia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saint Vincent and the Grenadines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Samoa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>San Marino</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sao Tome And Principe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saudi Arabia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Senegal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Serbia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seychelles</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sierra Leone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Singapore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sint Maarten</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Slovakia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Slovenia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solomon Islands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Somalia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South Africa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South Korea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South Sudan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spain</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sri Lanka</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sudan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suriname</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Swaziland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sweden</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switzerland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Syria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Taiwan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tajikistan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tanzania</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thailand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Togo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tonga</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trinidad and Tobago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tunisia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Turkey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Turkmenistan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Turks And Caicos Islands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UK Offshore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uganda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ukraine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Arab Emirates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Kingdom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uruguay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uzbekistan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vanuatu</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vatican</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Venezuela</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vietnam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Virgin Islands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yemen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zambia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zimbabwe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Åland Islands</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Region__c</picklist>
+        <values>
+            <fullName>Americas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Asia Pacific</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Europe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rejection_Reason__c</picklist>
+        <values>
+            <fullName>Budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finastra reputation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product fit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shape fit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SBU_Strategic_Business_Unit__c</picklist>
+        <values>
+            <fullName>ENT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sales_Rep_Assignment_Status__c</picklist>
+        <values>
+            <fullName>Assigned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Assigned</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Pending Assignment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Assignment %28Overdue%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Sub_Type__c</picklist>
+        <values>
+            <fullName>24x5%2F7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Academy FCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Academy FCI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Academy FCT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Academy Public Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Academy Subscriptions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Academy training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ad-hoc support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blanket days %2F call off %2F adhoc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR Linked to Upgrade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client %28DIY%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Core Development RA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D%26H specific</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>De-commission</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design Authority %2F Architecture Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diamond Membership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evergreening</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finastra EE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusion Blueprints</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legacy migration data bucket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Main Upgrade Project</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NON Fusion Blueprints</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Module</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Core - FED %2F Toolkit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onsite support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Planning %2F Scoping for Upgrade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platinum Membership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Premium Membership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SWIFT Upgrade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Pack Assistance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standby Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Support enablement trainings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Systems Optimization Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tech Upgrade %28SP or Configuration%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Testing Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade %26 New Module</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade %26 New Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade Assessment%2FDiscovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade Assistance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade Support</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Type__c</picklist>
+        <values>
+            <fullName>Academy Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Additional Module %2F Functionality Implementation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancellation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customisation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D%26H only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extended Support Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusion Adopt- Fusion Blueprints</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusion Adopt- Non Fusion Blueprints</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusion Advance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusion Assure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusion Knowledge Services %28Academy%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusion Optimize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Implementation Fusion Blueprints</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Implementation NON Fusion Blueprints</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PSS Extended Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade - Fusion Advance Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade Non Fusion Advance Premium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_Region__c</picklist>
+        <values>
+            <fullName>Digital%2FInside Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM Digital Banking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM Mid- Atlantic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM Northeast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM Southeast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM Southwest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM US Retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM Upper Midwest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NACM West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NAM</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Existing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>sbaa__ApprovalStatus__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recalled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

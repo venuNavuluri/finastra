@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Additional_Increase__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter amount in % e.g. 5% if you would like the increase is local CPI +5%. Any value less than 3% here will trigger approval rule</inlineHelpText>
+        <label>Additional % Increase</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </CustomField>

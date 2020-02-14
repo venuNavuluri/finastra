@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Financial_Institution_Type__c</fullName>
+    <description>RUBX-2419 – REQ-1857-Select a System Requirements Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <label>Financial Institution Type</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bank</fullName>
+                <default>false</default>
+                <label>Bank</label>
+            </value>
+            <value>
+                <fullName>Credit Union</fullName>
+                <default>false</default>
+                <label>Credit Union</label>
+            </value>
+            <value>
+                <fullName>Mortgage</fullName>
+                <default>false</default>
+                <label>Mortgage</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

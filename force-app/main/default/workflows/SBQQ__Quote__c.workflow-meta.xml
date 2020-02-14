@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Approval_Notification_E_Mail</fullName>
+        <description>Approval Notification E-Mail</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>SBAA_Email_Templates/Quote_Approved_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Bypass_Approval_Accepted_on_Quote</fullName>
+        <description>Bypass Approval Accepted on Quote</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SBQQ__SalesRep__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>SBAA_Email_Templates/Bypass_Approval_Accepted</template>
+    </alerts>
+    <alerts>
+        <fullName>Bypass_Approval_Rejected_on_Quote</fullName>
+        <description>Bypass Approval Rejected on Quote</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SBQQ__SalesRep__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>SBAA_Email_Templates/Bypass_Approval_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Request_Bypass_Approval_on_Quote</fullName>
+        <description>Request Bypass Approval on Quote</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SBQQ__SalesRep__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>SBAA_Email_Templates/Request_Bypass_Approval</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Contract_Reviewed_False</fullName>
+        <field>Contract_Reviewed__c</field>
+        <literalValue>0</literalValue>
+        <name>Contract Reviewed = False</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Inject_Pricebook_ID</fullName>
+        <field>SBQQ__PricebookId__c</field>
+        <formula>$Setup.ATG_Custom_Settings__c.Default_Pricebook__c</formula>
+        <name>Inject Pricebook ID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Quote_Expiration_Date_on_Quote</fullName>
+        <field>SBQQ__ExpirationDate__c</field>
+        <formula>Today() + 90</formula>
+        <name>Set Quote Expiration Date on Quote</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Quote_Status_to_Expired_Not_Aprvd</fullName>
+        <field>SBQQ__Status__c</field>
+        <literalValue>Expired_Not_Approved</literalValue>
+        <name>Update Quote Status to Expired Not Aprvd</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>CPQ%3A Expire Approved Quotes After 90 days</fullName>
+        <actions>
+            <name>Set_Quote_Expiration_Date_on_Quote</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Sets quotes to expired after 6 months of it being approved</description>
+        <formula>AND(TEXT(ApprovalStatus__c) = &quot;Approved&quot;, TEXT(SBQQ__Opportunity2__r.StageName) &lt;&gt; &quot;Closed Won&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Quote_Status_to_Expired_Not_Aprvd</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>90</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Quote Defaults</fullName>
+        <actions>
+            <name>Contract_Reviewed_False</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Inject_Pricebook_ID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Provides default values for several quote level fields, Id&apos;s held in custom setting</description>
+        <formula>1=1</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

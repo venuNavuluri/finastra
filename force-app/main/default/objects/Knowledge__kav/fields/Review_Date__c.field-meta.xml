@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Review_Date__c</fullName>
+    <description>RUBX-2438 – Field created for REQ-1876-Select a Bulletin (type=Product) Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>To schedule a review date for the article, enter a date and time in the Review Date field. This option might be helpful if you included content that is subject to change (the URL for a third party, information about a pending regulation, etc.).</inlineHelpText>
+    <label>Review Date</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>

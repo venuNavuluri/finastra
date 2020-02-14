@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Third_Party_Partner__c</fullName>
+        <description>When the product is OWMed from a partner, this field denotes the partner</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When the product is OWMed from a partner, this field denotes the partner</inlineHelpText>
+        <label>Third Party Partner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>32 Bit</fullName>
+                    <default>false</default>
+                    <label>32 Bit</label>
+                </value>
+                <value>
+                    <fullName>GlobeOp</fullName>
+                    <default>false</default>
+                    <label>GlobeOp</label>
+                </value>
+                <value>
+                    <fullName>MCC</fullName>
+                    <default>false</default>
+                    <label>MCC</label>
+                </value>
+                <value>
+                    <fullName>NumeriX</fullName>
+                    <default>false</default>
+                    <label>NumeriX</label>
+                </value>
+                <value>
+                    <fullName>Pricing Partners</fullName>
+                    <default>false</default>
+                    <label>Pricing Partners</label>
+                </value>
+                <value>
+                    <fullName>Reuters</fullName>
+                    <default>false</default>
+                    <label>Reuters</label>
+                </value>
+                <value>
+                    <fullName>Sybase</fullName>
+                    <default>false</default>
+                    <label>Sybase</label>
+                </value>
+                <value>
+                    <fullName>Systematica</fullName>
+                    <default>false</default>
+                    <label>Systematica</label>
+                </value>
+                <value>
+                    <fullName>Targit</fullName>
+                    <default>false</default>
+                    <label>Targit</label>
+                </value>
+                <value>
+                    <fullName>TIBCO</fullName>
+                    <default>false</default>
+                    <label>TIBCO</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

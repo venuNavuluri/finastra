@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Migrated_Record__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates this record was migrated from an external system.  This is twinned from the Contract Object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates this record was migrated from an external system.</inlineHelpText>
+        <label>Migrated Record</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

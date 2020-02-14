@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Parent_Bundle_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>SBQQ__ConfiguredSKU__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>To be used for data loading purposes. Displays the configured sku product name to set the bundle name picklist value.</inlineHelpText>
+        <label>Parent Bundle Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

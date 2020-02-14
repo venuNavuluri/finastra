@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opp_Cant_Move_From_SS3_Or_SS2_To_SS1</fullName>
+    <active>true</active>
+    <description>RUBX-3618: Opportunity cannot move Qualify or Create to Prospect</description>
+    <errorConditionFormula>AND (
+    NOT($Setup.Bypass_Validations__c.Disable__c),
+    ISCHANGED(StageName),
+    OR(
+								ISPICKVAL(PRIORVALUE(StageName),&quot;2. Create&quot;),
+        ISPICKVAL(PRIORVALUE(StageName),&quot;3. Qualify&quot;)
+				),
+    ISPICKVAL(StageName, &quot;1. Prospect&quot;)
+)</errorConditionFormula>
+    <errorMessage>Opportunity can&#39;t be moved back from Qualify or Create to Prospect</errorMessage>
+</ValidationRule>

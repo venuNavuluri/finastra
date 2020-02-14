@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Blank_Out_FirstName</fullName>
+    <active>true</active>
+    <description>RUBX-1416:Rule For FirstName Mandatory Check</description>
+    <errorConditionFormula>NOT($Setup.Bypass_Validations__c.Disable__c) &amp;&amp; ISBLANK(FirstName)</errorConditionFormula>
+    <errorDisplayField>FirstName</errorDisplayField>
+    <errorMessage>Contact First Name is Mandatory.</errorMessage>
+</ValidationRule>

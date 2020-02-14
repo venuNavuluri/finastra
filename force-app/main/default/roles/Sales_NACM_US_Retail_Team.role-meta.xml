@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Sales NACM US Retail Team</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Sales NACM US Retail Team</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Sales_NACM_US_Retail_Manager</parentRole>
+</Role>

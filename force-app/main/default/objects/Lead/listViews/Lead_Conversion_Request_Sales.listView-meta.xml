@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Conversion_Request_Sales</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.LAST_UPDATE</columns>
+    <columns>UPDATEDBY_USER.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Request to Convert</value>
+    </filters>
+    <label>Lead Conversion Request - Sales</label>
+    <sharedTo>
+        <group>SOSS_Users</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Node_Affected__c</fullName>
+    <description>RUBX-1941: Created for Outage Cases</description>
+    <externalId>false</externalId>
+    <label>Node Affected</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Node 2</fullName>
+                <default>false</default>
+                <label>Node 2</label>
+            </value>
+            <value>
+                <fullName>Node 3A</fullName>
+                <default>false</default>
+                <label>Node 3A</label>
+            </value>
+            <value>
+                <fullName>Node 3B</fullName>
+                <default>false</default>
+                <label>Node 3B</label>
+            </value>
+            <value>
+                <fullName>Node 4</fullName>
+                <default>false</default>
+                <label>Node 4</label>
+            </value>
+            <value>
+                <fullName>Node 5</fullName>
+                <default>false</default>
+                <label>Node 5</label>
+            </value>
+            <value>
+                <fullName>Node 6</fullName>
+                <default>false</default>
+                <label>Node 6</label>
+            </value>
+            <value>
+                <fullName>Node 7</fullName>
+                <default>false</default>
+                <label>Node 7</label>
+            </value>
+            <value>
+                <fullName>Node 8</fullName>
+                <default>false</default>
+                <label>Node 8</label>
+            </value>
+            <value>
+                <fullName>Node 9</fullName>
+                <default>false</default>
+                <label>Node 9</label>
+            </value>
+            <value>
+                <fullName>Node 10</fullName>
+                <default>false</default>
+                <label>Node 10</label>
+            </value>
+            <value>
+                <fullName>NA</fullName>
+                <default>false</default>
+                <label>NA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audit_Closed_Date_required</fullName>
+    <active>true</active>
+    <description>RUBX-1164: LCA Case Field Validation</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &#39;License_Compliance_Audit&#39;,
+OR(ISPICKVAL(Status, &#39;Not Audited (Closed)&#39;),ISPICKVAL(Status, &#39;Audited (Closed)&#39;)),
+ISBLANK(Audit_Closed_Date__c),
+NOT($Setup.Bypass_Validations__c.Disable__c)
+)</errorConditionFormula>
+    <errorDisplayField>Audit_Closed_Date__c</errorDisplayField>
+    <errorMessage>Audit Closed Date is required.</errorMessage>
+</ValidationRule>

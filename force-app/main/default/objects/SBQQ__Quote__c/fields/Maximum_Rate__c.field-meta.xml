@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Maximum_Rate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this when there&apos;s max increase should apply or we are applying fix increase rate - any value appear here will trigger approval rules</inlineHelpText>
+        <label>Maximum Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </CustomField>

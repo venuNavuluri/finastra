@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Transactional_Tier_Pricing__c</fullName>
+        <description>TT Test (ZT 30/7/19)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>TT Test (ZT 30/7/19)</inlineHelpText>
+        <label>Transactional Tier Pricing</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>30</visibleLines>
+    </CustomField>

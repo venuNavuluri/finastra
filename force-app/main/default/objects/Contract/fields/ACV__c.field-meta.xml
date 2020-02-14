@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACV__c</fullName>
+    <description>RUBX-1173 ACV DATA POINT</description>
+    <externalId>false</externalId>
+    <label>ACV</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

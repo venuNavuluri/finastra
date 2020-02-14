@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>360 View</fullName>
+        <default>false</default>
+        <label>360 View</label>
+    </customValue>
+    <customValue>
+        <fullName>3rd Party</fullName>
+        <default>false</default>
+        <label>3rd Party</label>
+    </customValue>
+    <customValue>
+        <fullName>3rd Party Custom</fullName>
+        <default>false</default>
+        <label>3rd Party Custom</label>
+    </customValue>
+    <customValue>
+        <fullName>3rd Party POS</fullName>
+        <default>false</default>
+        <label>3rd Party POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Aasys Group  (Southeast)</fullName>
+        <default>false</default>
+        <label>Aasys Group  (Southeast)</label>
+    </customValue>
+    <customValue>
+        <fullName>ABS Bank Manager</fullName>
+        <default>false</default>
+        <label>ABS Bank Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Accenture</fullName>
+        <default>false</default>
+        <label>Accenture</label>
+    </customValue>
+    <customValue>
+        <fullName>Accenture Mortgage Cadence</fullName>
+        <default>false</default>
+        <label>Accenture Mortgage Cadence</label>
+    </customValue>
+    <customValue>
+        <fullName>ACT</fullName>
+        <default>false</default>
+        <label>ACT</label>
+    </customValue>
+    <customValue>
+        <fullName>Alkami</fullName>
+        <default>false</default>
+        <label>Alkami</label>
+    </customValue>
+    <customValue>
+        <fullName>Andera</fullName>
+        <default>false</default>
+        <label>Andera</label>
+    </customValue>
+    <customValue>
+        <fullName>Appro (consumer)</fullName>
+        <default>false</default>
+        <label>Appro (consumer)</label>
+    </customValue>
+    <customValue>
+        <fullName>Argo-Bank Pro</fullName>
+        <default>false</default>
+        <label>Argo-Bank Pro</label>
+    </customValue>
+    <customValue>
+        <fullName>ARTA Deposit</fullName>
+        <default>false</default>
+        <label>ARTA Deposit</label>
+    </customValue>
+    <customValue>
+        <fullName>ARTA Lending</fullName>
+        <default>false</default>
+        <label>ARTA Lending</label>
+    </customValue>
+    <customValue>
+        <fullName>ASC - PowerLender</fullName>
+        <default>false</default>
+        <label>ASC - PowerLender</label>
+    </customValue>
+    <customValue>
+        <fullName>ASI</fullName>
+        <default>false</default>
+        <label>ASI</label>
+    </customValue>
+    <customValue>
+        <fullName>Attorney</fullName>
+        <default>false</default>
+        <label>Attorney</label>
+    </customValue>
+    <customValue>
+        <fullName>Automated Systems - Insite Banking System</fullName>
+        <default>false</default>
+        <label>Automated Systems - Insite Banking System</label>
+    </customValue>
+    <customValue>
+        <fullName>Baker Hill</fullName>
+        <default>false</default>
+        <label>Baker Hill</label>
+    </customValue>
+    <customValue>
+        <fullName>Baker Hill B2B</fullName>
+        <default>false</default>
+        <label>Baker Hill B2B</label>
+    </customValue>
+    <customValue>
+        <fullName>Baker Hill B2B &amp; B2C</fullName>
+        <default>false</default>
+        <label>Baker Hill B2B &amp; B2C</label>
+    </customValue>
+    <customValue>
+        <fullName>Black Night</fullName>
+        <default>false</default>
+        <label>Black Night</label>
+    </customValue>
+    <customValue>
+        <fullName>Blend</fullName>
+        <default>false</default>
+        <label>Blend</label>
+    </customValue>
+    <customValue>
+        <fullName>Bottomline Technologies</fullName>
+        <default>false</default>
+        <label>Bottomline Technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Buker’s</fullName>
+        <default>false</default>
+        <label>Buker’s</label>
+    </customValue>
+    <customValue>
+        <fullName>Byte</fullName>
+        <default>false</default>
+        <label>Byte</label>
+    </customValue>
+    <customValue>
+        <fullName>Byte - Enterprise</fullName>
+        <default>false</default>
+        <label>Byte - Enterprise</label>
+    </customValue>
+    <customValue>
+        <fullName>Byte - Online</fullName>
+        <default>false</default>
+        <label>Byte - Online</label>
+    </customValue>
+    <customValue>
+        <fullName>Calyx - Point</fullName>
+        <default>false</default>
+        <label>Calyx - Point</label>
+    </customValue>
+    <customValue>
+        <fullName>Calyx - WebCaster</fullName>
+        <default>false</default>
+        <label>Calyx - WebCaster</label>
+    </customValue>
+    <customValue>
+        <fullName>CARDINAL SYSTEMS</fullName>
+        <default>false</default>
+        <label>CARDINAL SYSTEMS</label>
+    </customValue>
+    <customValue>
+        <fullName>Cavion</fullName>
+        <default>false</default>
+        <label>Cavion</label>
+    </customValue>
+    <customValue>
+        <fullName>CMC/FLEX</fullName>
+        <default>false</default>
+        <label>CMC/FLEX</label>
+    </customValue>
+    <customValue>
+        <fullName>Compushare Management Systems</fullName>
+        <default>false</default>
+        <label>Compushare Management Systems</label>
+    </customValue>
+    <customValue>
+        <fullName>COOP</fullName>
+        <default>false</default>
+        <label>COOP</label>
+    </customValue>
+    <customValue>
+        <fullName>Co-Pilot</fullName>
+        <default>false</default>
+        <label>Co-Pilot</label>
+    </customValue>
+    <customValue>
+        <fullName>Core System</fullName>
+        <default>false</default>
+        <label>Core System</label>
+    </customValue>
+    <customValue>
+        <fullName>Corelation</fullName>
+        <default>false</default>
+        <label>Corelation</label>
+    </customValue>
+    <customValue>
+        <fullName>Creative Thinking - CreativeVisions</fullName>
+        <default>false</default>
+        <label>Creative Thinking - CreativeVisions</label>
+    </customValue>
+    <customValue>
+        <fullName>Creative Vision</fullName>
+        <default>false</default>
+        <label>Creative Vision</label>
+    </customValue>
+    <customValue>
+        <fullName>Credit Risk Management-Credit Leader</fullName>
+        <default>false</default>
+        <label>Credit Risk Management-Credit Leader</label>
+    </customValue>
+    <customValue>
+        <fullName>CRIF</fullName>
+        <default>false</default>
+        <label>CRIF</label>
+    </customValue>
+    <customValue>
+        <fullName>CRIF ACTion</fullName>
+        <default>false</default>
+        <label>CRIF ACTion</label>
+    </customValue>
+    <customValue>
+        <fullName>CSI</fullName>
+        <default>false</default>
+        <label>CSI</label>
+    </customValue>
+    <customValue>
+        <fullName>CSI Computer Services, Inc.</fullName>
+        <default>false</default>
+        <label>CSI Computer Services, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>CU Direct</fullName>
+        <default>false</default>
+        <label>CU Direct</label>
+    </customValue>
+    <customValue>
+        <fullName>CUSO</fullName>
+        <default>false</default>
+        <label>CUSO</label>
+    </customValue>
+    <customValue>
+        <fullName>Cypress</fullName>
+        <default>false</default>
+        <label>Cypress</label>
+    </customValue>
+    <customValue>
+        <fullName>DCI</fullName>
+        <default>false</default>
+        <label>DCI</label>
+    </customValue>
+    <customValue>
+        <fullName>DCI - ICORE</fullName>
+        <default>false</default>
+        <label>DCI - ICORE</label>
+    </customValue>
+    <customValue>
+        <fullName>DocuSign</fullName>
+        <default>false</default>
+        <label>DocuSign</label>
+    </customValue>
+    <customValue>
+        <fullName>Dynatek - MorVision</fullName>
+        <default>false</default>
+        <label>Dynatek - MorVision</label>
+    </customValue>
+    <customValue>
+        <fullName>Easylender</fullName>
+        <default>false</default>
+        <label>Easylender</label>
+    </customValue>
+    <customValue>
+        <fullName>Elan</fullName>
+        <default>false</default>
+        <label>Elan</label>
+    </customValue>
+    <customValue>
+        <fullName>Ellie Mae - Encompass</fullName>
+        <default>false</default>
+        <label>Ellie Mae - Encompass</label>
+    </customValue>
+    <customValue>
+        <fullName>Ellie Mae - Encompass 360</fullName>
+        <default>false</default>
+        <label>Ellie Mae - Encompass 360</label>
+    </customValue>
+    <customValue>
+        <fullName>Ellie Mae - Encompass Web Center</fullName>
+        <default>false</default>
+        <label>Ellie Mae - Encompass Web Center</label>
+    </customValue>
+    <customValue>
+        <fullName>EPL Inc.</fullName>
+        <default>false</default>
+        <label>EPL Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>FICS</fullName>
+        <default>false</default>
+        <label>FICS</label>
+    </customValue>
+    <customValue>
+        <fullName>FICS - Loan Producer</fullName>
+        <default>false</default>
+        <label>FICS - Loan Producer</label>
+    </customValue>
+    <customValue>
+        <fullName>Financial Tools</fullName>
+        <default>false</default>
+        <label>Financial Tools</label>
+    </customValue>
+    <customValue>
+        <fullName>FIPCO - Compliance Concierge</fullName>
+        <default>false</default>
+        <label>FIPCO - Compliance Concierge</label>
+    </customValue>
+    <customValue>
+        <fullName>First Data Resources -FDR</fullName>
+        <default>false</default>
+        <label>First Data Resources -FDR</label>
+    </customValue>
+    <customValue>
+        <fullName>FIS - Bankway (fna Kirchman)</fullName>
+        <default>false</default>
+        <label>FIS - Bankway (fna Kirchman)</label>
+    </customValue>
+    <customValue>
+        <fullName>FIS - Horizon</fullName>
+        <default>false</default>
+        <label>FIS - Horizon</label>
+    </customValue>
+    <customValue>
+        <fullName>FIS - Metavante IBS</fullName>
+        <default>false</default>
+        <label>FIS - Metavante IBS</label>
+    </customValue>
+    <customValue>
+        <fullName>FIS - Miser</fullName>
+        <default>false</default>
+        <label>FIS - Miser</label>
+    </customValue>
+    <customValue>
+        <fullName>FIS Flow</fullName>
+        <default>false</default>
+        <label>FIS Flow</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiscal</fullName>
+        <default>false</default>
+        <label>Fiscal</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv - Acumen</fullName>
+        <default>false</default>
+        <label>Fiserv - Acumen</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv – Cleartouch (fna Vision)</fullName>
+        <default>false</default>
+        <label>Fiserv – Cleartouch (fna Vision)</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv – Cleartouch Milwaukee (fna Vision)</fullName>
+        <default>false</default>
+        <label>Fiserv – Cleartouch Milwaukee (fna Vision)</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv - DNA (fna OSI)</fullName>
+        <default>false</default>
+        <label>Fiserv - DNA (fna OSI)</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv - EasyLender</fullName>
+        <default>false</default>
+        <label>Fiserv - EasyLender</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv - LoanLaunch (fna COP)</fullName>
+        <default>false</default>
+        <label>Fiserv - LoanLaunch (fna COP)</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv – Precision (fna BIAS)</fullName>
+        <default>false</default>
+        <label>Fiserv – Precision (fna BIAS)</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv - TCCUS/TCBS (fna OSI)</fullName>
+        <default>false</default>
+        <label>Fiserv - TCCUS/TCBS (fna OSI)</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv - Velocity Streamlend (fna OSI)</fullName>
+        <default>false</default>
+        <label>Fiserv - Velocity Streamlend (fna OSI)</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv - XP Systems</fullName>
+        <default>false</default>
+        <label>Fiserv - XP Systems</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv Nautilus</fullName>
+        <default>false</default>
+        <label>Fiserv Nautilus</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv Premier</fullName>
+        <default>false</default>
+        <label>Fiserv Premier</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiserv-TBD</fullName>
+        <default>false</default>
+        <label>Fiserv-TBD</label>
+    </customValue>
+    <customValue>
+        <fullName>FPS Gold</fullName>
+        <default>false</default>
+        <label>FPS Gold</label>
+    </customValue>
+    <customValue>
+        <fullName>Gallagher Net Oxygen</fullName>
+        <default>false</default>
+        <label>Gallagher Net Oxygen</label>
+    </customValue>
+    <customValue>
+        <fullName>GlobalWave</fullName>
+        <default>false</default>
+        <label>GlobalWave</label>
+    </customValue>
+    <customValue>
+        <fullName>Harte-Hanks</fullName>
+        <default>false</default>
+        <label>Harte-Hanks</label>
+    </customValue>
+    <customValue>
+        <fullName>IMM</fullName>
+        <default>false</default>
+        <label>IMM</label>
+    </customValue>
+    <customValue>
+        <fullName>Integra</fullName>
+        <default>false</default>
+        <label>Integra</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA - Destiny</fullName>
+        <default>false</default>
+        <label>INTEGRA - Destiny</label>
+    </customValue>
+    <customValue>
+        <fullName>ISGN - LSAMS</fullName>
+        <default>false</default>
+        <label>ISGN - LSAMS</label>
+    </customValue>
+    <customValue>
+        <fullName>Jack Henry</fullName>
+        <default>false</default>
+        <label>Jack Henry</label>
+    </customValue>
+    <customValue>
+        <fullName>Jack Henry - CIF 20/20</fullName>
+        <default>false</default>
+        <label>Jack Henry - CIF 20/20</label>
+    </customValue>
+    <customValue>
+        <fullName>Jack Henry - Core Director</fullName>
+        <default>false</default>
+        <label>Jack Henry - Core Director</label>
+    </customValue>
+    <customValue>
+        <fullName>Jack Henry - Onboard</fullName>
+        <default>false</default>
+        <label>Jack Henry - Onboard</label>
+    </customValue>
+    <customValue>
+        <fullName>Jack Henry - Silverlake</fullName>
+        <default>false</default>
+        <label>Jack Henry - Silverlake</label>
+    </customValue>
+    <customValue>
+        <fullName>Jack Henry - Streamline</fullName>
+        <default>false</default>
+        <label>Jack Henry - Streamline</label>
+    </customValue>
+    <customValue>
+        <fullName>Jack Henry - Symitar</fullName>
+        <default>false</default>
+        <label>Jack Henry - Symitar</label>
+    </customValue>
+    <customValue>
+        <fullName>Jack Henry - Symitar Episys</fullName>
+        <default>false</default>
+        <label>Jack Henry - Symitar Episys</label>
+    </customValue>
+    <customValue>
+        <fullName>LendingQB</fullName>
+        <default>false</default>
+        <label>LendingQB</label>
+    </customValue>
+    <customValue>
+        <fullName>LoanVantage</fullName>
+        <default>false</default>
+        <label>LoanVantage</label>
+    </customValue>
+    <customValue>
+        <fullName>Manual</fullName>
+        <default>false</default>
+        <label>Manual</label>
+    </customValue>
+    <customValue>
+        <fullName>MarkIV</fullName>
+        <default>false</default>
+        <label>MarkIV</label>
+    </customValue>
+    <customValue>
+        <fullName>Marquis</fullName>
+        <default>false</default>
+        <label>Marquis</label>
+    </customValue>
+    <customValue>
+        <fullName>Meridian Link - LoansPQ</fullName>
+        <default>false</default>
+        <label>Meridian Link - LoansPQ</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys</fullName>
+        <default>false</default>
+        <label>Misys</label>
+    </customValue>
+    <customValue>
+        <fullName>Modern Banking Systems</fullName>
+        <default>false</default>
+        <label>Modern Banking Systems</label>
+    </customValue>
+    <customValue>
+        <fullName>Moodys</fullName>
+        <default>false</default>
+        <label>Moodys</label>
+    </customValue>
+    <customValue>
+        <fullName>Moodys RiskCalc</fullName>
+        <default>false</default>
+        <label>Moodys RiskCalc</label>
+    </customValue>
+    <customValue>
+        <fullName>Mortgage Builder - B2C</fullName>
+        <default>false</default>
+        <label>Mortgage Builder - B2C</label>
+    </customValue>
+    <customValue>
+        <fullName>Mortgage Computer</fullName>
+        <default>false</default>
+        <label>Mortgage Computer</label>
+    </customValue>
+    <customValue>
+        <fullName>None</fullName>
+        <default>false</default>
+        <label>None</label>
+    </customValue>
+    <customValue>
+        <fullName>None or Manual</fullName>
+        <default>false</default>
+        <label>None or Manual</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Close</fullName>
+        <default>false</default>
+        <label>Open Close</label>
+    </customValue>
+    <customValue>
+        <fullName>Opening Act</fullName>
+        <default>false</default>
+        <label>Opening Act</label>
+    </customValue>
+    <customValue>
+        <fullName>Opening Act  (Jack Henry)</fullName>
+        <default>false</default>
+        <label>Opening Act  (Jack Henry)</label>
+    </customValue>
+    <customValue>
+        <fullName>PCLender.Com</fullName>
+        <default>false</default>
+        <label>PCLender.Com</label>
+    </customValue>
+    <customValue>
+        <fullName>PDF</fullName>
+        <default>false</default>
+        <label>PDF</label>
+    </customValue>
+    <customValue>
+        <fullName>Prime Alliance</fullName>
+        <default>false</default>
+        <label>Prime Alliance</label>
+    </customValue>
+    <customValue>
+        <fullName>Profit Stars (Jack Henry)</fullName>
+        <default>false</default>
+        <label>Profit Stars (Jack Henry)</label>
+    </customValue>
+    <customValue>
+        <fullName>Proprietary</fullName>
+        <default>false</default>
+        <label>Proprietary</label>
+    </customValue>
+    <customValue>
+        <fullName>Raddon</fullName>
+        <default>false</default>
+        <label>Raddon</label>
+    </customValue>
+    <customValue>
+        <fullName>Roostify</fullName>
+        <default>false</default>
+        <label>Roostify</label>
+    </customValue>
+    <customValue>
+        <fullName>Sageworks</fullName>
+        <default>false</default>
+        <label>Sageworks</label>
+    </customValue>
+    <customValue>
+        <fullName>Share One, Inc.</fullName>
+        <default>false</default>
+        <label>Share One, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>Sharetec Systems, Inc.</fullName>
+        <default>false</default>
+        <label>Sharetec Systems, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>Sound Software</fullName>
+        <default>false</default>
+        <label>Sound Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Star (aka MAC or Concord)</fullName>
+        <default>false</default>
+        <label>Star (aka MAC or Concord)</label>
+    </customValue>
+    <customValue>
+        <fullName>Sub-Servicer (Cenlar)</fullName>
+        <default>false</default>
+        <label>Sub-Servicer (Cenlar)</label>
+    </customValue>
+    <customValue>
+        <fullName>Suntell - Square 1 Credit Suite</fullName>
+        <default>false</default>
+        <label>Suntell - Square 1 Credit Suite</label>
+    </customValue>
+    <customValue>
+        <fullName>Synergent (MECUL)</fullName>
+        <default>false</default>
+        <label>Synergent (MECUL)</label>
+    </customValue>
+    <customValue>
+        <fullName>The Members Group</fullName>
+        <default>false</default>
+        <label>The Members Group</label>
+    </customValue>
+    <customValue>
+        <fullName>Vantiv</fullName>
+        <default>false</default>
+        <label>Vantiv</label>
+    </customValue>
+    <customValue>
+        <fullName>Visa DPS</fullName>
+        <default>false</default>
+        <label>Visa DPS</label>
+    </customValue>
+    <customValue>
+        <fullName>WebEquity</fullName>
+        <default>false</default>
+        <label>WebEquity</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolters Kluwer - Cash Suite</fullName>
+        <default>false</default>
+        <label>Wolters Kluwer - Cash Suite</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolters Kluwer - Rembrandt</fullName>
+        <default>false</default>
+        <label>Wolters Kluwer - Rembrandt</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolters Kluwer- CASH Suite</fullName>
+        <default>false</default>
+        <label>Wolters Kluwer- CASH Suite</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolters Kluwer T-SoftPlus</fullName>
+        <default>false</default>
+        <label>Wolters Kluwer T-SoftPlus</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolters Kluwer-Bankers Systems Inc</fullName>
+        <default>false</default>
+        <label>Wolters Kluwer-Bankers Systems Inc</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolters Kluwer-Compliance One</fullName>
+        <default>false</default>
+        <label>Wolters Kluwer-Compliance One</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolters Kluwer-Expere</fullName>
+        <default>false</default>
+        <label>Wolters Kluwer-Expere</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolters Kluwer-VMP 1-32</fullName>
+        <default>false</default>
+        <label>Wolters Kluwer-VMP 1-32</label>
+    </customValue>
+    <customValue>
+        <fullName>WRK Systems, Inc.</fullName>
+        <default>false</default>
+        <label>WRK Systems, Inc.</label>
+    </customValue>
+    <description>RUBX-693 : List of all Finastra Competitors</description>
+    <masterLabel>Competitor Values</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

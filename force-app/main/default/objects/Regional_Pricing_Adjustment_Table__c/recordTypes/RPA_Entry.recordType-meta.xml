@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>RPA_Entry</fullName>
+        <active>true</active>
+        <label>RPA Entry</label>
+        <picklistValues>
+            <picklist>Region__c</picklist>
+            <values>
+                <fullName>Americas Developed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Americas Emerging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asia Developed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asia Emerging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asia underdeveloped</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Europe Developed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Europe Emerging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indirect Channel Emerging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MEA %28was ME%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MEA Emerging %28was Africa%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </RecordType>

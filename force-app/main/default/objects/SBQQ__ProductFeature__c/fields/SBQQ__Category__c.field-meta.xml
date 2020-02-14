@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SBQQ__Category__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Category of options in this feature. Allows for another level of grouping.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Assign this feature to a category such that multiple features with related options are grouped together.</inlineHelpText>
+        <label>Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Teller</fullName>
+                    <default>false</default>
+                    <label>Teller</label>
+                </value>
+                <value>
+                    <fullName>Software</fullName>
+                    <default>false</default>
+                    <label>Software</label>
+                </value>
+                <value>
+                    <fullName>ActiveView Teller Capture</fullName>
+                    <default>false</default>
+                    <label>ActiveView Teller Capture</label>
+                </value>
+                <value>
+                    <fullName>uOpen Online</fullName>
+                    <default>false</default>
+                    <label>uOpen Online</label>
+                </value>
+                <value>
+                    <fullName>uOpen Branch and Online (SwitchKit included)</fullName>
+                    <default>false</default>
+                    <label>uOpen Branch and Online (SwitchKit included)</label>
+                </value>
+                <value>
+                    <fullName>uOpen Connectivity</fullName>
+                    <default>false</default>
+                    <label>uOpen Connectivity</label>
+                </value>
+                <value>
+                    <fullName>uOpen Additional Services</fullName>
+                    <default>false</default>
+                    <label>uOpen Additional Services</label>
+                </value>
+                <value>
+                    <fullName>uOpen Professional Services</fullName>
+                    <default>false</default>
+                    <label>uOpen Professional Services</label>
+                </value>
+                <value>
+                    <fullName>Merchant Services RDC</fullName>
+                    <default>false</default>
+                    <label>Merchant Services RDC</label>
+                </value>
+                <value>
+                    <fullName>Merchant Services - Optional Services</fullName>
+                    <default>false</default>
+                    <label>Merchant Services - Optional Services</label>
+                </value>
+                <value>
+                    <fullName>Mobile RDC</fullName>
+                    <default>false</default>
+                    <label>Mobile RDC</label>
+                </value>
+                <value>
+                    <fullName>Touche Analyzer</fullName>
+                    <default>false</default>
+                    <label>Touche Analyzer</label>
+                </value>
+                <value>
+                    <fullName>Total Analytics</fullName>
+                    <default>false</default>
+                    <label>Total Analytics</label>
+                </value>
+                <value>
+                    <fullName>Demographics</fullName>
+                    <default>false</default>
+                    <label>Demographics</label>
+                </value>
+                <value>
+                    <fullName>Issuer and Debit Card Services</fullName>
+                    <default>false</default>
+                    <label>Issuer and Debit Card Services</label>
+                </value>
+                <value>
+                    <fullName>Card Production Services</fullName>
+                    <default>false</default>
+                    <label>Card Production Services</label>
+                </value>
+                <value>
+                    <fullName>Terminal and Gateway Services</fullName>
+                    <default>false</default>
+                    <label>Terminal and Gateway Services</label>
+                </value>
+                <value>
+                    <fullName>Value Added Services</fullName>
+                    <default>false</default>
+                    <label>Value Added Services</label>
+                </value>
+                <value>
+                    <fullName>Misc. Services</fullName>
+                    <default>false</default>
+                    <label>Misc. Services</label>
+                </value>
+                <value>
+                    <fullName>C3</fullName>
+                    <default>false</default>
+                    <label>C3</label>
+                </value>
+                <value>
+                    <fullName>Managed Services</fullName>
+                    <default>false</default>
+                    <label>Managed Services</label>
+                </value>
+                <value>
+                    <fullName>Bundle Components</fullName>
+                    <default>false</default>
+                    <label>Bundle Components</label>
+                </value>
+                <value>
+                    <fullName>Sales &amp; Service</fullName>
+                    <default>false</default>
+                    <label>Sales &amp; Service</label>
+                </value>
+                <value>
+                    <fullName>Full Suite</fullName>
+                    <default>false</default>
+                    <label>Full Suite</label>
+                </value>
+                <value>
+                    <fullName>Channel eServices</fullName>
+                    <default>false</default>
+                    <label>Channel eServices</label>
+                </value>
+                <value>
+                    <fullName>Professional Services</fullName>
+                    <default>false</default>
+                    <label>Professional Services</label>
+                </value>
+                <value>
+                    <fullName>Add-on Products</fullName>
+                    <default>false</default>
+                    <label>Add-on Products</label>
+                </value>
+                <value>
+                    <fullName>ActiveView</fullName>
+                    <default>false</default>
+                    <label>ActiveView</label>
+                </value>
+                <value>
+                    <fullName>ECM</fullName>
+                    <default>false</default>
+                    <label>ECM</label>
+                </value>
+                <value>
+                    <fullName>Kofax</fullName>
+                    <default>false</default>
+                    <label>Kofax</label>
+                </value>
+                <value>
+                    <fullName>Digital Banking  - Business</fullName>
+                    <default>false</default>
+                    <label>Digital Banking  - Business</label>
+                </value>
+                <value>
+                    <fullName>Digital Banking  - Consumer</fullName>
+                    <default>false</default>
+                    <label>Digital Banking  - Consumer</label>
+                </value>
+                <value>
+                    <fullName>Digital Banking - Other Services and Interfaces</fullName>
+                    <default>false</default>
+                    <label>Digital Banking - Other Services and Interfaces</label>
+                </value>
+                <value>
+                    <fullName>Bill Pay</fullName>
+                    <default>false</default>
+                    <label>Bill Pay</label>
+                </value>
+                <value>
+                    <fullName>Voice Banking</fullName>
+                    <default>false</default>
+                    <label>Voice Banking</label>
+                </value>
+                <value>
+                    <fullName>DPXPay</fullName>
+                    <default>false</default>
+                    <label>DPXPay</label>
+                </value>
+                <value>
+                    <fullName>Modules</fullName>
+                    <default>false</default>
+                    <label>Modules</label>
+                </value>
+                <value>
+                    <fullName>Core Interfaces</fullName>
+                    <default>false</default>
+                    <label>Core Interfaces</label>
+                </value>
+                <value>
+                    <fullName>Services</fullName>
+                    <default>false</default>
+                    <label>Services</label>
+                </value>
+                <value>
+                    <fullName>Core System</fullName>
+                    <default>false</default>
+                    <label>Core System</label>
+                </value>
+                <value>
+                    <fullName>Processing Services</fullName>
+                    <default>false</default>
+                    <label>Processing Services</label>
+                </value>
+                <value>
+                    <fullName>Finastra Integration</fullName>
+                    <default>false</default>
+                    <label>Finastra Integration</label>
+                </value>
+                <value>
+                    <fullName>Third Party Interfaces</fullName>
+                    <default>false</default>
+                    <label>Third Party Interfaces</label>
+                </value>
+                <value>
+                    <fullName>Remote Deposit Capture</fullName>
+                    <default>false</default>
+                    <label>Remote Deposit Capture</label>
+                </value>
+                <value>
+                    <fullName>Optional Services</fullName>
+                    <default>false</default>
+                    <label>Optional Services</label>
+                </value>
+                <value>
+                    <fullName>Scanner Lease Program</fullName>
+                    <default>false</default>
+                    <label>Scanner Lease Program</label>
+                </value>
+                <value>
+                    <fullName>LOS Modules</fullName>
+                    <default>false</default>
+                    <label>LOS Modules</label>
+                </value>
+                <value>
+                    <fullName>POS Modules</fullName>
+                    <default>false</default>
+                    <label>POS Modules</label>
+                </value>
+                <value>
+                    <fullName>Platform Tier</fullName>
+                    <default>false</default>
+                    <label>Platform Tier</label>
+                </value>
+                <value>
+                    <fullName>Integration</fullName>
+                    <default>false</default>
+                    <label>Integration</label>
+                </value>
+                <value>
+                    <fullName>DocMagic</fullName>
+                    <default>false</default>
+                    <label>DocMagic</label>
+                </value>
+                <value>
+                    <fullName>uOpen</fullName>
+                    <default>false</default>
+                    <label>uOpen</label>
+                </value>
+                <value>
+                    <fullName>uOpen Services</fullName>
+                    <default>false</default>
+                    <label>uOpen Services</label>
+                </value>
+                <value>
+                    <fullName>Core Processing</fullName>
+                    <default>false</default>
+                    <label>Core Processing</label>
+                </value>
+                <value>
+                    <fullName>Card Services</fullName>
+                    <default>false</default>
+                    <label>Card Services</label>
+                </value>
+                <value>
+                    <fullName>OpenPath</fullName>
+                    <default>false</default>
+                    <label>OpenPath</label>
+                </value>
+                <value>
+                    <fullName>Remote Delivery</fullName>
+                    <default>false</default>
+                    <label>Remote Delivery</label>
+                </value>
+                <value>
+                    <fullName>System Interfaces</fullName>
+                    <default>false</default>
+                    <label>System Interfaces</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Document Management</fullName>
+                    <default>false</default>
+                    <label>Document Management</label>
+                </value>
+                <value>
+                    <fullName>Business Services</fullName>
+                    <default>false</default>
+                    <label>Business Services</label>
+                </value>
+                <value>
+                    <fullName>Connectivity</fullName>
+                    <default>false</default>
+                    <label>Connectivity</label>
+                </value>
+                <value>
+                    <fullName>RDC</fullName>
+                    <default>false</default>
+                    <label>RDC</label>
+                </value>
+                <value>
+                    <fullName>Interfaces</fullName>
+                    <default>false</default>
+                    <label>Interfaces</label>
+                </value>
+                <value>
+                    <fullName>Hardware</fullName>
+                    <default>false</default>
+                    <label>Hardware</label>
+                </value>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>Bundle Add-On Products</fullName>
+                    <default>false</default>
+                    <label>Bundle Add-On Products</label>
+                </value>
+                <value>
+                    <fullName>DFO</fullName>
+                    <default>false</default>
+                    <label>DFO</label>
+                </value>
+                <value>
+                    <fullName>Dial-A-Bank</fullName>
+                    <default>false</default>
+                    <label>Dial-A-Bank</label>
+                </value>
+                <value>
+                    <fullName>EIS Services</fullName>
+                    <default>false</default>
+                    <label>EIS Services</label>
+                </value>
+                <value>
+                    <fullName>Essential Bundle</fullName>
+                    <default>false</default>
+                    <label>Essential Bundle</label>
+                </value>
+                <value>
+                    <fullName>Other CPS</fullName>
+                    <default>false</default>
+                    <label>Other CPS</label>
+                </value>
+                <value>
+                    <fullName>Pay-Away</fullName>
+                    <default>false</default>
+                    <label>Pay-Away</label>
+                </value>
+                <value>
+                    <fullName>Add On</fullName>
+                    <default>false</default>
+                    <label>Add On</label>
+                </value>
+                <value>
+                    <fullName>Deconversion - Intrieve</fullName>
+                    <default>false</default>
+                    <label>Deconversion - Intrieve</label>
+                </value>
+                <value>
+                    <fullName>Deconversion Fees</fullName>
+                    <default>false</default>
+                    <label>Deconversion Fees</label>
+                </value>
+                <value>
+                    <fullName>Disaster Recovery</fullName>
+                    <default>false</default>
+                    <label>Disaster Recovery</label>
+                </value>
+                <value>
+                    <fullName>Internet Banking</fullName>
+                    <default>false</default>
+                    <label>Internet Banking</label>
+                </value>
+                <value>
+                    <fullName>Lending Essential</fullName>
+                    <default>false</default>
+                    <label>Lending Essential</label>
+                </value>
+                <value>
+                    <fullName>Misc</fullName>
+                    <default>false</default>
+                    <label>Misc</label>
+                </value>
+                <value>
+                    <fullName>Servicing Director - SD11 License Pricing</fullName>
+                    <default>false</default>
+                    <label>Servicing Director - SD11 License Pricing</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

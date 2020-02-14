@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculated_Total_Discount__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(SBQQ__AdditionalDiscountAmount__c &gt;0,(SBQQ__AdditionalDiscountAmount__c / SBQQ__RegularAmount__c),0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Calculated Total Discount %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_WithOut_Primary_Quote</fullName>
+    <active>true</active>
+    <description>RUBX-3575 :  No Stage 5 Opportunity w/o Primary Quote(Sales User)
+REQ-0817-Primary Quote Flag(Sales User)</description>
+    <errorConditionFormula>AND (NOT($Setup.Bypass_Validations__c.Disable__c),
+$Profile.Name =&#39;Sales User&#39;,
+OR(ISPICKVAL(StageName, &quot;Closed Won&quot;),ISPICKVAL(StageName, &quot;5. Prove&quot;),ISPICKVAL(StageName, &quot;6. Negotiate&quot;)), ISBLANK(SBQQ__PrimaryQuote__c) )</errorConditionFormula>
+    <errorMessage>A Primary Quote needs to be attached to the opportunity to progress to Stage 5 or beyond in the Sales process</errorMessage>
+</ValidationRule>

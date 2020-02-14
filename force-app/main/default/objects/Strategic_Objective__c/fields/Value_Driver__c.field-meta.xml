@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Value_Driver__c</fullName>
+    <description>RUBX-464: Vision/Value framework</description>
+    <externalId>false</externalId>
+    <label>Value Driver</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Increase Revenue</fullName>
+                <default>false</default>
+                <label>Increase Revenue</label>
+            </value>
+            <value>
+                <fullName>Improve Efficiency</fullName>
+                <default>false</default>
+                <label>Improve Efficiency</label>
+            </value>
+            <value>
+                <fullName>Save Costs</fullName>
+                <default>false</default>
+                <label>Save Costs</label>
+            </value>
+            <value>
+                <fullName>Reduce Risk</fullName>
+                <default>false</default>
+                <label>Reduce Risk</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

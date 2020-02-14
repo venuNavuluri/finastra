@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Ship_To__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>RUBX-1672 : Lookup to capture Primary Shipping Address for Account</description>
+    <externalId>false</externalId>
+    <label>Primary Ship-To</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Please select an address record associated with this Account</errorMessage>
+        <filterItems>
+            <field>$Source.Id</field>
+            <operation>equals</operation>
+            <valueField>Address__c.Account__r.Id</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Address__c</referenceTo>
+    <relationshipLabel>Accounts (Primary Ship-To)</relationshipLabel>
+    <relationshipName>Shipping_Accounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>

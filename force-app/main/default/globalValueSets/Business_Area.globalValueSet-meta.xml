@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>?</fullName>
+        <default>false</default>
+        <label>?</label>
+    </customValue>
+    <customValue>
+        <fullName>ATM</fullName>
+        <default>false</default>
+        <label>ATM</label>
+    </customValue>
+    <customValue>
+        <fullName>Branch Banking</fullName>
+        <default>false</default>
+        <label>Branch Banking</label>
+    </customValue>
+    <customValue>
+        <fullName>Cash Management</fullName>
+        <default>false</default>
+        <label>Cash Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Channels</fullName>
+        <default>false</default>
+        <label>Channels</label>
+    </customValue>
+    <customValue>
+        <fullName>Commodities</fullName>
+        <default>false</default>
+        <label>Commodities</label>
+    </customValue>
+    <customValue>
+        <fullName>Commodity Derivatives</fullName>
+        <default>false</default>
+        <label>Commodity Derivatives</label>
+    </customValue>
+    <customValue>
+        <fullName>Compushare</fullName>
+        <default>false</default>
+        <label>Compushare</label>
+    </customValue>
+    <customValue>
+        <fullName>Corporate Lending</fullName>
+        <default>false</default>
+        <label>Corporate Lending</label>
+    </customValue>
+    <customValue>
+        <fullName>Credit Derivatives</fullName>
+        <default>false</default>
+        <label>Credit Derivatives</label>
+    </customValue>
+    <customValue>
+        <fullName>Cross Asset Derivatives</fullName>
+        <default>false</default>
+        <label>Cross Asset Derivatives</label>
+    </customValue>
+    <customValue>
+        <fullName>Customer Relationship Management</fullName>
+        <default>false</default>
+        <label>Customer Relationship Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Digital Channels</fullName>
+        <default>false</default>
+        <label>Digital Channels</label>
+    </customValue>
+    <customValue>
+        <fullName>Direct Debit</fullName>
+        <default>false</default>
+        <label>Direct Debit</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise</fullName>
+        <default>false</default>
+        <label>Enterprise</label>
+    </customValue>
+    <customValue>
+        <fullName>Equities</fullName>
+        <default>false</default>
+        <label>Equities</label>
+    </customValue>
+    <customValue>
+        <fullName>Equity Derivatives</fullName>
+        <default>false</default>
+        <label>Equity Derivatives</label>
+    </customValue>
+    <customValue>
+        <fullName>Fixed Income</fullName>
+        <default>false</default>
+        <label>Fixed Income</label>
+    </customValue>
+    <customValue>
+        <fullName>Fixed Income Derivatives</fullName>
+        <default>false</default>
+        <label>Fixed Income Derivatives</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Exchange</fullName>
+        <default>false</default>
+        <label>Foreign Exchange</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Exchange Derivatives</fullName>
+        <default>false</default>
+        <label>Foreign Exchange Derivatives</label>
+    </customValue>
+    <customValue>
+        <fullName>Generic</fullName>
+        <default>false</default>
+        <label>Generic</label>
+    </customValue>
+    <customValue>
+        <fullName>Interest Rate &amp; Inflation-linked Derivatives</fullName>
+        <default>false</default>
+        <label>Interest Rate &amp; Inflation-linked Derivatives</label>
+    </customValue>
+    <customValue>
+        <fullName>Interfaces &amp; Technology</fullName>
+        <default>false</default>
+        <label>Interfaces &amp; Technology</label>
+    </customValue>
+    <customValue>
+        <fullName>International FS</fullName>
+        <default>false</default>
+        <label>International FS</label>
+    </customValue>
+    <customValue>
+        <fullName>Islamic</fullName>
+        <default>false</default>
+        <label>Islamic</label>
+    </customValue>
+    <customValue>
+        <fullName>Merchant Services</fullName>
+        <default>false</default>
+        <label>Merchant Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Messaging</fullName>
+        <default>false</default>
+        <label>Messaging</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile</fullName>
+        <default>false</default>
+        <label>Mobile</label>
+    </customValue>
+    <customValue>
+        <fullName>Money Markets</fullName>
+        <default>false</default>
+        <label>Money Markets</label>
+    </customValue>
+    <customValue>
+        <fullName>Multiple Asset Class Derivatives trading</fullName>
+        <default>false</default>
+        <label>Multiple Asset Class Derivatives trading</label>
+    </customValue>
+    <customValue>
+        <fullName>Multiple Asset Class trading</fullName>
+        <default>false</default>
+        <label>Multiple Asset Class trading</label>
+    </customValue>
+    <customValue>
+        <fullName>Payments</fullName>
+        <default>false</default>
+        <label>Payments</label>
+    </customValue>
+    <customValue>
+        <fullName>Reporting and Analytics</fullName>
+        <default>false</default>
+        <label>Reporting and Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail Deposits</fullName>
+        <default>false</default>
+        <label>Retail Deposits</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail Lending</fullName>
+        <default>false</default>
+        <label>Retail Lending</label>
+    </customValue>
+    <customValue>
+        <fullName>Structured Products</fullName>
+        <default>false</default>
+        <label>Structured Products</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Finance</fullName>
+        <default>false</default>
+        <label>Trade Finance</label>
+    </customValue>
+    <customValue>
+        <fullName>US Lending</fullName>
+        <default>false</default>
+        <label>US Lending</label>
+    </customValue>
+    <masterLabel>Business Area</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

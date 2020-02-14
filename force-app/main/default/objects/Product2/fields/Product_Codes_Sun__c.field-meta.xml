@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Product_Codes_Sun__c</fullName>
+        <description>Product codes used in Sun system.  format: XX-YY where XX is two-letter product code and YY is two-letter revenue-type code.</description>
+        <externalId>false</externalId>
+        <label>Product Codes (Sun)</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

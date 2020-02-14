@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal_Notes__c</fullName>
+    <description>RUBX-2438 – Field created for REQ-1876-Select a Bulletin (type=Product) Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter details in the Internal Notes field for content that is for internal use only. If the article is client facing, content in this field is not visible to clients.</inlineHelpText>
+    <label>Internal Notes</label>
+    <length>32768</length>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

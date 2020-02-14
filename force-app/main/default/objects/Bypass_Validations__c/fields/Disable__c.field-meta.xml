@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>RBXO-943 : Flag to disable Validation rules. If set to &#39;true&#39; for any user/profile the validation rule will be disable for that user/profile.</description>
+    <externalId>false</externalId>
+    <label>Disable</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

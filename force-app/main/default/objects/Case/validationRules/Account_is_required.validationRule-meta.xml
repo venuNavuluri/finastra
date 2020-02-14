@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_is_required</fullName>
+    <active>true</active>
+    <description>RUBX-1164: LCA Case Field Validation</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &#39;License_Compliance_Audit&#39;,
+ISNULL( LCA_Account__c ),
+NOT($Setup.Bypass_Validations__c.Disable__c)
+)</errorConditionFormula>
+    <errorDisplayField>AccountId</errorDisplayField>
+    <errorMessage>Account is required</errorMessage>
+</ValidationRule>

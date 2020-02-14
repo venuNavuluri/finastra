@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_on_Sales_RR_List_at_USD_Budget_Rate__c</fullName>
+    <description>Add-on Sales Recurring Rev List Price at USD Budget Rate
+
+Please input the recurring fees list price of additional product/module/volume in USD at budget rate that you added to this renewal/license restructure deal.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Add-on Sales Recurring Rev List Price at USD Budget Rate
+
+Please input the recurring fees list price of additional product/module/volume in USD at budget rate that you added to this renewal/license restructure deal.</inlineHelpText>
+    <label>Add-on Sales RR List at USD Budget Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

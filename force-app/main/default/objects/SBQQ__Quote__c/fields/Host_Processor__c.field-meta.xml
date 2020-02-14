@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Host_Processor__c</fullName>
+        <externalId>false</externalId>
+        <label>Host Processor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Computer Services, Inc</fullName>
+                    <default>false</default>
+                    <label>Computer Services, Inc</label>
+                </value>
+                <value>
+                    <fullName>DCI - DataCentering</fullName>
+                    <default>false</default>
+                    <label>DCI - DataCentering</label>
+                </value>
+                <value>
+                    <fullName>Bankers Equipment Systems</fullName>
+                    <default>false</default>
+                    <label>Bankers Equipment Systems</label>
+                </value>
+                <value>
+                    <fullName>Southern Financial</fullName>
+                    <default>false</default>
+                    <label>Southern Financial</label>
+                </value>
+                <value>
+                    <fullName>Focus Financial</fullName>
+                    <default>false</default>
+                    <label>Focus Financial</label>
+                </value>
+                <value>
+                    <fullName>Data Business Equipment</fullName>
+                    <default>false</default>
+                    <label>Data Business Equipment</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

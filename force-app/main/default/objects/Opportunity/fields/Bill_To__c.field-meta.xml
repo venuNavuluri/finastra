@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bill_To__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>RUBX-1672 : Lookup to capture Billing Address for Opportunity</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Use this field to capture Billing Address (must be associated with Opportunity&#39;s Account)</inlineHelpText>
+    <label>Bill-To</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Please select an address associated with Opportunity&#39;s Account.</errorMessage>
+        <filterItems>
+            <field>$Source.AccountId</field>
+            <operation>equals</operation>
+            <valueField>Address__c.Account__r.Id</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Address__c</referenceTo>
+    <relationshipLabel>Opportunities (Bill-To)</relationshipLabel>
+    <relationshipName>Billing_Opportunities</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

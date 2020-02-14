@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LCA_Case_Status_flow</fullName>
+    <active>true</active>
+    <description>RUBX-1439 Validates that the LCA case Status is moving in particular order</description>
+    <errorConditionFormula>AND(ISCHANGED( Status ),
+NOT($Setup.Bypass_Validations__c.Disable__c),
+OR(
+AND(ISPICKVAL(Status, &quot;With AM to Review&quot;),
+NOT(ISPICKVAL( PRIORVALUE( Status ), &quot;Pre-work&quot;))),
+AND(ISPICKVAL(Status, &quot;Customer Communication&quot;),
+NOT(ISPICKVAL( PRIORVALUE( Status ), &quot;With AM to Review&quot;))),
+AND(ISPICKVAL(Status, &quot;Report Queued for Analysis&quot;),
+NOT(ISPICKVAL( PRIORVALUE( Status ), &quot;Customer Communication&quot;))),
+AND(ISPICKVAL(Status, &quot;Output Under Analysis&quot;),
+NOT(ISPICKVAL( PRIORVALUE( Status ), &quot;Report Queued for Analysis&quot;))),
+AND(ISPICKVAL(Status, &quot;Result for Concurrence&quot;),
+NOT(ISPICKVAL( PRIORVALUE( Status ), &quot;Output Under Analysis&quot;))),
+AND(ISPICKVAL(Status, &quot;Audited - Pending Opportunity&quot;),
+NOT(ISPICKVAL( PRIORVALUE( Status ), &quot;Result for Concurrence&quot;))),
+AND(ISPICKVAL(Status, &quot;Audited (Closed)&quot;),
+NOT(OR( ISPICKVAL( PRIORVALUE( Status ), &quot;Audited - Pending Opportunity&quot;),ISPICKVAL( PRIORVALUE( Status ), &quot;Output Under Analysis&quot;)))),
+AND(ISPICKVAL(Status, &quot;Deselection Rejected&quot;),
+NOT(ISPICKVAL( PRIORVALUE( Status ), &quot;Awaiting Deselection Approval&quot;)))
+)
+)</errorConditionFormula>
+    <errorMessage>LCA case status should move in particular order
+Pre-work--&gt;With AM to Review--&gt;Customer Communication--&gt;Report Queued for Analysis--&gt;Output Under Analysis--&gt;Result for Concurrence--&gt;Audited - Pending Opportunity--&gt;Audited (Closed).</errorMessage>
+</ValidationRule>

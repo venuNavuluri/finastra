@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BDR_Can_Move_Opp_Stage_To_Closed_Out</fullName>
+    <active>true</active>
+    <description>RUBX-3671: BDR Role can move SS1 to Closed qualified out</description>
+    <errorConditionFormula>AND (
+NOT($Setup.Bypass_Validations__c.Disable__c),
+$Profile.Name =&#39;BDR User&#39;,
+OR(
+AND(
+ISCHANGED(StageName),
+ISPICKVAL(PRIORVALUE(StageName), &quot;1. Prospect&quot;),
+NOT(ISPICKVAL(StageName, &quot;Closed Qualified Out&quot;))
+),
+AND (
+ISCHANGED(StageName),
+NOT( ISPICKVAL(PRIORVALUE(StageName), &quot;1. Prospect&quot;))
+)
+)
+)</errorConditionFormula>
+    <errorMessage>BDR Can either change stage to Closed Qualified Out or request Sales to accept the Opportunity in Stage 1 to move to 2.</errorMessage>
+</ValidationRule>

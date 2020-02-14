@@ -1,0 +1,79 @@
+<messaging:emailTemplate subject="{!recipient.name} - Please approve {!relatedTo.Quote__r.SBQQ__Opportunity2__c}: Quote {!relatedTo.Quote__r.Name} for {!relatedTo.Name}"
+recipientType="User"
+relatedToType="sbaa__Approval__c">
+<messaging:HtmlEmailBody >
+<html>
+<body>
+
+<apex:image value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/servlet/servlet.ImageServer?id={!$Setup.SBAA_Enablement_IDs__c.Approval_Email_Logo_ID__c}&oid={!$Organization.Id}" 
+/>
+
+<b></b> 
+<p><br/></p>
+
+
+<p><b>Please approve the following deal.<br/>
+Details below:</b><br/></p>
+
+<p>
+<p><b>Next Step:</b> To approve or reject this request, reply to this email with the word APPROVE, APPROVED, YES, REJECT, REJECTED, or NO in the first line of the email message, or click on one of these links:&nbsp;&nbsp;<apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+'apex/SBAA__Approve?id='+relatedTo.Id}">Approve</apex:outputLink>&nbsp;&nbsp;&nbsp;<apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+'apex/SBAA__Reject?id='+relatedTo.Id}">Reject</apex:outputLink><br/></p>
+</p>
+
+<!-- the blow commented out lines are from legacy rubix and did not match the go-forward model, saving as a reference -->
+
+<!-- <b>Sales Region: </b>{!relatedTo.Quote__r.Sales_Region__c}<br/> -->
+
+<b>Main Product: </b>{!relatedTo.Quote__r.SBQQ__Opportunity2__r.MainProduct__c}<br/>
+
+<b>Deal Category: </b>{!relatedTo.Quote__r.SBQQ__Opportunity2__r.Deal_Category__c}<br/>
+
+<!-- <b>Deal Type: </b>{!relatedTo.Quote__r.SBQQ__Opportunity2__r.Deal_Type__c}<br/> -->
+
+<!-- <b>Deal Detail Type: </b>{!relatedTo.Quote__r.SBQQ__Opportunity2__r.Deal_Detail_Type__c}<br/> -->
+
+<b>Customer Name: </b>{!relatedTo.Name}<br/>
+
+<b>Opportunity Name: </b>&nbsp;<apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.Quote__r.SBQQ__Opportunity2__r.Id}" >{!relatedTo.Quote__r.SBQQ__Opportunity2__r.Name}</apex:outputLink><br/>
+
+<!-- <b>Opportunity Number: </b>{!relatedTo.Quote__r.SBQQ__Opportunity2__r.Order_Number__c}<br/> -->
+
+<b>Opportunity Close Date: </b>{!relatedTo.Quote__r.SBQQ__Opportunity2__r.CloseDate}<br/>
+
+<br/>
+
+<b>Quote Number: </b>&nbsp;<apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.Quote__r.Id}" >{!relatedTo.Quote__r.Name}</apex:outputLink><br/>
+
+<b>Quote Currency: </b>{!relatedTo.Quote__r.CurrencyIsoCode}<br/>
+
+<b>Net Total: </b>{!relatedTo.Quote__r.SBQQ__NetAmount__c}<br/>
+
+<b>Annual Recurring Revenue: </b>{!relatedTo.Quote__r.Annual_Recurring_Revenue__c}<br/>
+
+<b>Deal Summary and Pricing Rationale: </b>{!relatedTo.Quote__r.Deal_Summary_Pricing_Rationale__c}<br/>
+
+<br/>
+
+<!-- <b>Regional Sales Manager Comments: </b>{!relatedTo.Quote__r.SBQQ__Opportunity2__r.Regional_Sales_Manager_Comments__c}<br/> -->
+
+<!-- <b>Deal Desk Review Notes: </b>{!relatedTo.Quote__r.SBQQ__Opportunity2__r.Deal_Desk_Review_Notes__c}<br/> -->
+
+
+<p>
+<b>Approvals:</b><br/>
+<sbaa:relatedList rendered="{!relatedTo.Quote__c != null}" recordId="{!relatedTo.Quote__c}" relationshipName="AAE_Approvals__r" fieldSetName="Approval_Request_Email"/>
+</p>
+
+<p>
+<b>Quote Line Items:</b><br/>
+<sbaa:relatedList rendered="{!relatedTo.Quote__c != null}" recordId="{!relatedTo.Quote__c}" relationshipName="SBQQ__LineItems__r" fieldSetName="Approval_Request"/>
+</p>
+
+<br/>
+
+<b>Regards,</b><br/>
+
+<p style="color:white"><apex:outputText value="{!relatedTo.Id}"/></p>
+</body>
+</html>
+</messaging:HtmlEmailBody>
+</messaging:emailTemplate>

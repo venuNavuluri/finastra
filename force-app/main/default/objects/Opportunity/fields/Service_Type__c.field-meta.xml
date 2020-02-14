@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Type__c</fullName>
+    <description>RUBX-531 : Service Type for GS related deals.</description>
+    <externalId>false</externalId>
+    <label>Service Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Academy Training</fullName>
+                <default>false</default>
+                <label>Academy Training</label>
+            </value>
+            <value>
+                <fullName>Additional Module / Functionality Implementation</fullName>
+                <default>false</default>
+                <label>Additional Module / Functionality Implementation</label>
+            </value>
+            <value>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+                <label>Cancellation</label>
+            </value>
+            <value>
+                <fullName>Customisation</fullName>
+                <default>false</default>
+                <label>Customisation</label>
+            </value>
+            <value>
+                <fullName>D&amp;H only</fullName>
+                <default>false</default>
+                <label>D&amp;H only</label>
+            </value>
+            <value>
+                <fullName>Extended Support Services</fullName>
+                <default>false</default>
+                <label>Extended Support Services</label>
+            </value>
+            <value>
+                <fullName>Fusion Adopt- Fusion Blueprints</fullName>
+                <default>false</default>
+                <label>Fusion Adopt- Fusion Blueprints</label>
+            </value>
+            <value>
+                <fullName>Fusion Adopt- Non Fusion Blueprints</fullName>
+                <default>false</default>
+                <label>Fusion Adopt- Non Fusion Blueprints</label>
+            </value>
+            <value>
+                <fullName>Fusion Advance</fullName>
+                <default>false</default>
+                <label>Fusion Advance</label>
+            </value>
+            <value>
+                <fullName>Fusion Assure</fullName>
+                <default>false</default>
+                <label>Fusion Assure</label>
+            </value>
+            <value>
+                <fullName>Fusion Knowledge Services (Academy)</fullName>
+                <default>false</default>
+                <label>Fusion Knowledge Services (Academy)</label>
+            </value>
+            <value>
+                <fullName>Fusion Optimize</fullName>
+                <default>false</default>
+                <label>Fusion Optimize</label>
+            </value>
+            <value>
+                <fullName>New Implementation Fusion Blueprints</fullName>
+                <default>false</default>
+                <label>New Implementation Fusion Blueprints</label>
+            </value>
+            <value>
+                <fullName>New Implementation NON Fusion Blueprints</fullName>
+                <default>false</default>
+                <label>New Implementation NON Fusion Blueprints</label>
+            </value>
+            <value>
+                <fullName>PSS Extended Support</fullName>
+                <default>false</default>
+                <label>PSS Extended Support</label>
+            </value>
+            <value>
+                <fullName>Upgrade - Fusion Advance Premium</fullName>
+                <default>false</default>
+                <label>Upgrade - Fusion Advance Premium</label>
+            </value>
+            <value>
+                <fullName>Upgrade Non Fusion Advance Premium</fullName>
+                <default>false</default>
+                <label>Upgrade Non Fusion Advance Premium</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

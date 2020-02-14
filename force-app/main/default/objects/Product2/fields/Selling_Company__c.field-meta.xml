@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Selling_Company__c</fullName>
+        <externalId>false</externalId>
+        <label>Selling Company</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>D+H</fullName>
+                    <default>false</default>
+                    <label>D+H</label>
+                </value>
+                <value>
+                    <fullName>Misys</fullName>
+                    <default>false</default>
+                    <label>Misys</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

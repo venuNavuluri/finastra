@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Costing_Method__c</fullName>
+        <description>Used to identify whether the services product using fixed pricing or percentage cost pricing.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to identify whether the services product using fixed pricing or percentage cost pricing.</inlineHelpText>
+        <label>Costing Method</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Fixed Price</fullName>
+                    <default>true</default>
+                    <label>Fixed Price</label>
+                </value>
+                <value>
+                    <fullName>Percentage</fullName>
+                    <default>false</default>
+                    <label>Percentage</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

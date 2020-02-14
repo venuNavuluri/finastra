@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Sales_Unit__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Unit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>list units of measure setup in Intacct</fullName>
+                    <default>false</default>
+                    <label>list units of measure setup in Intacct</label>
+                </value>
+                <value>
+                    <fullName>EA</fullName>
+                    <default>false</default>
+                    <label>EA</label>
+                </value>
+                <value>
+                    <fullName>each</fullName>
+                    <default>false</default>
+                    <label>each</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

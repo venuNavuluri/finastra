@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GSC_Engagement_Manager__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>RUBX-532 - Field to capture GSC Team Lead value</description>
+    <externalId>false</externalId>
+    <inlineHelpText>GSC Team Lead for the opportunity</inlineHelpText>
+    <label>GSC Engagement Manager</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Opportunities</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

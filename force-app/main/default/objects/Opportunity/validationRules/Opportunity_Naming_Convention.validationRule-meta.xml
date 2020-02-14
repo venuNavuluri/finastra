@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Naming_Convention</fullName>
+    <active>true</active>
+    <description>RUBX-515 : Define and enforce Opportunity Naming convention - Forces users to enter Oppty Name in format Acct - Info</description>
+    <errorConditionFormula>AND (
+				NOT($Setup.Bypass_Validations__c.Disable__c),
+ 			OR(
+								FIND( &quot; - &quot;, Name ) = 0,
+        NOT(REGEX(LEFT( Name,1), &quot;[a-zA-Z0-9]&quot;))
+				)
+)</errorConditionFormula>
+    <errorMessage>Please name opportunities in following format: Bank - Info. Examples: Lloyds - Addl. Users. Please note the hyphen and space before and after hyphen. Use short names for banks.</errorMessage>
+</ValidationRule>

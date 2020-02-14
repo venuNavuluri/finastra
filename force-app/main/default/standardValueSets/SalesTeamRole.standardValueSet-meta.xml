@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Sales Executive - Retail</fullName>
+        <default>false</default>
+        <label>Sales Executive - Retail</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Executive - Lending</fullName>
+        <default>false</default>
+        <label>Sales Executive - Lending</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Executive - Digital Banking</fullName>
+        <default>false</default>
+        <label>Sales Executive - Digital Banking</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Executive - Mortgage</fullName>
+        <default>false</default>
+        <label>Sales Executive - Mortgage</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Executive - Core</fullName>
+        <default>false</default>
+        <label>Sales Executive - Core</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Executive - International</fullName>
+        <default>false</default>
+        <label>Sales Executive - International</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inside Sales - Retail</fullName>
+        <default>false</default>
+        <label>Inside Sales - Retail</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inside Sales - Lending</fullName>
+        <default>false</default>
+        <label>Inside Sales - Lending</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inside Sales - Digital Banking</fullName>
+        <default>false</default>
+        <label>Inside Sales - Digital Banking</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inside Sales - Mortgage</fullName>
+        <default>false</default>
+        <label>Inside Sales - Mortgage</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inside Sales - Core</fullName>
+        <default>false</default>
+        <label>Inside Sales - Core</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inside Sales - International</fullName>
+        <default>false</default>
+        <label>Inside Sales - International</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relationship Operations Manager - Retail</fullName>
+        <default>false</default>
+        <label>Relationship Operations Manager - Retail</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relationship Operations Manager - Lending</fullName>
+        <default>false</default>
+        <label>Relationship Operations Manager - Lending</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relationship Operations Manager - Digital Banking</fullName>
+        <default>false</default>
+        <label>Relationship Operations Manager - Digital Banking</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relationship Operations Manager - Mortgage</fullName>
+        <default>false</default>
+        <label>Relationship Operations Manager - Mortgage</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relationship Operations Manager - Core</fullName>
+        <default>false</default>
+        <label>Relationship Operations Manager - Core</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relationship Operations Manager - International</fullName>
+        <default>false</default>
+        <label>Relationship Operations Manager - International</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Support - Retail</fullName>
+        <default>false</default>
+        <label>Customer Support - Retail</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Support - Lending</fullName>
+        <default>false</default>
+        <label>Customer Support - Lending</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Support - Digital Banking</fullName>
+        <default>false</default>
+        <label>Customer Support - Digital Banking</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Support - Mortgage</fullName>
+        <default>false</default>
+        <label>Customer Support - Mortgage</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Support - Core</fullName>
+        <default>false</default>
+        <label>Customer Support - Core</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Support - International</fullName>
+        <default>false</default>
+        <label>Customer Support - International</label>
+    </standardValue>
+</StandardValueSet>

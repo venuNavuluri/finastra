@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Search__c</fullName>
+        <description>Used to Filter out products for product selection. At this time, all active products are shown.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to Filter out products for product selection. At this time, all active products are shown.</inlineHelpText>
+        <label>Search Filter Visibility</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Show Active Products</fullName>
+                    <default>true</default>
+                    <label>Show Active Products</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

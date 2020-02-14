@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Demo_Product__c</fullName>
+    <defaultValue>NULL</defaultValue>
+    <description>RUBX-775 Request for GSC demo trigger on opportunity</description>
+    <externalId>false</externalId>
+    <label>Demo Product</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Main_Product</valueSetName>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

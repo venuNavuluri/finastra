@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RR_Index__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(ISBLANK(TEXT(RR_Edition__c)), 
+CASE(TEXT(RR_SubEdition__c), 
+&quot;Base&quot;,1, 
+&quot;Base+&quot;,2,1), 
+CASE(TEXT(RR_Edition__c), 
+&quot;Base&quot;,1, 
+&quot;Essential&quot;,2, 
+&quot;Standard&quot;,3, 
+&quot;Premium&quot;,4,1))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>RR Index</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Growth_Strategy__c</fullName>
+    <description>RUBX-464: Vision/Value framework</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the client’s growth strategy over the next 12-36 months?</inlineHelpText>
+    <label>Growth Strategy</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>7</visibleLines>
+</CustomField>

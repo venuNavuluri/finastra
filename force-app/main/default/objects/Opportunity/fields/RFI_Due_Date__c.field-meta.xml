@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RFI_Due_Date__c</fullName>
+    <description>RUBX-532 - Field to capture GSC RFI  Due Date</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the date by which RFI response is required from GSC team</inlineHelpText>
+    <label>RFI Due Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

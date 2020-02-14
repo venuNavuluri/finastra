@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>New_Product_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Migration purposes - shows the new product name (for Netsuite).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Migration purposes - shows the new product name (for Netsuite).</inlineHelpText>
+        <label>New_Product_Name</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Products (New_Product_Name)</relationshipLabel>
+        <relationshipName>Products4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </CustomField>

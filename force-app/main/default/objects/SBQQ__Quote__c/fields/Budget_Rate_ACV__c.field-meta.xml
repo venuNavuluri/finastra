@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget_Rate_ACV__c</fullName>
+    <description>Used for approvals and reporting. USD ACV Equivalent at the Budget Rate.</description>
+    <externalId>false</externalId>
+    <formula>&quot;USD&quot; &amp;&quot; &quot;&amp; TEXT(Round(NULLVALUE(ACV__c, 1)
+/ IF(Budget_Rate__c == 0 || ISBLANK(Budget_Rate__c), 1,Budget_Rate__c),2))</formula>
+    <inlineHelpText>Used for approvals and reporting. USD ACV Equivalent at the Budget Rate.</inlineHelpText>
+    <label>Budget Rate ACV</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

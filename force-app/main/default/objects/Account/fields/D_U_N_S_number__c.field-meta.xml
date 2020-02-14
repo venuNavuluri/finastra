@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_U_N_S_number__c</fullName>
+    <description>RUBX-594 : The Data Universal Numbering System (D-U-N-S) number is a unique nine-digit number assigned to every business location in the D&amp;B database that has a unique, separate, and distinct operation. D-U-N-S numbers are used by industries and organizations around the world as a global standard for business identification and tracking.</description>
+    <externalId>false</externalId>
+    <label>D-U-N-S number</label>
+    <length>9</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Family_group__c</fullName>
+        <externalId>false</externalId>
+        <label>Family Group</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Almonde</fullName>
+                    <default>false</default>
+                    <label>Almonde</label>
+                </value>
+                <value>
+                    <fullName>Bankfusion</fullName>
+                    <default>false</default>
+                    <label>Bankfusion</label>
+                </value>
+                <value>
+                    <fullName>Bankmaster LAN</fullName>
+                    <default>false</default>
+                    <label>Bankmaster LAN</label>
+                </value>
+                <value>
+                    <fullName>Branchpower</fullName>
+                    <default>false</default>
+                    <label>Branchpower</label>
+                </value>
+                <value>
+                    <fullName>Business Intelligence</fullName>
+                    <default>false</default>
+                    <label>Business Intelligence</label>
+                </value>
+                <value>
+                    <fullName>City Dealer</fullName>
+                    <default>false</default>
+                    <label>City Dealer</label>
+                </value>
+                <value>
+                    <fullName>eBanking</fullName>
+                    <default>false</default>
+                    <label>eBanking</label>
+                </value>
+                <value>
+                    <fullName>Equation</fullName>
+                    <default>false</default>
+                    <label>Equation</label>
+                </value>
+                <value>
+                    <fullName>Financial Messaging</fullName>
+                    <default>false</default>
+                    <label>Financial Messaging</label>
+                </value>
+                <value>
+                    <fullName>Hardware</fullName>
+                    <default>false</default>
+                    <label>Hardware</label>
+                </value>
+                <value>
+                    <fullName>KGR</fullName>
+                    <default>false</default>
+                    <label>KGR</label>
+                </value>
+                <value>
+                    <fullName>Kondor+</fullName>
+                    <default>false</default>
+                    <label>Kondor+</label>
+                </value>
+                <value>
+                    <fullName>KVAR</fullName>
+                    <default>false</default>
+                    <label>KVAR</label>
+                </value>
+                <value>
+                    <fullName>Loan IQ</fullName>
+                    <default>false</default>
+                    <label>Loan IQ</label>
+                </value>
+                <value>
+                    <fullName>Meridien</fullName>
+                    <default>false</default>
+                    <label>Meridien</label>
+                </value>
+                <value>
+                    <fullName>Midas</fullName>
+                    <default>false</default>
+                    <label>Midas</label>
+                </value>
+                <value>
+                    <fullName>Multi-Product</fullName>
+                    <default>false</default>
+                    <label>Multi-Product</label>
+                </value>
+                <value>
+                    <fullName>Opics</fullName>
+                    <default>false</default>
+                    <label>Opics</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Risk Vision</fullName>
+                    <default>false</default>
+                    <label>Risk Vision</label>
+                </value>
+                <value>
+                    <fullName>RV Analytics</fullName>
+                    <default>false</default>
+                    <label>RV Analytics</label>
+                </value>
+                <value>
+                    <fullName>Services</fullName>
+                    <default>false</default>
+                    <label>Services</label>
+                </value>
+                <value>
+                    <fullName>Sophis Risque</fullName>
+                    <default>false</default>
+                    <label>Sophis Risque</label>
+                </value>
+                <value>
+                    <fullName>Sophis Value</fullName>
+                    <default>false</default>
+                    <label>Sophis Value</label>
+                </value>
+                <value>
+                    <fullName>Summit</fullName>
+                    <default>false</default>
+                    <label>Summit</label>
+                </value>
+                <value>
+                    <fullName>Third Party</fullName>
+                    <default>false</default>
+                    <label>Third Party</label>
+                </value>
+                <value>
+                    <fullName>Top Office</fullName>
+                    <default>false</default>
+                    <label>Top Office</label>
+                </value>
+                <value>
+                    <fullName>Trade Innovation</fullName>
+                    <default>false</default>
+                    <label>Trade Innovation</label>
+                </value>
+                <value>
+                    <fullName>Trade Portal</fullName>
+                    <default>false</default>
+                    <label>Trade Portal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

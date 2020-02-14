@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Report_Period_To_required</fullName>
+    <active>true</active>
+    <description>RUBX-1164: LCA Case Field Validation</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &#39;License_Compliance_Audit&#39;,
+ISPICKVAL(Status, &#39;Output Under Analysis&#39;),
+ISBLANK( Report_Period_To__c ),
+NOT($Setup.Bypass_Validations__c.Disable__c)
+)</errorConditionFormula>
+    <errorDisplayField>Report_Period_To__c</errorDisplayField>
+    <errorMessage>Report Period (To) is required.</errorMessage>
+</ValidationRule>

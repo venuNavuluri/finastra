@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "c/billingSchedule_ILF": [
+                "billingSchedule_ILF/billingSchedule_ILF.js"
+            ],
+            "c/leadConversionRequestNotification": [
+                "leadConversionRequestNotification/leadConversionRequestNotification.js"
+            ]
+        },
+        "experimentalDecorators": true
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

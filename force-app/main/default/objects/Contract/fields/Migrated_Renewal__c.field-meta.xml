@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Migrated_Renewal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This box will be checked only when this renewal is created from a Migrated Contract.  This field will be allow price editability on the renewal Quote.</description>
+        <externalId>false</externalId>
+        <label>Migrated Renewal</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </CustomField>

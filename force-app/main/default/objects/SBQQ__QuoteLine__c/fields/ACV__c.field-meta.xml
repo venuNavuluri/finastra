@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>ACV__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Disable_Proration__c = True, SBQQ__NetTotal__c/SBQQ__ProrateMultiplier__c, (SBQQ__NetTotal__c / SBQQ__ProrateMultiplier__c) / (SBQQ__DefaultSubscriptionTerm__c / 12))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ACV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </CustomField>

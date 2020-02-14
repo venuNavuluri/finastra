@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Add_row</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add row</shortDescription>
+        <value>Add row</value>
+    </labels>
+    <labels>
+        <fullName>Billing_Schedule_Help_Test</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Billing Schedule Help Test</shortDescription>
+        <value>Standard - Agreed standard business terms.
+Non Standard - Configured % on defined milestones. 
+Custom - Custom milestones and percentages.</value>
+    </labels>
+    <labels>
+        <fullName>Billing_Schedule_ILF_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Billing Schedule ILF Error</shortDescription>
+        <value>There are no ILF quote lines for this deal</value>
+    </labels>
+    <labels>
+        <fullName>Billing_Term</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Billing Term</shortDescription>
+        <value>Billing Term</value>
+    </labels>
+    <labels>
+        <fullName>Generate_License_Schedules</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generate License Schedules</shortDescription>
+        <value>Generate License Schedules</value>
+    </labels>
+    <labels>
+        <fullName>LCA_Notify_Sales_When_Compliant</fullName>
+        <categories>Case Chatter Notification</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LCA - Notify Sales When Compliant</shortDescription>
+        <value>Please note that a License Compliance audit has been completed, and the client has been considered Compliant. If you have any questions please reach out to Case Owner</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Conversion_Request_Notification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead_Conversion_Request_Notification</shortDescription>
+        <value>Your lead conversion request has been created. You will be notified via chatter once the lead is converted to Contact/Account or Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Converted_Contact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead_Converted_Contact</shortDescription>
+        <value>Contact</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Converted_Opportunity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead_Converted_Opportunity</shortDescription>
+        <value>Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>License_Billing_Schedule</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>License Billing Schedule</shortDescription>
+        <value>License Billing Schedule</value>
+    </labels>
+    <labels>
+        <fullName>License_Schedule</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>License Schedule</shortDescription>
+        <value>License Schedule</value>
+    </labels>
+    <labels>
+        <fullName>Notify_Sales_BDR_Lead_Converted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notify_Sales_BDR_Lead_Converted</shortDescription>
+        <value>Lead has been converted to the following : Account</value>
+    </labels>
+    <labels>
+        <fullName>Only_Primary_Quotes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Only_Primary_Quotes</shortDescription>
+        <value>Only Primary Quotes can be submitted for Approval.</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity_Sales_Rep_Assignment_SLA</fullName>
+        <categories>Opportunity Chatter Notification</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity - Sales Rep Assignment SLA</shortDescription>
+        <value>Opportunity reassignment is still in approval queue for more than 72 hours.</value>
+    </labels>
+    <labels>
+        <fullName>Preview_Approvals</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Preview Approvals</shortDescription>
+        <value>Preview Approvals</value>
+    </labels>
+    <labels>
+        <fullName>Recall_Quote_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Recall_Quote_Msg</shortDescription>
+        <value>Recalling Quote approvals...</value>
+    </labels>
+    <labels>
+        <fullName>Select</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select</shortDescription>
+        <value>-Select-</value>
+    </labels>
+    <labels>
+        <fullName>Standard</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Standard</shortDescription>
+        <value>Standard</value>
+    </labels>
+    <labels>   
+        <fullName>Return_To_Quote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return To Quote</shortDescription>
+        <value>Return To Quote</value>
+    </labels>
+    <labels>
+        <fullName>Submit_For_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submit For Approval</shortDescription>
+        <value>Submit for Approval</value>
+    </labels>
+    <labels>
+        <fullName>Submit_Quote_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submit_Quote_Msg</shortDescription>
+        <value>Submitting Quote for approval ...</value>
+    </labels>
+</CustomLabels>

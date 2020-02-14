@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Report_Received_required</fullName>
+    <active>true</active>
+    <description>RUBX-1164: LCA Case Field Validation</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &#39;License_Compliance_Audit&#39;,
+ISPICKVAL(Status, &#39;Report Queued for Analysis&#39;),
+ISNULL( Date_Report_Received__c ),
+NOT($Setup.Bypass_Validations__c.Disable__c)
+)</errorConditionFormula>
+    <errorDisplayField>Date_Report_Received__c</errorDisplayField>
+    <errorMessage>Date Report Received is required.</errorMessage>
+</ValidationRule>

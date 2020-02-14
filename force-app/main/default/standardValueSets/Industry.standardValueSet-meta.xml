@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Asset Management Firm</fullName>
+        <default>false</default>
+        <label>Asset Management Firm</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bank</fullName>
+        <default>false</default>
+        <label>Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Broker / Dealer</fullName>
+        <default>false</default>
+        <label>Broker / Dealer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Buy-Side</fullName>
+        <default>false</default>
+        <label>Buy-Side</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Central Bank</fullName>
+        <default>false</default>
+        <label>Central Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Commodity Trading</fullName>
+        <default>false</default>
+        <label>Commodity Trading</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Community Bank</fullName>
+        <default>false</default>
+        <label>Community Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Consultancy</fullName>
+        <default>false</default>
+        <label>Consultancy</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Corporate</fullName>
+        <default>false</default>
+        <label>Corporate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Corporate and Investment Bank</fullName>
+        <default>false</default>
+        <label>Corporate and Investment Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cooperative Bank</fullName>
+        <default>false</default>
+        <label>Cooperative Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Union</fullName>
+        <default>false</default>
+        <label>Credit Union</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Custodian Bank</fullName>
+        <default>false</default>
+        <label>Custodian Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Education</fullName>
+        <default>false</default>
+        <label>Education</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Exchanges, Clearing and Payments Firm</fullName>
+        <default>false</default>
+        <label>Exchanges, Clearing and Payments Firm</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Family Office</fullName>
+        <default>false</default>
+        <label>Family Office</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Government Agency</fullName>
+        <default>false</default>
+        <label>Government Agency</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Hedge Fund</fullName>
+        <default>false</default>
+        <label>Hedge Fund</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Insurance Company</fullName>
+        <default>false</default>
+        <label>Insurance Company</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Investment Bank</fullName>
+        <default>false</default>
+        <label>Investment Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Islamic Bank</fullName>
+        <default>false</default>
+        <label>Islamic Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mutual Fund</fullName>
+        <default>false</default>
+        <label>Mutual Fund</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Outsource Providers</fullName>
+        <default>false</default>
+        <label>Outsource Providers</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner</fullName>
+        <default>false</default>
+        <label>Partner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pension Fund</fullName>
+        <default>false</default>
+        <label>Pension Fund</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Private Bank</fullName>
+        <default>false</default>
+        <label>Private Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>PR / Media</fullName>
+        <default>false</default>
+        <label>PR / Media</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Real Estate &amp; Mortgage Bank</fullName>
+        <default>false</default>
+        <label>Real Estate &amp; Mortgage Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Retail Bank</fullName>
+        <default>false</default>
+        <label>Retail Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Savings and Loan</fullName>
+        <default>false</default>
+        <label>Savings and Loan</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sell-Side</fullName>
+        <default>false</default>
+        <label>Sell-Side</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sovereign Wealth Fund</fullName>
+        <default>false</default>
+        <label>Sovereign Wealth Fund</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Treasury Services</fullName>
+        <default>false</default>
+        <label>Treasury Services</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Wealth Management</fullName>
+        <default>false</default>
+        <label>Wealth Management</label>
+    </standardValue>
+</StandardValueSet>

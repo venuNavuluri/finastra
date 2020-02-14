@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>LCA Deselection Rejected</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Finastra_Letterhead</letterhead>
+    <name>LCA Deselection Rejected</name>
+    <style>freeForm</style>
+    <subject>{!Case.CaseNumber} LCA Case - Rejected</subject>
+    <textOnly>Case Number: {!Case.CaseNumber} was rejected by {!Case.LastModifiedById},
+
+
+
+Please check the following Case by clicking on this link - {!Case.Link}, details below:
+
+
+
+
+
+Case Number: {!Case.CaseNumber}
+
+Status: {!Case.Status}
+
+Compliance Sub-Status: {!Case.Compliance_Sub_Status__c}
+
+
+
+
+
+
+
+
+
+
+
+Regards
+
+{!User.FirstName} {!User.LastName}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

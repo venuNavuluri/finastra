@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audit_Method_required</fullName>
+    <active>true</active>
+    <description>RUBX-1164: LCA Case Field Validation</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &#39;License_Compliance_Audit&#39;,
+ISPICKVAL(Status, &#39;Customer Communication&#39;),
+ISPICKVAL( Audit_Method__c, &#39;&#39; ),
+NOT($Setup.Bypass_Validations__c.Disable__c)
+)</errorConditionFormula>
+    <errorDisplayField>Audit_Method__c</errorDisplayField>
+    <errorMessage>Audit Method is required.</errorMessage>
+</ValidationRule>

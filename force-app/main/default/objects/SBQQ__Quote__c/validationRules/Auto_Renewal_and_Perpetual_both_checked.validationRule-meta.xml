@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Renewal_and_Perpetual_both_checked</fullName>
+    <active>true</active>
+    <description>The auto-renewal and perpetual boxes cannot both be selected at the same time.</description>
+    <errorConditionFormula>AND(
+Auto_Renewal__c=TRUE ,
+Perpetual__c=TRUE)</errorConditionFormula>
+    <errorMessage>The auto-renewal and perpetual boxes cannot both be selected at the same time.</errorMessage>
+</ValidationRule>

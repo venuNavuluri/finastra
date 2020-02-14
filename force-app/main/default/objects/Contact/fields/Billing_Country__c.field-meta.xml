@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Country__c</fullName>
+    <description>RUBX-3907 : Refers country of address record selected as Bill-To</description>
+    <externalId>false</externalId>
+    <formula>Text(Bill_To__r.Country__c)</formula>
+    <label>Billing Country</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

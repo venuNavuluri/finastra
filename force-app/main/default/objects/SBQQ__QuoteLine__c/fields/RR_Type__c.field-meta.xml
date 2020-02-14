@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RR_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(!ISBLANK(SBQQ__RequiredBy__c),
+if(SBQQ__RequiredBy__r.RR_Index__c &gt;= RR_Index__c, &quot;Included&quot;, &quot;Add-on&quot;),
+&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>RR Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

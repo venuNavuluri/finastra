@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Region__c</fullName>
+    <description>RUBX-1560 : This field is used to capture Sales Sub-Region(dependent on Region)</description>
+    <externalId>false</externalId>
+    <label>Sub Region</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Region__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Sub_Regions</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Americas</controllingFieldValue>
+            <valueName>NAM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Americas</controllingFieldValue>
+            <valueName>LAM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NACM</controllingFieldValue>
+            <valueName>NACM Digital Banking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NACM</controllingFieldValue>
+            <valueName>NACM US Retail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NACM</controllingFieldValue>
+            <valueName>NACM Mid- Atlantic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NACM</controllingFieldValue>
+            <valueName>NACM Northeast</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NACM</controllingFieldValue>
+            <valueName>NACM Southeast</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NACM</controllingFieldValue>
+            <valueName>NACM Southwest</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NACM</controllingFieldValue>
+            <valueName>NACM Upper Midwest</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NACM</controllingFieldValue>
+            <valueName>NACM West</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NACM</controllingFieldValue>
+            <valueName>Digital/Inside Sales</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Docusign_Visible__c</fullName>
+    <description>This field is used in the Generate Conga Contract button to display the DocuSign button when the quote is in an approved status.</description>
+    <externalId>false</externalId>
+    <formula>CASE(SBQQ__Status__c,
+&quot;Approved&quot;,&quot;1&quot;,
+&quot;0&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field is used in the Generate Conga Contract button to display the DocuSign button when the quote is in an approved status.</inlineHelpText>
+    <label>Docusign Visible</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

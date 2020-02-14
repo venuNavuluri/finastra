@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>GSS_Offering2__c</fullName>
+        <description>Classes of GSS offerings (used to consolidate offering across Midas, Opics, etc. Misys products).</description>
+        <externalId>false</externalId>
+        <label>GSS Offering</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Education</fullName>
+                    <default>false</default>
+                    <label>Education</label>
+                </value>
+                <value>
+                    <fullName>Integration Services</fullName>
+                    <default>false</default>
+                    <label>Integration Services</label>
+                </value>
+                <value>
+                    <fullName>Optimisation Services</fullName>
+                    <default>false</default>
+                    <label>Optimisation Services</label>
+                </value>
+                <value>
+                    <fullName>Premium Support</fullName>
+                    <default>false</default>
+                    <label>Premium Support</label>
+                </value>
+                <value>
+                    <fullName>Upgrade Centre</fullName>
+                    <default>false</default>
+                    <label>Upgrade Centre</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

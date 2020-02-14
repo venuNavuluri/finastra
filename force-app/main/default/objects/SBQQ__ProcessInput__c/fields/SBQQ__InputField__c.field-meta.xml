@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBQQ__InputField__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The API name for the field that accepts the user entry.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the API name for the field that accepts the user entry.</inlineHelpText>
+    <label>Input Field</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BinaryChoice__c</fullName>
+                <default>false</default>
+                <label>BinaryChoice__c</label>
+            </value>
+            <value>
+                <fullName>IntegerInput__c</fullName>
+                <default>false</default>
+                <label>IntegerInput__c</label>
+            </value>
+            <value>
+                <fullName>Line_Of_Business__c</fullName>
+                <default>false</default>
+                <label>Line_Of_Business__c</label>
+            </value>
+            <value>
+                <fullName>Business_Area__c</fullName>
+                <default>false</default>
+                <label>Business_Area__c</label>
+            </value>
+            <value>
+                <fullName>Sales_Product_Set__c</fullName>
+                <default>false</default>
+                <label>Sales_Product_Set__c</label>
+            </value>
+            <value>
+                <fullName>Product_Family__c</fullName>
+                <default>false</default>
+                <label>Product_Family__c</label>
+            </value>
+            <value>
+                <fullName>BU__c</fullName>
+                <default>false</default>
+                <label>BU__c</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

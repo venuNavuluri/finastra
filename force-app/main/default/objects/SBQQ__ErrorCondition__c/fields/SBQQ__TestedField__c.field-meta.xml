@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SBQQ__TestedField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field on the Quote object that should be used in testing this condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field on the Quote object that should be used in testing this condition.</inlineHelpText>
+        <label>Tested Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>SBQQ__TestedObject__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>External_SKU_DH_2_0__c</fullName>
+                    <default>false</default>
+                    <label>External_SKU_DH_2_0__c</label>
+                </value>
+                <value>
+                    <fullName>Group Line Items</fullName>
+                    <default>false</default>
+                    <label>Group Line Items</label>
+                </value>
+                <value>
+                    <fullName>Unit Price</fullName>
+                    <default>false</default>
+                    <label>Unit Price</label>
+                </value>
+                <value>
+                    <fullName>Revenue_Type__c</fullName>
+                    <default>false</default>
+                    <label>Revenue_Type__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__ProductCode__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__ProductCode__c</label>
+                </value>
+                <value>
+                    <fullName>ProdType__c</fullName>
+                    <default>false</default>
+                    <label>ProdType__c</label>
+                </value>
+                <value>
+                    <fullName>GS_Cost__c</fullName>
+                    <default>false</default>
+                    <label>GS_Cost__c</label>
+                </value>
+                <value>
+                    <fullName>RR_Edition__c</fullName>
+                    <default>false</default>
+                    <label>RR_Edition__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__QuoteLineVisibility__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__QuoteLineVisibility__c</label>
+                </value>
+                <value>
+                    <fullName>Pass_Through_Product__c</fullName>
+                    <default>false</default>
+                    <label>Pass_Through_Product__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__ProductDescription__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__ProductDescription__c</label>
+                </value>
+                <value>
+                    <fullName>LM_Copy_1__c</fullName>
+                    <default>false</default>
+                    <label>LM_Copy_1__c</label>
+                </value>
+                <value>
+                    <fullName>LM_Copy_2__c</fullName>
+                    <default>false</default>
+                    <label>LM_Copy_2__c</label>
+                </value>
+                <value>
+                    <fullName>LM_Copy_3__c</fullName>
+                    <default>false</default>
+                    <label>LM_Copy_3__c</label>
+                </value>
+                <value>
+                    <fullName>LM_QTY_1__c</fullName>
+                    <default>false</default>
+                    <label>LM_QTY_1__c</label>
+                </value>
+                <value>
+                    <fullName>LM_QTY_2__c</fullName>
+                    <default>false</default>
+                    <label>LM_QTY_2__c</label>
+                </value>
+                <value>
+                    <fullName>LM_QTY_3__c</fullName>
+                    <default>false</default>
+                    <label>LM_QTY_3__c</label>
+                </value>
+                <value>
+                    <fullName>Non_GS_Cost__c</fullName>
+                    <default>false</default>
+                    <label>Non_GS_Cost__c</label>
+                </value>
+                <value>
+                    <fullName>Cost_Percentage__c</fullName>
+                    <default>false</default>
+                    <label>Cost_Percentage__c</label>
+                </value>
+                <value>
+                    <fullName>Costing_Method__c</fullName>
+                    <default>false</default>
+                    <label>Costing_Method__c</label>
+                </value>
+                <value>
+                    <fullName>Margin__c</fullName>
+                    <default>false</default>
+                    <label>Margin__c</label>
+                </value>
+                <value>
+                    <fullName>Quote_Line_Product_External_SKU_DH_2_0__c</fullName>
+                    <default>false</default>
+                    <label>Quote_Line_Product_External_SKU_DH_2_0__c</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Quote</controllingFieldValue>
+                <valueName>Group Line Items</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote</controllingFieldValue>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Quote Line Group</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>SBQQ__ProductCode__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <valueName>External_SKU_DH_2_0__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <valueName>Revenue_Type__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <valueName>ProdType__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <valueName>GS_Cost__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <valueName>Non_GS_Cost__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <valueName>Cost_Percentage__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <valueName>Costing_Method__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <valueName>Margin__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <valueName>Quote_Line_Product_External_SKU_DH_2_0__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Unit Price</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>RR_Edition__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <valueName>SBQQ__QuoteLineVisibility__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <valueName>Pass_Through_Product__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <valueName>SBQQ__ProductDescription__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>LM_Copy_1__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>LM_Copy_2__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>LM_Copy_3__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>LM_QTY_1__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>LM_QTY_2__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>LM_QTY_3__c</valueName>
+            </valueSettings>
+        </valueSet>
+    </CustomField>

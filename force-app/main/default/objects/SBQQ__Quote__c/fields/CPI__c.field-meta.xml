@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CPI__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the local CPI that should apply</inlineHelpText>
+        <label>CPI</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>US CPI-U</fullName>
+                    <default>false</default>
+                    <label>US CPI-U</label>
+                </value>
+                <value>
+                    <fullName>US CPI-U G&amp;S</fullName>
+                    <default>false</default>
+                    <label>US CPI-U G&amp;S</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

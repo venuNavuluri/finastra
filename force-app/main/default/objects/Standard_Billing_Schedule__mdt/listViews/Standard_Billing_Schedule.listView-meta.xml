@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Standard_Billing_Schedule</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>Billing_Term__c</columns>
+    <columns>Milestone_Name__c</columns>
+    <columns>ProdType__c</columns>
+    <columns>Percentage__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Standard Billing Schedule</label>
+</ListView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Renewal_Line_Discount_Reset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Set to True after the Discount is removed from the Renewed Quote Line</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set to True after the Discount is removed from the Renewed Quote Line</inlineHelpText>
+        <label>Renewal Line Discount Reset</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

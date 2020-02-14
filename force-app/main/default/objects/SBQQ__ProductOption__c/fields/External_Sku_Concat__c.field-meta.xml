@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>External_Sku_Concat__c</fullName>
+        <description>Unique Product Option External ID.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Unique Product Option External ID.</inlineHelpText>
+        <label>Product Option External  ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

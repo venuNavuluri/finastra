@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AliasesShortNames__c</fullName>
+    <description>RUBX-594 : Sales - Shows the other popular name/s of an account; used in Partner Account creation process</description>
+    <externalId>false</externalId>
+    <label>Aliases/Short Names</label>
+    <length>80</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

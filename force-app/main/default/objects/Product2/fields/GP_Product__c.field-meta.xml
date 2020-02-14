@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>GP_Product__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This identifies that this Product is a GP Product RBX-478, RBX-463</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This identifies that this Product is a GP Product</inlineHelpText>
+        <label>GP Product</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </CustomField>

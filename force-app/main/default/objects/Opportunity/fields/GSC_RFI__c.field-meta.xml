@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GSC_RFI__c</fullName>
+    <description>RUBX-532 - Field to capture GSC RFI value</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select &quot;Requested&quot; if you require help with an RFI and enter date needed by and your local GSC team will be in touch with you</inlineHelpText>
+    <label>GSC RFI</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>In progress</fullName>
+                <default>false</default>
+                <label>In progress</label>
+            </value>
+            <value>
+                <fullName>Not required</fullName>
+                <default>false</default>
+                <label>Not required</label>
+            </value>
+            <value>
+                <fullName>Requested</fullName>
+                <default>false</default>
+                <label>Requested</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

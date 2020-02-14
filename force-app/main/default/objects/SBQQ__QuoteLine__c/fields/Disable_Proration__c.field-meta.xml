@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Disable_Proration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to remove CPQ Standard Proration calculation at the time of quoting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to remove CPQ Standard Proration calculation at the time of quoting.</inlineHelpText>
+        <label>Disable Proration</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

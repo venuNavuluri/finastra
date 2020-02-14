@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CPI_Index_Type__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>No Increase: No CPI increase should apply
+CAP: Finastra Standard rate should apply but apply specified CPI as CAP
+FIX: Specified CPI should apply
+None: CPI increase is a fixed rate e.g. 5%. (indicate 5% as min and max below).</inlineHelpText>
+    <label>CPI Index Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CAP</fullName>
+                <default>false</default>
+                <label>CAP</label>
+            </value>
+            <value>
+                <fullName>FIX</fullName>
+                <default>false</default>
+                <label>FIX</label>
+            </value>
+            <value>
+                <fullName>No Increase</fullName>
+                <default>false</default>
+                <label>No Increase</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

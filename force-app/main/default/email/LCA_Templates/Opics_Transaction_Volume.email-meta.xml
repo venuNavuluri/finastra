@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>RUBX-1021: Opics Transaction Volume Email Template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Finastra_Letterhead</letterhead>
+    <name>Opics Transaction Volume</name>
+    <style>freeForm</style>
+    <subject>Opics Transaction Volume</subject>
+    <textOnly>{!Contact.MailingAddress}
+
+Dear {!Contact.Name},
+
+Opics Transaction Volumes
+
+As part of our routine review process on the use of our software by our Clients, we request your cooperation in providing the required details of your software usage.
+
+We would appreciate if you could provide us a copy of transaction volumes covering 12 months cycle from the production database by downloading the &#39;OPICS audit tools_VBP.zip&#39; available on the Aspera ESD site. It contains the audit tool to use, as well as instructions on how to install and run the utility. Your login details to the ESD site are as follows:
+
+username:
+password:
+
+In addition, in order to have the updated information about your environment, we also require you to answer the following questions and email it to lcaudit@finastra.com:
+1. How many sites use your production system?
+2. Do you also have a backup environment?
+3. How is the data copied from your live environment to your backup environment? Do you use a hot or cold backup?
+4. What is the frequency of undertaking this data backup?
+
+Please submit, via return email to our Licence Compliance Audit Team, the generated reports and updated environment information within 7 days of the receipt of this letter.
+
+You may also contact the team for any questions, or if assistance is
+needed in running the utility.
+
+Thank you for your assistance.
+
+Yours Sincerely,
+
+{!User.Name}
+{!User.Title}, {!User.Division}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

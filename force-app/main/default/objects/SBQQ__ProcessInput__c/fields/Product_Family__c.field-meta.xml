@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Product_Family__c</fullName>
+        <externalId>false</externalId>
+        <label>Product_Family</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin</fullName>
+                    <default>false</default>
+                    <label>Admin</label>
+                </value>
+                <value>
+                    <fullName>CS</fullName>
+                    <default>false</default>
+                    <label>CS</label>
+                </value>
+                <value>
+                    <fullName>Hardware</fullName>
+                    <default>false</default>
+                    <label>Hardware</label>
+                </value>
+                <value>
+                    <fullName>Jrisk</fullName>
+                    <default>false</default>
+                    <label>Jrisk</label>
+                </value>
+                <value>
+                    <fullName>KGL</fullName>
+                    <default>false</default>
+                    <label>KGL</label>
+                </value>
+                <value>
+                    <fullName>KGR</fullName>
+                    <default>false</default>
+                    <label>KGR</label>
+                </value>
+                <value>
+                    <fullName>Kondor</fullName>
+                    <default>false</default>
+                    <label>Kondor</label>
+                </value>
+                <value>
+                    <fullName>KP Essential</fullName>
+                    <default>false</default>
+                    <label>KP Essential</label>
+                </value>
+                <value>
+                    <fullName>KTP</fullName>
+                    <default>false</default>
+                    <label>KTP</label>
+                </value>
+                <value>
+                    <fullName>KVAR</fullName>
+                    <default>false</default>
+                    <label>KVAR</label>
+                </value>
+                <value>
+                    <fullName>Numerix</fullName>
+                    <default>false</default>
+                    <label>Numerix</label>
+                </value>
+                <value>
+                    <fullName>Pricing Partners</fullName>
+                    <default>false</default>
+                    <label>Pricing Partners</label>
+                </value>
+                <value>
+                    <fullName>PS</fullName>
+                    <default>false</default>
+                    <label>PS</label>
+                </value>
+                <value>
+                    <fullName>Sybase</fullName>
+                    <default>false</default>
+                    <label>Sybase</label>
+                </value>
+                <value>
+                    <fullName>Third Party</fullName>
+                    <default>false</default>
+                    <label>Third Party</label>
+                </value>
+                <value>
+                    <fullName>TIBCO</fullName>
+                    <default>false</default>
+                    <label>TIBCO</label>
+                </value>
+                <value>
+                    <fullName>TopOffice</fullName>
+                    <default>false</default>
+                    <label>TopOffice</label>
+                </value>
+                <value>
+                    <fullName>ILF (B)</fullName>
+                    <default>false</default>
+                    <label>ILF (B)</label>
+                </value>
+                <value>
+                    <fullName>ILF (T)</fullName>
+                    <default>false</default>
+                    <label>ILF (T)</label>
+                </value>
+                <value>
+                    <fullName>ILF (S)</fullName>
+                    <default>false</default>
+                    <label>ILF (S)</label>
+                </value>
+                <value>
+                    <fullName>ILF (K)</fullName>
+                    <default>false</default>
+                    <label>ILF (K)</label>
+                </value>
+                <value>
+                    <fullName>RLF (B)</fullName>
+                    <default>false</default>
+                    <label>RLF (B)</label>
+                </value>
+                <value>
+                    <fullName>RLF (T)</fullName>
+                    <default>false</default>
+                    <label>RLF (T)</label>
+                </value>
+                <value>
+                    <fullName>RLF (S)</fullName>
+                    <default>false</default>
+                    <label>RLF (S)</label>
+                </value>
+                <value>
+                    <fullName>RLF (K)</fullName>
+                    <default>false</default>
+                    <label>RLF (K)</label>
+                </value>
+                <value>
+                    <fullName>PS (B)</fullName>
+                    <default>false</default>
+                    <label>PS (B)</label>
+                </value>
+                <value>
+                    <fullName>PS (T)</fullName>
+                    <default>false</default>
+                    <label>PS (T)</label>
+                </value>
+                <value>
+                    <fullName>PS (S)</fullName>
+                    <default>false</default>
+                    <label>PS (S)</label>
+                </value>
+                <value>
+                    <fullName>PS (K)</fullName>
+                    <default>false</default>
+                    <label>PS (K)</label>
+                </value>
+                <value>
+                    <fullName>FD (B)</fullName>
+                    <default>false</default>
+                    <label>FD (B)</label>
+                </value>
+                <value>
+                    <fullName>FD (T)</fullName>
+                    <default>false</default>
+                    <label>FD (T)</label>
+                </value>
+                <value>
+                    <fullName>FD (S)</fullName>
+                    <default>false</default>
+                    <label>FD (S)</label>
+                </value>
+                <value>
+                    <fullName>FD (K)</fullName>
+                    <default>false</default>
+                    <label>FD (K)</label>
+                </value>
+                <value>
+                    <fullName>ASP (B)</fullName>
+                    <default>false</default>
+                    <label>ASP (B)</label>
+                </value>
+                <value>
+                    <fullName>ASP (T)</fullName>
+                    <default>false</default>
+                    <label>ASP (T)</label>
+                </value>
+                <value>
+                    <fullName>ASP (S)</fullName>
+                    <default>false</default>
+                    <label>ASP (S)</label>
+                </value>
+                <value>
+                    <fullName>ASP (K)</fullName>
+                    <default>false</default>
+                    <label>ASP (K)</label>
+                </value>
+                <value>
+                    <fullName>PSS (B)</fullName>
+                    <default>false</default>
+                    <label>PSS (B)</label>
+                </value>
+                <value>
+                    <fullName>PSS (T)</fullName>
+                    <default>false</default>
+                    <label>PSS (T)</label>
+                </value>
+                <value>
+                    <fullName>PSS (S)</fullName>
+                    <default>false</default>
+                    <label>PSS (S)</label>
+                </value>
+                <value>
+                    <fullName>PSS (K)</fullName>
+                    <default>false</default>
+                    <label>PSS (K)</label>
+                </value>
+                <value>
+                    <fullName>MLS (B)</fullName>
+                    <default>false</default>
+                    <label>MLS (B)</label>
+                </value>
+                <value>
+                    <fullName>MLS (T)</fullName>
+                    <default>false</default>
+                    <label>MLS (T)</label>
+                </value>
+                <value>
+                    <fullName>MLS (S)</fullName>
+                    <default>false</default>
+                    <label>MLS (S)</label>
+                </value>
+                <value>
+                    <fullName>EDI</fullName>
+                    <default>false</default>
+                    <label>EDI</label>
+                </value>
+                <value>
+                    <fullName>PS (G)</fullName>
+                    <default>false</default>
+                    <label>PS (G)</label>
+                </value>
+                <value>
+                    <fullName>HW</fullName>
+                    <default>false</default>
+                    <label>HW</label>
+                </value>
+                <value>
+                    <fullName>PS (CM)</fullName>
+                    <default>false</default>
+                    <label>PS (CM)</label>
+                </value>
+                <value>
+                    <fullName>PS (CB)</fullName>
+                    <default>false</default>
+                    <label>PS (CB)</label>
+                </value>
+                <value>
+                    <fullName>PS (TB)</fullName>
+                    <default>false</default>
+                    <label>PS (TB)</label>
+                </value>
+                <value>
+                    <fullName>PS (IM)</fullName>
+                    <default>false</default>
+                    <label>PS (IM)</label>
+                </value>
+                <value>
+                    <fullName>PS (CL)</fullName>
+                    <default>false</default>
+                    <label>PS (CL)</label>
+                </value>
+                <value>
+                    <fullName>PS (ER)</fullName>
+                    <default>false</default>
+                    <label>PS (ER)</label>
+                </value>
+                <value>
+                    <fullName>FD (CM)</fullName>
+                    <default>false</default>
+                    <label>FD (CM)</label>
+                </value>
+                <value>
+                    <fullName>FD (CB)</fullName>
+                    <default>false</default>
+                    <label>FD (CB)</label>
+                </value>
+                <value>
+                    <fullName>FD (TB)</fullName>
+                    <default>false</default>
+                    <label>FD (TB)</label>
+                </value>
+                <value>
+                    <fullName>FD (IM)</fullName>
+                    <default>false</default>
+                    <label>FD (IM)</label>
+                </value>
+                <value>
+                    <fullName>FD (CL)</fullName>
+                    <default>false</default>
+                    <label>FD (CL)</label>
+                </value>
+                <value>
+                    <fullName>FD (ER)</fullName>
+                    <default>false</default>
+                    <label>FD (ER)</label>
+                </value>
+                <value>
+                    <fullName>PSS (CM)</fullName>
+                    <default>false</default>
+                    <label>PSS (CM)</label>
+                </value>
+                <value>
+                    <fullName>PSS (CB)</fullName>
+                    <default>false</default>
+                    <label>PSS (CB)</label>
+                </value>
+                <value>
+                    <fullName>PSS (TB)</fullName>
+                    <default>false</default>
+                    <label>PSS (TB)</label>
+                </value>
+                <value>
+                    <fullName>PSS (IM)</fullName>
+                    <default>false</default>
+                    <label>PSS (IM)</label>
+                </value>
+                <value>
+                    <fullName>PSS (CL)</fullName>
+                    <default>false</default>
+                    <label>PSS (CL)</label>
+                </value>
+                <value>
+                    <fullName>PSS (ER)</fullName>
+                    <default>false</default>
+                    <label>PSS (ER)</label>
+                </value>
+                <value>
+                    <fullName>SUB (CM)</fullName>
+                    <default>false</default>
+                    <label>SUB (CM)</label>
+                </value>
+                <value>
+                    <fullName>SUB (CB)</fullName>
+                    <default>false</default>
+                    <label>SUB (CB)</label>
+                </value>
+                <value>
+                    <fullName>SUB (TB)</fullName>
+                    <default>false</default>
+                    <label>SUB (TB)</label>
+                </value>
+                <value>
+                    <fullName>SUB (IM)</fullName>
+                    <default>false</default>
+                    <label>SUB (IM)</label>
+                </value>
+                <value>
+                    <fullName>SUB (CL)</fullName>
+                    <default>false</default>
+                    <label>SUB (CL)</label>
+                </value>
+                <value>
+                    <fullName>SUB (ER)</fullName>
+                    <default>false</default>
+                    <label>SUB (ER)</label>
+                </value>
+                <value>
+                    <fullName>HOS (CM)</fullName>
+                    <default>false</default>
+                    <label>HOS (CM)</label>
+                </value>
+                <value>
+                    <fullName>HOS (CB)</fullName>
+                    <default>false</default>
+                    <label>HOS (CB)</label>
+                </value>
+                <value>
+                    <fullName>HOS (TB)</fullName>
+                    <default>false</default>
+                    <label>HOS (TB)</label>
+                </value>
+                <value>
+                    <fullName>HOS (IM)</fullName>
+                    <default>false</default>
+                    <label>HOS (IM)</label>
+                </value>
+                <value>
+                    <fullName>HOS (CL)</fullName>
+                    <default>false</default>
+                    <label>HOS (CL)</label>
+                </value>
+                <value>
+                    <fullName>HOS (ER)</fullName>
+                    <default>false</default>
+                    <label>HOS (ER)</label>
+                </value>
+                <value>
+                    <fullName>ILF (CM)</fullName>
+                    <default>false</default>
+                    <label>ILF (CM)</label>
+                </value>
+                <value>
+                    <fullName>ILF (CB)</fullName>
+                    <default>false</default>
+                    <label>ILF (CB)</label>
+                </value>
+                <value>
+                    <fullName>ILF (TB)</fullName>
+                    <default>false</default>
+                    <label>ILF (TB)</label>
+                </value>
+                <value>
+                    <fullName>ILF (IM)</fullName>
+                    <default>false</default>
+                    <label>ILF (IM)</label>
+                </value>
+                <value>
+                    <fullName>ILF (CL)</fullName>
+                    <default>false</default>
+                    <label>ILF (CL)</label>
+                </value>
+                <value>
+                    <fullName>ILF (ER)</fullName>
+                    <default>false</default>
+                    <label>ILF (ER)</label>
+                </value>
+                <value>
+                    <fullName>RLF (CM)</fullName>
+                    <default>false</default>
+                    <label>RLF (CM)</label>
+                </value>
+                <value>
+                    <fullName>RLF (CB)</fullName>
+                    <default>false</default>
+                    <label>RLF (CB)</label>
+                </value>
+                <value>
+                    <fullName>RLF (TB)</fullName>
+                    <default>false</default>
+                    <label>RLF (TB)</label>
+                </value>
+                <value>
+                    <fullName>RLF (IM)</fullName>
+                    <default>false</default>
+                    <label>RLF (IM)</label>
+                </value>
+                <value>
+                    <fullName>RLF (CL)</fullName>
+                    <default>false</default>
+                    <label>RLF (CL)</label>
+                </value>
+                <value>
+                    <fullName>RLF (ER)</fullName>
+                    <default>false</default>
+                    <label>RLF (ER)</label>
+                </value>
+                <value>
+                    <fullName>CLD (CB)</fullName>
+                    <default>false</default>
+                    <label>CLD (CB)</label>
+                </value>
+                <value>
+                    <fullName>CLD (CL)</fullName>
+                    <default>false</default>
+                    <label>CLD (CL)</label>
+                </value>
+                <value>
+                    <fullName>CLD (CM)</fullName>
+                    <default>false</default>
+                    <label>CLD (CM)</label>
+                </value>
+                <value>
+                    <fullName>CLD (ER)</fullName>
+                    <default>false</default>
+                    <label>CLD (ER)</label>
+                </value>
+                <value>
+                    <fullName>CLD (IM)</fullName>
+                    <default>false</default>
+                    <label>CLD (IM)</label>
+                </value>
+                <value>
+                    <fullName>CLD (TB)</fullName>
+                    <default>false</default>
+                    <label>CLD (TB)</label>
+                </value>
+                <value>
+                    <fullName>ILF (XX)</fullName>
+                    <default>false</default>
+                    <label>ILF (XX)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

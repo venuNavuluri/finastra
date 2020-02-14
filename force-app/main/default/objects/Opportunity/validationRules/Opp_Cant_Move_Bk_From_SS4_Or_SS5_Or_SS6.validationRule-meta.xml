@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opp_Cant_Move_Bk_From_SS4_Or_SS5_Or_SS6</fullName>
+    <active>true</active>
+    <description>RUBX-853: Opportunity cannot move back to SS3, SS2 or SS1 from SS4 (once qualified)
+RUBX-3618: SS4, SS5 and SS6 cannot regress to SS3 or lower</description>
+    <errorConditionFormula>AND (
+    NOT($Setup.Bypass_Validations__c.Disable__c),
+				ISCHANGED(StageName),
+    
+				OR(
+								ISPICKVAL(PRIORVALUE(StageName),&quot;4. Develop&quot;),
+								ISPICKVAL(PRIORVALUE(StageName),&quot;5. Prove&quot;),
+								ISPICKVAL(PRIORVALUE(StageName),&quot;6. Negotiate&quot;)
+				),
+				OR(
+								ISPICKVAL(StageName, &quot;1. Prospect&quot;),
+								ISPICKVAL(StageName, &quot;2. Create&quot;),
+								ISPICKVAL(StageName, &quot;3. Qualify&quot;)
+				)
+)</errorConditionFormula>
+    <errorMessage>Opportunity is qualified when in SS4 or SS5 or SS6 cannot be moved back to SS3 , SS2 or SS1</errorMessage>
+</ValidationRule>

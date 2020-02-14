@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Release_Notes</fullName>
+    <active>true</active>
+    <description>Describes the enhancements, fixes, and new functionality included in a specific release. Special permissions are required to add / edit content for this article type. Important! Content for this article type will only be available for certain products.</description>
+    <label>Release Notes</label>
+    <picklistValues>
+        <picklist>Financial_Institution_Type__c</picklist>
+        <values>
+            <fullName>Bank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Union</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mortgage</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Host_Location__c</picklist>
+        <values>
+            <fullName>Client Hosted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client and Finastra Hosted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finastra Hosted</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_Genre__c</picklist>
+        <values>
+            <fullName>Branch Automation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Business Intelligence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compliance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Core Solutions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enterprise Content Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enterprise Solutions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Accounting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loan Servicing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mortgage Lending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payments %2F Item Processing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Risk Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Service</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Required_NET_Framework_Versions__c</picklist>
+        <values>
+            <fullName>%2ENET 1%2E1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2ENET 2%2E0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2ENET 3%2E0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2ENET 3%2E5%2E1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2ENET 4%2E0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2ENET 4%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2ENET 4%2E5%2E2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2ENET 4%2E6</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Support_Status__c</picklist>
+        <values>
+            <fullName>Current</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End of Life</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Future</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supported_Client_Operating_Systems__c</picklist>
+        <values>
+            <fullName>Windows 10 Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Windows 7 %2832-bit%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Windows 7 %2864-bit%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Windows 8 %2832-bit%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Windows 8 %2864-bit%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Windows Vista %2832-bit%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Windows Vista %2864-bit%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Windows XP %2832-bit%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Windows XP %2864-bit%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supported_DBMS__c</picklist>
+        <values>
+            <fullName>Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SQL Server 2005</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SQL Server 2008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SQL Server 2008 R2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SQL Server 2012</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SQL Server 2014</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UniData</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supported_Internet_Browsers__c</picklist>
+        <values>
+            <fullName>Internet Explorer 10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internet Explorer 11</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internet Explorer 6 SP1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internet Explorer 7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internet Explorer 8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internet Explorer 9</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supported_Server_Operating_Systems__c</picklist>
+        <values>
+            <fullName>AIX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Server 2003 32-bit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Server 2003 64-bit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Server 2008 32-bit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Server 2008 64-bit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Server 2008 R2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Server 2012</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Server 2012 R2</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

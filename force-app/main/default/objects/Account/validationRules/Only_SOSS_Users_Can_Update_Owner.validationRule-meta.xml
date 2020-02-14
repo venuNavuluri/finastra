@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_SOSS_Users_Can_Update_Owner</fullName>
+    <active>true</active>
+    <description>RUBX-449: Rule to allow only SOSS team to update account owner.
+RUBX-1033: Change Account ownership to Sales after first opty is handed off</description>
+    <errorConditionFormula>AND (
+    NOT($Setup.Bypass_Validations__c.Disable__c), 
+    $Profile.Name &lt;&gt; &quot;SOSS User&quot;,
+				$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+				ISCHANGED(OwnerId)
+)</errorConditionFormula>
+    <errorMessage>Only SOSS users can update Account Owner.</errorMessage>
+</ValidationRule>

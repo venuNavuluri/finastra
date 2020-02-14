@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBU_Strategic_Business_Unit__c</fullName>
+    <externalId>false</externalId>
+    <label>SBU (Strategic Business Unit)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>MainProduct__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NACM</fullName>
+                <default>false</default>
+                <label>NACM</label>
+            </value>
+            <value>
+                <fullName>ENT</fullName>
+                <default>false</default>
+                <label>ENT</label>
+            </value>
+            <value>
+                <fullName>FM</fullName>
+                <default>false</default>
+                <label>FM</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>TradeWatch</controllingFieldValue>
+            <controllingFieldValue>US Payments</controllingFieldValue>
+            <controllingFieldValue>Fusion Cash Management</controllingFieldValue>
+            <controllingFieldValue>Credit Risk Vantage</controllingFieldValue>
+            <controllingFieldValue>Eagleye</controllingFieldValue>
+            <controllingFieldValue>FB Cash Management</controllingFieldValue>
+            <controllingFieldValue>FB Corporate Channels</controllingFieldValue>
+            <controllingFieldValue>FB Credit Management Enterprise</controllingFieldValue>
+            <controllingFieldValue>FB Equation</controllingFieldValue>
+            <controllingFieldValue>FB Essence</controllingFieldValue>
+            <controllingFieldValue>Almonde</controllingFieldValue>
+            <controllingFieldValue>Bankmaster</controllingFieldValue>
+            <controllingFieldValue>Cashier</controllingFieldValue>
+            <controllingFieldValue>Cash Portal</controllingFieldValue>
+            <controllingFieldValue>CLX</controllingFieldValue>
+            <controllingFieldValue>FB Essence Digital Sales</controllingFieldValue>
+            <controllingFieldValue>FB Essence Gameo</controllingFieldValue>
+            <controllingFieldValue>FB Essence IPD</controllingFieldValue>
+            <controllingFieldValue>FB Essence Islamic</controllingFieldValue>
+            <controllingFieldValue>FB Essence Loan Origination</controllingFieldValue>
+            <controllingFieldValue>FB Essence Mobile</controllingFieldValue>
+            <controllingFieldValue>FB Essence Mobile PFM</controllingFieldValue>
+            <controllingFieldValue>FB Essence Online</controllingFieldValue>
+            <controllingFieldValue>FB Essence Party Management</controllingFieldValue>
+            <controllingFieldValue>FB Essence PFM</controllingFieldValue>
+            <controllingFieldValue>FB Essence Single Customer View</controllingFieldValue>
+            <controllingFieldValue>FB Essence Teller</controllingFieldValue>
+            <controllingFieldValue>FB Fees and Billing</controllingFieldValue>
+            <controllingFieldValue>FB Insight</controllingFieldValue>
+            <controllingFieldValue>FB Loan IQ</controllingFieldValue>
+            <controllingFieldValue>FB Meridian</controllingFieldValue>
+            <controllingFieldValue>FB Message Manager</controllingFieldValue>
+            <controllingFieldValue>FB Midas</controllingFieldValue>
+            <controllingFieldValue>FB Payment Manager</controllingFieldValue>
+            <controllingFieldValue>FB Trade Innovation</controllingFieldValue>
+            <controllingFieldValue>FC Global Components</controllingFieldValue>
+            <controllingFieldValue>FC Kondor</controllingFieldValue>
+            <controllingFieldValue>FC Opics</controllingFieldValue>
+            <controllingFieldValue>FC PTP</controllingFieldValue>
+            <controllingFieldValue>FC Sophis</controllingFieldValue>
+            <controllingFieldValue>FC Summit</controllingFieldValue>
+            <controllingFieldValue>FusionBanking Corporate Banking</controllingFieldValue>
+            <controllingFieldValue>FusionBanking Corporate Portal</controllingFieldValue>
+            <controllingFieldValue>FusionInvest</controllingFieldValue>
+            <controllingFieldValue>FusionRisk</controllingFieldValue>
+            <controllingFieldValue>Global Cash Pooling</controllingFieldValue>
+            <controllingFieldValue>IND Solutions (B)</controllingFieldValue>
+            <controllingFieldValue>iSophis (S)</controllingFieldValue>
+            <controllingFieldValue>KGR</controllingFieldValue>
+            <controllingFieldValue>Kondor Trade Processing</controllingFieldValue>
+            <controllingFieldValue>KVAR</controllingFieldValue>
+            <controllingFieldValue>Loan Portal</controllingFieldValue>
+            <controllingFieldValue>Meridian Middleware</controllingFieldValue>
+            <controllingFieldValue>Midas</controllingFieldValue>
+            <controllingFieldValue>Misys Business Intelligence (B)</controllingFieldValue>
+            <controllingFieldValue>Misys Message Manager (B)</controllingFieldValue>
+            <controllingFieldValue>Misys Mobile (B)</controllingFieldValue>
+            <controllingFieldValue>Misys Origination</controllingFieldValue>
+            <controllingFieldValue>Misys Payment Manager (B)</controllingFieldValue>
+            <controllingFieldValue>Misys Portfolio Dashboard (S)</controllingFieldValue>
+            <controllingFieldValue>Misys Risk</controllingFieldValue>
+            <controllingFieldValue>Misys Risk (S)</controllingFieldValue>
+            <controllingFieldValue>Misys RRS</controllingFieldValue>
+            <controllingFieldValue>Opics Risk Plus</controllingFieldValue>
+            <controllingFieldValue>Personal Finance Portal</controllingFieldValue>
+            <controllingFieldValue>Portal For FC Opics</controllingFieldValue>
+            <controllingFieldValue>Global Payments - FTS</controllingFieldValue>
+            <controllingFieldValue>Global Payments - Global PAYplus</controllingFieldValue>
+            <controllingFieldValue>Risk Vision</controllingFieldValue>
+            <controllingFieldValue>SigCap</controllingFieldValue>
+            <controllingFieldValue>Smartstream (TLM/Corona)</controllingFieldValue>
+            <controllingFieldValue>ST-Pymnts</controllingFieldValue>
+            <controllingFieldValue>Sybase</controllingFieldValue>
+            <controllingFieldValue>Trade Portal</controllingFieldValue>
+            <valueName>ENT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>---P&amp;C Products---</controllingFieldValue>
+            <controllingFieldValue>FB CrowdLending</controllingFieldValue>
+            <controllingFieldValue>ARIS</controllingFieldValue>
+            <controllingFieldValue>Carbon Trading</controllingFieldValue>
+            <controllingFieldValue>CMS</controllingFieldValue>
+            <controllingFieldValue>Confirmation Matching Services</controllingFieldValue>
+            <controllingFieldValue>GeoGuard (B)</controllingFieldValue>
+            <controllingFieldValue>GMS Service Bureau</controllingFieldValue>
+            <controllingFieldValue>InFusion Partner Programme</controllingFieldValue>
+            <controllingFieldValue>Integro</controllingFieldValue>
+            <controllingFieldValue>Loan Coordinator (T)</controllingFieldValue>
+            <controllingFieldValue>Misys MERS</controllingFieldValue>
+            <controllingFieldValue>MTP Multibank</controllingFieldValue>
+            <controllingFieldValue>Prometeia</controllingFieldValue>
+            <controllingFieldValue>Third Party</controllingFieldValue>
+            <controllingFieldValue>TopOffice</controllingFieldValue>
+            <valueName>N/A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CLS</controllingFieldValue>
+            <controllingFieldValue>FM - Other</controllingFieldValue>
+            <controllingFieldValue>FM - RT Platform</controllingFieldValue>
+            <controllingFieldValue>EIPP</controllingFieldValue>
+            <controllingFieldValue>BACS</controllingFieldValue>
+            <controllingFieldValue>FM - Total Messaging/Screening</controllingFieldValue>
+            <valueName>FM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payments - Internet Payments</controllingFieldValue>
+            <controllingFieldValue>Payments - RDC</controllingFieldValue>
+            <controllingFieldValue>Credit Quest</controllingFieldValue>
+            <controllingFieldValue>Other FS Product</controllingFieldValue>
+            <valueName>NACM</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

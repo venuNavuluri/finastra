@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_NET_Framework_Versions__c</fullName>
+    <description>RUBX-2419 – REQ-1857-Select a System Requirements Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <label>Required .NET Framework Versions</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>.NET 4.6</fullName>
+                <default>false</default>
+                <label>.NET 4.6</label>
+            </value>
+            <value>
+                <fullName>.NET 4.5.2</fullName>
+                <default>false</default>
+                <label>.NET 4.5.2</label>
+            </value>
+            <value>
+                <fullName>.NET 4.5</fullName>
+                <default>false</default>
+                <label>.NET 4.5</label>
+            </value>
+            <value>
+                <fullName>.NET 4.0</fullName>
+                <default>false</default>
+                <label>.NET 4.0</label>
+            </value>
+            <value>
+                <fullName>.NET 3.5.1</fullName>
+                <default>false</default>
+                <label>.NET 3.5.1</label>
+            </value>
+            <value>
+                <fullName>.NET 3.0</fullName>
+                <default>false</default>
+                <label>.NET 3.0</label>
+            </value>
+            <value>
+                <fullName>.NET 2.0</fullName>
+                <default>false</default>
+                <label>.NET 2.0</label>
+            </value>
+            <value>
+                <fullName>.NET 1.1</fullName>
+                <default>false</default>
+                <label>.NET 1.1</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

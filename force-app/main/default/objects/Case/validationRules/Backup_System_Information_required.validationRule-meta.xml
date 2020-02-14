@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Backup_System_Information_required</fullName>
+    <active>true</active>
+    <description>RUBX-1164: LCA Case Field Validation</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &#39;License_Compliance_Audit&#39;,
+OR(ISPICKVAL(Status, &#39;Result for Concurrence&#39;),ISPICKVAL(Status, &#39;Audited - Pending Opportunity&#39;),ISPICKVAL(Status, &#39;Audited (Closed)&#39;)),
+ISPICKVAL(  Backup_System_s_Information__c, &#39;&#39; ),
+ISPICKVAL( System_Environment__c ,&#39;Production&#39;),
+NOT($Setup.Bypass_Validations__c.Disable__c)
+)</errorConditionFormula>
+    <errorDisplayField>Backup_System_s_Information__c</errorDisplayField>
+    <errorMessage>Backup System(s) Information is required.</errorMessage>
+</ValidationRule>

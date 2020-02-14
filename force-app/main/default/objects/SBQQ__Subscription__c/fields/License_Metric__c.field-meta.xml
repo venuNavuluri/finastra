@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License_Metric__c</fullName>
+    <description>This field contains the License Metric from the Subscription&#39;s Product.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field contains the License Metric from the Subscription&#39;s Product.</inlineHelpText>
+    <label>License Metric</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>License_Metrics</valueSetName>
+    </valueSet>
+</CustomField>

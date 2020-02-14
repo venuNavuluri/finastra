@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Accounts</fullName>
+        <default>false</default>
+        <label>Accounts</label>
+    </customValue>
+    <customValue>
+        <fullName>Assets</fullName>
+        <default>false</default>
+        <label>Assets</label>
+    </customValue>
+    <customValue>
+        <fullName>Days</fullName>
+        <default>false</default>
+        <label>Days</label>
+    </customValue>
+    <customValue>
+        <fullName>Institutions</fullName>
+        <default>false</default>
+        <label>Institutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Sites</fullName>
+        <default>false</default>
+        <label>Sites</label>
+    </customValue>
+    <customValue>
+        <fullName>Workstations</fullName>
+        <default>false</default>
+        <label>Workstations</label>
+    </customValue>
+    <customValue>
+        <fullName>Devices</fullName>
+        <default>false</default>
+        <label>Devices</label>
+    </customValue>
+    <customValue>
+        <fullName>Households</fullName>
+        <default>false</default>
+        <label>Households</label>
+    </customValue>
+    <customValue>
+        <fullName>Qty</fullName>
+        <default>false</default>
+        <label>Qty</label>
+    </customValue>
+    <customValue>
+        <fullName>Branches</fullName>
+        <default>false</default>
+        <label>Branches</label>
+    </customValue>
+    <customValue>
+        <fullName>Host</fullName>
+        <default>false</default>
+        <label>Host</label>
+    </customValue>
+    <customValue>
+        <fullName>Hours</fullName>
+        <default>false</default>
+        <label>Hours</label>
+    </customValue>
+    <customValue>
+        <fullName>Null</fullName>
+        <default>false</default>
+        <label>Null</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer Loan Applications</fullName>
+        <default>false</default>
+        <label>Consumer Loan Applications</label>
+    </customValue>
+    <customValue>
+        <fullName>Home Equity Applications</fullName>
+        <default>false</default>
+        <label>Home Equity Applications</label>
+    </customValue>
+    <customValue>
+        <fullName>Imaged Files</fullName>
+        <default>false</default>
+        <label>Imaged Files</label>
+    </customValue>
+    <customValue>
+        <fullName>Closed Loans</fullName>
+        <default>false</default>
+        <label>Closed Loans</label>
+    </customValue>
+    <customValue>
+        <fullName>Submitted Applications</fullName>
+        <default>false</default>
+        <label>Submitted Applications</label>
+    </customValue>
+    <customValue>
+        <fullName>Transactions</fullName>
+        <default>false</default>
+        <label>Transactions</label>
+    </customValue>
+    <customValue>
+        <fullName>Documents</fullName>
+        <default>false</default>
+        <label>Documents</label>
+    </customValue>
+    <customValue>
+        <fullName>Pages</fullName>
+        <default>false</default>
+        <label>Pages</label>
+    </customValue>
+    <customValue>
+        <fullName>Peak Total Items</fullName>
+        <default>false</default>
+        <label>Peak Total Items</label>
+    </customValue>
+    <customValue>
+        <fullName>Reports</fullName>
+        <default>false</default>
+        <label>Reports</label>
+    </customValue>
+    <customValue>
+        <fullName>Quantity</fullName>
+        <default>false</default>
+        <label>Quantity</label>
+    </customValue>
+    <customValue>
+        <fullName>Seats</fullName>
+        <default>false</default>
+        <label>Seats</label>
+    </customValue>
+    <customValue>
+        <fullName>Deposit Applications</fullName>
+        <default>false</default>
+        <label>Deposit Applications</label>
+    </customValue>
+    <customValue>
+        <fullName>Loan Applications</fullName>
+        <default>false</default>
+        <label>Loan Applications</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Applications</fullName>
+        <default>false</default>
+        <label>Business Applications</label>
+    </customValue>
+    <customValue>
+        <fullName>ATM Cards</fullName>
+        <default>false</default>
+        <label>ATM Cards</label>
+    </customValue>
+    <customValue>
+        <fullName>ATM Transactions (excludes On-Us)</fullName>
+        <default>false</default>
+        <label>ATM Transactions (excludes On-Us)</label>
+    </customValue>
+    <customValue>
+        <fullName>ATMs</fullName>
+        <default>false</default>
+        <label>ATMs</label>
+    </customValue>
+    <customValue>
+        <fullName>Debit Cards</fullName>
+        <default>false</default>
+        <label>Debit Cards</label>
+    </customValue>
+    <customValue>
+        <fullName>Employees</fullName>
+        <default>false</default>
+        <label>Employees</label>
+    </customValue>
+    <customValue>
+        <fullName>Imaged Statements</fullName>
+        <default>false</default>
+        <label>Imaged Statements</label>
+    </customValue>
+    <customValue>
+        <fullName>Inclearings</fullName>
+        <default>false</default>
+        <label>Inclearings</label>
+    </customValue>
+    <customValue>
+        <fullName>Licenses</fullName>
+        <default>false</default>
+        <label>Licenses</label>
+    </customValue>
+    <customValue>
+        <fullName>Loans</fullName>
+        <default>false</default>
+        <label>Loans</label>
+    </customValue>
+    <customValue>
+        <fullName>Members</fullName>
+        <default>false</default>
+        <label>Members</label>
+    </customValue>
+    <customValue>
+        <fullName>Minutes</fullName>
+        <default>false</default>
+        <label>Minutes</label>
+    </customValue>
+    <customValue>
+        <fullName>PIN Transactions</fullName>
+        <default>false</default>
+        <label>PIN Transactions</label>
+    </customValue>
+    <customValue>
+        <fullName>Ports</fullName>
+        <default>false</default>
+        <label>Ports</label>
+    </customValue>
+    <customValue>
+        <fullName>Posted Signature Transactions</fullName>
+        <default>false</default>
+        <label>Posted Signature Transactions</label>
+    </customValue>
+    <customValue>
+        <fullName>Printers</fullName>
+        <default>false</default>
+        <label>Printers</label>
+    </customValue>
+    <customValue>
+        <fullName>Returns</fullName>
+        <default>false</default>
+        <label>Returns</label>
+    </customValue>
+    <customValue>
+        <fullName>Servers</fullName>
+        <default>false</default>
+        <label>Servers</label>
+    </customValue>
+    <customValue>
+        <fullName>Signature Authorizations</fullName>
+        <default>false</default>
+        <label>Signature Authorizations</label>
+    </customValue>
+    <customValue>
+        <fullName>Truncated Statements</fullName>
+        <default>false</default>
+        <label>Truncated Statements</label>
+    </customValue>
+    <customValue>
+        <fullName>Users</fullName>
+        <default>false</default>
+        <label>Users</label>
+    </customValue>
+    <customValue>
+        <fullName>Active Cards</fullName>
+        <default>false</default>
+        <label>Active Cards</label>
+    </customValue>
+    <customValue>
+        <fullName>A2A Transactions</fullName>
+        <default>false</default>
+        <label>A2A Transactions</label>
+    </customValue>
+    <customValue>
+        <fullName>P2P Transactions</fullName>
+        <default>false</default>
+        <label>P2P Transactions</label>
+    </customValue>
+    <customValue>
+        <fullName>ACHplus Interfaces</fullName>
+        <default>false</default>
+        <label>ACHplus Interfaces</label>
+    </customValue>
+    <customValue>
+        <fullName>BIC</fullName>
+        <default>false</default>
+        <label>BIC</label>
+    </customValue>
+    <customValue>
+        <fullName>Capability</fullName>
+        <default>false</default>
+        <label>Capability</label>
+    </customValue>
+    <customValue>
+        <fullName>Concurrent Users</fullName>
+        <default>false</default>
+        <label>Concurrent Users</label>
+    </customValue>
+    <customValue>
+        <fullName>Custom</fullName>
+        <default>false</default>
+        <label>Custom</label>
+    </customValue>
+    <customValue>
+        <fullName>Installations</fullName>
+        <default>false</default>
+        <label>Installations</label>
+    </customValue>
+    <customValue>
+        <fullName>Modules</fullName>
+        <default>false</default>
+        <label>Modules</label>
+    </customValue>
+    <customValue>
+        <fullName>Monthly Customers</fullName>
+        <default>false</default>
+        <label>Monthly Customers</label>
+    </customValue>
+    <customValue>
+        <fullName>Monthly Messaging</fullName>
+        <default>false</default>
+        <label>Monthly Messaging</label>
+    </customValue>
+    <customValue>
+        <fullName>Monthly Volume</fullName>
+        <default>false</default>
+        <label>Monthly Volume</label>
+    </customValue>
+    <customValue>
+        <fullName>PAYplus Interface/Vendor</fullName>
+        <default>false</default>
+        <label>PAYplus Interface/Vendor</label>
+    </customValue>
+    <customValue>
+        <fullName>PAYplus Interfaces</fullName>
+        <default>false</default>
+        <label>PAYplus Interfaces</label>
+    </customValue>
+    <customValue>
+        <fullName>Router/Model</fullName>
+        <default>false</default>
+        <label>Router/Model</label>
+    </customValue>
+    <customValue>
+        <fullName>Tokens</fullName>
+        <default>false</default>
+        <label>Tokens</label>
+    </customValue>
+    <customValue>
+        <fullName>Transactions/Vendor</fullName>
+        <default>false</default>
+        <label>Transactions/Vendor</label>
+    </customValue>
+    <customValue>
+        <fullName>Vendor</fullName>
+        <default>false</default>
+        <label>Vendor</label>
+    </customValue>
+    <customValue>
+        <fullName>Applications</fullName>
+        <default>false</default>
+        <label>Applications</label>
+    </customValue>
+    <customValue>
+        <fullName>DocExchange Transactions</fullName>
+        <default>false</default>
+        <label>DocExchange Transactions</label>
+    </customValue>
+    <customValue>
+        <fullName>OTC Items</fullName>
+        <default>false</default>
+        <label>OTC Items</label>
+    </customValue>
+    <customValue>
+        <fullName>Transit Items</fullName>
+        <default>false</default>
+        <label>Transit Items</label>
+    </customValue>
+    <customValue>
+        <fullName>Names</fullName>
+        <default>false</default>
+        <label>Names</label>
+    </customValue>
+    <masterLabel>License Metrics</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

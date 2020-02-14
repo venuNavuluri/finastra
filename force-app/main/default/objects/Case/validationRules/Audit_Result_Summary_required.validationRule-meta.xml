@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audit_Result_Summary_required</fullName>
+    <active>true</active>
+    <description>RUBX-1164/RUBX-1520: LCA Case Field Validation</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &#39;License_Compliance_Audit&#39;,
+OR(ISPICKVAL(Status, &#39;Result for Concurrence&#39;),ISPICKVAL(Status, &#39;Awaiting Deselection Approval&#39;),ISPICKVAL(Status, &#39;Audited - Pending Opportunity&#39;),ISPICKVAL(Status, &#39;Not Audited (Closed)&#39;),ISPICKVAL(Status, &#39;Audited (Closed)&#39;)),
+ISBLANK(  Audit_Result_Summary__c ),
+NOT($Setup.Bypass_Validations__c.Disable__c)
+)</errorConditionFormula>
+    <errorDisplayField>Audit_Result_Summary__c</errorDisplayField>
+    <errorMessage>Audit Result Summary is required.</errorMessage>
+</ValidationRule>

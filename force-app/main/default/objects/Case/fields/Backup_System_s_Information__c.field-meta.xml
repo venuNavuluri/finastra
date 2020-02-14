@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Backup_System_s_Information__c</fullName>
+    <description>RUBX-1018: Picklist;
+“No info provided”
+“Backup is Compliant”
+“Backup is Non Compliant”.</description>
+    <externalId>false</externalId>
+    <label>Backup System(s) Information</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No info provided</fullName>
+                <default>false</default>
+                <label>No info provided</label>
+            </value>
+            <value>
+                <fullName>Backup is Compliant</fullName>
+                <default>false</default>
+                <label>Backup is Compliant</label>
+            </value>
+            <value>
+                <fullName>Backup is Non Compliant</fullName>
+                <default>false</default>
+                <label>Backup is Non Compliant</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

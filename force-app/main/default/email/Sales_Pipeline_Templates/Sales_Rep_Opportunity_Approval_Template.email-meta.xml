@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>RUBX-456: Sales Rep Opportunity Approval Template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Finastra_Letterhead</letterhead>
+    <name>Sales Rep Opportunity Approval Template</name>
+    <style>freeForm</style>
+    <subject>{!Opportunity.Name} has been assigned to you, pending your acceptance</subject>
+    <textOnly>Hi,
+
+I have assigned {!Opportunity.Name} for {!Opportunity.Account} to you in Salesforce.com. It has a close date of {!Opportunity.CloseDate}.
+
+Please accept or reject this Opportunity assignment by following this link
+
+Thanks,
+{!ApprovalRequest.Process_Approver}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

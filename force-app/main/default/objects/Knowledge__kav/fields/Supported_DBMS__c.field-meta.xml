@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supported_DBMS__c</fullName>
+    <description>RUBX-2419 – REQ-1857-Select a System Requirements Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <label>Supported DBMS</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SQL Server 2014</fullName>
+                <default>false</default>
+                <label>SQL Server 2014</label>
+            </value>
+            <value>
+                <fullName>SQL Server 2012</fullName>
+                <default>false</default>
+                <label>SQL Server 2012</label>
+            </value>
+            <value>
+                <fullName>SQL Server 2008 R2</fullName>
+                <default>false</default>
+                <label>SQL Server 2008 R2</label>
+            </value>
+            <value>
+                <fullName>SQL Server 2008</fullName>
+                <default>false</default>
+                <label>SQL Server 2008</label>
+            </value>
+            <value>
+                <fullName>SQL Server 2005</fullName>
+                <default>false</default>
+                <label>SQL Server 2005</label>
+            </value>
+            <value>
+                <fullName>Progress</fullName>
+                <default>false</default>
+                <label>Progress</label>
+            </value>
+            <value>
+                <fullName>UniData</fullName>
+                <default>false</default>
+                <label>UniData</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

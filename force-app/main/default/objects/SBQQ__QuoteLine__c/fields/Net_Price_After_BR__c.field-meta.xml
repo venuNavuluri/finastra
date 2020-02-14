@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Net_Price_After_BR__c</fullName>
+        <description>Store the net price after the Budget Rate has been applied using the QCP logic.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Store the net price after the Budget Rate has been applied using the QCP logic.</inlineHelpText>
+        <label>Net Price After BR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </CustomField>

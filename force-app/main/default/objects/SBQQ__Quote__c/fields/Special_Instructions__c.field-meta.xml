@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Special_Instructions__c</fullName>
+        <description>Used to display a special set of instructions on the quote output doc. Filled in by the user.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fill this in with any special instructions that you would like the Customer to see.</inlineHelpText>
+        <label>Special Instructions</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </CustomField>

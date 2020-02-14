@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Deal_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Category</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>100% New/Incremental Rev</fullName>
+                    <default>false</default>
+                    <label>100% New/Incremental Rev</label>
+                </value>
+                <value>
+                    <fullName>Contains some element of existing rev (RLF/ACV)</fullName>
+                    <default>false</default>
+                    <label>Contains some element of existing rev (RLF/ACV)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

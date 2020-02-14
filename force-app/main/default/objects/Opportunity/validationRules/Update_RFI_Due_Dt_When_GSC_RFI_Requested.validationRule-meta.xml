@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Update_RFI_Due_Dt_When_GSC_RFI_Requested</fullName>
+    <active>true</active>
+    <description>RUBX-532 - validation to capture GSC RFI Due Date not blank.</description>
+    <errorConditionFormula>AND (
+NOT($Setup.Bypass_Validations__c.Disable__c),
+$Profile.Name =&#39;Sales User&#39;,
+ISPICKVAL(GSC_RFI__c, &quot;Requested&quot;),
+ISBLANK(RFI_Due_Date__c),
+ISPICKVAL(StageName, &quot;3. Qualify&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>RFI_Due_Date__c</errorDisplayField>
+    <errorMessage>Please Update the RFI Due Date when the GSC RFI Is Requested</errorMessage>
+</ValidationRule>

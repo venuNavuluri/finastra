@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Job_Function__c</fullName>
+    <description>RUBX-513 : This field captures Primary Job Function of a Contact</description>
+    <externalId>false</externalId>
+    <label>Primary Job Function</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>PrimaryJobFunction</valueSetName>
+    </valueSet>
+</CustomField>

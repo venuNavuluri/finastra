@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Main_Product_Family__c</fullName>
+    <description>Formula field to show the B,T,S family in the Main Product Field. It will show Other if no match</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS( TEXT(MainProduct__c) , &quot;(B)&quot;), &quot;(B)&quot;, 
+IF(CONTAINS( TEXT(MainProduct__c), &quot;(T)&quot;),&quot;(T)&quot;,
+IF(CONTAINS( TEXT(MainProduct__c), &quot;(S)&quot;),&quot;(S)&quot;,
+&quot;Other&quot;)))</formula>
+    <inlineHelpText>Main Product family Group (B),(T),(S) or Other</inlineHelpText>
+    <label>Main Product Family</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

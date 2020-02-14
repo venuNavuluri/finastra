@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QA_Result__c</fullName>
+    <description>RUBX-1043 The ability to conduct a peer review or QA on an LCA once it has reached a status of Output Under Analysis</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The ability to conduct a peer review or QA on an LCA once it has reached a status of Output Under Analysis</inlineHelpText>
+    <label>QA Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Passed - Without Errors</fullName>
+                <default>false</default>
+                <label>Passed - Without Errors</label>
+            </value>
+            <value>
+                <fullName>Passed - With Minor Errors</fullName>
+                <default>false</default>
+                <label>Passed - With Minor Errors</label>
+            </value>
+            <value>
+                <fullName>Failed</fullName>
+                <default>false</default>
+                <label>Failed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

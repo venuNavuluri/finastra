@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategic_Objective__c</fullName>
+    <description>RUBX-464: Vision/Value framework</description>
+    <externalId>false</externalId>
+    <label>Strategic Objective</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Value_Driver__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Grow interest income</fullName>
+                <default>false</default>
+                <label>Grow interest income</label>
+            </value>
+            <value>
+                <fullName>Grow non-interest income</fullName>
+                <default>false</default>
+                <label>Grow non-interest income</label>
+            </value>
+            <value>
+                <fullName>Grow deposits</fullName>
+                <default>false</default>
+                <label>Grow deposits</label>
+            </value>
+            <value>
+                <fullName>Improve customer retention</fullName>
+                <default>false</default>
+                <label>Improve customer retention</label>
+            </value>
+            <value>
+                <fullName>Increase new customer acquisition</fullName>
+                <default>false</default>
+                <label>Increase new customer acquisition</label>
+            </value>
+            <value>
+                <fullName>Increase customer share of wallet</fullName>
+                <default>false</default>
+                <label>Increase customer share of wallet</label>
+            </value>
+            <value>
+                <fullName>Increase cross-sell rate</fullName>
+                <default>false</default>
+                <label>Increase cross-sell rate</label>
+            </value>
+            <value>
+                <fullName>Improve speed to market with new offerings</fullName>
+                <default>false</default>
+                <label>Improve speed to market with new offerings</label>
+            </value>
+            <value>
+                <fullName>Enter new lines of business, geographies and/or verticals</fullName>
+                <default>false</default>
+                <label>Enter new lines of business, geographies and/or verticals</label>
+            </value>
+            <value>
+                <fullName>Improve client customers’ journey</fullName>
+                <default>false</default>
+                <label>Improve client customers’ journey</label>
+            </value>
+            <value>
+                <fullName>Improve capital allocation</fullName>
+                <default>false</default>
+                <label>Improve capital allocation</label>
+            </value>
+            <value>
+                <fullName>Grow complex lending deals</fullName>
+                <default>false</default>
+                <label>Grow complex lending deals</label>
+            </value>
+            <value>
+                <fullName>Grow line of business revenue (payments, treasury, etc.)</fullName>
+                <default>false</default>
+                <label>Grow line of business revenue (payments, treasury, etc.)</label>
+            </value>
+            <value>
+                <fullName>Increase fee income</fullName>
+                <default>false</default>
+                <label>Increase fee income</label>
+            </value>
+            <value>
+                <fullName>Increase operational efficiency / employee productivity</fullName>
+                <default>false</default>
+                <label>Increase operational efficiency / employee productivity</label>
+            </value>
+            <value>
+                <fullName>Reduce IT costs (labor-related)</fullName>
+                <default>false</default>
+                <label>Reduce IT costs (labor-related)</label>
+            </value>
+            <value>
+                <fullName>Reduce call center costs (labor-related)</fullName>
+                <default>false</default>
+                <label>Reduce call center costs (labor-related)</label>
+            </value>
+            <value>
+                <fullName>Avoid hiring additional staff</fullName>
+                <default>false</default>
+                <label>Avoid hiring additional staff</label>
+            </value>
+            <value>
+                <fullName>Improve STP rates or SLA</fullName>
+                <default>false</default>
+                <label>Improve STP rates or SLA</label>
+            </value>
+            <value>
+                <fullName>Reduce IT costs (non-labor such as interfaces, maintenance, licenses)</fullName>
+                <default>false</default>
+                <label>Reduce IT costs (non-labor such as interfaces, maintenance, licenses)</label>
+            </value>
+            <value>
+                <fullName>Reduce dependency on external vendors (3rd party costs)</fullName>
+                <default>false</default>
+                <label>Reduce dependency on external vendors (3rd party costs)</label>
+            </value>
+            <value>
+                <fullName>Reduce internal development costs</fullName>
+                <default>false</default>
+                <label>Reduce internal development costs</label>
+            </value>
+            <value>
+                <fullName>Reduce hardware costs</fullName>
+                <default>false</default>
+                <label>Reduce hardware costs</label>
+            </value>
+            <value>
+                <fullName>Avoid cost to update, upgrade existing solutions / platform</fullName>
+                <default>false</default>
+                <label>Avoid cost to update, upgrade existing solutions / platform</label>
+            </value>
+            <value>
+                <fullName>Reduce paper, printing, and/or courier costs (administrative costs)</fullName>
+                <default>false</default>
+                <label>Reduce paper, printing, and/or courier costs (administrative costs)</label>
+            </value>
+            <value>
+                <fullName>Reduce branch costs (close branches, open advisory branches, increase self-service)</fullName>
+                <default>false</default>
+                <label>Reduce branch costs (close branches, open advisory branches, increase self-service)</label>
+            </value>
+            <value>
+                <fullName>Move to cloud (TCO)</fullName>
+                <default>false</default>
+                <label>Move to cloud (TCO)</label>
+            </value>
+            <value>
+                <fullName>Reduce operational risk (error rates)</fullName>
+                <default>false</default>
+                <label>Reduce operational risk (error rates)</label>
+            </value>
+            <value>
+                <fullName>Reduce regulatory risk (risk of non-compliance)</fullName>
+                <default>false</default>
+                <label>Reduce regulatory risk (risk of non-compliance)</label>
+            </value>
+            <value>
+                <fullName>Reduce risk of default</fullName>
+                <default>false</default>
+                <label>Reduce risk of default</label>
+            </value>
+            <value>
+                <fullName>Reduce reputational risk</fullName>
+                <default>false</default>
+                <label>Reduce reputational risk</label>
+            </value>
+            <value>
+                <fullName>Reduce system-related risk (system downtime, speed to update)</fullName>
+                <default>false</default>
+                <label>Reduce system-related risk (system downtime, speed to update)</label>
+            </value>
+            <value>
+                <fullName>Reduce loan losses</fullName>
+                <default>false</default>
+                <label>Reduce loan losses</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Grow interest income</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Grow non-interest income</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Grow deposits</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Improve customer retention</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Increase new customer acquisition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Increase customer share of wallet</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Increase cross-sell rate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Improve speed to market with new offerings</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Enter new lines of business, geographies and/or verticals</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Improve client customers’ journey</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Improve capital allocation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Grow complex lending deals</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Grow line of business revenue (payments, treasury, etc.)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <valueName>Increase fee income</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Increase Revenue</controllingFieldValue>
+            <controllingFieldValue>Improve Efficiency</controllingFieldValue>
+            <controllingFieldValue>Save Costs</controllingFieldValue>
+            <controllingFieldValue>Reduce Risk</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Improve Efficiency</controllingFieldValue>
+            <valueName>Increase operational efficiency / employee productivity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Improve Efficiency</controllingFieldValue>
+            <valueName>Reduce IT costs (labor-related)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Improve Efficiency</controllingFieldValue>
+            <valueName>Reduce call center costs (labor-related)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Improve Efficiency</controllingFieldValue>
+            <valueName>Avoid hiring additional staff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Improve Efficiency</controllingFieldValue>
+            <valueName>Improve STP rates or SLA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Save Costs</controllingFieldValue>
+            <valueName>Reduce IT costs (non-labor such as interfaces, maintenance, licenses)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Save Costs</controllingFieldValue>
+            <valueName>Reduce dependency on external vendors (3rd party costs)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Save Costs</controllingFieldValue>
+            <valueName>Reduce internal development costs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Save Costs</controllingFieldValue>
+            <valueName>Reduce hardware costs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Save Costs</controllingFieldValue>
+            <valueName>Avoid cost to update, upgrade existing solutions / platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Save Costs</controllingFieldValue>
+            <valueName>Reduce paper, printing, and/or courier costs (administrative costs)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Save Costs</controllingFieldValue>
+            <valueName>Reduce branch costs (close branches, open advisory branches, increase self-service)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Save Costs</controllingFieldValue>
+            <valueName>Move to cloud (TCO)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reduce Risk</controllingFieldValue>
+            <valueName>Reduce operational risk (error rates)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reduce Risk</controllingFieldValue>
+            <valueName>Reduce regulatory risk (risk of non-compliance)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reduce Risk</controllingFieldValue>
+            <valueName>Reduce risk of default</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reduce Risk</controllingFieldValue>
+            <valueName>Reduce reputational risk</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reduce Risk</controllingFieldValue>
+            <valueName>Reduce system-related risk (system downtime, speed to update)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reduce Risk</controllingFieldValue>
+            <valueName>Reduce loan losses</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

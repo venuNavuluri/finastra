@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Approval_Availability</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+AND( ISBLANK( SBQQ__Source__c ), Request_Bypass_Approval__c = TRUE)
+,
+AND( TEXT(SBQQ__Type__c) = &quot;Amendment&quot;, Request_Bypass_Approval__c = TRUE)
+
+)</errorConditionFormula>
+    <errorMessage>Bypass Approval can only be requested on cloned Net New &amp; Renewal Quotes.</errorMessage>
+</ValidationRule>

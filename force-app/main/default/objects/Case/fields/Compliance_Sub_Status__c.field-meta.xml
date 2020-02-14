@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compliance_Sub_Status__c</fullName>
+    <description>RUBX-1018: Compliance Sub status - values will be added in RUBX-1019</description>
+    <externalId>false</externalId>
+    <label>Compliance Sub-Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Default</fullName>
+                <default>false</default>
+                <label>Default</label>
+            </value>
+            <value>
+                <fullName>1st Follow-up</fullName>
+                <default>false</default>
+                <label>1st Follow-up</label>
+            </value>
+            <value>
+                <fullName>2nd Follow-up</fullName>
+                <default>false</default>
+                <label>2nd Follow-up</label>
+            </value>
+            <value>
+                <fullName>3rd Follow-up</fullName>
+                <default>false</default>
+                <label>3rd Follow-up</label>
+            </value>
+            <value>
+                <fullName>4th Follow-up</fullName>
+                <default>false</default>
+                <label>4th Follow-up</label>
+            </value>
+            <value>
+                <fullName>L2 - Audit Tool Assistance</fullName>
+                <default>false</default>
+                <label>L2 - Audit Tool Assistance</label>
+            </value>
+            <value>
+                <fullName>On Hold Pending AM</fullName>
+                <default>false</default>
+                <label>On Hold Pending AM</label>
+            </value>
+            <value>
+                <fullName>On Hold Pending Audit Contact</fullName>
+                <default>false</default>
+                <label>On Hold Pending Audit Contact</label>
+            </value>
+            <value>
+                <fullName>On Hold Pending Reports From Other Sites</fullName>
+                <default>false</default>
+                <label>On Hold Pending Reports From Other Sites</label>
+            </value>
+            <value>
+                <fullName>Pending Complete / Accurate Report</fullName>
+                <default>false</default>
+                <label>Pending Complete / Accurate Report</label>
+            </value>
+            <value>
+                <fullName>Analysis submitted for QA</fullName>
+                <default>false</default>
+                <label>Analysis submitted for QA</label>
+            </value>
+            <value>
+                <fullName>QA Complete</fullName>
+                <default>false</default>
+                <label>QA Complete</label>
+            </value>
+            <value>
+                <fullName>Referred to CommOps</fullName>
+                <default>false</default>
+                <label>Referred to CommOps</label>
+            </value>
+            <value>
+                <fullName>Referred to Licence Principal</fullName>
+                <default>false</default>
+                <label>Referred to Licence Principal</label>
+            </value>
+            <value>
+                <fullName>Re-audit, Referred to Licence Principal</fullName>
+                <default>false</default>
+                <label>Re-audit, Referred to Licence Principal</label>
+            </value>
+            <value>
+                <fullName>Referred to ProdMgt/Dev/LicDel</fullName>
+                <default>false</default>
+                <label>Referred to ProdMgt/Dev/LicDel</label>
+            </value>
+            <value>
+                <fullName>Audit Holiday</fullName>
+                <default>false</default>
+                <label>Audit Holiday</label>
+            </value>
+            <value>
+                <fullName>Audit Tools Issue</fullName>
+                <default>false</default>
+                <label>Audit Tools Issue</label>
+            </value>
+            <value>
+                <fullName>Custom License/no VBP matrix</fullName>
+                <default>false</default>
+                <label>Custom License/no VBP matrix</label>
+            </value>
+            <value>
+                <fullName>Duplicate Account/LC</fullName>
+                <default>false</default>
+                <label>Duplicate Account/LC</label>
+            </value>
+            <value>
+                <fullName>GHO/Hub/Billing site</fullName>
+                <default>false</default>
+                <label>GHO/Hub/Billing site</label>
+            </value>
+            <value>
+                <fullName>Implementation/Support Issue</fullName>
+                <default>false</default>
+                <label>Implementation/Support Issue</label>
+            </value>
+            <value>
+                <fullName>Legal Sanctions/Political Situation</fullName>
+                <default>false</default>
+                <label>Legal Sanctions/Political Situation</label>
+            </value>
+            <value>
+                <fullName>New Customer/Product -  Less Than 1 Yr Data</fullName>
+                <default>false</default>
+                <label>New Customer/Product -  Less Than 1 Yr Data</label>
+            </value>
+            <value>
+                <fullName>No Audit Report Received</fullName>
+                <default>false</default>
+                <label>No Audit Report Received</label>
+            </value>
+            <value>
+                <fullName>No Auditable Product</fullName>
+                <default>false</default>
+                <label>No Auditable Product</label>
+            </value>
+            <value>
+                <fullName>Licensed - Product Not In Use</fullName>
+                <default>false</default>
+                <label>Licensed - Product Not In Use</label>
+            </value>
+            <value>
+                <fullName>Licensed - Not Implemented</fullName>
+                <default>false</default>
+                <label>Licensed - Not Implemented</label>
+            </value>
+            <value>
+                <fullName>New customer/product, still under implementation</fullName>
+                <default>false</default>
+                <label>New customer/product, still under implementation</label>
+            </value>
+            <value>
+                <fullName>Ongoing sales negotiations</fullName>
+                <default>false</default>
+                <label>Ongoing sales negotiations</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Enquire/Read Only licence</fullName>
+                <default>false</default>
+                <label>Enquire/Read Only licence</label>
+            </value>
+            <value>
+                <fullName>Revised NAD</fullName>
+                <default>false</default>
+                <label>Revised NAD</label>
+            </value>
+            <value>
+                <fullName>Terminating</fullName>
+                <default>false</default>
+                <label>Terminating</label>
+            </value>
+            <value>
+                <fullName>End of contract</fullName>
+                <default>false</default>
+                <label>End of contract</label>
+            </value>
+            <value>
+                <fullName>Unlimited licence</fullName>
+                <default>false</default>
+                <label>Unlimited licence</label>
+            </value>
+            <value>
+                <fullName>Existing Product - Ongoing Upgrade</fullName>
+                <default>false</default>
+                <label>Existing Product - Ongoing Upgrade</label>
+            </value>
+            <value>
+                <fullName>Existing Customer/Product Upgrade - Less Than 1 Yr Data</fullName>
+                <default>false</default>
+                <label>Existing Customer/Product Upgrade - Less Than 1 Yr Data</label>
+            </value>
+            <value>
+                <fullName>Self Certification</fullName>
+                <default>false</default>
+                <label>Self Certification</label>
+            </value>
+            <value>
+                <fullName>Compliant</fullName>
+                <default>false</default>
+                <label>Compliant</label>
+            </value>
+            <value>
+                <fullName>Pending Opportunity</fullName>
+                <default>false</default>
+                <label>Pending Opportunity</label>
+            </value>
+            <value>
+                <fullName>Non-Compliant (Closed Won)</fullName>
+                <default>false</default>
+                <label>Non-Compliant (Closed Won)</label>
+            </value>
+            <value>
+                <fullName>Non-Compliant (Closed Lost)</fullName>
+                <default>false</default>
+                <label>Non-Compliant (Closed Lost)</label>
+            </value>
+            <value>
+                <fullName>Non-Compliant (Closed Qualified Out)</fullName>
+                <default>false</default>
+                <label>Non-Compliant (Closed Qualified Out)</label>
+            </value>
+            <value>
+                <fullName>Non-Compliant (For Re-Audit)</fullName>
+                <default>false</default>
+                <label>Non-Compliant (For Re-Audit)</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Customer Communication</controllingFieldValue>
+            <controllingFieldValue>With AM to Review</controllingFieldValue>
+            <valueName>1st Follow-up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Communication</controllingFieldValue>
+            <controllingFieldValue>With AM to Review</controllingFieldValue>
+            <valueName>2nd Follow-up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Communication</controllingFieldValue>
+            <valueName>3rd Follow-up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Communication</controllingFieldValue>
+            <valueName>4th Follow-up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Communication</controllingFieldValue>
+            <valueName>L2 - Audit Tool Assistance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Communication</controllingFieldValue>
+            <controllingFieldValue>Result for Concurrence</controllingFieldValue>
+            <valueName>Pending Complete / Accurate Report</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Communication</controllingFieldValue>
+            <controllingFieldValue>With AM to Review</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <valueName>Referred to Licence Principal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Report Queued for Analysis</controllingFieldValue>
+            <controllingFieldValue>Result for Concurrence</controllingFieldValue>
+            <valueName>On Hold Pending Reports From Other Sites</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Output Under Analysis</controllingFieldValue>
+            <valueName>Analysis submitted for QA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Output Under Analysis</controllingFieldValue>
+            <valueName>QA Complete</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Output Under Analysis</controllingFieldValue>
+            <controllingFieldValue>Result for Concurrence</controllingFieldValue>
+            <controllingFieldValue>Pre-work</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <valueName>Referred to CommOps</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Output Under Analysis</controllingFieldValue>
+            <controllingFieldValue>Result for Concurrence</controllingFieldValue>
+            <controllingFieldValue>Pre-work</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <valueName>Referred to ProdMgt/Dev/LicDel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Result for Concurrence</controllingFieldValue>
+            <controllingFieldValue>Customer Communication</controllingFieldValue>
+            <valueName>Pending Complete / Accurate Report</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audited - Pending Opportunity</controllingFieldValue>
+            <valueName>Re-audit, Referred to Licence Principal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audited - Pending Opportunity</controllingFieldValue>
+            <valueName>Pending Opportunity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audited (Closed)</controllingFieldValue>
+            <valueName>Compliant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audited (Closed)</controllingFieldValue>
+            <valueName>Non-Compliant (Closed Won)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audited (Closed)</controllingFieldValue>
+            <valueName>Non-Compliant (Closed Lost)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audited (Closed)</controllingFieldValue>
+            <valueName>Non-Compliant (Closed Qualified Out)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audited (Closed)</controllingFieldValue>
+            <valueName>Non-Compliant (For Re-Audit)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Audit Holiday</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Audit Tools Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Custom License/no VBP matrix</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Duplicate Account/LC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>GHO/Hub/Billing site</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Implementation/Support Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Legal Sanctions/Political Situation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>New Customer/Product -  Less Than 1 Yr Data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>No Audit Report Received</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>No Auditable Product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Licensed - Product Not In Use</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Licensed - Not Implemented</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>New customer/product, still under implementation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Ongoing sales negotiations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Enquire/Read Only licence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Revised NAD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Terminating</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>End of contract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Unlimited licence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Existing Product - Ongoing Upgrade</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Audited (Closed)</controllingFieldValue>
+            <controllingFieldValue>Awaiting Deselection Approval</controllingFieldValue>
+            <controllingFieldValue>Deselection Rejected</controllingFieldValue>
+            <valueName>Existing Customer/Product Upgrade - Less Than 1 Yr Data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New</controllingFieldValue>
+            <controllingFieldValue>On Hold</controllingFieldValue>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Default</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pre-work</controllingFieldValue>
+            <valueName>Self Certification</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>With AM to Review</controllingFieldValue>
+            <valueName>On Hold Pending AM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>With AM to Review</controllingFieldValue>
+            <valueName>On Hold Pending Audit Contact</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

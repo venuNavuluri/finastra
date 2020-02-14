@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RFI_Due_Dt_Cannot_Be_In_Past_Date</fullName>
+    <active>true</active>
+    <description>RUBX-532 - validation to capture GSC RFI Due Date not in Past date.</description>
+    <errorConditionFormula>AND (
+NOT($Setup.Bypass_Validations__c.Disable__c),
+$Profile.Name =&#39;Sales User&#39;,
+ISCHANGED(RFI_Due_Date__c ),
+RFI_Due_Date__c &lt; TODAY()
+)</errorConditionFormula>
+    <errorDisplayField>RFI_Due_Date__c</errorDisplayField>
+    <errorMessage>RFI Due Date Can not be in Past Date.</errorMessage>
+</ValidationRule>

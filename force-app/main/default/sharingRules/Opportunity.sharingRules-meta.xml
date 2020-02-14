@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>VP_NACM_Read</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>RUBX-554 :  Hierarchy -Setup Sharing Rules associated to new NACM Sales and BDR Roles</description>
+        <label>VP NACM Read</label>
+        <sharedTo>
+            <roleAndSubordinates>Sales_VP_NACM</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Sales_VP_NACM</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

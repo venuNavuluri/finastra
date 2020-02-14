@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Migrated_Renewal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This will be set on Contracts that have been renewed from a Migrated Contract.  This field is twinned from the contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will be set to true when this opportunity was created from a Migrated Contract.</inlineHelpText>
+        <label>Migrated Renewal</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

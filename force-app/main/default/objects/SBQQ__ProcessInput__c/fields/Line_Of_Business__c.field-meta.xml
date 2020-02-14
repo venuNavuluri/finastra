@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Line_Of_Business__c</fullName>
+        <externalId>false</externalId>
+        <label>Line Of Business</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Capital Markets</fullName>
+                    <default>false</default>
+                    <label>Capital Markets</label>
+                </value>
+                <value>
+                    <fullName>CM Retail &amp; Lending</fullName>
+                    <default>false</default>
+                    <label>CM Retail &amp; Lending</label>
+                </value>
+                <value>
+                    <fullName>Core Banking</fullName>
+                    <default>false</default>
+                    <label>Core Banking</label>
+                </value>
+                <value>
+                    <fullName>Corporate Banking</fullName>
+                    <default>false</default>
+                    <label>Corporate Banking</label>
+                </value>
+                <value>
+                    <fullName>Enterprise Retail</fullName>
+                    <default>false</default>
+                    <label>Enterprise Retail</label>
+                </value>
+                <value>
+                    <fullName>Enterprise Risk</fullName>
+                    <default>false</default>
+                    <label>Enterprise Risk</label>
+                </value>
+                <value>
+                    <fullName>Global Transaction Banking</fullName>
+                    <default>false</default>
+                    <label>Global Transaction Banking</label>
+                </value>
+                <value>
+                    <fullName>Lending</fullName>
+                    <default>false</default>
+                    <label>Lending</label>
+                </value>
+                <value>
+                    <fullName>No Analysis</fullName>
+                    <default>false</default>
+                    <label>No Analysis</label>
+                </value>
+                <value>
+                    <fullName>Other Products</fullName>
+                    <default>false</default>
+                    <label>Other Products</label>
+                </value>
+                <value>
+                    <fullName>Payments</fullName>
+                    <default>false</default>
+                    <label>Payments</label>
+                </value>
+                <value>
+                    <fullName>Shared Infrastructure &amp; Tools</fullName>
+                    <default>false</default>
+                    <label>Shared Infrastructure &amp; Tools</label>
+                </value>
+                <value>
+                    <fullName>TBS</fullName>
+                    <default>false</default>
+                    <label>TBS</label>
+                </value>
+                <value>
+                    <fullName>TEMS</fullName>
+                    <default>false</default>
+                    <label>TEMS</label>
+                </value>
+                <value>
+                    <fullName>Treasury Capital Markets</fullName>
+                    <default>false</default>
+                    <label>Treasury Capital Markets</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

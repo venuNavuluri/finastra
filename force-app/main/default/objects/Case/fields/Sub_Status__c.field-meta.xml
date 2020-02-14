@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Status__c</fullName>
+    <description>RUBX 1940: A more granular description of the case status to denote current case management stage</description>
+    <externalId>false</externalId>
+    <inlineHelpText>A more granular description of the case status to denote current case management stage</inlineHelpText>
+    <label>Sub Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Client Confirmed</fullName>
+                <default>false</default>
+                <label>Client Confirmed</label>
+            </value>
+            <value>
+                <fullName>Client Unconfirmed</fullName>
+                <default>false</default>
+                <label>Client Unconfirmed</label>
+            </value>
+            <value>
+                <fullName>Awaiting Client</fullName>
+                <default>false</default>
+                <label>Awaiting Client</label>
+            </value>
+            <value>
+                <fullName>Awaiting Triage</fullName>
+                <default>false</default>
+                <label>Awaiting Triage</label>
+            </value>
+            <value>
+                <fullName>Assigned for Analysis</fullName>
+                <default>false</default>
+                <label>Assigned for Analysis</label>
+            </value>
+            <value>
+                <fullName>In Triage</fullName>
+                <default>false</default>
+                <label>In Triage</label>
+            </value>
+            <value>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+                <label>On Hold</label>
+            </value>
+            <value>
+                <fullName>CS</fullName>
+                <default>false</default>
+                <label>CS</label>
+            </value>
+            <value>
+                <fullName>GS</fullName>
+                <default>false</default>
+                <label>GS</label>
+            </value>
+            <value>
+                <fullName>Third Party</fullName>
+                <default>false</default>
+                <label>Third Party</label>
+            </value>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Development</fullName>
+                <default>false</default>
+                <label>Development</label>
+            </value>
+            <value>
+                <fullName>Cloud</fullName>
+                <default>false</default>
+                <label>Cloud</label>
+            </value>
+            <value>
+                <fullName>Information Provided</fullName>
+                <default>false</default>
+                <label>Information Provided</label>
+            </value>
+            <value>
+                <fullName>Workaround Provided</fullName>
+                <default>false</default>
+                <label>Workaround Provided</label>
+            </value>
+            <value>
+                <fullName>Fix available</fullName>
+                <default>false</default>
+                <label>Fix available</label>
+            </value>
+            <value>
+                <fullName>Fix Delivered</fullName>
+                <default>false</default>
+                <label>Fix Delivered</label>
+            </value>
+            <value>
+                <fullName>Enhancement Delivered</fullName>
+                <default>false</default>
+                <label>Enhancement Delivered</label>
+            </value>
+            <value>
+                <fullName>Fix to Formalise</fullName>
+                <default>false</default>
+                <label>Fix to Formalise</label>
+            </value>
+            <value>
+                <fullName>Client Resolved</fullName>
+                <default>false</default>
+                <label>Client Resolved</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Assigned</controllingFieldValue>
+            <valueName>Assigned for Analysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assigned</controllingFieldValue>
+            <valueName>In Triage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Awaiting Client</controllingFieldValue>
+            <valueName>Awaiting Client</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Progress</controllingFieldValue>
+            <valueName>CS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Progress</controllingFieldValue>
+            <valueName>GS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Progress</controllingFieldValue>
+            <valueName>Third Party</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Progress</controllingFieldValue>
+            <valueName>Sales</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Progress</controllingFieldValue>
+            <valueName>Development</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Progress</controllingFieldValue>
+            <valueName>Cloud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New</controllingFieldValue>
+            <valueName>Awaiting Triage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>On Hold</controllingFieldValue>
+            <valueName>On Hold</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Client Confirmed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Client Unconfirmed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Client Resolved</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solution Provided</controllingFieldValue>
+            <valueName>Information Provided</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solution Provided</controllingFieldValue>
+            <valueName>Workaround Provided</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solution Provided</controllingFieldValue>
+            <valueName>Fix available</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solution Provided</controllingFieldValue>
+            <valueName>Fix Delivered</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solution Provided</controllingFieldValue>
+            <valueName>Enhancement Delivered</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solution Provided</controllingFieldValue>
+            <valueName>Fix to Formalise</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

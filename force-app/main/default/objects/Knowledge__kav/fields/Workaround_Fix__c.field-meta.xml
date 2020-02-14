@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Workaround_Fix__c</fullName>
+    <description>RUBX-2416 – REQ-1854-Select an Issues Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Describe the fix to the problem or the workaround. If there is more than one step be sure to use numbered steps and start each step with an action.</inlineHelpText>
+    <label>Workaround/Fix</label>
+    <length>32768</length>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

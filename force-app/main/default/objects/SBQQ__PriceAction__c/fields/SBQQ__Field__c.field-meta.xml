@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBQQ__Field__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the field you want updated when the conditions are met.</inlineHelpText>
+    <label>Target Field</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>SBQQ__TargetObject__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Unit Price</fullName>
+                <default>false</default>
+                <label>Unit Price</label>
+            </value>
+            <value>
+                <fullName>Discount (%)</fullName>
+                <default>false</default>
+                <label>Discount (%)</label>
+            </value>
+            <value>
+                <fullName>Discount (Amt)</fullName>
+                <default>false</default>
+                <label>Discount (Amt)</label>
+            </value>
+            <value>
+                <fullName>Markup (%)</fullName>
+                <default>false</default>
+                <label>Markup (%)</label>
+            </value>
+            <value>
+                <fullName>Markup (Amt)</fullName>
+                <default>false</default>
+                <label>Markup (Amt)</label>
+            </value>
+            <value>
+                <fullName>Target</fullName>
+                <default>false</default>
+                <label>Target (%)</label>
+            </value>
+            <value>
+                <fullName>Norm</fullName>
+                <default>false</default>
+                <label>Norm (%)</label>
+            </value>
+            <value>
+                <fullName>Floor</fullName>
+                <default>false</default>
+                <label>Floor (%)</label>
+            </value>
+            <value>
+                <fullName>Explanation</fullName>
+                <default>false</default>
+                <label>Explanation</label>
+            </value>
+            <value>
+                <fullName>SBQQ__Quantity__c</fullName>
+                <default>false</default>
+                <label>SBQQ__Quantity__c</label>
+            </value>
+            <value>
+                <fullName>Pricing_Tier__c</fullName>
+                <default>false</default>
+                <label>Pricing_Tier__c</label>
+            </value>
+            <value>
+                <fullName>RecurringUnitPrice__c</fullName>
+                <default>false</default>
+                <label>RecurringUnitPrice__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__ListPrice__c</fullName>
+                <default>false</default>
+                <label>SBQQ__ListPrice__c</label>
+            </value>
+            <value>
+                <fullName>Overage_Rate__c</fullName>
+                <default>false</default>
+                <label>Overage_Rate__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__NetPrice__c</fullName>
+                <default>false</default>
+                <label>SBQQ__NetPrice__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__DiscountSchedule__c</fullName>
+                <default>false</default>
+                <label>SBQQ__DiscountSchedule__c</label>
+            </value>
+            <value>
+                <fullName>Annual_Recurring_Revenue__c</fullName>
+                <default>false</default>
+                <label>Annual_Recurring_Revenue__c</label>
+            </value>
+            <value>
+                <fullName>Minimum_Commitment__c</fullName>
+                <default>false</default>
+                <label>Minimum_Commitment__c</label>
+            </value>
+            <value>
+                <fullName>Minimum_Commitment_Quantity__c</fullName>
+                <default>false</default>
+                <label>Minimum_Commitment_Quantity__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__RegularPrice__c</fullName>
+                <default>false</default>
+                <label>SBQQ__RegularPrice__c</label>
+            </value>
+            <value>
+                <fullName>DiscountScheduleTemp__c</fullName>
+                <default>false</default>
+                <label>DiscountScheduleTemp__c</label>
+            </value>
+            <value>
+                <fullName>CM_Discount_Total__c</fullName>
+                <default>false</default>
+                <label>CM_Discount_Total__c</label>
+            </value>
+            <value>
+                <fullName>Total_Summed_Discount__c</fullName>
+                <default>false</default>
+                <label>Total_Summed_Discount__c</label>
+            </value>
+            <value>
+                <fullName>Total_Discount_Including_CM__c</fullName>
+                <default>false</default>
+                <label>Total_Discount_Including_CM__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__SubscriptionPricing__c</fullName>
+                <default>false</default>
+                <label>SBQQ__SubscriptionPricing__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__NetTotal__c</fullName>
+                <default>false</default>
+                <label>SBQQ__NetTotal__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__SpecialPrice__c</fullName>
+                <default>false</default>
+                <label>SBQQ__SpecialPrice__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__SpecialPriceType__c</fullName>
+                <default>false</default>
+                <label>SBQQ__SpecialPriceType__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__PricingMethod__c</fullName>
+                <default>false</default>
+                <label>SBQQ__PricingMethod__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__BlockPrice__c</fullName>
+                <default>false</default>
+                <label>SBQQ__BlockPrice__c</label>
+            </value>
+            <value>
+                <fullName>LM_Test__c</fullName>
+                <default>false</default>
+                <label>LM_Test__c</label>
+            </value>
+            <value>
+                <fullName>CustomQuantity__c</fullName>
+                <default>false</default>
+                <label>CustomQuantity__c</label>
+            </value>
+            <value>
+                <fullName>Currency_Conversion_Applied__c</fullName>
+                <default>false</default>
+                <label>Currency_Conversion_Applied__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__CustomerPrice__c</fullName>
+                <default>false</default>
+                <label>SBQQ__CustomerPrice__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__ProratedListPrice__c</fullName>
+                <default>false</default>
+                <label>SBQQ__ProratedListPrice__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__AdditionalDiscount__c</fullName>
+                <default>false</default>
+                <label>SBQQ__AdditionalDiscount__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__AdditionalDiscountAmount__c</fullName>
+                <default>false</default>
+                <label>SBQQ__AdditionalDiscountAmount__c</label>
+            </value>
+            <value>
+                <fullName>Transactional_Tier_Flow__c</fullName>
+                <default>false</default>
+                <label>Transactional_Tier_Flow__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__Discount__c</fullName>
+                <default>false</default>
+                <label>SBQQ__Discount__c</label>
+            </value>
+            <value>
+                <fullName>RPA_Threshold__c</fullName>
+                <default>false</default>
+                <label>RPA_Threshold__c</label>
+            </value>
+            <value>
+                <fullName>Flag_for_RPA_Approval__c</fullName>
+                <default>false</default>
+                <label>Flag_for_RPA_Approval__c</label>
+            </value>
+            <value>
+                <fullName>RPA_Threshold_Exceeded__c</fullName>
+                <default>false</default>
+                <label>RPA_Threshold_Exceeded__c</label>
+            </value>
+            <value>
+                <fullName>Temp_Flag__c</fullName>
+                <default>false</default>
+                <label>Temp_Flag__c</label>
+            </value>
+            <value>
+                <fullName>Uplift_Factor__c</fullName>
+                <default>false</default>
+                <label>Uplift_Factor__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__PriceEditable__c</fullName>
+                <default>false</default>
+                <label>SBQQ__PriceEditable__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__DiscountTier__c</fullName>
+                <default>false</default>
+                <label>SBQQ__DiscountTier__c</label>
+            </value>
+            <value>
+                <fullName>Search__c</fullName>
+                <default>false</default>
+                <label>Search__c</label>
+            </value>
+            <value>
+                <fullName>Renewal_Line_Discount_Reset__c</fullName>
+                <default>false</default>
+                <label>Renewal_Line_Discount_Reset__c</label>
+            </value>
+            <value>
+                <fullName>RR_Test__c</fullName>
+                <default>false</default>
+                <label>RR_Test__c</label>
+            </value>
+            <value>
+                <fullName>Test_Approvals__c</fullName>
+                <default>false</default>
+                <label>Test_Approvals__c</label>
+            </value>
+            <value>
+                <fullName>Amended_Bundle__c</fullName>
+                <default>false</default>
+                <label>Amended_Bundle__c</label>
+            </value>
+            <value>
+                <fullName>Bundle_Name__c</fullName>
+                <default>false</default>
+                <label>Bundle_Name__c</label>
+            </value>
+            <value>
+                <fullName>RR_Edition__c</fullName>
+                <default>false</default>
+                <label>RR_Edition__c</label>
+            </value>
+            <value>
+                <fullName>LM_QTY_Flag__c</fullName>
+                <default>false</default>
+                <label>LM_QTY_Flag__c</label>
+            </value>
+            <value>
+                <fullName>Phoenix_Bundle_Exists__c</fullName>
+                <default>false</default>
+                <label>Phoenix_Bundle_Exists__c</label>
+            </value>
+            <value>
+                <fullName>Phoenix_Contract_Term_Text__c</fullName>
+                <default>false</default>
+                <label>Phoenix_Contract_Term_Text__c</label>
+            </value>
+            <value>
+                <fullName>CG_Custom_Source_Code_Escrow__c</fullName>
+                <default>false</default>
+                <label>CG_Custom_Source_Code_Escrow__c</label>
+            </value>
+            <value>
+                <fullName>CG_DepositPro_Compliance_Warranty__c</fullName>
+                <default>false</default>
+                <label>CG_DepositPro_Compliance_Warranty__c</label>
+            </value>
+            <value>
+                <fullName>CG_DSI_LOS_EULA__c</fullName>
+                <default>false</default>
+                <label>CG_DSI_LOS_EULA__c</label>
+            </value>
+            <value>
+                <fullName>CG_LaserPro_Commercial_Participation_Wty__c</fullName>
+                <default>false</default>
+                <label>CG_LaserPro_Commercial_Participation_Wty__c</label>
+            </value>
+            <value>
+                <fullName>CG_LaserPro_Compliance_Warranty__c</fullName>
+                <default>false</default>
+                <label>CG_LaserPro_Compliance_Warranty__c</label>
+            </value>
+            <value>
+                <fullName>CG_Lender_License__c</fullName>
+                <default>false</default>
+                <label>CG_Lender_License__c</label>
+            </value>
+            <value>
+                <fullName>CG_Loan_Processing_Addendum__c</fullName>
+                <default>false</default>
+                <label>CG_Loan_Processing_Addendum__c</label>
+            </value>
+            <value>
+                <fullName>CG_Source_Code_Escrow_Provision__c</fullName>
+                <default>false</default>
+                <label>CG_Source_Code_Escrow_Provision__c</label>
+            </value>
+            <value>
+                <fullName>Price_Rule_has_Fired__c</fullName>
+                <default>false</default>
+                <label>Price_Rule_has_Fired__c</label>
+            </value>
+            <value>
+                <fullName>License_Metric__c</fullName>
+                <default>false</default>
+                <label>License_Metric__c</label>
+            </value>
+            <value>
+                <fullName>Stamp_Total_Discount__c</fullName>
+                <default>false</default>
+                <label>Stamp_Total_Discount__c</label>
+            </value>
+            <value>
+                <fullName>Total_Discount_Percent__c</fullName>
+                <default>false</default>
+                <label>Total_Discount_Percent__c</label>
+            </value>
+            <value>
+                <fullName>SBQQ__StartDate__c</fullName>
+                <default>false</default>
+                <label>SBQQ__StartDate__c</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Unit Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Discount (%)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Discount (Amt)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Markup (%)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Markup (Amt)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Target</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Norm</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Floor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Explanation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__Quantity__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Pricing_Tier__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>RecurringUnitPrice__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__ListPrice__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Overage_Rate__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__NetPrice__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__DiscountSchedule__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Annual_Recurring_Revenue__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Minimum_Commitment__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Minimum_Commitment_Quantity__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__RegularPrice__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>DiscountScheduleTemp__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CM_Discount_Total__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Total_Summed_Discount__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Total_Discount_Including_CM__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__SubscriptionPricing__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__NetTotal__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__SpecialPrice__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__SpecialPriceType__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__PricingMethod__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__BlockPrice__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>LM_Test__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CustomQuantity__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Currency_Conversion_Applied__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__CustomerPrice__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__ProratedListPrice__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__AdditionalDiscount__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__AdditionalDiscountAmount__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Transactional_Tier_Flow__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__Discount__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>RPA_Threshold__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Flag_for_RPA_Approval__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>RPA_Threshold_Exceeded__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Temp_Flag__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Uplift_Factor__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__PriceEditable__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>SBQQ__DiscountTier__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Search__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Renewal_Line_Discount_Reset__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>RR_Test__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Test_Approvals__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Amended_Bundle__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Bundle_Name__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>RR_Edition__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>LM_QTY_Flag__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Phoenix_Bundle_Exists__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Phoenix_Contract_Term_Text__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CG_Custom_Source_Code_Escrow__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CG_DepositPro_Compliance_Warranty__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CG_DSI_LOS_EULA__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CG_LaserPro_Commercial_Participation_Wty__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CG_LaserPro_Compliance_Warranty__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CG_Lender_License__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CG_Loan_Processing_Addendum__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>CG_Source_Code_Escrow_Provision__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>Price_Rule_has_Fired__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Stamp_Total_Discount__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Total_Discount_Percent__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <controllingFieldValue>Product Option</controllingFieldValue>
+            <valueName>License_Metric__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote Line</controllingFieldValue>
+            <valueName>SBQQ__StartDate__c</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

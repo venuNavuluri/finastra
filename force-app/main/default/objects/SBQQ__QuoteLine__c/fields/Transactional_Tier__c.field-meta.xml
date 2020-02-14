@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transactional_Tier__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (SBQQ__Quantity__c &lt; 11, 1 ,
+IF (SBQQ__Quantity__c &lt; 15, 2 ,
+IF(SBQQ__Quantity__c &lt; 40, 3 ,
+IF (SBQQ__Quantity__c &lt; 75, 4 ,
+IF (SBQQ__Quantity__c &lt; 100, 5 ,
+IF (SBQQ__Quantity__c &lt; 200, 6 ,
+IF (SBQQ__Quantity__c &lt; 350, 7 ,
+IF (SBQQ__Quantity__c &lt; 9999999, 8 ,
+0))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Transactional Tier</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

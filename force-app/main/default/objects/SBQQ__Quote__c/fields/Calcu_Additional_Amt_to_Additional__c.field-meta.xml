@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calcu_Additional_Amt_to_Additional__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( AND(NOT(ISBLANK(Additional_Amt__c)), NOT(ISBLANK(SBQQ__ListAmount__c))),
+Additional_Amt__c/SBQQ__ListAmount__c,
+NULL)</formula>
+    <label>Calcu. Additional Amt to Additional %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

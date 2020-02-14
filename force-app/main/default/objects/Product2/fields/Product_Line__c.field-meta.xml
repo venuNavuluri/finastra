@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Product_Line__c</fullName>
+        <description>Renamed from Line of Business - CA 07/03/13</description>
+        <externalId>false</externalId>
+        <label>Product Line</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Capital Markets</fullName>
+                    <default>false</default>
+                    <label>Capital Markets</label>
+                </value>
+                <value>
+                    <fullName>Core Banking</fullName>
+                    <default>false</default>
+                    <label>Core Banking</label>
+                </value>
+                <value>
+                    <fullName>Enterprise Risk</fullName>
+                    <default>false</default>
+                    <label>Enterprise Risk</label>
+                </value>
+                <value>
+                    <fullName>Global Transaction Banking</fullName>
+                    <default>false</default>
+                    <label>Global Transaction Banking</label>
+                </value>
+                <value>
+                    <fullName>Lending</fullName>
+                    <default>false</default>
+                    <label>Lending</label>
+                </value>
+                <value>
+                    <fullName>Shared Infrastructure &amp; Tools</fullName>
+                    <default>false</default>
+                    <label>Shared Infrastructure &amp; Tools</label>
+                </value>
+                <value>
+                    <fullName>n/a</fullName>
+                    <default>false</default>
+                    <label>n/a</label>
+                </value>
+                <value>
+                    <fullName>Lending &amp; Retail Banking</fullName>
+                    <default>false</default>
+                    <label>Lending &amp; Retail Banking</label>
+                </value>
+                <value>
+                    <fullName>FB Core</fullName>
+                    <default>false</default>
+                    <label>FB Core</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

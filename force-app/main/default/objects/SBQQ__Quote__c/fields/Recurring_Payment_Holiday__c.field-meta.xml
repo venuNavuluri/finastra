@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Recurring_Payment_Holiday__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Please enter the number in month(s) if the recurring payment (RLF or subscription revenue) is not starting on signing or delivery. For GPP this will be months after the standard commencement</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the number in month(s) if the recurring payment (RLF or subscription revenue) is not starting on signing or delivery. For GPP this will be months after the standard commencement</inlineHelpText>
+        <label>Recurring Payment Holiday</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

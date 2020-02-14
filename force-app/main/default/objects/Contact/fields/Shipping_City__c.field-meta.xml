@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shipping_City__c</fullName>
+    <description>RUBX-3907 : Refers city of address record selected as Ship-To</description>
+    <externalId>false</externalId>
+    <formula>Ship_To__r.City__c</formula>
+    <label>Shipping City</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

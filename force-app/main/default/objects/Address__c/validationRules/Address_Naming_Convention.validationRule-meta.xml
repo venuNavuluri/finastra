@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address_Naming_Convention</fullName>
+    <active>true</active>
+    <description>RUBX-3907 :</description>
+    <errorConditionFormula>AND (
+NOT($Setup.Bypass_Validations__c.Disable__c),
+ Name !=  City__c + &#39; - &#39; +  Zip_Postal_Code__c 
+)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Please name the address in the following format: City - Zipcode. Example: Seattle - 10010. Please note the hyphen and space before and after hyphen</errorMessage>
+</ValidationRule>

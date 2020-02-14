@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>ILF</fullName>
+        <default>false</default>
+        <label>ILF</label>
+    </customValue>
+    <customValue>
+        <fullName>RLF</fullName>
+        <default>false</default>
+        <label>RLF</label>
+    </customValue>
+    <customValue>
+        <fullName>Hardware</fullName>
+        <default>false</default>
+        <label>Hardware</label>
+    </customValue>
+    <customValue>
+        <fullName>Service</fullName>
+        <default>false</default>
+        <label>Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Null</fullName>
+        <default>false</default>
+        <label>Null</label>
+    </customValue>
+    <customValue>
+        <fullName>Finastra Hosted MultiT</fullName>
+        <default>false</default>
+        <label>Finastra Hosted MultiT</label>
+    </customValue>
+    <customValue>
+        <fullName>Finastra Hosted SingleT Separable</fullName>
+        <default>false</default>
+        <label>Finastra Hosted SingleT Separable</label>
+    </customValue>
+    <customValue>
+        <fullName>On Premise ILF/RLF</fullName>
+        <default>false</default>
+        <label>On Premise ILF/RLF</label>
+    </customValue>
+    <customValue>
+        <fullName>On Premise Subscription</fullName>
+        <default>false</default>
+        <label>On Premise Subscription</label>
+    </customValue>
+    <customValue>
+        <fullName>Finastra Hosted SingleT In-Separable</fullName>
+        <default>false</default>
+        <label>Finastra Hosted SingleT In-Separable</label>
+    </customValue>
+    <customValue>
+        <fullName>Services Fixed Price</fullName>
+        <default>false</default>
+        <label>Services Fixed Price</label>
+    </customValue>
+    <customValue>
+        <fullName>Services T&amp;M</fullName>
+        <default>false</default>
+        <label>Services T&amp;M</label>
+    </customValue>
+    <customValue>
+        <fullName>Placeholder</fullName>
+        <default>false</default>
+        <label>Placeholder</label>
+    </customValue>
+    <customValue>
+        <fullName>GS Pretemplated FP (O)</fullName>
+        <default>false</default>
+        <label>GS Pretemplated FP (O)</label>
+    </customValue>
+    <customValue>
+        <fullName>Cloud (M)</fullName>
+        <default>false</default>
+        <label>Cloud (M)</label>
+    </customValue>
+    <customValue>
+        <fullName>Hardware (O)</fullName>
+        <default>false</default>
+        <label>Hardware (O)</label>
+    </customValue>
+    <customValue>
+        <fullName>Transactional (M)</fullName>
+        <default>false</default>
+        <label>Transactional (M)</label>
+    </customValue>
+    <customValue>
+        <fullName>GS Training (O)</fullName>
+        <default>false</default>
+        <label>GS Training (O)</label>
+    </customValue>
+    <customValue>
+        <fullName>ILF (O)</fullName>
+        <default>false</default>
+        <label>ILF (O)</label>
+    </customValue>
+    <customValue>
+        <fullName>RLF (A)</fullName>
+        <default>false</default>
+        <label>RLF (A)</label>
+    </customValue>
+    <customValue>
+        <fullName>Subscription (A)</fullName>
+        <default>false</default>
+        <label>Subscription (A)</label>
+    </customValue>
+    <customValue>
+        <fullName>Cloud (O)</fullName>
+        <default>false</default>
+        <label>Cloud (O)</label>
+    </customValue>
+    <customValue>
+        <fullName>ILF/RLF</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>ILF/RLF</label>
+    </customValue>
+    <masterLabel>Revenue Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>QS_Auto_Activate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>indicates whether on creation Asset Status field should be set to Active or Pending Implementation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>indicates whether on creation Asset Status field should be set to Active or Pending Implementation.</inlineHelpText>
+        <label>Auto Activate</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </CustomField>

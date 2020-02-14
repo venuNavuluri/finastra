@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supported_Client_Operating_Systems__c</fullName>
+    <description>RUBX-2419 – REQ-1857-Select a System Requirements Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <label>Supported Client Operating Systems</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Windows 10 Pro</fullName>
+                <default>false</default>
+                <label>Windows 10 Pro</label>
+            </value>
+            <value>
+                <fullName>Windows 7 (32-bit)</fullName>
+                <default>false</default>
+                <label>Windows 7 (32-bit)</label>
+            </value>
+            <value>
+                <fullName>Windows 7 (64-bit)</fullName>
+                <default>false</default>
+                <label>Windows 7 (64-bit)</label>
+            </value>
+            <value>
+                <fullName>Windows 8 (32-bit)</fullName>
+                <default>false</default>
+                <label>Windows 8 (32-bit)</label>
+            </value>
+            <value>
+                <fullName>Windows 8 (64-bit)</fullName>
+                <default>false</default>
+                <label>Windows 8 (64-bit)</label>
+            </value>
+            <value>
+                <fullName>Windows Vista (32-bit)</fullName>
+                <default>false</default>
+                <label>Windows Vista (32-bit)</label>
+            </value>
+            <value>
+                <fullName>Windows Vista (64-bit)</fullName>
+                <default>false</default>
+                <label>Windows Vista (64-bit)</label>
+            </value>
+            <value>
+                <fullName>Windows XP (32-bit)</fullName>
+                <default>false</default>
+                <label>Windows XP (32-bit)</label>
+            </value>
+            <value>
+                <fullName>Windows XP (64-bit)</fullName>
+                <default>false</default>
+                <label>Windows XP (64-bit)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

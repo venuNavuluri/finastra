@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SBQQ__AggregateField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Quote Line field that&apos;s acted upon by the aggregate function.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Quote Line field that&apos;s acted upon by the aggregate function.</inlineHelpText>
+        <label>Aggregate Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Quantity</fullName>
+                    <default>false</default>
+                    <label>Quantity</label>
+                </value>
+                <value>
+                    <fullName>CustomQuantity__c</fullName>
+                    <default>false</default>
+                    <label>CustomQuantity__c</label>
+                </value>
+                <value>
+                    <fullName>Annual_Recurring_Revenue__c</fullName>
+                    <default>false</default>
+                    <label>Annual_Recurring_Revenue__c</label>
+                </value>
+                <value>
+                    <fullName>CM_Discount__c</fullName>
+                    <default>false</default>
+                    <label>CM_Discount__c</label>
+                </value>
+                <value>
+                    <fullName>Total_Dollar_Discount__c</fullName>
+                    <default>false</default>
+                    <label>Total_Dollar_Discount__c</label>
+                </value>
+                <value>
+                    <fullName>QL_Matches_Quote_End_Date__c</fullName>
+                    <default>false</default>
+                    <label>QL_Matches_Quote_End_Date__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

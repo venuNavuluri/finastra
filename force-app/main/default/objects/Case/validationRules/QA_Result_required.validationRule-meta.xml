@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QA_Result_required</fullName>
+    <active>true</active>
+    <description>RUBX-1164: LCA Case Field Validation</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &#39;License_Compliance_Audit&#39;,
+ISPICKVAL(Status, &#39;Output Under Analysis&#39;),
+ISPICKVAL(Compliance_Sub_Status__c , &#39;QA Complete&#39;),
+ISPICKVAL(QA_Result__c, &#39;&#39;),
+NOT($Setup.Bypass_Validations__c.Disable__c)
+)</errorConditionFormula>
+    <errorDisplayField>QA_Result__c</errorDisplayField>
+    <errorMessage>QA Result is required.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Failed_Auto_Renew__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This box will be checked if the Auto Renewal Failed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Uncheck to have the nightly review process try again.</inlineHelpText>
+        <label>Failed Auto Renew</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </CustomField>

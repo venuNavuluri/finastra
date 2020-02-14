@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License Compliance Audit</fullName>
+    <description>RUBX-1019: Support Process for License Compliance Audit Cases</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Audited %28Closed%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Audited - Pending Opportunity</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Awaiting Deselection Approval</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Customer Communication</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Deselection Rejected</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>New</fullName>
+        <default>true</default>
+    </values>
+    <values>
+        <fullName>Not Audited %28Closed%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Output Under Analysis</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Pre-work</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Report Queued for Analysis</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Result for Concurrence</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>With AM to Review</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

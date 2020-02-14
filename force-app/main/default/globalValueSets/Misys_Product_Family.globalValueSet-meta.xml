@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Academy</fullName>
+        <default>false</default>
+        <label>Academy</label>
+    </customValue>
+    <customValue>
+        <fullName>Almonde</fullName>
+        <default>false</default>
+        <label>Almonde</label>
+    </customValue>
+    <customValue>
+        <fullName>BankFusion</fullName>
+        <default>false</default>
+        <label>BankFusion</label>
+    </customValue>
+    <customValue>
+        <fullName>Bankmaster</fullName>
+        <default>false</default>
+        <label>Bankmaster</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Intelligence</fullName>
+        <default>false</default>
+        <label>Business Intelligence</label>
+    </customValue>
+    <customValue>
+        <fullName>City Dealer</fullName>
+        <default>false</default>
+        <label>City Dealer</label>
+    </customValue>
+    <customValue>
+        <fullName>CMark</fullName>
+        <default>false</default>
+        <label>CMark</label>
+    </customValue>
+    <customValue>
+        <fullName>CME</fullName>
+        <default>false</default>
+        <label>CME</label>
+    </customValue>
+    <customValue>
+        <fullName>CMS</fullName>
+        <default>false</default>
+        <label>CMS</label>
+    </customValue>
+    <customValue>
+        <fullName>Eagleye</fullName>
+        <default>false</default>
+        <label>Eagleye</label>
+    </customValue>
+    <customValue>
+        <fullName>Equation</fullName>
+        <default>false</default>
+        <label>Equation</label>
+    </customValue>
+    <customValue>
+        <fullName>Fontis</fullName>
+        <default>false</default>
+        <label>Fontis</label>
+    </customValue>
+    <customValue>
+        <fullName>Intesio</fullName>
+        <default>false</default>
+        <label>Intesio</label>
+    </customValue>
+    <customValue>
+        <fullName>iSophis</fullName>
+        <default>false</default>
+        <label>iSophis</label>
+    </customValue>
+    <customValue>
+        <fullName>KGR</fullName>
+        <default>false</default>
+        <label>KGR</label>
+    </customValue>
+    <customValue>
+        <fullName>Kondor</fullName>
+        <default>false</default>
+        <label>Kondor</label>
+    </customValue>
+    <customValue>
+        <fullName>KTP</fullName>
+        <default>false</default>
+        <label>KTP</label>
+    </customValue>
+    <customValue>
+        <fullName>KVAR</fullName>
+        <default>false</default>
+        <label>KVAR</label>
+    </customValue>
+    <customValue>
+        <fullName>Loan IQ</fullName>
+        <default>false</default>
+        <label>Loan IQ</label>
+    </customValue>
+    <customValue>
+        <fullName>Meridian</fullName>
+        <default>false</default>
+        <label>Meridian</label>
+    </customValue>
+    <customValue>
+        <fullName>Midas</fullName>
+        <default>false</default>
+        <label>Midas</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Applicable</fullName>
+        <default>false</default>
+        <label>Not Applicable</label>
+    </customValue>
+    <customValue>
+        <fullName>Opics</fullName>
+        <default>false</default>
+        <label>Opics</label>
+    </customValue>
+    <customValue>
+        <fullName>Payments and Messaging</fullName>
+        <default>false</default>
+        <label>Payments and Messaging</label>
+    </customValue>
+    <customValue>
+        <fullName>Portal</fullName>
+        <default>false</default>
+        <label>Portal</label>
+    </customValue>
+    <customValue>
+        <fullName>Risk Vision</fullName>
+        <default>false</default>
+        <label>Risk Vision</label>
+    </customValue>
+    <customValue>
+        <fullName>Sophis</fullName>
+        <default>false</default>
+        <label>Sophis</label>
+    </customValue>
+    <customValue>
+        <fullName>Summit</fullName>
+        <default>false</default>
+        <label>Summit</label>
+    </customValue>
+    <customValue>
+        <fullName>TopOffice</fullName>
+        <default>false</default>
+        <label>TopOffice</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Innovation</fullName>
+        <default>false</default>
+        <label>Trade Innovation</label>
+    </customValue>
+    <description>global pick list for Misys product family</description>
+    <masterLabel>Misys Product Family</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

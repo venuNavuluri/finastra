@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Product_Bundle__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Field used to capture bundle names in order to roll up to the quote line for output docs.</inlineHelpText>
+        <label>Product Bundle</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ActiveView: Teller Capture Bundle</fullName>
+                    <default>false</default>
+                    <label>ActiveView: Teller Capture Bundle</label>
+                </value>
+                <value>
+                    <fullName>Analytics Bundle</fullName>
+                    <default>false</default>
+                    <label>Analytics Bundle</label>
+                </value>
+                <value>
+                    <fullName>Card Payments Bundle</fullName>
+                    <default>false</default>
+                    <label>Card Payments Bundle</label>
+                </value>
+                <value>
+                    <fullName>Content Management Bundle</fullName>
+                    <default>false</default>
+                    <label>Content Management Bundle</label>
+                </value>
+                <value>
+                    <fullName>Encore Bundle</fullName>
+                    <default>false</default>
+                    <label>Encore Bundle</label>
+                </value>
+                <value>
+                    <fullName>EZTeller Bundle</fullName>
+                    <default>false</default>
+                    <label>EZTeller Bundle</label>
+                </value>
+                <value>
+                    <fullName>Financial Management Bundle</fullName>
+                    <default>false</default>
+                    <label>Financial Management Bundle</label>
+                </value>
+                <value>
+                    <fullName>Fusion CLS Bundle</fullName>
+                    <default>false</default>
+                    <label>Fusion CLS Bundle</label>
+                </value>
+                <value>
+                    <fullName>MortgageBot Add On Modules Bundle</fullName>
+                    <default>false</default>
+                    <label>MortgageBot Add On Modules Bundle</label>
+                </value>
+                <value>
+                    <fullName>MortgageBot End to End Bundle</fullName>
+                    <default>false</default>
+                    <label>MortgageBot End to End Bundle</label>
+                </value>
+                <value>
+                    <fullName>MortgageBot LOS Bundle</fullName>
+                    <default>false</default>
+                    <label>MortgageBot LOS Bundle</label>
+                </value>
+                <value>
+                    <fullName>MortgageBot POS Bundle</fullName>
+                    <default>false</default>
+                    <label>MortgageBot POS Bundle</label>
+                </value>
+                <value>
+                    <fullName>Total Analytics Bundle</fullName>
+                    <default>false</default>
+                    <label>Total Analytics Bundle</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Lookup_Population_Required</fullName>
+    <active>true</active>
+    <description>REQ-0807 / RUBX-91 - Opportunity lookup field should be populated on a new quote record.</description>
+    <errorConditionFormula>ISBLANK(SBQQ__Opportunity2__c)</errorConditionFormula>
+    <errorMessage>Opportunity lookup field should be populated on a new quote record.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Almonde</fullName>
+        <default>false</default>
+        <label>Almonde</label>
+    </customValue>
+    <customValue>
+        <fullName>ARIS</fullName>
+        <default>false</default>
+        <label>ARIS</label>
+    </customValue>
+    <customValue>
+        <fullName>Bankmaster</fullName>
+        <default>false</default>
+        <label>Bankmaster</label>
+    </customValue>
+    <customValue>
+        <fullName>Carbon Trading</fullName>
+        <default>false</default>
+        <label>Carbon Trading</label>
+    </customValue>
+    <customValue>
+        <fullName>Cashier</fullName>
+        <default>false</default>
+        <label>Cashier</label>
+    </customValue>
+    <customValue>
+        <fullName>Cash Portal</fullName>
+        <default>false</default>
+        <label>Cash Portal</label>
+    </customValue>
+    <customValue>
+        <fullName>CLX</fullName>
+        <default>false</default>
+        <label>CLX</label>
+    </customValue>
+    <customValue>
+        <fullName>CMS</fullName>
+        <default>false</default>
+        <label>CMS</label>
+    </customValue>
+    <customValue>
+        <fullName>Confirmation Matching Services</fullName>
+        <default>false</default>
+        <label>Confirmation Matching Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Credit Risk Vantage</fullName>
+        <default>false</default>
+        <label>Credit Risk Vantage</label>
+    </customValue>
+    <customValue>
+        <fullName>Credit Quest</fullName>
+        <default>false</default>
+        <label>Credit Quest</label>
+    </customValue>
+    <customValue>
+        <fullName>Digiwave</fullName>
+        <default>false</default>
+        <label>Digiwave</label>
+    </customValue>
+    <customValue>
+        <fullName>Eagleye</fullName>
+        <default>false</default>
+        <label>Eagleye</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Cash Management</fullName>
+        <default>false</default>
+        <label>FB Cash Management</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Corporate Channels</fullName>
+        <default>false</default>
+        <label>FB Corporate Channels</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Credit Management Enterprise</fullName>
+        <default>false</default>
+        <label>FB Credit Management Enterprise</label>
+    </customValue>
+    <customValue>
+        <fullName>FB CrowdLending</fullName>
+        <default>false</default>
+        <label>FB CrowdLending</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Equation</fullName>
+        <default>false</default>
+        <label>FB Equation</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence</fullName>
+        <default>false</default>
+        <label>FB Essence</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Digital Sales</fullName>
+        <default>false</default>
+        <label>FB Essence Digital Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Gameo</fullName>
+        <default>false</default>
+        <label>FB Essence Gameo</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence IPD</fullName>
+        <default>false</default>
+        <label>FB Essence IPD</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Islamic</fullName>
+        <default>false</default>
+        <label>FB Essence Islamic</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Loan Origination</fullName>
+        <default>false</default>
+        <label>FB Essence Loan Origination</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Mobile</fullName>
+        <default>false</default>
+        <label>FB Essence Mobile</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Mobile PFM</fullName>
+        <default>false</default>
+        <label>FB Essence Mobile PFM</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Online</fullName>
+        <default>false</default>
+        <label>FB Essence Online</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Party Management</fullName>
+        <default>false</default>
+        <label>FB Essence Party Management</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence PFM</fullName>
+        <default>false</default>
+        <label>FB Essence PFM</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Single Customer View</fullName>
+        <default>false</default>
+        <label>FB Essence Single Customer View</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Essence Teller</fullName>
+        <default>false</default>
+        <label>FB Essence Teller</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Fees and Billing</fullName>
+        <default>false</default>
+        <label>FB Fees and Billing</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Insight</fullName>
+        <default>false</default>
+        <label>FB Insight</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Loan IQ</fullName>
+        <default>false</default>
+        <label>FB Loan IQ</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Meridian</fullName>
+        <default>false</default>
+        <label>FB Meridian</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Message Manager</fullName>
+        <default>false</default>
+        <label>FB Message Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Midas</fullName>
+        <default>false</default>
+        <label>FB Midas</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Payment Manager</fullName>
+        <default>false</default>
+        <label>FB Payment Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>FB Trade Innovation</fullName>
+        <default>false</default>
+        <label>FB Trade Innovation</label>
+    </customValue>
+    <customValue>
+        <fullName>FC Global Components</fullName>
+        <default>false</default>
+        <label>FC Global Components</label>
+    </customValue>
+    <customValue>
+        <fullName>FC Kondor</fullName>
+        <default>false</default>
+        <label>FC Kondor</label>
+    </customValue>
+    <customValue>
+        <fullName>FC Opics</fullName>
+        <default>false</default>
+        <label>FC Opics</label>
+    </customValue>
+    <customValue>
+        <fullName>FC PTP</fullName>
+        <default>false</default>
+        <label>FC PTP</label>
+    </customValue>
+    <customValue>
+        <fullName>FC Sophis</fullName>
+        <default>false</default>
+        <label>FC Sophis</label>
+    </customValue>
+    <customValue>
+        <fullName>FC Summit</fullName>
+        <default>false</default>
+        <label>FC Summit</label>
+    </customValue>
+    <customValue>
+        <fullName>FusionBanking Corporate Banking</fullName>
+        <default>false</default>
+        <label>FusionBanking Corporate Banking</label>
+    </customValue>
+    <customValue>
+        <fullName>FusionBanking Corporate Portal</fullName>
+        <default>false</default>
+        <label>FusionBanking Corporate Portal</label>
+    </customValue>
+    <customValue>
+        <fullName>FusionFabric Dot Cloud</fullName>
+        <default>false</default>
+        <label>FusionFabric Dot Cloud</label>
+    </customValue>
+    <customValue>
+        <fullName>FusionInvest</fullName>
+        <default>false</default>
+        <label>FusionInvest</label>
+    </customValue>
+    <customValue>
+        <fullName>FusionRisk</fullName>
+        <default>false</default>
+        <label>FusionRisk</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoGuard (B)</fullName>
+        <default>false</default>
+        <label>GeoGuard (B)</label>
+    </customValue>
+    <customValue>
+        <fullName>Global Cash Pooling</fullName>
+        <default>false</default>
+        <label>Global Cash Pooling</label>
+    </customValue>
+    <customValue>
+        <fullName>GMS Service Bureau</fullName>
+        <default>false</default>
+        <label>GMS Service Bureau</label>
+    </customValue>
+    <customValue>
+        <fullName>IND Solutions (B)</fullName>
+        <default>false</default>
+        <label>IND Solutions (B)</label>
+    </customValue>
+    <customValue>
+        <fullName>InFusion Partner Programme</fullName>
+        <default>false</default>
+        <label>InFusion Partner Programme</label>
+    </customValue>
+    <customValue>
+        <fullName>Integro</fullName>
+        <default>false</default>
+        <label>Integro</label>
+    </customValue>
+    <customValue>
+        <fullName>iSophis (S)</fullName>
+        <default>false</default>
+        <label>iSophis (S)</label>
+    </customValue>
+    <customValue>
+        <fullName>KGR</fullName>
+        <default>false</default>
+        <label>KGR</label>
+    </customValue>
+    <customValue>
+        <fullName>Kondor Trade Processing</fullName>
+        <default>false</default>
+        <label>Kondor Trade Processing</label>
+    </customValue>
+    <customValue>
+        <fullName>KVAR</fullName>
+        <default>false</default>
+        <label>KVAR</label>
+    </customValue>
+    <customValue>
+        <fullName>Loan Coordinator (T)</fullName>
+        <default>false</default>
+        <label>Loan Coordinator (T)</label>
+    </customValue>
+    <customValue>
+        <fullName>Loan Portal</fullName>
+        <default>false</default>
+        <label>Loan Portal</label>
+    </customValue>
+    <customValue>
+        <fullName>Meridian Middleware</fullName>
+        <default>false</default>
+        <label>Meridian Middleware</label>
+    </customValue>
+    <customValue>
+        <fullName>Midas</fullName>
+        <default>false</default>
+        <label>Midas</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys Business Intelligence (B)</fullName>
+        <default>false</default>
+        <label>Misys Business Intelligence (B)</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys MERS</fullName>
+        <default>false</default>
+        <label>Misys MERS</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys Message Manager (B)</fullName>
+        <default>false</default>
+        <label>Misys Message Manager (B)</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys Mobile (B)</fullName>
+        <default>false</default>
+        <label>Misys Mobile (B)</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys Origination</fullName>
+        <default>false</default>
+        <label>Misys Origination</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys Payment Manager (B)</fullName>
+        <default>false</default>
+        <label>Misys Payment Manager (B)</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys Portfolio Dashboard (S)</fullName>
+        <default>false</default>
+        <label>Misys Portfolio Dashboard (S)</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys Risk</fullName>
+        <default>false</default>
+        <label>Misys Risk</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys Risk (S)</fullName>
+        <default>false</default>
+        <label>Misys Risk (S)</label>
+    </customValue>
+    <customValue>
+        <fullName>Misys RRS</fullName>
+        <default>false</default>
+        <label>Misys RRS</label>
+    </customValue>
+    <customValue>
+        <fullName>MTP Multibank</fullName>
+        <default>false</default>
+        <label>MTP Multibank</label>
+    </customValue>
+    <customValue>
+        <fullName>Opics Risk Plus</fullName>
+        <default>false</default>
+        <label>Opics Risk Plus</label>
+    </customValue>
+    <customValue>
+        <fullName>Personal Finance Portal</fullName>
+        <default>false</default>
+        <label>Personal Finance Portal</label>
+    </customValue>
+    <customValue>
+        <fullName>Portal For FC Opics</fullName>
+        <default>false</default>
+        <label>Portal For FC Opics</label>
+    </customValue>
+    <customValue>
+        <fullName>Prometeia</fullName>
+        <default>false</default>
+        <label>Prometeia</label>
+    </customValue>
+    <customValue>
+        <fullName>Risk Vision</fullName>
+        <default>false</default>
+        <label>Risk Vision</label>
+    </customValue>
+    <customValue>
+        <fullName>SigCap</fullName>
+        <default>false</default>
+        <label>SigCap</label>
+    </customValue>
+    <customValue>
+        <fullName>Smartstream (TLM/Corona)</fullName>
+        <default>false</default>
+        <label>Smartstream (TLM/Corona)</label>
+    </customValue>
+    <customValue>
+        <fullName>ST-Pymnts</fullName>
+        <default>false</default>
+        <label>ST-Pymnts</label>
+    </customValue>
+    <customValue>
+        <fullName>Sybase</fullName>
+        <default>false</default>
+        <label>Sybase</label>
+    </customValue>
+    <customValue>
+        <fullName>Third Party</fullName>
+        <default>false</default>
+        <label>Third Party</label>
+    </customValue>
+    <customValue>
+        <fullName>TopOffice</fullName>
+        <default>false</default>
+        <label>TopOffice</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Portal</fullName>
+        <default>false</default>
+        <label>Trade Portal</label>
+    </customValue>
+    <customValue>
+        <fullName>TradeWatch</fullName>
+        <default>false</default>
+        <label>TradeWatch</label>
+    </customValue>
+    <customValue>
+        <fullName>---P&amp;C Products---</fullName>
+        <default>false</default>
+        <label>---P&amp;C Products---</label>
+    </customValue>
+    <customValue>
+        <fullName>CLS</fullName>
+        <default>false</default>
+        <label>CLS</label>
+    </customValue>
+    <customValue>
+        <fullName>FM - Other</fullName>
+        <default>false</default>
+        <label>FM - Other</label>
+    </customValue>
+    <customValue>
+        <fullName>US Payments</fullName>
+        <default>false</default>
+        <label>US Payments</label>
+    </customValue>
+    <customValue>
+        <fullName>Fusion Cash Management</fullName>
+        <default>false</default>
+        <label>Fusion Cash Management</label>
+    </customValue>
+    <customValue>
+        <fullName>FM - RT Platform</fullName>
+        <default>false</default>
+        <label>FM - RT Platform</label>
+    </customValue>
+    <customValue>
+        <fullName>EIPP</fullName>
+        <default>false</default>
+        <label>EIPP</label>
+    </customValue>
+    <customValue>
+        <fullName>BACS</fullName>
+        <default>false</default>
+        <label>BACS</label>
+    </customValue>
+    <customValue>
+        <fullName>Payments - Internet Payments</fullName>
+        <default>false</default>
+        <label>Payments - Internet Payments</label>
+    </customValue>
+    <customValue>
+        <fullName>Payments - RDC</fullName>
+        <default>false</default>
+        <label>Payments - RDC</label>
+    </customValue>
+    <customValue>
+        <fullName>Other FS Product</fullName>
+        <default>false</default>
+        <label>Other FS Product</label>
+    </customValue>
+    <customValue>
+        <fullName>FM - Total Messaging/Screening</fullName>
+        <default>false</default>
+        <label>FM - Total Messaging/Screening</label>
+    </customValue>
+    <customValue>
+        <fullName>Global Payments - FTS</fullName>
+        <default>false</default>
+        <label>Global Payments - FTS</label>
+    </customValue>
+    <customValue>
+        <fullName>Global Payments - Global PAYplus</fullName>
+        <default>false</default>
+        <label>Global Payments - Global PAYplus</label>
+    </customValue>
+    <customValue>
+        <fullName>Lendercomm</fullName>
+        <default>false</default>
+        <label>Lendercomm</label>
+    </customValue>
+    <masterLabel>Main Product</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

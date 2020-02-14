@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Create Quote</description>
+    <fieldOverrides>
+        <field>SBQQ__Account__c</field>
+        <formula>Opportunity.AccountId</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>SBQQ__Opportunity2__c</field>
+        <formula>Opportunity.Id</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>SBQQ__PaymentTerms__c</field>
+        <literalValue>Net 30</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>SBQQ__Primary__c</field>
+        <formula>IF(ISBLANK(Opportunity.SBQQ__PrimaryQuote__c), True, False)</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>SBQQ__StartDate__c</field>
+        <formula>Opportunity.CloseDate</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>SBQQ__SubscriptionTerm__c</field>
+        <formula>Opportunity.Term_Estimate_Months__c</formula>
+    </fieldOverrides>
+    <label>Create Quote</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>SBQQ__Primary__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>SBQQ__StartDate__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>SBQQ__SubscriptionTerm__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <targetObject>SBQQ__Quote__c</targetObject>
+    <targetParentField>SBQQ__Opportunity2__c</targetParentField>
+    <targetRecordType>SBQQ__Quote__c.AAE_Draft_Quote</targetRecordType>
+    <type>Create</type>
+</QuickAction>

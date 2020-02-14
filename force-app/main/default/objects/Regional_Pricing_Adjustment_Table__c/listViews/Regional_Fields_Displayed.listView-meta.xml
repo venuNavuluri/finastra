@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Regional_Fields_Displayed</fullName>
+        <columns>NAME</columns>
+        <columns>Region__c</columns>
+        <columns>RPA_Percent__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Regional Fields Displayed</label>
+        <language>en_US</language>
+    </ListView>

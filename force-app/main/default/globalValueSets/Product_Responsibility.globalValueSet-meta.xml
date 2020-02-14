@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Core</fullName>
+        <default>false</default>
+        <label>Core</label>
+    </customValue>
+    <customValue>
+        <fullName>Digital Banking</fullName>
+        <default>false</default>
+        <label>Digital Banking</label>
+    </customValue>
+    <customValue>
+        <fullName>International</fullName>
+        <default>false</default>
+        <label>International</label>
+    </customValue>
+    <customValue>
+        <fullName>Lending</fullName>
+        <default>false</default>
+        <label>Lending</label>
+    </customValue>
+    <customValue>
+        <fullName>Mortgage</fullName>
+        <default>false</default>
+        <label>Mortgage</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail</fullName>
+        <default>false</default>
+        <label>Retail</label>
+    </customValue>
+    <description>RUBX-505 : Accounts - Enable Account Teams and add member</description>
+    <masterLabel>Product Responsibility</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

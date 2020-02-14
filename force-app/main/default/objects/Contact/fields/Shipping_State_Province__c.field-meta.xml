@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shipping_State_Province__c</fullName>
+    <description>RUBX-3907 : Refers state of address record selected as Ship-To</description>
+    <externalId>false</externalId>
+    <formula>Ship_To__r.State_Province__c</formula>
+    <label>Shipping State/Province</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

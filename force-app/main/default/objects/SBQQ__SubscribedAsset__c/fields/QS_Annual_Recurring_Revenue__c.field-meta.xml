@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QS_Annual_Recurring_Revenue__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(QS_Created_By_Apex__c, -1, IF(SBQQ__Subscription__r.SBQQ__QuoteLine__r.SBQQ__Quantity__c == 0, 0, 1)) *
+/* Asset Price */
+(QS_Asset_List_Price__c * QS_Asset_Effective_Quantity__c * QS_Percent_Of_Total__c -
+/* Subscription Weighting */
+QS_Subscription_Discount_Weight__c * QS_Subscription_Discount__c) 
+
+/* Discounts */
+*QS_Subscription_Quantity__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Annual Recurring Revenue</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

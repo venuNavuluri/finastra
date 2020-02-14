@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACV_Equivalent_Discount_excl_RA__c</fullName>
+    <externalId>false</externalId>
+    <formula>ABS(if(ACV_Equivalent_List_Price_excl_RA__c = 0 || isBlank(ACV_Equivalent_List_Price_excl_RA__c), 0, 
+		(ACV_Equivalent_Quote_Price_excl_RA__c -  ACV_Equivalent_List_Price_excl_RA__c) / ACV_Equivalent_List_Price_excl_RA__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ACV Equivalent Discount (excl RA)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

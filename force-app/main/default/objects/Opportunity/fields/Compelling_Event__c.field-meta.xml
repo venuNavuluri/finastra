@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compelling_Event__c</fullName>
+    <description>RUBX-464: Vision/Value framework</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the compelling event that makes now the right time to act?</inlineHelpText>
+    <label>Compelling Event</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>7</visibleLines>
+</CustomField>

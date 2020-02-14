@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Template_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  TEXT(SBQQ__Type__c)= &quot;Amendment&quot;,
+  &quot;a2T9E000000sppJ&quot;,
+  &quot;a2T9E000000flOT&quot;
+) + 
+IF(
+  SBQQ__Primary__c = TRUE,
+  &quot;,a2T9E000000sjAw&quot;,
+  &quot;&quot;
+) + 
+IF(
+  Software_Initial__c &gt; 0,
+  &quot;,a2T9E000000smKm&quot;,
+  &quot;&quot;
+) + 
+IF(
+  Services_Amount__c &gt; 0,
+  &quot;,a2T9E000000sjAr&quot;,
+  &quot;&quot;
+) +
+IF(
+  Hardware__c &gt; 0,
+  &quot;,a2T9E000000smKr&quot;,
+  &quot;&quot;
+)+
+IF(
+  CG_Custom_Source_Code_Escrow__c = &#39;1&#39;,
+  &quot;,a2T9E000000smKr&quot;,
+  &quot;&quot;
+)+
+IF(
+  CG_DepositPro_Compliance_Warranty__c = &#39;1&#39;,
+  &quot;,a2T9E000000smKr&quot;,
+  &quot;&quot;
+)+
+IF(
+  CG_DSI_LOS_EULA__c = &#39;1&#39;,
+  &quot;,a2T9E000000smKr&quot;,
+  &quot;&quot;
+)+
+IF(
+  CG_LaserPro_Commercial_Participation_Wty__c = &#39;1&#39;,
+  &quot;,a2T9E000000smKr&quot;,
+  &quot;&quot;
+)+
+IF(
+  CG_LaserPro_Compliance_Warranty__c = &#39;1&#39;,
+  &quot;,a2T9E000000smKr&quot;,
+  &quot;&quot;
+)+
+IF(
+  CG_Lender_License__c = &#39;1&#39;,
+  &quot;,a2T9E000000smKr&quot;,
+  &quot;&quot;
+)+
+IF(
+  CG_Loan_Processing_Addendum__c = &#39;1&#39;,
+  &quot;,a2T9E000000smKr&quot;,
+  &quot;&quot;
+)+
+IF(
+  CG_Source_Code_Escrow_Provision__c = &#39;1&#39;,
+  &quot;,a2T9E000000smKr&quot;,
+  &quot;&quot;
+)</formula>
+    <label>Template ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

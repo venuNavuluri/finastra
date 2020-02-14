@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Total_Price__c</fullName>
+    <description>This field holds the Monthly Total Price.</description>
+    <externalId>false</externalId>
+    <formula>if(Text(ProdType__c) == &quot;ILF&quot; || 
+Text(ProdType__c) == &quot;ILSF&quot; || 
+Text(ProdType__c) == &quot;HOSF&quot; || 
+Text(ProdType__c) == &quot;ILHF&quot; || 
+Text(ProdType__c) == &quot;DVC1&quot; || 
+Text(ProdType__c) == &quot;DVF2&quot; || 
+Text(ProdType__c) == &quot;SVFF&quot; || 
+Text(ProdType__c) == &quot;SVFT&quot; || 
+Text(ProdType__c) == &quot;SVFP&quot; || 
+Text(ProdType__c) == &quot;SVTM&quot; || 
+Text(ProdType__c) == &quot;SVPT&quot; || 
+Text(ProdType__c) == &quot;SVTT&quot; || 
+Text(ProdType__c) == &quot;SPFP&quot; || 
+Text(ProdType__c) == &quot;SPTM&quot; || 
+Text(ProdType__c) == &quot;HWR&quot; 
+,SBQQ__RegularTotal__c /(SBQQ__DefaultSubscriptionTerm__c*SBQQ__ProrateMultiplier__c),0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field holds the Monthly Total Price.</inlineHelpText>
+    <label>Monthly Total Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

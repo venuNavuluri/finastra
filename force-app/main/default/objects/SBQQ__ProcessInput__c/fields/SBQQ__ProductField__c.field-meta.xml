@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBQQ__ProductField__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Field on Product object used in filtering products that match this input.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field on Product object used in filtering products that match this input.</inlineHelpText>
+    <label>Product Field</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Product Name</fullName>
+                <default>false</default>
+                <label>Product Name</label>
+            </value>
+            <value>
+                <fullName>Product Code</fullName>
+                <default>false</default>
+                <label>Product Code</label>
+            </value>
+            <value>
+                <fullName>Product Family</fullName>
+                <default>false</default>
+                <label>Product Family</label>
+            </value>
+            <value>
+                <fullName>Family</fullName>
+                <default>false</default>
+                <label>Family</label>
+            </value>
+            <value>
+                <fullName>Line_Of_Business__c</fullName>
+                <default>false</default>
+                <label>Line_Of_Business__c</label>
+            </value>
+            <value>
+                <fullName>Business_Area__c</fullName>
+                <default>false</default>
+                <label>Business_Area__c</label>
+            </value>
+            <value>
+                <fullName>Sales_Product_Set__c</fullName>
+                <default>false</default>
+                <label>Sales_Product_Set__c</label>
+            </value>
+            <value>
+                <fullName>BU__c</fullName>
+                <default>false</default>
+                <label>BU__c</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

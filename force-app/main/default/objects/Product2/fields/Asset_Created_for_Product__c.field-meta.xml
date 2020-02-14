@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Asset_Created_for_Product__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When this flag is set on the product an asset will be created or updated once the product is sold</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When this flag is set on the product an asset will be created or updated once the product is sold</inlineHelpText>
+        <label>Asset Created for Product</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </CustomField>

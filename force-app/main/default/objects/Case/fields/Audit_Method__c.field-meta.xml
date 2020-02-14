@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audit_Method__c</fullName>
+    <description>RUBX-1018: Picklist; “Audit Tool”, “Self Declaration”, “EMS”</description>
+    <externalId>false</externalId>
+    <label>Audit Method</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Audit Tool</fullName>
+                <default>false</default>
+                <label>Audit Tool</label>
+            </value>
+            <value>
+                <fullName>Self Declaration</fullName>
+                <default>false</default>
+                <label>Self Declaration</label>
+            </value>
+            <value>
+                <fullName>EMS</fullName>
+                <default>false</default>
+                <label>EMS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Power_Sponsor_Required_SS3</fullName>
+    <active>true</active>
+    <description>RUBX-1543: Power Sponsor is required before opportunity progress to SS4</description>
+    <errorConditionFormula>AND (
+NOT($Setup.Bypass_Validations__c.Disable__c),
+ISBLANK(Power_Sponsor__c), 
+ISCHANGED(StageName),
+ISPICKVAL(StageName, &quot;4. Develop&quot;),
+OR(								ISPICKVAL(PRIORVALUE(StageName), &quot;1. Prospect&quot;),								ISPICKVAL(PRIORVALUE(StageName), &quot;2. Create&quot;),								ISPICKVAL(PRIORVALUE(StageName), &quot;3. Qualify&quot;)
+))</errorConditionFormula>
+    <errorDisplayField>Power_Sponsor__c</errorDisplayField>
+    <errorMessage>Please nominate a power sponsor for this opportunity</errorMessage>
+</ValidationRule>

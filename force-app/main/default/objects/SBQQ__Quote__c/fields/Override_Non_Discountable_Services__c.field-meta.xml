@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Override_Non_Discountable_Services__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>RUBX-1008 If checked, then discounts can be added to quote lines that are for Products that are marked as Non-Discountable.  This field can only be seen by SOSS Users.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If checked, Non-Discountable services can have a discount added in the Quote Line Editor.  This is only available to SOSS users</inlineHelpText>
+    <label>Override Non-Discountable Services</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

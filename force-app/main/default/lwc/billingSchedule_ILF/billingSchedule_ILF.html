@@ -1,0 +1,99 @@
+<!--
+  @File Name          : billingSchedule_ILF.html
+  @Description        : 
+  @Author             : venu.navuluri@finastra.com
+  @Group              : 
+  @Last Modified By   : venu.navuluri@finastra.com
+  @Last Modified On   : 06/02/2020, 12:17:47
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    22/01/2020   venu.navuluri@finastra.com     Initial Version
+-->
+<template>
+  <lightning-card
+    title={label.License_Billing_Schedule}
+    icon-name="custom:custom67"
+  >
+    <template if:true={LicenseTermPicklistValues.data}>
+      <div if:false={schedulesExisted}>
+        <lightning-combobox
+          label={label.License_Schedule}
+          value={selectedLicenseSchedule}
+          placeholder={label.Select}
+          options={LicenseTermPicklistValues.data.values}
+          onchange={licenseScheduleChange}
+          field-level-help={label.billingScheduleHelpTest}
+          required
+        >
+        </lightning-combobox>
+        <br />
+        <div if:true={showBillingTerm}>
+          <lightning-combobox
+            label={label.Billing_Term}
+            value={selectedBillingTerm}
+            placeholder={label.Select}
+            options={BillingTermPicklistValues.data.values}
+            onchange={billingTermChange}
+            required
+          >
+          </lightning-combobox>
+        </div>
+      </div>
+      <div if:true={schedulesExisted}>
+        <lightning-combobox
+          label={label.License_Schedule}
+          value={selectedLicenseSchedule}
+          placeholder={label.Select}
+          options={LicenseTermPicklistValues.data.values}
+          onchange={licenseScheduleChange}
+          field-level-help={label.billingScheduleHelpTest}
+          read-only
+        >
+        </lightning-combobox>
+        <br />
+      </div>
+      <div class="slds-m-around_medium">
+        <div if:true={schedulesExisted}>
+          <lightning-datatable
+            key-field="Id"
+            data={existingLicenseData}
+            columns={columns}
+            draft-values=""
+            onsave={handleSaveEdition}
+            hide-checkbox-column="true"
+            show-row-number-column="true"
+          >
+          </lightning-datatable>
+        </div>
+        <div if:false={schedulesExisted}>
+          <lightning-datatable
+            key-field="Id"
+            data={licenseData}
+            columns={columns}
+            draft-values={draftValues}
+            onsave={handleSaveEdition}
+            hide-checkbox-column="true"
+            show-row-number-column="true"
+          >
+          </lightning-datatable>
+        </div>
+      </div>
+      <div if:true={showLicenseButtons}>
+        <lightning-button
+          variant="brand"
+          label={label.Add_row}
+          title={label.Add_row}
+          onclick={addLicenseRow}
+        ></lightning-button>
+      </div>
+      <br />
+      <div if:true={generateSchedule} class="slds-align_absolute-center">
+        <lightning-button
+          variant="success"
+          label={label.Generate_License_Schedules}
+          onclick={handleSave}
+        ></lightning-button>
+      </div>
+    </template>
+  </lightning-card>
+</template>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opp_Can_Only_Move_To_CQO_Before_SS4</fullName>
+    <active>true</active>
+    <description>RUBX-470: From SS1,SS2 &amp; SS3 Opportunity can only be move to &#39;Closed Qualified Out&#39; not to &#39;Closed Lost&#39;</description>
+    <errorConditionFormula>AND (
+    NOT($Setup.Bypass_Validations__c.Disable__c),
+				ISCHANGED(StageName),
+    ISPICKVAL(StageName,&quot;Closed Lost&quot;),
+				OR(
+								ISPICKVAL(PRIORVALUE(StageName), &quot;1. Prospect&quot;),
+								ISPICKVAL(PRIORVALUE(StageName), &quot;2. Create&quot;),
+								ISPICKVAL(PRIORVALUE(StageName), &quot;3. Qualify&quot;)
+				)
+)</errorConditionFormula>
+    <errorMessage>An opportunity can only be Closed Lost from SS4 Develop onward. Please Close Qualify Out the opportunity</errorMessage>
+</ValidationRule>

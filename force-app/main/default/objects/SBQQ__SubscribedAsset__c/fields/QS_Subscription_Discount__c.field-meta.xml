@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QS_Subscription_Discount__c</fullName>
+    <description>Per unit discount</description>
+    <externalId>false</externalId>
+    <formula>IF(SBQQ__Subscription__r.SBQQ__AdditionalDiscountAmount__c &lt;&gt; 0, 
+			SBQQ__Subscription__r.SBQQ__AdditionalDiscountAmount__c , 
+			IF(SBQQ__Subscription__r.SBQQ__Discount__c &lt;&gt; 0, 
+						SBQQ__Subscription__r.SBQQ__Discount__c * QS_Subscription_Price__c, 
+						0))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Per unit discount</inlineHelpText>
+    <label>Subscription Discount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

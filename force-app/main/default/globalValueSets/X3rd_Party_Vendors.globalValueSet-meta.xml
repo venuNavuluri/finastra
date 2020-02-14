@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>01 Systems</fullName>
+        <default>false</default>
+        <label>01 Systems</label>
+    </customValue>
+    <customValue>
+        <fullName>AaSys</fullName>
+        <default>false</default>
+        <label>AaSys</label>
+    </customValue>
+    <customValue>
+        <fullName>Accent Electronic S.A.</fullName>
+        <default>false</default>
+        <label>Accent Electronic S.A.</label>
+    </customValue>
+    <customValue>
+        <fullName>Accenture</fullName>
+        <default>false</default>
+        <label>Accenture</label>
+    </customValue>
+    <customValue>
+        <fullName>Actualize Consulting</fullName>
+        <default>false</default>
+        <label>Actualize Consulting</label>
+    </customValue>
+    <customValue>
+        <fullName>Altaqnya</fullName>
+        <default>false</default>
+        <label>Altaqnya</label>
+    </customValue>
+    <customValue>
+        <fullName>Altran Italia</fullName>
+        <default>false</default>
+        <label>Altran Italia</label>
+    </customValue>
+    <customValue>
+        <fullName>Andorran Agent</fullName>
+        <default>false</default>
+        <label>Andorran Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>APFC</fullName>
+        <default>false</default>
+        <label>APFC</label>
+    </customValue>
+    <customValue>
+        <fullName>Audax</fullName>
+        <default>false</default>
+        <label>Audax</label>
+    </customValue>
+    <customValue>
+        <fullName>Bajaware</fullName>
+        <default>false</default>
+        <label>Bajaware</label>
+    </customValue>
+    <customValue>
+        <fullName>Bello Bello International Industries PLC</fullName>
+        <default>false</default>
+        <label>Bello Bello International Industries PLC</label>
+    </customValue>
+    <customValue>
+        <fullName>Bloomberg L.P.</fullName>
+        <default>false</default>
+        <label>Bloomberg L.P.</label>
+    </customValue>
+    <customValue>
+        <fullName>Blueprint Business Technologies Limited</fullName>
+        <default>false</default>
+        <label>Blueprint Business Technologies Limited</label>
+    </customValue>
+    <customValue>
+        <fullName>B-Plan Information Systems Ltd.</fullName>
+        <default>false</default>
+        <label>B-Plan Information Systems Ltd.</label>
+    </customValue>
+    <customValue>
+        <fullName>Bridge Consulting</fullName>
+        <default>false</default>
+        <label>Bridge Consulting</label>
+    </customValue>
+    <customValue>
+        <fullName>BSI Technologies JSC</fullName>
+        <default>false</default>
+        <label>BSI Technologies JSC</label>
+    </customValue>
+    <customValue>
+        <fullName>BTC</fullName>
+        <default>false</default>
+        <label>BTC</label>
+    </customValue>
+    <customValue>
+        <fullName>Capco</fullName>
+        <default>false</default>
+        <label>Capco</label>
+    </customValue>
+    <customValue>
+        <fullName>Capgemini</fullName>
+        <default>false</default>
+        <label>Capgemini</label>
+    </customValue>
+    <customValue>
+        <fullName>Caspian</fullName>
+        <default>false</default>
+        <label>Caspian</label>
+    </customValue>
+    <customValue>
+        <fullName>CBS</fullName>
+        <default>false</default>
+        <label>CBS</label>
+    </customValue>
+    <customValue>
+        <fullName>Cinimex</fullName>
+        <default>false</default>
+        <label>Cinimex</label>
+    </customValue>
+    <customValue>
+        <fullName>City Networks Limited</fullName>
+        <default>false</default>
+        <label>City Networks Limited</label>
+    </customValue>
+    <customValue>
+        <fullName>ClairMail</fullName>
+        <default>false</default>
+        <label>ClairMail</label>
+    </customValue>
+    <customValue>
+        <fullName>Comas Inc.</fullName>
+        <default>false</default>
+        <label>Comas Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>Computer Business Machines</fullName>
+        <default>false</default>
+        <label>Computer Business Machines</label>
+    </customValue>
+    <customValue>
+        <fullName>Cornastone Information Technology Svcs</fullName>
+        <default>false</default>
+        <label>Cornastone Information Technology Svcs</label>
+    </customValue>
+    <customValue>
+        <fullName>CPQi</fullName>
+        <default>false</default>
+        <label>CPQi</label>
+    </customValue>
+    <customValue>
+        <fullName>Crede Experto</fullName>
+        <default>false</default>
+        <label>Crede Experto</label>
+    </customValue>
+    <customValue>
+        <fullName>DataOne Asia</fullName>
+        <default>false</default>
+        <label>DataOne Asia</label>
+    </customValue>
+    <customValue>
+        <fullName>De Chazal Du Mee</fullName>
+        <default>false</default>
+        <label>De Chazal Du Mee</label>
+    </customValue>
+    <customValue>
+        <fullName>Deloitte</fullName>
+        <default>false</default>
+        <label>Deloitte</label>
+    </customValue>
+    <customValue>
+        <fullName>d-fine</fullName>
+        <default>false</default>
+        <label>d-fine</label>
+    </customValue>
+    <customValue>
+        <fullName>Digital China Financial Services</fullName>
+        <default>false</default>
+        <label>Digital China Financial Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Dovetail Systems</fullName>
+        <default>false</default>
+        <label>Dovetail Systems</label>
+    </customValue>
+    <customValue>
+        <fullName>e2i</fullName>
+        <default>false</default>
+        <label>e2i</label>
+    </customValue>
+    <customValue>
+        <fullName>Encore Theme</fullName>
+        <default>false</default>
+        <label>Encore Theme</label>
+    </customValue>
+    <customValue>
+        <fullName>Ernst &amp; Young</fullName>
+        <default>false</default>
+        <label>Ernst &amp; Young</label>
+    </customValue>
+    <customValue>
+        <fullName>Ethics Consulting Botswana</fullName>
+        <default>false</default>
+        <label>Ethics Consulting Botswana</label>
+    </customValue>
+    <customValue>
+        <fullName>Euronet</fullName>
+        <default>false</default>
+        <label>Euronet</label>
+    </customValue>
+    <customValue>
+        <fullName>Everis</fullName>
+        <default>false</default>
+        <label>Everis</label>
+    </customValue>
+    <customValue>
+        <fullName>E-W Information Systems Limited</fullName>
+        <default>false</default>
+        <label>E-W Information Systems Limited</label>
+    </customValue>
+    <customValue>
+        <fullName>FE Mobile</fullName>
+        <default>false</default>
+        <label>FE Mobile</label>
+    </customValue>
+    <customValue>
+        <fullName>Fircosoft</fullName>
+        <default>false</default>
+        <label>Fircosoft</label>
+    </customValue>
+    <customValue>
+        <fullName>Firm Economics</fullName>
+        <default>false</default>
+        <label>Firm Economics</label>
+    </customValue>
+    <customValue>
+        <fullName>F-Line Technologies</fullName>
+        <default>false</default>
+        <label>F-Line Technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>FLT-Prim</fullName>
+        <default>false</default>
+        <label>FLT-Prim</label>
+    </customValue>
+    <customValue>
+        <fullName>Freeborders</fullName>
+        <default>false</default>
+        <label>Freeborders</label>
+    </customValue>
+    <customValue>
+        <fullName>Fromtis</fullName>
+        <default>false</default>
+        <label>Fromtis</label>
+    </customValue>
+    <customValue>
+        <fullName>FRS</fullName>
+        <default>false</default>
+        <label>FRS</label>
+    </customValue>
+    <customValue>
+        <fullName>Fundtech GmbH</fullName>
+        <default>false</default>
+        <label>Fundtech GmbH</label>
+    </customValue>
+    <customValue>
+        <fullName>G-Able</fullName>
+        <default>false</default>
+        <label>G-Able</label>
+    </customValue>
+    <customValue>
+        <fullName>Gandacar Consulting Ltd.</fullName>
+        <default>false</default>
+        <label>Gandacar Consulting Ltd.</label>
+    </customValue>
+    <customValue>
+        <fullName>GBM Dubai</fullName>
+        <default>false</default>
+        <label>GBM Dubai</label>
+    </customValue>
+    <customValue>
+        <fullName>GBM Qatar</fullName>
+        <default>false</default>
+        <label>GBM Qatar</label>
+    </customValue>
+    <customValue>
+        <fullName>GPIT</fullName>
+        <default>false</default>
+        <label>GPIT</label>
+    </customValue>
+    <customValue>
+        <fullName>HCL</fullName>
+        <default>false</default>
+        <label>HCL</label>
+    </customValue>
+    <customValue>
+        <fullName>HCL CapitalStream</fullName>
+        <default>false</default>
+        <label>HCL CapitalStream</label>
+    </customValue>
+    <customValue>
+        <fullName>Hewlett-Packard Ltd.</fullName>
+        <default>false</default>
+        <label>Hewlett-Packard Ltd.</label>
+    </customValue>
+    <customValue>
+        <fullName>Hildebrando</fullName>
+        <default>false</default>
+        <label>Hildebrando</label>
+    </customValue>
+    <customValue>
+        <fullName>HITEC (Laboratories) Ltd</fullName>
+        <default>false</default>
+        <label>HITEC (Laboratories) Ltd</label>
+    </customValue>
+    <customValue>
+        <fullName>HS Data Limited</fullName>
+        <default>false</default>
+        <label>HS Data Limited</label>
+    </customValue>
+    <customValue>
+        <fullName>IBM Consulting</fullName>
+        <default>false</default>
+        <label>IBM Consulting</label>
+    </customValue>
+    <customValue>
+        <fullName>IBM OEM</fullName>
+        <default>false</default>
+        <label>IBM OEM</label>
+    </customValue>
+    <customValue>
+        <fullName>Incuventure Partners Corporation</fullName>
+        <default>false</default>
+        <label>Incuventure Partners Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Indra</fullName>
+        <default>false</default>
+        <label>Indra</label>
+    </customValue>
+    <customValue>
+        <fullName>Intercom</fullName>
+        <default>false</default>
+        <label>Intercom</label>
+    </customValue>
+    <customValue>
+        <fullName>Isite</fullName>
+        <default>false</default>
+        <label>Isite</label>
+    </customValue>
+    <customValue>
+        <fullName>iSoftStone</fullName>
+        <default>false</default>
+        <label>iSoftStone</label>
+    </customValue>
+    <customValue>
+        <fullName>iTeco</fullName>
+        <default>false</default>
+        <label>iTeco</label>
+    </customValue>
+    <customValue>
+        <fullName>Kmerit</fullName>
+        <default>false</default>
+        <label>Kmerit</label>
+    </customValue>
+    <customValue>
+        <fullName>KPMG</fullName>
+        <default>false</default>
+        <label>KPMG</label>
+    </customValue>
+    <customValue>
+        <fullName>Kuwait Business Machines</fullName>
+        <default>false</default>
+        <label>Kuwait Business Machines</label>
+    </customValue>
+    <customValue>
+        <fullName>Mahindra Satyam</fullName>
+        <default>false</default>
+        <label>Mahindra Satyam</label>
+    </customValue>
+    <customValue>
+        <fullName>Mainsys</fullName>
+        <default>false</default>
+        <label>Mainsys</label>
+    </customValue>
+    <customValue>
+        <fullName>Malam</fullName>
+        <default>false</default>
+        <label>Malam</label>
+    </customValue>
+    <customValue>
+        <fullName>MDSL SAL</fullName>
+        <default>false</default>
+        <label>MDSL SAL</label>
+    </customValue>
+    <customValue>
+        <fullName>Mesiniaga Berhad</fullName>
+        <default>false</default>
+        <label>Mesiniaga Berhad</label>
+    </customValue>
+    <customValue>
+        <fullName>MetaEdge</fullName>
+        <default>false</default>
+        <label>MetaEdge</label>
+    </customValue>
+    <customValue>
+        <fullName>Microsoft</fullName>
+        <default>false</default>
+        <label>Microsoft</label>
+    </customValue>
+    <customValue>
+        <fullName>Momentum Utilities Pty Ltd</fullName>
+        <default>false</default>
+        <label>Momentum Utilities Pty Ltd</label>
+    </customValue>
+    <customValue>
+        <fullName>Montblanc Consulting</fullName>
+        <default>false</default>
+        <label>Montblanc Consulting</label>
+    </customValue>
+    <customValue>
+        <fullName>Nantian</fullName>
+        <default>false</default>
+        <label>Nantian</label>
+    </customValue>
+    <customValue>
+        <fullName>Nara IT</fullName>
+        <default>false</default>
+        <label>Nara IT</label>
+    </customValue>
+    <customValue>
+        <fullName>Northdoor Plc</fullName>
+        <default>false</default>
+        <label>Northdoor Plc</label>
+    </customValue>
+    <customValue>
+        <fullName>Northland Solutions</fullName>
+        <default>false</default>
+        <label>Northland Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Novisource</fullName>
+        <default>false</default>
+        <label>Novisource</label>
+    </customValue>
+    <customValue>
+        <fullName>NS Solutions Corporation</fullName>
+        <default>false</default>
+        <label>NS Solutions Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Numerix</fullName>
+        <default>false</default>
+        <label>Numerix</label>
+    </customValue>
+    <customValue>
+        <fullName>Oracle</fullName>
+        <default>false</default>
+        <label>Oracle</label>
+    </customValue>
+    <customValue>
+        <fullName>OTR</fullName>
+        <default>false</default>
+        <label>OTR</label>
+    </customValue>
+    <customValue>
+        <fullName>Pelican Consulting</fullName>
+        <default>false</default>
+        <label>Pelican Consulting</label>
+    </customValue>
+    <customValue>
+        <fullName>Pentegy</fullName>
+        <default>false</default>
+        <label>Pentegy</label>
+    </customValue>
+    <customValue>
+        <fullName>Pervasive</fullName>
+        <default>false</default>
+        <label>Pervasive</label>
+    </customValue>
+    <customValue>
+        <fullName>Primaris</fullName>
+        <default>false</default>
+        <label>Primaris</label>
+    </customValue>
+    <customValue>
+        <fullName>Process Unity</fullName>
+        <default>false</default>
+        <label>Process Unity</label>
+    </customValue>
+    <customValue>
+        <fullName>Profile SA</fullName>
+        <default>false</default>
+        <label>Profile SA</label>
+    </customValue>
+    <customValue>
+        <fullName>PT. Abhimata Persada</fullName>
+        <default>false</default>
+        <label>PT. Abhimata Persada</label>
+    </customValue>
+    <customValue>
+        <fullName>PT. Mitra Infosarana</fullName>
+        <default>false</default>
+        <label>PT. Mitra Infosarana</label>
+    </customValue>
+    <customValue>
+        <fullName>Quuest</fullName>
+        <default>false</default>
+        <label>Quuest</label>
+    </customValue>
+    <customValue>
+        <fullName>Reply Group</fullName>
+        <default>false</default>
+        <label>Reply Group</label>
+    </customValue>
+    <customValue>
+        <fullName>S&amp;I Systems PL</fullName>
+        <default>false</default>
+        <label>S&amp;I Systems PL</label>
+    </customValue>
+    <customValue>
+        <fullName>Sage</fullName>
+        <default>false</default>
+        <label>Sage</label>
+    </customValue>
+    <customValue>
+        <fullName>SANDZ Phils</fullName>
+        <default>false</default>
+        <label>SANDZ Phils</label>
+    </customValue>
+    <customValue>
+        <fullName>SAP AG</fullName>
+        <default>false</default>
+        <label>SAP AG</label>
+    </customValue>
+    <customValue>
+        <fullName>Savannah Computing Limited</fullName>
+        <default>false</default>
+        <label>Savannah Computing Limited</label>
+    </customValue>
+    <customValue>
+        <fullName>Seven Seas</fullName>
+        <default>false</default>
+        <label>Seven Seas</label>
+    </customValue>
+    <customValue>
+        <fullName>Sing Lee Technology Limited Co</fullName>
+        <default>false</default>
+        <label>Sing Lee Technology Limited Co</label>
+    </customValue>
+    <customValue>
+        <fullName>Sistec</fullName>
+        <default>false</default>
+        <label>Sistec</label>
+    </customValue>
+    <customValue>
+        <fullName>SLM</fullName>
+        <default>false</default>
+        <label>SLM</label>
+    </customValue>
+    <customValue>
+        <fullName>SmartStream Technologies, Inc.</fullName>
+        <default>false</default>
+        <label>SmartStream Technologies, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>Softtek</fullName>
+        <default>false</default>
+        <label>Softtek</label>
+    </customValue>
+    <customValue>
+        <fullName>Sophos</fullName>
+        <default>false</default>
+        <label>Sophos</label>
+    </customValue>
+    <customValue>
+        <fullName>South Asian Technologies (Pvt) Ltd.</fullName>
+        <default>false</default>
+        <label>South Asian Technologies (Pvt) Ltd.</label>
+    </customValue>
+    <customValue>
+        <fullName>Spectrum</fullName>
+        <default>false</default>
+        <label>Spectrum</label>
+    </customValue>
+    <customValue>
+        <fullName>Stefanini</fullName>
+        <default>false</default>
+        <label>Stefanini</label>
+    </customValue>
+    <customValue>
+        <fullName>Sungard</fullName>
+        <default>false</default>
+        <label>Sungard</label>
+    </customValue>
+    <customValue>
+        <fullName>Sun Microsystems</fullName>
+        <default>false</default>
+        <label>Sun Microsystems</label>
+    </customValue>
+    <customValue>
+        <fullName>SWIFT</fullName>
+        <default>false</default>
+        <label>SWIFT</label>
+    </customValue>
+    <customValue>
+        <fullName>SWIFT USA</fullName>
+        <default>false</default>
+        <label>SWIFT USA</label>
+    </customValue>
+    <customValue>
+        <fullName>Sword Fircosoft</fullName>
+        <default>false</default>
+        <label>Sword Fircosoft</label>
+    </customValue>
+    <customValue>
+        <fullName>Sybase</fullName>
+        <default>false</default>
+        <label>Sybase</label>
+    </customValue>
+    <customValue>
+        <fullName>Synergy Computers</fullName>
+        <default>false</default>
+        <label>Synergy Computers</label>
+    </customValue>
+    <customValue>
+        <fullName>Synthesis Software Technologies</fullName>
+        <default>false</default>
+        <label>Synthesis Software Technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>TBD – Banking</fullName>
+        <default>false</default>
+        <label>TBD – Banking</label>
+    </customValue>
+    <customValue>
+        <fullName>TBD – TCM</fullName>
+        <default>false</default>
+        <label>TBD – TCM</label>
+    </customValue>
+    <customValue>
+        <fullName>The Copy Cat Limited</fullName>
+        <default>false</default>
+        <label>The Copy Cat Limited</label>
+    </customValue>
+    <customValue>
+        <fullName>Theme Technologies</fullName>
+        <default>false</default>
+        <label>Theme Technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Tibco DataSynapse</fullName>
+        <default>false</default>
+        <label>Tibco DataSynapse</label>
+    </customValue>
+    <customValue>
+        <fullName>Tong Yong Systems Corp.</fullName>
+        <default>false</default>
+        <label>Tong Yong Systems Corp.</label>
+    </customValue>
+    <customValue>
+        <fullName>Transoft</fullName>
+        <default>false</default>
+        <label>Transoft</label>
+    </customValue>
+    <customValue>
+        <fullName>Triple Point Technology</fullName>
+        <default>false</default>
+        <label>Triple Point Technology</label>
+    </customValue>
+    <customValue>
+        <fullName>Union Systems Limited</fullName>
+        <default>false</default>
+        <label>Union Systems Limited</label>
+    </customValue>
+    <customValue>
+        <fullName>Unisys</fullName>
+        <default>false</default>
+        <label>Unisys</label>
+    </customValue>
+    <customValue>
+        <fullName>Vanda Software Engineering Company Ltd</fullName>
+        <default>false</default>
+        <label>Vanda Software Engineering Company Ltd</label>
+    </customValue>
+    <customValue>
+        <fullName>Wipro Infotech</fullName>
+        <default>false</default>
+        <label>Wipro Infotech</label>
+    </customValue>
+    <customValue>
+        <fullName>Xuan Le Co. Ltd</fullName>
+        <default>false</default>
+        <label>Xuan Le Co. Ltd</label>
+    </customValue>
+    <customValue>
+        <fullName>Yemen Computer Co. Ltd</fullName>
+        <default>false</default>
+        <label>Yemen Computer Co. Ltd</label>
+    </customValue>
+    <customValue>
+        <fullName>ALOGENT HOLDINGS INC-USM</fullName>
+        <default>false</default>
+        <label>ALOGENT HOLDINGS INC-USM</label>
+    </customValue>
+    <customValue>
+        <fullName>BANKERS EQUIPMENT SERVICE INC-USM</fullName>
+        <default>false</default>
+        <label>BANKERS EQUIPMENT SERVICE INC-USM</label>
+    </customValue>
+    <customValue>
+        <fullName>COMPUFLEX CORP-USM</fullName>
+        <default>false</default>
+        <label>COMPUFLEX CORP-USM</label>
+    </customValue>
+    <customValue>
+        <fullName>DATA BUSINESS EQUIPMENT INC-USM</fullName>
+        <default>false</default>
+        <label>DATA BUSINESS EQUIPMENT INC-USM</label>
+    </customValue>
+    <customValue>
+        <fullName>FOCUS FINANCIAL SYSTEMS INC-USM</fullName>
+        <default>false</default>
+        <label>FOCUS FINANCIAL SYSTEMS INC-USM</label>
+    </customValue>
+    <customValue>
+        <fullName>CSI</fullName>
+        <default>false</default>
+        <label>CSI</label>
+    </customValue>
+    <customValue>
+        <fullName>DCI</fullName>
+        <default>false</default>
+        <label>DCI</label>
+    </customValue>
+    <customValue>
+        <fullName>DCIICORE</fullName>
+        <default>false</default>
+        <label>DCIICORE</label>
+    </customValue>
+    <customValue>
+        <fullName>VANTIV LLC-USM</fullName>
+        <default>false</default>
+        <label>VANTIV LLC-USM</label>
+    </customValue>
+    <customValue>
+        <fullName>BANKTEL SYSTEMS-USM</fullName>
+        <default>false</default>
+        <label>BANKTEL SYSTEMS-USM</label>
+    </customValue>
+    <description>List of 3rd party vendors</description>
+    <masterLabel>3rd Party Vendors</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

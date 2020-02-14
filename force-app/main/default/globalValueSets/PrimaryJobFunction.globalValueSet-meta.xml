@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Capital Markets</fullName>
+        <default>false</default>
+        <label>Capital Markets</label>
+    </customValue>
+    <customValue>
+        <fullName>C-level</fullName>
+        <default>false</default>
+        <label>C-level</label>
+    </customValue>
+    <customValue>
+        <fullName>Commercial Lending</fullName>
+        <default>false</default>
+        <label>Commercial Lending</label>
+    </customValue>
+    <customValue>
+        <fullName>Corporate Banking</fullName>
+        <default>false</default>
+        <label>Corporate Banking</label>
+    </customValue>
+    <customValue>
+        <fullName>Digital Channels</fullName>
+        <default>false</default>
+        <label>Digital Channels</label>
+    </customValue>
+    <customValue>
+        <fullName>Investment Management</fullName>
+        <default>false</default>
+        <label>Investment Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail Banking</fullName>
+        <default>false</default>
+        <label>Retail Banking</label>
+    </customValue>
+    <customValue>
+        <fullName>Risk</fullName>
+        <default>false</default>
+        <label>Risk</label>
+    </customValue>
+    <customValue>
+        <fullName>Technology &amp; Operations</fullName>
+        <default>false</default>
+        <label>Technology &amp; Operations</label>
+    </customValue>
+    <description>RUBX-513:This field is used to pick PrimaryJob Function of a Contact</description>
+    <masterLabel>Primary Job Function</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

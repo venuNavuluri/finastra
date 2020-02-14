@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>AccountId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Type</field>
+                <operation>notEqual</operation>
+                <value>Roll-Up Group, Roll-Up Parent</value>
+            </filterItems>
+            <infoMessage>Opportunities cannot be related to Roll-Up Accounts.</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </CustomField>

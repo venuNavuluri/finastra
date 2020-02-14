@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SBQQ__TargetField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field on the Product Option that sources remaining metadata and holds the value.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify field on Product Option that will hold this attribute&apos;s value.</inlineHelpText>
+        <label>Target Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unit Price</fullName>
+                    <default>false</default>
+                    <label>Unit Price</label>
+                </value>
+                <value>
+                    <fullName>Discount (Amt)</fullName>
+                    <default>false</default>
+                    <label>Discount (Amt)</label>
+                </value>
+                <value>
+                    <fullName>Discount (%)</fullName>
+                    <default>false</default>
+                    <label>Discount (%)</label>
+                </value>
+                <value>
+                    <fullName>Revenue_Type__c</fullName>
+                    <default>false</default>
+                    <label>Revenue_Type__c</label>
+                </value>
+                <value>
+                    <fullName>License_Metric__c</fullName>
+                    <default>false</default>
+                    <label>License_Metric__c</label>
+                </value>
+                <value>
+                    <fullName>Third_Party_Vendor__c</fullName>
+                    <default>false</default>
+                    <label>Third_Party_Vendor__c</label>
+                </value>
+                <value>
+                    <fullName>RR_Edition__c</fullName>
+                    <default>false</default>
+                    <label>RR_Edition__c</label>
+                </value>
+                <value>
+                    <fullName>RR_SubEdition__c</fullName>
+                    <default>false</default>
+                    <label>RR_SubEdition__c</label>
+                </value>
+                <value>
+                    <fullName>LM_Copy_1__c</fullName>
+                    <default>false</default>
+                    <label>LM_Copy_1__c</label>
+                </value>
+                <value>
+                    <fullName>LM_Copy_2__c</fullName>
+                    <default>false</default>
+                    <label>LM_Copy_2__c</label>
+                </value>
+                <value>
+                    <fullName>LM_Copy_3__c</fullName>
+                    <default>false</default>
+                    <label>LM_Copy_3__c</label>
+                </value>
+                <value>
+                    <fullName>LM_QTY_1__c</fullName>
+                    <default>false</default>
+                    <label>LM_QTY_1__c</label>
+                </value>
+                <value>
+                    <fullName>LM_QTY_2__c</fullName>
+                    <default>false</default>
+                    <label>LM_QTY_2__c</label>
+                </value>
+                <value>
+                    <fullName>LM_QTY_3__c</fullName>
+                    <default>false</default>
+                    <label>LM_QTY_3__c</label>
+                </value>
+                <value>
+                    <fullName>Location__c</fullName>
+                    <default>false</default>
+                    <label>Location__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

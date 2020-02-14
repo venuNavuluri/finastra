@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remove_After_Date__c</fullName>
+    <description>RUBX-2438 – Field created for REQ-1876-Select a Bulletin (type=Product) Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Set the date the article should be archived and removed from the search results.</inlineHelpText>
+    <label>Remove After Date</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>

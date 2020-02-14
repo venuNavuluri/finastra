@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MortgageBot_Pricing__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When the checkbox is True, this product contains MortgageBot unique pricing.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When the checkbox is True, this product contains MortgageBot unique pricing.</inlineHelpText>
+    <label>MortgageBot Pricing</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

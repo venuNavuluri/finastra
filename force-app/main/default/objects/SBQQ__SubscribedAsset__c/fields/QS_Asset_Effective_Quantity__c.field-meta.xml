@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>QS_Asset_Effective_Quantity__c</fullName>
+        <description>Stamped out with this WFR: https://cs66.salesforce.com/01Q0v0000006ljV</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Stamped out with this WFR: https://cs66.salesforce.com/01Q0v0000006ljV</inlineHelpText>
+        <label>Asset Effective Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

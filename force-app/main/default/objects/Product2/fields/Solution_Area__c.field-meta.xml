@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Solution_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Solution Area</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Line_Of_Business__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cash Management</fullName>
+                    <default>false</default>
+                    <label>Cash Management</label>
+                </value>
+                <value>
+                    <fullName>CMS</fullName>
+                    <default>false</default>
+                    <label>CMS</label>
+                </value>
+                <value>
+                    <fullName>CMT</fullName>
+                    <default>false</default>
+                    <label>CMT</label>
+                </value>
+                <value>
+                    <fullName>Corporate Banking</fullName>
+                    <default>false</default>
+                    <label>Corporate Banking</label>
+                </value>
+                <value>
+                    <fullName>Digital Channels</fullName>
+                    <default>false</default>
+                    <label>Digital Channels</label>
+                </value>
+                <value>
+                    <fullName>Enterprise Lending</fullName>
+                    <default>false</default>
+                    <label>Enterprise Lending</label>
+                </value>
+                <value>
+                    <fullName>Equation</fullName>
+                    <default>false</default>
+                    <label>Equation</label>
+                </value>
+                <value>
+                    <fullName>Essence Hierarchy</fullName>
+                    <default>false</default>
+                    <label>Essence Hierarchy</label>
+                </value>
+                <value>
+                    <fullName>FM-GMS</fullName>
+                    <default>false</default>
+                    <label>FM-GMS</label>
+                </value>
+                <value>
+                    <fullName>Global Payments Hierarchy</fullName>
+                    <default>false</default>
+                    <label>Global Payments Hierarchy</label>
+                </value>
+                <value>
+                    <fullName>International</fullName>
+                    <default>false</default>
+                    <label>International</label>
+                </value>
+                <value>
+                    <fullName>Investment Management</fullName>
+                    <default>false</default>
+                    <label>Investment Management</label>
+                </value>
+                <value>
+                    <fullName>Merchant Services</fullName>
+                    <default>false</default>
+                    <label>Merchant Services</label>
+                </value>
+                <value>
+                    <fullName>Midas Hierarchy</fullName>
+                    <default>false</default>
+                    <label>Midas Hierarchy</label>
+                </value>
+                <value>
+                    <fullName>No Analysis</fullName>
+                    <default>false</default>
+                    <label>No Analysis</label>
+                </value>
+                <value>
+                    <fullName>Other Products</fullName>
+                    <default>false</default>
+                    <label>Other Products</label>
+                </value>
+                <value>
+                    <fullName>Risk</fullName>
+                    <default>false</default>
+                    <label>Risk</label>
+                </value>
+                <value>
+                    <fullName>TEMS</fullName>
+                    <default>false</default>
+                    <label>TEMS</label>
+                </value>
+                <value>
+                    <fullName>Trade &amp; Supply Chain Finance</fullName>
+                    <default>false</default>
+                    <label>Trade &amp; Supply Chain Finance</label>
+                </value>
+                <value>
+                    <fullName>Treasury and Capital Markets</fullName>
+                    <default>false</default>
+                    <label>Treasury and Capital Markets</label>
+                </value>
+                <value>
+                    <fullName>US Lending</fullName>
+                    <default>false</default>
+                    <label>US Lending</label>
+                </value>
+                <value>
+                    <fullName>US Mortgages</fullName>
+                    <default>false</default>
+                    <label>US Mortgages</label>
+                </value>
+                <value>
+                    <fullName>US Payments</fullName>
+                    <default>false</default>
+                    <label>US Payments</label>
+                </value>
+                <value>
+                    <fullName>US Retail</fullName>
+                    <default>false</default>
+                    <label>US Retail</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Payments</controllingFieldValue>
+                <valueName>Global Payments Hierarchy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Payments</controllingFieldValue>
+                <valueName>US Payments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TBS</controllingFieldValue>
+                <valueName>CMT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TBS</controllingFieldValue>
+                <valueName>FM-GMS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TBS</controllingFieldValue>
+                <valueName>Merchant Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TEMS</controllingFieldValue>
+                <valueName>CMS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TEMS</controllingFieldValue>
+                <valueName>TEMS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Treasury Capital Markets</controllingFieldValue>
+                <valueName>Investment Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Treasury Capital Markets</controllingFieldValue>
+                <valueName>Risk</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Treasury Capital Markets</controllingFieldValue>
+                <valueName>Treasury and Capital Markets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CM Retail &amp; Lending</controllingFieldValue>
+                <valueName>US Lending</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CM Retail &amp; Lending</controllingFieldValue>
+                <valueName>US Mortgages</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CM Retail &amp; Lending</controllingFieldValue>
+                <valueName>US Retail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Banking</controllingFieldValue>
+                <valueName>Cash Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Banking</controllingFieldValue>
+                <valueName>Corporate Banking</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Banking</controllingFieldValue>
+                <controllingFieldValue>Lending</controllingFieldValue>
+                <valueName>Enterprise Lending</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Banking</controllingFieldValue>
+                <valueName>Trade &amp; Supply Chain Finance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Enterprise Retail</controllingFieldValue>
+                <valueName>Digital Channels</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Enterprise Retail</controllingFieldValue>
+                <valueName>Equation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Enterprise Retail</controllingFieldValue>
+                <valueName>Essence Hierarchy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Enterprise Retail</controllingFieldValue>
+                <valueName>International</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Enterprise Retail</controllingFieldValue>
+                <valueName>Midas Hierarchy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lending</controllingFieldValue>
+                <controllingFieldValue>No Analysis</controllingFieldValue>
+                <valueName>No Analysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Products</controllingFieldValue>
+                <valueName>Other Products</valueName>
+            </valueSettings>
+        </valueSet>
+    </CustomField>

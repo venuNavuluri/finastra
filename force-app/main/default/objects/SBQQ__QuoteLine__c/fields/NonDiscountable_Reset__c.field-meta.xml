@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NonDiscountable_Reset__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Only used in QCP code to reset the non discountable checkbox on quote lines</description>
+    <externalId>false</externalId>
+    <label>Non Discountable Reset</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

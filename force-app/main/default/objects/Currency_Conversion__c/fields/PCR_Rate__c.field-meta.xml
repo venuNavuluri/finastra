@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>PCR_Rate__c</fullName>
+        <description>Rate used to convert pricing into Deal Currency</description>
+        <externalId>false</externalId>
+        <label>PCR Rate</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

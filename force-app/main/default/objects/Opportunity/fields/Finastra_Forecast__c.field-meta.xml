@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finastra_Forecast__c</fullName>
+    <description>RUBX-453 : Field to capture Finastra Forecast</description>
+    <externalId>false</externalId>
+    <label>Finastra Forecast</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Exempt</fullName>
+                <default>false</default>
+                <label>Exempt</label>
+            </value>
+            <value>
+                <fullName>Contingency</fullName>
+                <default>false</default>
+                <label>Contingency</label>
+            </value>
+            <value>
+                <fullName>Likely</fullName>
+                <default>false</default>
+                <label>Likely</label>
+            </value>
+            <value>
+                <fullName>Commit</fullName>
+                <default>false</default>
+                <label>Commit</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Omitted</fullName>
+                <default>false</default>
+                <label>Omitted</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

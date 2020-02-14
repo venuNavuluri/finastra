@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Region__c</fullName>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Asia Developed</fullName>
+                    <default>false</default>
+                    <label>Asia Developed</label>
+                </value>
+                <value>
+                    <fullName>Europe Developed</fullName>
+                    <default>false</default>
+                    <label>Europe Developed</label>
+                </value>
+                <value>
+                    <fullName>Americas Developed</fullName>
+                    <default>false</default>
+                    <label>Americas Developed</label>
+                </value>
+                <value>
+                    <fullName>Asia Emerging</fullName>
+                    <default>false</default>
+                    <label>Asia Emerging</label>
+                </value>
+                <value>
+                    <fullName>Asia underdeveloped</fullName>
+                    <default>false</default>
+                    <label>Asia underdeveloped</label>
+                </value>
+                <value>
+                    <fullName>Europe Emerging</fullName>
+                    <default>false</default>
+                    <label>Europe Emerging</label>
+                </value>
+                <value>
+                    <fullName>MEA (was ME)</fullName>
+                    <default>false</default>
+                    <label>MEA (was ME)</label>
+                </value>
+                <value>
+                    <fullName>Americas Emerging</fullName>
+                    <default>false</default>
+                    <label>Americas Emerging</label>
+                </value>
+                <value>
+                    <fullName>MEA Emerging (was Africa)</fullName>
+                    <default>false</default>
+                    <label>MEA Emerging (was Africa)</label>
+                </value>
+                <value>
+                    <fullName>Indirect Channel Emerging</fullName>
+                    <default>false</default>
+                    <label>Indirect Channel Emerging</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

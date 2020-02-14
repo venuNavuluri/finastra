@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CPI_Term__c</fullName>
+        <externalId>false</externalId>
+        <label>CPI Term</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Apply Default CPI Term</fullName>
+                    <default>false</default>
+                    <label>Apply Default CPI Term</label>
+                </value>
+                <value>
+                    <fullName>Apply Customer’s Existing CPI Term</fullName>
+                    <default>false</default>
+                    <label>Apply Customer’s Existing CPI Term</label>
+                </value>
+                <value>
+                    <fullName>Non-Standard CPI Term</fullName>
+                    <default>false</default>
+                    <label>Non-Standard CPI Term</label>
+                </value>
+                <value>
+                    <fullName>No Increase</fullName>
+                    <default>false</default>
+                    <label>No Increase</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

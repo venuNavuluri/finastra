@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Uplift_Factor__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>The factor that the Subscription gets increased by from the associated CPI Uplift record. This is populated in the background by code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The factor that the Subscription gets increased by from the associated CPI Uplift record. This is populated in the background by code.</inlineHelpText>
+        <label>CPI Uplift Factor</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

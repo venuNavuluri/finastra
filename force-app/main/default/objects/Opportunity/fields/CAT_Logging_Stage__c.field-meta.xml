@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CAT_Logging_Stage__c</fullName>
+    <description>RUBX-1023 : Select stage describing what point during the CAT review process, CAT review must be complete before Opportunity Closed won</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select stage describing what point during the CAT review process, CAT review must be complete before Opportunity Closed won</inlineHelpText>
+    <label>CAT Logging Stage</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Awaiting CAT Review</fullName>
+                <default>false</default>
+                <label>Awaiting CAT Review</label>
+            </value>
+            <value>
+                <fullName>CAT Review In Progress</fullName>
+                <default>false</default>
+                <label>CAT Review In Progress</label>
+            </value>
+            <value>
+                <fullName>CAT Review Complete</fullName>
+                <default>false</default>
+                <label>CAT Review Complete</label>
+            </value>
+            <value>
+                <fullName>CAT Rejected</fullName>
+                <default>false</default>
+                <label>CAT Rejected</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

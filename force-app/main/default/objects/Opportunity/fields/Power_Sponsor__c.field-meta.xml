@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Power_Sponsor__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>RUBX-1543: Identify Power sponsor in SS3</description>
+    <externalId>false</externalId>
+    <label>Power Sponsor</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Opportunities (Power Sponsor)</relationshipLabel>
+    <relationshipName>Opportunities1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

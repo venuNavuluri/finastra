@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Both_Account_and_Contact_Cannot_Be_Blank</fullName>
+    <active>true</active>
+    <description>RUBX-3969 : An address must be associated either with a contact or with an account</description>
+    <errorConditionFormula>AND (
+NOT($Setup.Bypass_Validations__c.Disable__c),
+OR( ISCHANGED(Account__c),ISCHANGED(Contact__c),ISNEW()),
+ISBLANK(Account__c),
+ISBLANK(Contact__c)
+)</errorConditionFormula>
+    <errorMessage>Please select either an Account or a Contact for this address record. Note: You can not select both.</errorMessage>
+</ValidationRule>

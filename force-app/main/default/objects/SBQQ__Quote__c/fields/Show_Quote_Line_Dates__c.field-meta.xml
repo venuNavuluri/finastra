@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Show_Quote_Line_Dates__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Select this box to show the Quote Line Start and End Date in the QLE.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select this box to show the Quote Line Start and End Date in the QLE.</inlineHelpText>
+        <label>Show Quote Line Dates</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

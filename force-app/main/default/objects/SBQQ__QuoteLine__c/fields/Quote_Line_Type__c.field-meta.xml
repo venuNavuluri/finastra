@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Line_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(OR(NOT(ISBLANK(SBQQ__RenewedSubscription__c)), NOT(ISBLANK(SBQQ__RenewedAsset__c))), &quot;Renewal&quot;, 
+IF(SBQQ__Quantity__c &lt;&gt; SBQQ__EffectiveQuantity__c, 
+IF(SBQQ__EffectiveQuantity__c &lt; 0, &quot;Decommission&quot;, 
+IF(SBQQ__EffectiveQuantity__c &gt; 0, &quot;Amendment&quot;, 
+&quot;Amendment&quot;)), 
+&quot;New&quot;) 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Quote Line Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

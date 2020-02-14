@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supported_Server_Operating_Systems__c</fullName>
+    <description>RUBX-2419 – REQ-1857-Select a System Requirements Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <label>Supported Server Operating Systems</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Server 2012</fullName>
+                <default>false</default>
+                <label>Server 2012</label>
+            </value>
+            <value>
+                <fullName>Server 2012 R2</fullName>
+                <default>false</default>
+                <label>Server 2012 R2</label>
+            </value>
+            <value>
+                <fullName>Server 2008 R2</fullName>
+                <default>false</default>
+                <label>Server 2008 R2</label>
+            </value>
+            <value>
+                <fullName>Server 2008 64-bit</fullName>
+                <default>false</default>
+                <label>Server 2008 64-bit</label>
+            </value>
+            <value>
+                <fullName>Server 2008 32-bit</fullName>
+                <default>false</default>
+                <label>Server 2008 32-bit</label>
+            </value>
+            <value>
+                <fullName>Server 2003 32-bit</fullName>
+                <default>false</default>
+                <label>Server 2003 32-bit</label>
+            </value>
+            <value>
+                <fullName>Server 2003 64-bit</fullName>
+                <default>false</default>
+                <label>Server 2003 64-bit</label>
+            </value>
+            <value>
+                <fullName>AIX</fullName>
+                <default>false</default>
+                <label>AIX</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

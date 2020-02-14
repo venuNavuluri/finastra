@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Sub_Type__c</fullName>
+    <description>RUBX-531 : Service Sub-Type for GS deals</description>
+    <externalId>false</externalId>
+    <label>Service Sub-Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Service_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Client</fullName>
+                <default>false</default>
+                <label>Client</label>
+            </value>
+            <value>
+                <fullName>Finastra EE</fullName>
+                <default>false</default>
+                <label>Finastra EE</label>
+            </value>
+            <value>
+                <fullName>Partner</fullName>
+                <default>false</default>
+                <label>Partner</label>
+            </value>
+            <value>
+                <fullName>Fusion Blueprints</fullName>
+                <default>false</default>
+                <label>Fusion Blueprints</label>
+            </value>
+            <value>
+                <fullName>NON Fusion Blueprints</fullName>
+                <default>false</default>
+                <label>NON Fusion Blueprints</label>
+            </value>
+            <value>
+                <fullName>De-commission</fullName>
+                <default>false</default>
+                <label>De-commission</label>
+            </value>
+            <value>
+                <fullName>Core Development RA</fullName>
+                <default>false</default>
+                <label>Core Development RA</label>
+            </value>
+            <value>
+                <fullName>Non Core - FED / Toolkit</fullName>
+                <default>false</default>
+                <label>Non Core - FED / Toolkit</label>
+            </value>
+            <value>
+                <fullName>Legacy migration data bucket</fullName>
+                <default>false</default>
+                <label>Legacy migration data bucket</label>
+            </value>
+            <value>
+                <fullName>24x5/7</fullName>
+                <default>false</default>
+                <label>24x5/7</label>
+            </value>
+            <value>
+                <fullName>Ad-hoc support</fullName>
+                <default>false</default>
+                <label>Ad-hoc support</label>
+            </value>
+            <value>
+                <fullName>Onsite support</fullName>
+                <default>false</default>
+                <label>Onsite support</label>
+            </value>
+            <value>
+                <fullName>Standby Support</fullName>
+                <default>false</default>
+                <label>Standby Support</label>
+            </value>
+            <value>
+                <fullName>Support enablement trainings</fullName>
+                <default>false</default>
+                <label>Support enablement trainings</label>
+            </value>
+            <value>
+                <fullName>New Module</fullName>
+                <default>false</default>
+                <label>New Module</label>
+            </value>
+            <value>
+                <fullName>New Product</fullName>
+                <default>false</default>
+                <label>New Product</label>
+            </value>
+            <value>
+                <fullName>Main Upgrade Project</fullName>
+                <default>false</default>
+                <label>Main Upgrade Project</label>
+            </value>
+            <value>
+                <fullName>SWIFT Upgrade</fullName>
+                <default>false</default>
+                <label>SWIFT Upgrade</label>
+            </value>
+            <value>
+                <fullName>Upgrade &amp; New Module</fullName>
+                <default>false</default>
+                <label>Upgrade &amp; New Module</label>
+            </value>
+            <value>
+                <fullName>Upgrade &amp; New Product</fullName>
+                <default>false</default>
+                <label>Upgrade &amp; New Product</label>
+            </value>
+            <value>
+                <fullName>Client (DIY)</fullName>
+                <default>false</default>
+                <label>Client (DIY)</label>
+            </value>
+            <value>
+                <fullName>Academy FCA</fullName>
+                <default>false</default>
+                <label>Academy FCA</label>
+            </value>
+            <value>
+                <fullName>Academy FCI</fullName>
+                <default>false</default>
+                <label>Academy FCI</label>
+            </value>
+            <value>
+                <fullName>Academy FCT</fullName>
+                <default>false</default>
+                <label>Academy FCT</label>
+            </value>
+            <value>
+                <fullName>Academy Public Training</fullName>
+                <default>false</default>
+                <label>Academy Public Training</label>
+            </value>
+            <value>
+                <fullName>Academy Subscriptions</fullName>
+                <default>false</default>
+                <label>Academy Subscriptions</label>
+            </value>
+            <value>
+                <fullName>Academy training</fullName>
+                <default>false</default>
+                <label>Academy training</label>
+            </value>
+            <value>
+                <fullName>Diamond Membership</fullName>
+                <default>false</default>
+                <label>Diamond Membership</label>
+            </value>
+            <value>
+                <fullName>Platinum Membership</fullName>
+                <default>false</default>
+                <label>Platinum Membership</label>
+            </value>
+            <value>
+                <fullName>Premium Membership</fullName>
+                <default>false</default>
+                <label>Premium Membership</label>
+            </value>
+            <value>
+                <fullName>Design Authority / Architecture Review</fullName>
+                <default>false</default>
+                <label>Design Authority / Architecture Review</label>
+            </value>
+            <value>
+                <fullName>Evergreening</fullName>
+                <default>false</default>
+                <label>Evergreening</label>
+            </value>
+            <value>
+                <fullName>Systems Optimization Services</fullName>
+                <default>false</default>
+                <label>Systems Optimization Services</label>
+            </value>
+            <value>
+                <fullName>Testing Services</fullName>
+                <default>false</default>
+                <label>Testing Services</label>
+            </value>
+            <value>
+                <fullName>Upgrade Assessment/Discovery</fullName>
+                <default>false</default>
+                <label>Upgrade Assessment/Discovery</label>
+            </value>
+            <value>
+                <fullName>Existing Client</fullName>
+                <default>false</default>
+                <label>Existing Client</label>
+            </value>
+            <value>
+                <fullName>New Client</fullName>
+                <default>false</default>
+                <label>New Client</label>
+            </value>
+            <value>
+                <fullName>Blanket days / call off / adhoc</fullName>
+                <default>false</default>
+                <label>Blanket days / call off / adhoc</label>
+            </value>
+            <value>
+                <fullName>D&amp;H specific</fullName>
+                <default>false</default>
+                <label>D&amp;H specific</label>
+            </value>
+            <value>
+                <fullName>Service Pack Assistance</fullName>
+                <default>false</default>
+                <label>Service Pack Assistance</label>
+            </value>
+            <value>
+                <fullName>Upgrade Assistance</fullName>
+                <default>false</default>
+                <label>Upgrade Assistance</label>
+            </value>
+            <value>
+                <fullName>CR Linked to Upgrade</fullName>
+                <default>false</default>
+                <label>CR Linked to Upgrade</label>
+            </value>
+            <value>
+                <fullName>Planning / Scoping for Upgrade</fullName>
+                <default>false</default>
+                <label>Planning / Scoping for Upgrade</label>
+            </value>
+            <value>
+                <fullName>Tech Upgrade (SP or Configuration)</fullName>
+                <default>false</default>
+                <label>Tech Upgrade (SP or Configuration)</label>
+            </value>
+            <value>
+                <fullName>Upgrade Support</fullName>
+                <default>false</default>
+                <label>Upgrade Support</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Fusion Knowledge Services (Academy)</controllingFieldValue>
+            <valueName>Academy FCA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Knowledge Services (Academy)</controllingFieldValue>
+            <valueName>Academy FCI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Knowledge Services (Academy)</controllingFieldValue>
+            <valueName>Academy FCT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Knowledge Services (Academy)</controllingFieldValue>
+            <valueName>Academy Public Training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Knowledge Services (Academy)</controllingFieldValue>
+            <valueName>Academy Subscriptions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Knowledge Services (Academy)</controllingFieldValue>
+            <valueName>Academy training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Knowledge Services (Academy)</controllingFieldValue>
+            <valueName>Diamond Membership</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Knowledge Services (Academy)</controllingFieldValue>
+            <valueName>Platinum Membership</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Knowledge Services (Academy)</controllingFieldValue>
+            <valueName>Premium Membership</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Optimize</controllingFieldValue>
+            <valueName>Design Authority / Architecture Review</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Optimize</controllingFieldValue>
+            <valueName>Evergreening</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Optimize</controllingFieldValue>
+            <valueName>Systems Optimization Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Optimize</controllingFieldValue>
+            <valueName>Testing Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Optimize</controllingFieldValue>
+            <valueName>Upgrade Assessment/Discovery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Implementation Fusion Blueprints</controllingFieldValue>
+            <controllingFieldValue>New Implementation NON Fusion Blueprints</controllingFieldValue>
+            <valueName>Existing Client</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Implementation Fusion Blueprints</controllingFieldValue>
+            <controllingFieldValue>New Implementation NON Fusion Blueprints</controllingFieldValue>
+            <valueName>New Client</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PSS Extended Support</controllingFieldValue>
+            <valueName>Blanket days / call off / adhoc</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PSS Extended Support</controllingFieldValue>
+            <valueName>D&amp;H specific</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PSS Extended Support</controllingFieldValue>
+            <valueName>Service Pack Assistance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PSS Extended Support</controllingFieldValue>
+            <valueName>Upgrade Assistance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upgrade - Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Upgrade Non Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Fusion Advance</controllingFieldValue>
+            <valueName>Main Upgrade Project</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upgrade - Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Upgrade Non Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Fusion Advance</controllingFieldValue>
+            <valueName>SWIFT Upgrade</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upgrade - Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Upgrade Non Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Fusion Advance</controllingFieldValue>
+            <valueName>Upgrade &amp; New Module</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upgrade - Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Upgrade Non Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Fusion Advance</controllingFieldValue>
+            <valueName>Upgrade &amp; New Product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upgrade - Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Upgrade Non Fusion Advance Premium</controllingFieldValue>
+            <valueName>CR Linked to Upgrade</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upgrade - Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Upgrade Non Fusion Advance Premium</controllingFieldValue>
+            <valueName>Planning / Scoping for Upgrade</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upgrade - Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Upgrade Non Fusion Advance Premium</controllingFieldValue>
+            <valueName>Tech Upgrade (SP or Configuration)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upgrade - Fusion Advance Premium</controllingFieldValue>
+            <controllingFieldValue>Upgrade Non Fusion Advance Premium</controllingFieldValue>
+            <valueName>Upgrade Support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Academy Training</controllingFieldValue>
+            <valueName>Client</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Academy Training</controllingFieldValue>
+            <valueName>Finastra EE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Academy Training</controllingFieldValue>
+            <controllingFieldValue>Fusion Assure</controllingFieldValue>
+            <valueName>Partner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Additional Module / Functionality Implementation</controllingFieldValue>
+            <valueName>Fusion Blueprints</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Additional Module / Functionality Implementation</controllingFieldValue>
+            <valueName>NON Fusion Blueprints</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancellation</controllingFieldValue>
+            <valueName>De-commission</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customisation</controllingFieldValue>
+            <valueName>Core Development RA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customisation</controllingFieldValue>
+            <valueName>Non Core - FED / Toolkit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>D&amp;H only</controllingFieldValue>
+            <valueName>Legacy migration data bucket</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extended Support Services</controllingFieldValue>
+            <valueName>24x5/7</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extended Support Services</controllingFieldValue>
+            <valueName>Ad-hoc support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extended Support Services</controllingFieldValue>
+            <valueName>Onsite support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extended Support Services</controllingFieldValue>
+            <valueName>Standby Support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extended Support Services</controllingFieldValue>
+            <valueName>Support enablement trainings</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Adopt- Fusion Blueprints</controllingFieldValue>
+            <controllingFieldValue>Fusion Adopt- Non Fusion Blueprints</controllingFieldValue>
+            <valueName>New Module</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Adopt- Fusion Blueprints</controllingFieldValue>
+            <controllingFieldValue>Fusion Adopt- Non Fusion Blueprints</controllingFieldValue>
+            <valueName>New Product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fusion Assure</controllingFieldValue>
+            <valueName>Client (DIY)</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finastra Sales Process</fullName>
+    <description>RUBX-1467: Sales process for &#39;Full&#39; opportunity record type</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>1%2E Prospect</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>2%2E Create</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>3%2E Qualify</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>4%2E Develop</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>5%2E Prove</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>6%2E Negotiate</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Qualified Out</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Won</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Won Pending</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

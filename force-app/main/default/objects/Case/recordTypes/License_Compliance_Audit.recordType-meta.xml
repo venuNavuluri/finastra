@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License_Compliance_Audit</fullName>
+    <active>true</active>
+    <businessProcess>License Compliance Audit</businessProcess>
+    <description>Record Type to track cases created for License Compliance Audit</description>
+    <label>License Compliance Audit</label>
+    <picklistValues>
+        <picklist>Audit_Method__c</picklist>
+        <values>
+            <fullName>Audit Tool</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Declaration</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Backup_System_s_Information__c</picklist>
+        <values>
+            <fullName>Backup is Compliant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Backup is Non Compliant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No info provided</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Case_Category__c</picklist>
+        <values>
+            <fullName>Defect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enhancement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Support Request</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Compliance_Sub_Status__c</picklist>
+        <values>
+            <fullName>1st Follow-up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2nd Follow-up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3rd Follow-up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4th Follow-up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Analysis submitted for QA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audit Holiday</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audit Tools Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compliant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom License%2Fno VBP matrix</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Default</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate Account%2FLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End of contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enquire%2FRead Only licence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing Customer%2FProduct Upgrade - Less Than 1 Yr Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing Product - Ongoing Upgrade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GHO%2FHub%2FBilling site</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Implementation%2FSupport Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L2 - Audit Tool Assistance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Sanctions%2FPolitical Situation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licensed - Not Implemented</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licensed - Product Not In Use</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Customer%2FProduct -  Less Than 1 Yr Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New customer%2Fproduct%2C still under implementation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Audit Report Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Auditable Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Compliant %28Closed Lost%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Compliant %28Closed Qualified Out%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Compliant %28Closed Won%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Compliant %28For Re-Audit%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold Pending AM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold Pending Audit Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold Pending Reports From Other Sites</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ongoing sales negotiations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Complete %2F Accurate Report</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Opportunity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QA Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Re-audit%2C Referred to Licence Principal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred to CommOps</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred to Licence Principal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred to ProdMgt%2FDev%2FLicDel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Revised NAD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Certification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terminating</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unlimited licence</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Data_Centre_Location__c</picklist>
+        <values>
+            <fullName>Azure East %28PROD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Azure West %28DR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Vegas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Norcross</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salt Lake City</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Node_Affected__c</picklist>
+        <values>
+            <fullName>NA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 3A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 3B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Node 9</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>QA_Result__c</picklist>
+        <values>
+            <fullName>Failed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Passed - With Minor Errors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Passed - Without Errors</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>Complex functionality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instructions not clear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User didn%27t attend training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Severity__c</picklist>
+        <values>
+            <fullName>Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_Status__c</picklist>
+        <values>
+            <fullName>Assigned for Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Awaiting Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Awaiting Triage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client Unconfirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Development</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enhancement Delivered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fix Delivered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fix available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fix to Formalise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Triage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Information Provided</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Third Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workaround Provided</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>System_Environment__c</picklist>
+        <values>
+            <fullName>Backup</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Production</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Feature Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Question</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

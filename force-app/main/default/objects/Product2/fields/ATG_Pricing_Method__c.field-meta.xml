@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>ATG_Pricing_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>ATG Pricing Method</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Price Glossary</fullName>
+                    <default>false</default>
+                    <label>Price Glossary</label>
+                </value>
+                <value>
+                    <fullName>Block</fullName>
+                    <default>false</default>
+                    <label>Block</label>
+                </value>
+                <value>
+                    <fullName>Range</fullName>
+                    <default>false</default>
+                    <label>Range</label>
+                </value>
+                <value>
+                    <fullName>Slab</fullName>
+                    <default>false</default>
+                    <label>Slab</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

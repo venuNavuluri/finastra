@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>New</fullName>
+        <default>true</default>
+        <label>New</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Assigned</fullName>
+        <default>false</default>
+        <label>Assigned</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Client</fullName>
+        <default>false</default>
+        <label>Awaiting Client</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+        <label>In Progress</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>On Hold</fullName>
+        <default>false</default>
+        <label>On Hold</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Solution Provided</fullName>
+        <default>false</default>
+        <label>Solution Provided</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pre-work</fullName>
+        <default>false</default>
+        <label>Pre-work</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>With AM to Review</fullName>
+        <default>false</default>
+        <label>With AM to Review</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Deselection Approval</fullName>
+        <default>false</default>
+        <label>Awaiting Deselection Approval</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Deselection Rejected</fullName>
+        <default>false</default>
+        <label>Deselection Rejected</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Communication</fullName>
+        <default>false</default>
+        <label>Customer Communication</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Report Queued for Analysis</fullName>
+        <default>false</default>
+        <label>Report Queued for Analysis</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Output Under Analysis</fullName>
+        <default>false</default>
+        <label>Output Under Analysis</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Result for Concurrence</fullName>
+        <default>false</default>
+        <label>Result for Concurrence</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Audited - Pending Opportunity</fullName>
+        <default>false</default>
+        <label>Audited - Pending Opportunity</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Audited (Closed)</fullName>
+        <default>false</default>
+        <label>Audited (Closed)</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Not Audited (Closed)</fullName>
+        <default>false</default>
+        <label>Not Audited (Closed)</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed</fullName>
+        <default>false</default>
+        <label>Closed</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reopen</fullName>
+        <default>false</default>
+        <label>Reopen</label>
+        <closed>false</closed>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bulletin_Text__c</fullName>
+    <description>RUBX-2438 – Field created for REQ-1876-Select a Bulletin (type=Product) Knowledge Article Type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the content for the bulletin.</inlineHelpText>
+    <label>Bulletin Text</label>
+    <length>32768</length>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>
