@@ -1,0 +1,16 @@
+<apex:page >
+  <apex:includescript value="/soap/ajax/19.0/connection.js">
+
+<script>  
+        sforce.connection.sessionId = "{!$Api.Session_ID}";  
+        var update_Account = new sforce.SObject("Account");
+        var AID = '{!$CurrentPage.parameters.RecId}' ;  
+        update_Account.Id = AID; 
+        update_Account.Gift_Hold__c = 'TRUE';
+        var updateRecords = []; 
+        updateRecords.push(update_Account) ;
+        var result = sforce.connection.update(updateRecords); 
+        window.location.href = '/{!$CurrentPage.parameters.RecId}';
+</script> 
+</apex:includeScript>
+</apex:page>

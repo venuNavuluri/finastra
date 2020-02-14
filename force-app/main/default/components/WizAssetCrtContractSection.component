@@ -1,0 +1,19 @@
+<apex:component >
+    <apex:attribute name="attrContract" type="Contract" required="true" description="The Contract this component is presenting"/>
+    <apex:pageBlockSection title="Contract Information">
+        <apex:outputField value="{!attrContract.ContractNumber}"/>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Asset Summary:"/>
+            <apex:outputLink value="/apex/AssetSummary?id={!attrContract.Id}">Click here!</apex:outputLink>
+        </apex:pageBlockSectionItem>
+        <apex:outputField value="{!attrContract.Account.Name}"/>
+        <apex:outputField value="{!attrContract.Misys_Opportunity__r.Name}"/>
+        <apex:outputField value="{!attrContract.Account.Site}"/>
+        <apex:outputField value="{!attrContract.Misys_Opportunity__r.Order_Number__c}"/>
+        <apex:outputField value="{!attrContract.Account.Country__c}"/>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Currency"/>
+            <apex:outputLabel value="{!IF(ISNULL(attrContract.Misys_Opportunity__c), '', attrContract.Misys_Opportunity__r.CurrencyISOCode)}"/>
+        </apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+</apex:component>

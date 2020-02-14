@@ -1,0 +1,13 @@
+<apex:page id="CreateRLF" standardController="Billing_Group__c" >
+              <apex:includeLightning /> 
+    <div id="lightning"/>
+    <script>
+        $Lightning.use("c:CreateRLFApp", function () {
+            $Lightning.createComponent("c:CreateRLF",
+                    {
+                        recordId : '{!$CurrentPage.parameters.id}'
+                    },
+                    "lightning");
+        });
+    </script>
+</apex:page>

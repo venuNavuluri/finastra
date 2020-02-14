@@ -1,0 +1,487 @@
+<apex:page standardController="Account" extensions="Account_Planning_Summ_Controller">
+    <apex:variable var="lightningDesktop" value="{! $User.UIThemeDisplayed == 'Theme4d'}" />
+    <div class="slds-scope">
+        <apex:outputPanel rendered="{! lightningDesktop}">
+            <apex:slds />
+            <apex:form >
+				<div class="slds-table--header-fixed_container" style="height:350px;">
+                <div class="slds-scrollable_y" style="height: 100%">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_header-fixed">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col" style="min-width: 50px">
+                                    <div class="slds-truncate slds-cell-fixed" title="Business Function">Business Function</div>
+                                </th>
+                                <th class="" scope="col" style="min-width: 50px">
+                                    <div class="slds-truncate slds-cell-fixed" title="Grade">Grade</div>
+                                </th>
+                                <th class="" scope="col" style="min-width: 100px">
+                                    <div class="slds-truncate slds-cell-fixed" title="Account Planning Status">Account Planning Status</div>
+                                </th>
+                                <th class="" scope="col" style="min-width: 50px">
+                                    <div class="slds-truncate slds-cell-fixed" title="Review In">Review In</div>
+                                </th>
+                                <th class="" scope="col" style="min-width: 100px">
+                                    <div class="slds-truncate slds-cell-fixed" title="Comments">Comments</div>
+                                </th>
+                                <th class="" scope="col" style="min-width: 50px">
+                                    <div class="slds-truncate slds-cell-fixed" title="History">History</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Business Function" scope="row">
+                                <div class="slds-truncate" title="Core Banking">Core Banking</div>
+                            </th>
+                            <td data-label="Grade">
+                                <div class="slds-truncate" title="{!acct.Core_Banking_Grade__c}"><apex:outputText value="{!acct.Core_Banking_Grade__c}"/></div>
+                            </td>
+                            <td data-label="Account Planning Status">
+                                <div class="slds-truncate" title="{!acct.Account_Planning_Status_CB__c}">
+                                    <apex:outputText value="{!acct.Account_Planning_Status_CB__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Account_Planning_Status_CB__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Review In">
+                                <div class="slds-truncate" title="{!acct.Review_In_CB__c}">
+                                    <apex:outputText value="{!acct.Review_In_CB__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Review_In_CB__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Comments">
+                                <div class="slds-truncate" title="{!acct.Comments_CB__c}">
+                                    <apex:outputText value="{!acct.Comments_CB__c}" style="width:450px" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Comments_CB__c}" style="width:450px" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="History">
+                                <div class="slds-truncate" title="{!acct.Commentary_CB__c}"><apex:outputText value="{!acct.Commentary_CB__c}"/></div>
+                            </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Business Function" scope="row">
+                                <div class="slds-truncate" title="Digital Channels">Digital Channels</div>
+                            </th>
+                            <td data-label="Grade">
+                                <div class="slds-truncate" title="{!acct.Digital_Channel_Grade__c}"><apex:outputText value="{!acct.Digital_Channel_Grade__c}"/></div>
+                            </td>
+                            <td data-label="Account Planning Status">
+                                <div class="slds-truncate" title="{!acct.Account_Planning_Status_DC__c}">
+                                    <apex:outputText value="{!acct.Account_Planning_Status_DC__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Account_Planning_Status_DC__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Review In">
+                                <div class="slds-truncate" title="{!acct.Review_In_DC__c}">
+                                    <apex:outputText value="{!acct.Review_In_DC__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Review_In_DC__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Comments">
+                                <div class="slds-truncate" title="{!acct.Comments_DC__c}">
+                                    <apex:outputText value="{!acct.Comments_DC__c}" style="width:450px" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Comments_DC__c}" style="width:450px" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="History">
+                                <div class="slds-truncate" title="{!acct.Commentary_DC__c}"><apex:outputText value="{!acct.Commentary_DC__c}"/></div>
+                            </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Business Function" scope="row">
+                                <div class="slds-truncate" title="Enterprise Risk">Enterprise Risk</div>
+                            </th>
+                            <td data-label="Grade">
+                                <div class="slds-truncate" title="{!acct.Enterprise_Risk_Grade__c}"><apex:outputText value="{!acct.Enterprise_Risk_Grade__c}"/></div>
+                            </td>
+                            <td data-label="Account Planning Status">
+                                <div class="slds-truncate" title="{!acct.Account_Planning_Status_ER__c}">
+                                    <apex:outputText value="{!acct.Account_Planning_Status_ER__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Account_Planning_Status_ER__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Review In">
+                                <div class="slds-truncate" title="{!acct.Review_In_ER__c}">
+                                    <apex:outputText value="{!acct.Review_In_ER__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Review_In_ER__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Comments">
+                                <div class="slds-truncate" title="{!acct.Comments_ER__c}">
+                                    <apex:outputText value="{!acct.Comments_ER__c}" style="width:450px" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Comments_ER__c}" style="width:450px" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="History">
+                                <div class="slds-truncate" title="{!acct.Commentary_ER__c}"><apex:outputText value="{!acct.Commentary_ER__c}"/></div>
+                            </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Business Function" scope="row">
+                                <div class="slds-truncate" title="Lending">Lending</div>
+                            </th>
+                            <td data-label="Grade">
+                                <div class="slds-truncate" title="{!acct.Lending_Grade__c}"><apex:outputText value="{!acct.Lending_Grade__c}"/></div>
+                            </td>
+                            <td data-label="Account Planning Status">
+                                <div class="slds-truncate" title="{!acct.Account_Planning_Status_Lending__c}">
+                                    <apex:outputText value="{!acct.Account_Planning_Status_Lending__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Account_Planning_Status_Lending__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Review In">
+                                <div class="slds-truncate" title="{!acct.Review_In_Lending__c}">
+                                    <apex:outputText value="{!acct.Review_In_Lending__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Review_In_Lending__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Comments">
+                                <div class="slds-truncate" title="{!acct.Comments_Lending__c}">
+                                    <apex:outputText value="{!acct.Comments_Lending__c}" style="width:450px" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Comments_Lending__c}" style="width:450px" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="History">
+                                <div class="slds-truncate" title="{!acct.Commentary_Lending__c}"><apex:outputText value="{!acct.Commentary_Lending__c}"/></div>
+                            </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Business Function" scope="row">
+                                <div class="slds-truncate" title="Treasury and Capital Markets">Treasury and Capital Markets</div>
+                            </th>
+                            <td data-label="Grade">
+                                <div class="slds-truncate" title="{!acct.Capital_Markets_Grade__c}"><apex:outputText value="{!acct.Capital_Markets_Grade__c}"/></div>
+                            </td>
+                            <td data-label="Account Planning Status">
+                                <div class="slds-truncate" title="{!acct.Account_Planning_Status_CMBO__c}">
+                                    <apex:outputText value="{!acct.Account_Planning_Status_CMBO__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Account_Planning_Status_CMBO__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Review In">
+                                <div class="slds-truncate" title="{!acct.Review_In_CMBO__c}">
+                                    <apex:outputText value="{!acct.Review_In_CMBO__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Review_In_CMBO__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Comments">
+                                <div class="slds-truncate" title="{!acct.Comments_CMBO__c}">
+                                    <apex:outputText value="{!acct.Comments_CMBO__c}" style="width:450px" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Comments_CMBO__c}" style="width:450px" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="History">
+                                <div class="slds-truncate" title="{!acct.Commentary_CMBO__c}"><apex:outputText value="{!acct.Commentary_CMBO__c}"/></div>
+                            </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Business Function" scope="row">
+                                <div class="slds-truncate" title="Asset Management">Asset Management</div>
+                            </th>
+                            <td data-label="Grade">
+                                <div class="slds-truncate" title="{!acct.Asset_Management_Grade__c}"><apex:outputText value="{!acct.Asset_Management_Grade__c}"/></div>
+                            </td>
+                            <td data-label="Account Planning Status">
+                                <div class="slds-truncate" title="{!acct.Account_Planning_Status_AM__c}">
+                                    <apex:outputText value="{!acct.Account_Planning_Status_AM__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Account_Planning_Status_AM__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Review In">
+                                <div class="slds-truncate" title="{!acct.Review_In_AM__c}">
+                                    <apex:outputText value="{!acct.Review_In_AM__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Review_In_AM__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Comments">
+                                <div class="slds-truncate" title="{!acct.Comments_AM__c}">
+                                    <apex:outputText value="{!acct.Comments_AM__c}" style="width:450px" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Comments_AM__c}" style="width:450px" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="History">
+                                <div class="slds-truncate" title="{!acct.Commentary_AM__c}"><apex:outputText value="{!acct.Commentary_AM__c}"/></div>
+                            </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Business Function" scope="row">
+                                <div class="slds-truncate" title="Hedge Funds">Hedge Funds</div>
+                            </th>
+                            <td data-label="Grade">
+                                <div class="slds-truncate" title="{!acct.Hedge_Fund_Grade__c}"><apex:outputText value="{!acct.Hedge_Fund_Grade__c}"/></div>
+                            </td>
+                            <td data-label="Account Planning Status">
+                                <div class="slds-truncate" title="{!acct.Account_Planning_Status_HF__c}">
+                                    <apex:outputText value="{!acct.Account_Planning_Status_HF__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Account_Planning_Status_HF__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Review In">
+                                <div class="slds-truncate" title="{!acct.Review_In_HF__c}">
+                                    <apex:outputText value="{!acct.Review_In_HF__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Review_In_HF__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Comments">
+                                <div class="slds-truncate" title="{!acct.Comments_HF__c}">
+                                    <apex:outputText value="{!acct.Comments_HF__c}" style="width:450px" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Comments_HF__c}" style="width:450px" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="History">
+                                <div class="slds-truncate" title="{!acct.Commentary_HF__c}"><apex:outputText value="{!acct.Commentary_HF__c}"/></div>
+                            </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Business Function" scope="row">
+                                <div class="slds-truncate" title="Trade Finance">Trade Finance</div>
+                            </th>
+                            <td data-label="Grade">
+                                <div class="slds-truncate" title="{!acct.Trade_Finance_Grade__c}"><apex:outputText value="{!acct.Trade_Finance_Grade__c}"/></div>
+                            </td>
+                            <td data-label="Account Planning Status">
+                                <div class="slds-truncate" title="{!acct.Account_Planning_Status_TF__c}">
+                                    <apex:outputText value="{!acct.Account_Planning_Status_TF__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Account_Planning_Status_TF__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Review In">
+                                <div class="slds-truncate" title="{!acct.Review_In_TF__c}">
+                                    <apex:outputText value="{!acct.Review_In_TF__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Review_In_TF__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Comments">
+                                <div class="slds-truncate" title="{!acct.Comments_TF__c}">
+                                    <apex:outputText value="{!acct.Comments_TF__c}" style="width:450px" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Comments_TF__c}" style="width:450px" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="History">
+                                <div class="slds-truncate" title="{!acct.Commentary_TF__c}"><apex:outputText value="{!acct.Commentary_TF__c}"/></div>
+                            </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Business Function" scope="row">
+                                <div class="slds-truncate" title="TPayment and Messaging">Payment and Messaging</div>
+                            </th>
+                            <td data-label="Grade">
+                                <div class="slds-truncate" title="{!acct.Payments_Messaging_Grade__c}"><apex:outputText value="{!acct.Payments_Messaging_Grade__c}"/></div>
+                            </td>
+                            <td data-label="Account Planning Status">
+                                <div class="slds-truncate" title="{!acct.Account_Planning_Status_PM__c}">
+                                    <apex:outputText value="{!acct.Account_Planning_Status_PM__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Account_Planning_Status_PM__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Review In">
+                                <div class="slds-truncate" title="{!acct.Review_In_PM__c}">
+                                    <apex:outputText value="{!acct.Review_In_PM__c}" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Review_In_PM__c}" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="Comments">
+                                <div class="slds-truncate" title="{!acct.Comments_PM__c}">
+                                    <apex:outputText value="{!acct.Comments_PM__c}" style="width:450px" rendered="{!editbutton}"/>
+                                    <apex:inputField value="{!acct.Comments_PM__c}" style="width:450px" rendered="{!savebutton}"/>
+                                </div>
+                            </td>
+                            <td data-label="History">
+                                <div class="slds-truncate" title="{!acct.Commentary_PM__c}"><apex:outputText value="{!acct.Commentary_PM__c}"/></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <div class="slds-grid slds-p-top_small">
+                    <div class="slds-col">
+                        <apex:outputPanel rendered="{!editButton}">
+                            <apex:commandButton value="Edit" action="{!edit}" style="width:100px"/>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!saveButton}">
+                            <apex:commandButton value="Save" action="{!save}" style="width:100px" styleClass="slds-m-right_small"/>
+                            <apex:commandButton value="Cancel" action="{!cancel}" style="width:100px"/>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="slds-col slds-text-align_right">
+                        <apex:outputText >Last Modified By: {!acct.modifiedDetail__c}</apex:outputText>
+                    </div>
+                </div>
+            </apex:form>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! !lightningDesktop}">
+            <apex:messages />
+            <apex:form >
+
+                <apex:pageBlock mode="inlineEdit" id="thePageBlock">
+                    <apex:panelGrid columns="6" id="panelgrid" rendered="{!savebutton}">
+                        <apex:outputLabel style="font-weight: bold">Business Function  </apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  Grade  </apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  Account Planning Status  </apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  Review In  </apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  Comments</apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  History</apex:outputLabel>
+
+                        <apex:outputText >Core Banking</apex:outputText>
+                        <apex:outputField value="{!acct.Core_Banking_Grade__c}"/>
+                        <apex:inputField value="{!acct.Account_Planning_Status_CB__c}"/>
+                        <apex:inputField value="{!acct.Review_In_CB__c}"/>
+                        <apex:inputField value="{!acct.Comments_CB__c}" style="width:450px"/>
+                        <apex:outputField value="{!acct.Commentary_CB__c}"/>
+
+                        <apex:outputText >Digital Channels</apex:outputText>
+                        <apex:outputField value="{!acct.Digital_Channel_Grade__c}"/>
+                        <apex:inputField value="{!acct.Account_Planning_Status_DC__c}"/>
+                        <apex:inputField value="{!acct.Review_In_DC__c}"/>
+                        <apex:inputField value="{!acct.Comments_DC__c}" style="width:450px" />
+                        <apex:outputField value="{!acct.Commentary_DC__c}"/>
+
+                        <apex:outputText >Enterprise Risk</apex:outputText>
+                        <apex:outputField value="{!acct.Enterprise_Risk_Grade__c}"/>
+                        <apex:inputField value="{!acct.Account_Planning_Status_ER__c}" />
+                        <apex:inputField value="{!acct.Review_In_ER__c}"/>
+                        <apex:inputField value="{!acct.Comments_ER__c}" style="width:450px"/>
+                        <apex:outputField value="{!acct.Commentary_ER__c}"/>
+
+                        <apex:outputText >Lending</apex:outputText>
+                        <apex:outputField value="{!acct.Lending_Grade__c}"/>
+                        <apex:inputField value="{!acct.Account_Planning_Status_Lending__c}" />
+                        <apex:inputField value="{!acct.Review_In_Lending__c}"/>
+                        <apex:inputField value="{!acct.Comments_Lending__c}" style="width:450px"/>
+                        <apex:outputField value="{!acct.Commentary_Lending__c}"/>
+
+                        <apex:outputText >Treasury and Capital Markets</apex:outputText>
+                        <apex:outputField value="{!acct.Capital_Markets_Grade__c}"/>
+                        <apex:inputField value="{!acct.Account_Planning_Status_CMBO__c}" />
+                        <apex:inputField value="{!acct.Review_In_CMBO__c}"/>
+                        <apex:inputField value="{!acct.Comments_CMBO__c}" style="width:450px"/>
+                        <apex:outputField value="{!acct.Commentary_CMBO__c}"/>
+
+                        <apex:outputText >Asset Management</apex:outputText>
+                        <apex:outputField value="{!acct.Asset_Management_Grade__c}"/>
+                        <apex:inputField value="{!acct.Account_Planning_Status_AM__c}" />
+                        <apex:inputField value="{!acct.Review_In_AM__c}"/>
+                        <apex:inputField value="{!acct.Comments_AM__c}" style="width:450px"/>
+                        <apex:outputField value="{!acct.Commentary_AM__c}"/>
+
+                        <apex:outputText >Hedge Funds</apex:outputText>
+                        <apex:outputField value="{!acct.Hedge_Fund_Grade__c}"/>
+                        <apex:inputField value="{!acct.Account_Planning_Status_HF__c}" />
+                        <apex:inputField value="{!acct.Review_In_HF__c}"/>
+                        <apex:inputField value="{!acct.Comments_HF__c}" style="width:450px"/>
+                        <apex:outputField value="{!acct.Commentary_HF__c}"/>
+
+                        <apex:outputText >Trade Finance</apex:outputText>
+                        <apex:outputField value="{!acct.Trade_Finance_Grade__c}"/>
+                        <apex:inputField value="{!acct.Account_Planning_Status_TF__c}" />
+                        <apex:inputField value="{!acct.Review_In_TF__c}"/>
+                        <apex:inputField value="{!acct.Comments_TF__c}" style="width:450px"/>
+                        <apex:outputField value="{!acct.Commentary_TF__c}"/>
+
+                        <apex:outputText >Payment and Messaging</apex:outputText>
+                        <apex:outputField value="{!acct.Payments_Messaging_Grade__c}"/>
+                        <apex:inputField value="{!acct.Account_Planning_Status_PM__c}" />
+                        <apex:inputField value="{!acct.Review_In_PM__c}"/>
+                        <apex:inputField value="{!acct.Comments_PM__c}" style="width:450px"/>
+                        <apex:outputField value="{!acct.Commentary_PM__c}"/>
+                    </apex:panelGrid>
+
+                    <apex:panelGrid columns="6" id="panelgrid1" rendered="{!editbutton}" width="100%">
+                        <apex:facet name="Business Function">Business Function</apex:facet>
+                        <apex:outputLabel style="font-weight: bold">Business Function  </apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  Grade  </apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  Account Planning Status  </apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  Review In  </apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  Comments</apex:outputLabel>
+                        <apex:outputLabel style="font-weight: bold">  History</apex:outputLabel>
+
+                        <apex:outputText >Core Banking</apex:outputText>
+                        <apex:outputText value="{!acct.Core_Banking_Grade__c}"/>
+                        <apex:outputText value="{!acct.Account_Planning_Status_CB__c}"/>
+                        <apex:outputText value="{!acct.Review_In_CB__c}"/>
+                        <apex:outputText value="{!acct.Comments_CB__c}" style="width:450px"/>
+                        <apex:outputText value="{!acct.Commentary_CB__c}"/>
+
+                        <apex:outputText >Digital Channels</apex:outputText>
+                        <apex:outputText value="{!acct.Digital_Channel_Grade__c}"/>
+                        <apex:outputText value="{!acct.Account_Planning_Status_DC__c}"/>
+                        <apex:outputText value="{!acct.Review_In_DC__c}"/>
+                        <apex:outputText value="{!acct.Comments_DC__c}" style="width:450px" />
+                        <apex:outputText value="{!acct.Commentary_DC__c}"/>
+
+                        <apex:outputText >Enterprise Risk</apex:outputText>
+                        <apex:outputText value="{!acct.Enterprise_Risk_Grade__c}"/>
+                        <apex:outputText value="{!acct.Account_Planning_Status_ER__c}" />
+                        <apex:outputText value="{!acct.Review_In_ER__c}"/>
+                        <apex:outputText value="{!acct.Comments_ER__c}" style="width:450px"/>
+                        <apex:outputText value="{!acct.Commentary_ER__c}"/>
+
+                        <apex:outputText >Lending</apex:outputText>
+                        <apex:outputText value="{!acct.Lending_Grade__c}"/>
+                        <apex:outputText value="{!acct.Account_Planning_Status_Lending__c}" />
+                        <apex:outputText value="{!acct.Review_In_Lending__c}"/>
+                        <apex:outputText value="{!acct.Comments_Lending__c}" style="width:450px"/>
+                        <apex:outputText value="{!acct.Commentary_Lending__c}"/>
+
+                        <apex:outputText >Treasury and Capital Markets</apex:outputText>
+                        <apex:outputText value="{!acct.Capital_Markets_Grade__c}"/>
+                        <apex:outputText value="{!acct.Account_Planning_Status_CMBO__c}" />
+                        <apex:outputText value="{!acct.Review_In_CMBO__c}"/>
+                        <apex:outputText value="{!acct.Comments_CMBO__c}" style="width:450px"/>
+                        <apex:outputText value="{!acct.Commentary_CMBO__c}"/>
+
+                        <apex:outputText >Asset Management</apex:outputText>
+                        <apex:outputText value="{!acct.Asset_Management_Grade__c}"/>
+                        <apex:outputText value="{!acct.Account_Planning_Status_AM__c}" />
+                        <apex:outputText value="{!acct.Review_In_AM__c}"/>
+                        <apex:outputText value="{!acct.Comments_AM__c}" style="width:450px"/>
+                        <apex:outputText value="{!acct.Commentary_AM__c}"/>
+
+                        <apex:outputText >Hedge Funds</apex:outputText>
+                        <apex:outputText value="{!acct.Hedge_Fund_Grade__c}"/>
+                        <apex:outputText value="{!acct.Account_Planning_Status_HF__c}" />
+                        <apex:outputText value="{!acct.Review_In_HF__c}"/>
+                        <apex:outputText value="{!acct.Comments_HF__c}" style="width:450px"/>
+                        <apex:outputText value="{!acct.Commentary_HF__c}"/>
+
+                        <apex:outputText >Trade Finance</apex:outputText>
+                        <apex:outputText value="{!acct.Trade_Finance_Grade__c}"/>
+                        <apex:outputText value="{!acct.Account_Planning_Status_TF__c}" />
+                        <apex:outputText value="{!acct.Review_In_TF__c}"/>
+                        <apex:outputText value="{!acct.Comments_TF__c}" style="width:450px"/>
+                        <apex:outputText value="{!acct.Commentary_TF__c}"/>
+
+                        <apex:outputText >Payment and Messaging</apex:outputText>
+                        <apex:outputText value="{!acct.Payments_Messaging_Grade__c}"/>
+                        <apex:outputText value="{!acct.Account_Planning_Status_PM__c}" />
+                        <apex:outputText value="{!acct.Review_In_PM__c}"/>
+                        <apex:outputText value="{!acct.Comments_PM__c}" style="width:450px"/>
+                        <apex:outputText value="{!acct.Commentary_PM__c}"/>
+                    </apex:panelGrid>
+
+
+                    <apex:pageBlockSection columns="2">
+                        <apex:pageBlockSectionItem rendered="{!savebutton}">
+                            <apex:commandButton value="Save" action="{!save}"  style="width:100px"/>
+                            <apex:commandButton value="Cancel" action="{!cancel}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!editbutton}">
+                            <apex:commandButton value="Edit" action="{!edit}"  style="width:100px"/>
+
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                        <apex:outputPanel rendered="{!refreshPage}">
+                            <script>
+                                window.top.location='/{!acct.id}';
+                            </script>
+                        </apex:outputPanel>
+                        <apex:outputText style="width:750px">Last Modified By:{!acct.modifiedDetail__c}</apex:outputText>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:form>
+        </apex:outputPanel>
+    </div>
+</apex:page>

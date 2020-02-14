@@ -1,0 +1,104 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+ 
+<script>
+    $(document).ready( function () {
+  
+        var $sidebar = $("head");               
+        $sidebar.append($("<link/>",
+            { rel: "stylesheet", href: "//cloud.typography.com/7786472/695626/css/fonts.css", type: "text/css" }));
+ 
+    });
+   
+ </script>
+
+<style>
+
+
+.LogACaseModule p,
+a,
+input {
+font-family: Arial, Verdana, Helvetica, sans-serif !important; 
+font-weight: 400 !important;
+font-style: normal !important;
+}
+
+a {
+font-size:11px;
+color:#353535 ;
+text-decoration:none;
+border-bottom:1px dotted #353535;
+}
+
+a:hover {
+color:#F18881;
+border-bottom:1px dotted #F18881;
+}
+
+
+.LogACaseModule p {
+    color:#fff;
+    font-size:12px;
+}
+
+.LogACaseModule .sidebarModuleHeader {
+    padding: 3px 9px;
+    display: block;
+    background: #2ab5b2 !important;
+    margin-bottom:15px;
+}
+
+.sidebarModule {
+    background-color: #f1f3f5;
+    padding-bottom: 20px;
+
+}
+
+.LogACaseModule .sidebarModuleBody {
+    padding-left:4%;
+    padding-right:4%;
+}
+.LogACaseModule .sidebarModuleBody input {   
+    color: #353535;
+    padding: 8px 12px;
+    border: 0;
+    background: none;
+    background-color: #fff;
+    font-size: .85em;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border:1px solid #a9a9a9;
+    cursor:pointer
+}
+
+.LogACaseModule .sidebarModuleBody input:hover {
+    border: 1px solid #f18881;
+    color:#f18881;
+    background-color:#fff;
+}
+</style>
+
+<div class = "LogACaseModule sidebarModule">
+    <div class = "sidebarModuleHeader brandPrimaryBgr">
+         <p class = "brandPrimaryFgr">
+             Log A Case
+         </p>
+    </div>
+         <div class = "sidebarModuleBody">
+             <div class= "LogACaseModuleBody">
+                <form style="FONT-FAMILY: Arial,Sans-Serif" id="frmLAC" method="get" name="myForm" action="https://{!$Site.Domain}{!URLFOR($Page.Community_Level1_Case_CaptureV2)}" target="_parent" size="2">
+                <span style="FONT-FAMILY: 'Arial','sans-serif'; COLOR: black; FONT-SIZE: 10pt">
+                    <input value="Log A New Case >>" action="https://{!$Site.Domain}{!URLFOR($Page.Community_Level1_Case_CaptureV2)}" method="get" type="submit"/>
+                </span>
+                <p></p>
+                <p>
+                    <a href="{!$Site.CurrentSiteUrl}500/e?&RecordType={!$Label.community_Premium_Support}&ent=Case&retURL=%2F500%2Fo" target='_parent'>Request Additional Support &amp; Services&nbsp;</a>
+                </p>
+                </form>
+            </div>
+        </div>
+</div>
+
+</apex:page>

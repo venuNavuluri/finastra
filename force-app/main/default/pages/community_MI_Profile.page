@@ -1,0 +1,222 @@
+<apex:page showHeader="true" sidebar="true" controller="community_MI_ProfileController" >
+        
+     <c:community_GoogleTracking />
+
+    <script>
+        $(document).ready(function(){
+            
+            $('ul.tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+        
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+        
+                $(this).addClass('current');
+                $("#"+tab_id).addClass('current');
+            })
+        
+        })
+
+
+    </script>
+    
+       <script type="text/javascript">
+            (function() {
+
+                $(function() {
+                    var byRow = $('body').hasClass('sfdcBody');
+                    $('.grid').each(function() {
+                        $(this).children('.match-height').matchHeight(byRow);
+                    });
+
+                });
+
+            })();
+        </script>
+        
+        <style>
+            .chatter-upload-avatar{border:0px; height:10px !important}
+        </style>
+    <apex:form enctype="multipart/form-data">
+    
+    
+        <div class="grid   sub-nav-grid">
+            <div class="col-1-1">
+
+                <div class=" sub-nav">
+                    <a href="{!CommunityURL}articles/Documentation/The-Misys-Product-Release-Policy?popup=false&navBack=H4sIAAAAAAAAAIuuVipWslLyzssvz0lNSU_1yM9NVdJRygaKFSSmp4ZkluSA-KVAvn5waUFBflGJc35ubmleZkmlfnxppn42TKc-kINijH1xamJRcoZtMUSbdkF-TmZypVJtLABsM4dSdAAAAA#" target="_blank"><i class="fa fa-file-pdf-o "></i> See Product Support Policy</a>&nbsp; &nbsp;
+                    <apex:outputLink value="mailto:{!accountOwnerEmail}"><i class="fa fa-envelope-o"></i> Email Customer Advocate</apex:outputLink>
+                </div>
+
+            </div>
+        </div>
+    
+    
+    <div class="grid grid-visible">
+    
+        <div class="col-1-1">
+            <div class="content-pad content group">
+            
+                <h3>Fusion Products</h3>
+                
+                <!--tab content-->
+                <div>
+                
+                    <div class="grid">
+                    
+                        <div class="col-1-2">
+                            <ul class="prod-key">
+                                <li class="grey"><span><apex:outputText value="{!numberOfProducts}"></apex:outputText></span>Products</li>
+                                <li class="red"><span><apex:outputText value="{!expiredProducts}"></apex:outputText></span>Transitioned</li>
+                                <li class="amber"><span><apex:outputText value="{!expiringProducts}"></apex:outputText></span> Transitioning soon</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-1-2">
+
+                        </div>
+                        
+                    </div>
+                      <!--Products-->
+                
+                <div class="grid  grid-visible  products">
+                    <apex:repeat value="{!lstProductSetVersion}" var="psvList">
+                    <div class="col-1-4  match-height">
+                        <div class="{!psvList.contentDivClass}">
+                            <div class="visible-info">
+                                <table>
+                                    <tr>
+                                        <th>                                
+                                            <h2>Product Name</h2>
+                                            <p><apex:outputText value="{!psvList.productSetDetail.Name}" /></p>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Customer advocate name</h3>
+                                            <p><apex:outputText value="{!psvList.customerAdvocate.firstname}  {!psvList.customerAdvocate.lastname}  "/></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Product version</h3>
+                                            <p><apex:outputText value="{!psvList.productVersionMaster.Product_Version__c}" /></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn open">
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="hidden-info">
+                                <table>
+                                    <tr>
+                                        <td>                                
+                                            <h3>GA Date</h3>
+                                            <p><apex:outputText value="{0,date,MMMM'-'yy}">
+                                                <apex:param value="{!psvList.productVersionMaster.GA_Date__c}" /> 
+                                            </apex:outputText></p>
+                                        </td>
+                                    </tr>
+                                    <tr class="{!psvList.updateClass}">
+                                        <td>                                
+                                            <h3>Standard Support Date</h3>
+                                            <apex:outputPanel rendered="{!psvList.showUpdate}"><span class="updateTxt"><i class="fa fa-bell"></i></span></apex:outputPanel>
+                                            <p>Transitions: <apex:outputText value="{0,date,MMMM'-'yy}">
+                                                <apex:param value="{!psvList.productVersionMaster.Standard_Support_Date__c}" /> 
+                                            </apex:outputText></p>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Sustaining Support</h3>
+                                            <p>Transitions: <apex:outputText value="{!psvList.productVersionMaster.Sustaining_Support__c}"></apex:outputText></p>
+                                           
+                                        </td>
+                                    </tr>                                
+                                    <tr>
+                                        <td>                                
+                                            <h3>Technical Support</h3>
+                                            <p><apex:outputText value="{!psvList.productVersionMaster.Technical_Support__c}" /></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Support Type</h3>
+                                            <p><apex:outputText value="{!psvList.productVersionMaster.Support_Type__c}" /></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn close">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div><!--End Item-->
+                    </apex:repeat>
+                    
+                    
+                </div><!--End Products-->
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+    
+    
+    </div> 
+    
+ </apex:form>   
+    
+    <script>
+        $(document).ready(function(){
+        
+            var productWrap = $('.products'),
+                productItem = $(productWrap).find('.content');
+                
+             $(document).click(function(e){
+                $(productWrap ).removeClass('active');
+                $(productItem).removeClass('active');
+            });
+            
+                        
+            $(productItem).each(function(){
+                var self = $(this),
+                    btnOpen = $(this).find('.btn.open'),
+                    btnClose = $(this).find('.btn.close');
+                
+                   
+                $(btnOpen).click(function(e){
+                    $('.content').removeClass('active');
+                    $(self).addClass('active');
+                    $(productWrap).addClass('active');
+                    e.stopPropagation();
+                    
+                    $(self).click(function(e){
+                        e.stopPropagation();
+                    });
+                });
+                
+                $(btnClose).click(function(e){
+                    $(self).removeClass('active');
+                    $(productWrap).removeClass('active');  
+                    e.stopPropagation();     
+                });
+
+            });
+        
+        });
+
+
+    
+    </script>
+ 
+ 
+
+
+</apex:page>

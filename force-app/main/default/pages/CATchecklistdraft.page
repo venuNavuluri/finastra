@@ -1,0 +1,151 @@
+<apex:page standardController="Opportunity" sidebar="false">
+  <apex:sectionHeader title="Update check list values and Save or Cancel to return to the Opportunity." 
+                      subtitle=" CAT Opportunity Contract Review Check List for {!opportunity.name}."/>
+  <apex:form >
+    <apex:pageBlock title="Edit Opportunity" id="thePageBlock" 
+                    mode="edit">
+      <apex:pageMessages />
+      <apex:pageBlockButtons >
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:commandButton value="Cancel" action="{!cancel}"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="Closed/Won" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Opportunity stage marked “Closed Won"</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Closed_Won__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+             <apex:pageBlockSection title="Documentation Confirmed" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Scanned contract signed by both parties and attached to the opportunity</div></td>
+                        </tr>
+                        <tr>
+                    <td><div align="left">Ensured contract type matches products/services ordered</div></td>
+                             </tr>
+                        <tr>
+                    <td><div align="left">Bid sheet and Pricing Calculator attached (if required)</div></td>               
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Documentation_Confirmed__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection> 
+                     <apex:pageBlockSection title="Amounts Confirmed" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Total Opportunity Amounts match supporting documents (If only a renewal quote is provided, any renewal notices or increases in subscription fees must be consistent with the terms of Master Agreement)</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Amounts_Confirmed__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection> 
+                     <apex:pageBlockSection title="Products Confirmed" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Product line items and all amounts match the contract</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Products_Confirmed__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+                     <apex:pageBlockSection title="Bill To/Ship To Confirmed" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Bill To/Ship To populated and accurate, especially when multiple billing addresses are in use (Bill to/Ship to System Information should match the customer code within the SFDC account page and the Intacct ID’s)</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Bill_To_Ship_To_Confirmed__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+                     <apex:pageBlockSection title="Contract/Entitlement Confirmed" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Contract and Entitlement data included and accurate</div></td>
+                        </tr>
+                        <tr>
+                    <td><div align="left">Check any non-standard terms in the contract have been approved by legal and noted on the contract record</div></td>
+                       </tr>
+                        <tr>
+                    <td><div align="left">Confirm approved currency used and that the order currency matches the contract currency</div></td>
+                      </tr>
+                        <tr>
+                    <td><div align="left">Check that contract reference number applies to this opportunity</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Contract_Entitlement_Confirmed__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+                            <apex:pageBlockSection title="Payment Terms" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Payment terms captured per contracts</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Payment_Terms__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+                     <apex:pageBlockSection title="Deal Desk Confirmed" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Contract complies with Deal Desk Authorizations</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Deal_Desk_Confirmed__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+                     <apex:pageBlockSection title="Deal Term Confirmed" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Deal Term populated and correct per supporting documentation</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Deal_Term_Confirmed__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+                     <apex:pageBlockSection title="Cleared for Business" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Customer has been cleared for business: credit check complete, okay to trade, account not on hold/at risk</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Cleared_for_Business__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+                    <apex:pageBlockSection title="Software Delivered" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Software delivered to client</div></td>
+                    </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.CommValue_CLD__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+                    <apex:pageBlockSection title="Maintenance Winback" columns="2" collapsible="false" >
+               <table width="600" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                    <td><div align="left">Assets and entitlements turned back on for support</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Assets_and_entitlements_turned_back_on__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+        
+
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

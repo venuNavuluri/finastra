@@ -1,0 +1,16 @@
+<apex:page standardController="Partner_Approvals_Renewals__c">
+<font color="#CC3300"><strong>WARNING!!!!</strong></font>
+<br/>
+
+<br/>
+<font color="#CC3300"><strong>Please note that data entered into the fields below (except the General Information field) will be visible to the prospective partner.</strong></font>
+
+<br/>
+<font color="#CC3300"><strong>Only enter data in these fields which you are happy for the prospective partner to see.</strong></font>
+<br/>
+
+<br/>
+<font color="#CC3300"><strong>You can highlight any points of concern or interest to the internal approvers in the General Information field, which will not be visible to external parties.</strong></font>.
+
+
+</apex:page>

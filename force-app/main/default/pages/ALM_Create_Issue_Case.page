@@ -1,0 +1,12 @@
+<apex:page action="{!createIssueCase}" standardController="Case" extensions="ALM_Create_Issue_Case_CE">
+	<apex:form >
+	<apex:outputField rendered="false" value="{!Case.Issue_Case__c}"/>
+        <apex:pageBlock title="{!$Label.create_results}" mode="edit">
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton action="{!ok}" value="{!$Label.OK_button}"/>           
+            </apex:pageBlockButtons>
+			<apex:outputText value="{!resultMessage}"/><BR/>
+			<apex:outputText value="{!resultMessageValidFields}"/>
+        </apex:pageBlock>	
+	</apex:form>
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:page standardController="Sales_Order__c">
+        <ce4sf20_001:AeSalesGuides guideName="Flag Ready for export to NetSuite" objectType="Sales_Order__c"
+        objectId="{!Sales_Order__c.Id}" height="600px"/>
+</apex:page>

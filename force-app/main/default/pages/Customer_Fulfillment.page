@@ -1,0 +1,177 @@
+<apex:page sidebar="true" showHeader="true" docType="html-4.01-strict">
+<div id="tabstrip" style="display:none;"> <ul> 
+<li class="k-state-active">Accounts</li>
+<li>Acct By Subs</li>
+<li>Contacts</li>
+<li>Contracts</li>
+<li>Contract Assets</li>
+<li>Billing Groups</li>
+<li>Sales Orders</li>
+<li>NS Subscriptions</li>
+<li>Opportunities</li>
+<li>Bill To/Installations</li>
+<li>Cases</li>
+<li>Support Entitlements</li>
+<li>Product Sets</li>
+<li>System</li>
+<li>Client Assets</li>
+<li>Source Assets</li>
+<li>Licence Compliance</li>
+<li>CCRT</li>
+</ul>
+<!-- Accounts -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Account" DelayLoad="false"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Acct By Subs -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Acct_By_Sub__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Contacts -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Contact" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Contracts -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Contract" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Contract Assets -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Contract_Asset__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Billing Groups -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Billing_Group__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Sales Orders -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Sales_Order__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- NS Subscriptions -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="NS_Subscriptions__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Opportunities -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Opportunity" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Bill To/Installations -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Bill_To_Ship_To__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Cases -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Case" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Support Entitlements -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Entitlement__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Product Sets -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Product_Set__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- System -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="System__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Client Assets -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Client_Asset__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Source Assets -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Source_Asset__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Licence Compliance -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="Licence_Compliance__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- CCRT -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="CCRT__c" DelayLoad="true"  ViewID="" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $("#tabstrip").kendoTabStrip({
+      activate: function(e){
+        setTimeout(function(){          $(window).resize();        });
+      }
+    });
+    $("#tabstrip").css("display", "block");
+});
+ </script>
+</apex:page>

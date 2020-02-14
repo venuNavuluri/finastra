@@ -1,0 +1,36 @@
+<apex:component >
+	<apex:attribute name="attrAccounts" type="WACAccountListWrapper" required="true" description="The Accounts"/>
+	<apex:attribute name="attrCcrts" type="WACAccountListWrapper" required="true" description="The CCRTs"/>
+	<apex:pageBlockSection columns="1" id="accountsPanel" title="Asset location accounts">
+		<apex:pageBlockTable value="{!attrAccounts.TheLocations}" var="acct">
+			<apex:column value="{!acct.TheAccount.Name}">
+				<apex:facet name="header">Account Name</apex:facet>
+			</apex:column>
+			<apex:column value="{!acct.TheAccount.Site}">
+				<apex:facet name="header">Account Site</apex:facet>
+			</apex:column>
+			<apex:column value="{!acct.TheAccount.Country__c}">
+				<apex:facet name="header">Country</apex:facet>
+			</apex:column>
+			<apex:column value="{!acct.TheAccount.CSN__c}">
+				<apex:facet name="header">CSN</apex:facet>
+			</apex:column>
+			<apex:column value="{!acct.TheAccount.Type}">
+				<apex:facet name="header">Type</apex:facet>
+			</apex:column>
+		</apex:pageBlockTable>
+	</apex:pageBlockSection>
+	<apex:pageBlockSection columns="1" id="ccrtsPanel" title="Additional locations of use">
+		<apex:pageBlockTable value="{!attrCcrts.TheLocations}" var="ccrt">
+			<apex:column value="{!ccrt.TheCcrt.Name}">
+				<apex:facet name="header">CCRT Name</apex:facet>
+			</apex:column>
+			<apex:column value="{!ccrt.TheCcrt.Client_Site_Number__c}">
+				<apex:facet name="header">Client Site Number</apex:facet>
+			</apex:column>
+			<apex:column value="{!ccrt.TheCcrt.Country_ISO_Code__c}">
+				<apex:facet name="header">Country</apex:facet>
+			</apex:column>
+		</apex:pageBlockTable>
+	</apex:pageBlockSection>
+</apex:component>

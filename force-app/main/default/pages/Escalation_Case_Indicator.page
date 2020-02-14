@@ -1,0 +1,9 @@
+<apex:page standardController="Case">
+<font color="#CC3300"><strong>This is an Engineering Case!</strong></font>
+
+<br/>
+<font color="#CC3300"><strong>Please remember to click the Create/Update Jira button to create an issue in JIRA.</strong></font>
+<br/>
+<font color="#CC3300"><strong>To communicate with development please add a case comment and save. Then click the Create/Update Jira button. This sends the case comment to JIRA.</strong></font>
+
+</apex:page>

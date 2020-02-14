@@ -1,0 +1,92 @@
+<apex:page standardcontroller="Task" extensions="tasksearchcontroller" >
+
+    <apex:form >
+    
+        <p style="color:#414141;font-weight:bold;font-size:20px;">
+        
+        <b>Sales ABC Attainment Score</b><br /></p>
+    
+        <!--apex:panelGrid columns="1"-->
+        
+            <apex:pageBlock >
+            
+                <apex:pageblocksection >
+                
+                    <apex:OutputText value="Name:" />
+                    
+                    <apex:outputText value="{!$User.CommunityNickname}"/>
+                    
+                    <!--apex:inputtext value="{!Owner}" /-->
+                    
+                    <apex:inputfield value="{!t1.Activity_Start_Date__c}" />
+                    
+                    <apex:inputfield value="{!t1.Activity_End_Date__c}" />
+                    
+                    <apex:OutputLabel value="Total ABC Attainment Score - Sales Exec" />
+                    
+                    <apex:OutputText value="{!Salesexec}%" />
+                    
+                    <apex:OutputLabel value="Total ABC Attainment Score - Inside Sales ( {!Contactscreated} Contacts Created)" />
+                    
+                    <apex:OutputText value="{!ITScore}%" />
+                    
+                    <apex:OutputLabel value="Total ABC Attainment Score - Sales Player Manager" />
+                    
+                    <apex:OutputText value="{!Playermanager}%" />
+                    
+                    <apex:OutputLabel value="Total ABC Attainment Score - GSS Sales" />
+                    
+                    <apex:OutputText value="{!GSSSales}%" />
+                    
+                    <!--apex:OutputLabel value="Total ABC Attainment Score - GSS SWAT" />
+                    
+                    <apex:OutputText value="{!GSSSwat}%" /-->
+                </apex:pageBlockSection>
+            
+                <apex:pageBlockSection columns="3">
+                
+                <apex:commandbutton action="{!executeSearch}" value="FetchActivities" />
+                 
+                <apex:commandbutton action="{!Clear}" value="Clear" />
+                
+                <a href="https://emea.salesforce.com/500/e?retURL=/500/o&RecordType=01220000000UbTz&ent=Case&cas6=abc%20queries&cas11=self%20service" target="blank">Questions About Your Attainment? Log a SOSS Case here.</a>
+                 
+                 </apex:pageBlockSection>
+                 <apex:outputPanel > 
+                
+                
+                
+                <style>
+                  .headerRow .dateTable{
+                    background-color: Turquoise !important;
+                      }
+                 </style>
+                <!--apex:panelGrid id="thePanelGrid" columns="8" width="100%"-->
+                 
+                 <apex:pageBlock >
+                  <apex:pageBlockSection columns="1">
+                   <apex:pageBlockTable value="{!activities}" var="a" width="100%">
+                    <apex:column headerValue="User" headerClass="dateTable" value="{!a.owner.name}" />
+                    
+                          
+                    <apex:column headerValue="Role" headerClass="dateTable" value="{!a.Sales_Role__c}" />
+                    <apex:column headerValue="Sales Activity Type" headerClass="dateTable" value="{!a.Sales_Activity_Type__c}" />
+                    <apex:column headerValue="Activity Type" headerClass="dateTable" value="{!a.Activity_Type__c}" />
+                    
+                    <apex:column headerValue="Status" headerClass="dateTable" value="{!a.Status}" />
+                     <apex:column headerValue="Activity Date" headerClass="dateTable" value="{!a.ActivityDate}" />
+                      <apex:column headerValue="Completed Date" headerClass="dateTable" value="{!a.Completed_Date__c}" />
+                       <apex:column headerValue="Activity Score" headerClass="dateTable" value="{!a.Task_Score_Percentage__c}" />
+                             
+                
+                
+                    
+                   </apex:pageBlockTable>
+                </apex:pageBlockSection>
+                </apex:pageBlock> 
+                <!--/apex:panelGrid-->
+                </apex:outputPanel> 
+            </apex:pageBlock>
+        <!--/apex:panelgrid-->        
+    </apex:form>
+</apex:page>

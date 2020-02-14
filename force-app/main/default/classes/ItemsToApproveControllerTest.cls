@@ -43,7 +43,7 @@ private class ItemsToApproveControllerTest
             insert testContact;
             
             Opportunity testOppty = new Opportunity(AccountId = testAccount.Id, 
-            										Name =TestDataFactory.OPP_NAME, StageName='Open',
+            										Name ='Test CPQOpp', StageName='Open',
             										CloseDate = Date.today().addMonths(12));
             insert testOppty;
             

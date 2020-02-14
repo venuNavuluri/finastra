@@ -1,0 +1,265 @@
+<apex:page showHeader="true" sidebar="true" controller="community_MI_HomeController">
+      <c:community_GoogleTracking /> 
+    <!--<apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"/>-->
+    <!-- We need to import the following two scripts to ensure wider browser compatibility -->
+	<!--<apex:includeScript value="{!URLFOR($Resource.jQueryInitialise)}"/>
+  	<apex:includeScript value="{!URLFOR($Resource.WeakMap)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.MutationObserver)}"/>-->
+    <script type="text/javascript">
+
+      // $(window).load(function(){
+      //  $('body').attr('id','MisysCP');
+      // });
+
+      //window.onload = function () {
+      //  document.body.id = 'MisysCP';
+      //};
+    </script>
+
+    <script src='/SupportCommunity/resource/WeakMap'></script>
+    <script src='/SupportCommunity/resource/MutationObserver'></script>
+    <script src="/SupportCommunity/resource/cookieJS"></script>
+    
+    <script type="text/javascript">
+      //  $ = jQuery.noConflict();
+        // We use the jQuery initialise plugin to listen for the initialization of anchors within serviceCommunitySearch    $(window).load(function(){
+     //    $(window).load(function(){
+     //       $('.serviceCommunitySearchResultsList a').initialize(function() {
+                // Bind the anchor's click event
+     //           $(this).bind( 'click', function (ev) {
+     //               var recId = $(this).attr('href').split(/=/)[1];
+     //               window.open('{!queryString}'+recId,'_self');
+     //           });
+     //       });
+             // A function we call when the user clicks or presses any key within the container div
+            // This ensures that if the user clicks on any of the filters (e.g. Questions only) the ChatterAnswers js doesn't override our click bindings
+     //   });
+    
+        function changeLinks(){                
+            // For each serviceCommunitySearchResultsList anchor we find
+            $('.serviceCommunitySearchResultsList a').each(function(){
+                // Check whether its click event has already been bound
+                if ($(this).hasClass('bound') == false){
+                    // And if it hasn't, bind it
+                    $(this).bind( 'click', function (ev){
+                        var recId = $(this).attr('href').split(/=/)[1];
+                        window.open('{!queryString}'+recId,'_self');
+                    })
+                }
+            });
+        }
+        
+     </script>
+    
+     <script type="text/javascript">
+            (function() {
+                $(function() {
+                    var byRow = $('body').hasClass('sfdcBody');
+
+                    $('.grid').each(function() {
+                        $(this).children('.match-height').matchHeight(byRow);
+                    });
+                });
+
+            })();
+        </script>
+        
+
+ 
+	<script type="text/javascript">
+        $(document).ready(function(){
+        	var disclaimerModel = $('#DisclaimerModal'),
+                modal2Close = $('.modal-close');
+            var welcomeModal = $('#welcomeModal'),
+                modalClose = $('.modal-close');
+
+            $(modalClose).click(function(){
+                $(welcomeModal).fadeOut();
+            });
+            
+            $(modal2Close).click(function(){
+                $(DisclaimerModal).fadeOut();
+            });
+        });
+    
+    	
+   </script>
+    
+    
+	<script type="text/javascript">
+    $(document).ready(function(){
+        $(".checkbox").change(function() {
+            if(this.checked) {
+                $('#modal2Close').removeAttr('disabled');
+                
+            } else {
+            	$('#modal2Close').attr('disabled','true');
+            }
+            
+        });
+    });
+   </script>
+    
+    
+    
+<apex:form >
+    <apex:actionFunction name="serviceCheck" action="{!serviceCheck}" immediate="true" reRender="RerenderMe, RerenderLabel">
+         <apex:param name="myParam" value=""/>
+    </apex:actionFunction>
+    <apex:actionFunction name="disclaimerCheck" action="{!disclaimerCheck}" immediate="true" reRender="showCloseButton">
+         <apex:param name="disclaimer" value=""/>
+    </apex:actionFunction>
+<apex:outputPanel rendered="{!showPopUp}">
+    <div id="welcomeModal" class="modal-wrap">
+      <div class="modal-overlay">
+        <div class="modal-content">
+             <h1>Welcome to Finastra Communities</h1>
+             <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> "Finastra Support"</p>
+            
+                 <apex:repeat value="{!supportChangeProducts}" var="support">
+                    <p><apex:inputCheckbox value="{!support.ProductSetDetail.Id}" id="chkSupport" onchange="serviceCheck('{!support.ProductSetDetail.Id}-{!support.nextSupportType}')" /> On <apex:outputText value=" {!support.expiringDate}"></apex:outputText> support for <apex:outputText value=" {!support.ProductSetDetail.Name}" /> will be moving from <apex:outputText value=" {!support.ProductSetDetail.Type_of_Support__c} " /> to <apex:outputText value=" {!support.nextSupportType}"  />. <b>Please tick box to confirm</b></p>
+                 </apex:repeat>
+            
+             <p>
+                To continue to receive Support at your current level, you will need to ensure you have taken the appropriate steps to plan your upgrade to the latest version of your Finastra Solution. For more information on the latest release and to discuss your upgrade, please contact your Finastra Account Manager or Customer Advocate.
+             </p>
+
+             <p>
+                Details of the Finastra Support and Maintenance policy can be found <a href="{!queryString}SupportCommunity/articles/Documentation/The-Misys-Product-Release-Policy?popup=false&navBack=H4sIAAAAAAAAAIuuVipWslLyzssvz0lNSU_1yM9NVdJRygaKFSSmp4ZkluSA-KVAvn5waUFBflGJc35ubmleZkmlfnxppn42TKc-kINijH1xamJRcoZtMUSbdlFqTmpicapSbSwAUswqJnUAAAA">here</a>
+             </p>
+             <!--<apex:commandButton id="modalClose" styleClass="modal-close" value="Close" action="{!CloseWindow}" title="Close">
+            
+             </apex:commandButton> -->
+             <button id="modalClose" class="modal-close">Close</button>
+        </div>
+      </div>
+           
+    </div>
+  </apex:outputPanel>     
+    
+  <apex:outputPanel rendered="{!showChatterDisclaimer}">
+    <div id="DisclaimerModal" class="modal-wrap">
+      <div class="modal-overlay">
+        <div class="modal-content">
+             <h1>Finastra Communities</h1>
+             <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> "Finastra values the trust and security of Community Chatter Groups and their users. "</p>
+             <p>
+                 Chatter Groups are intended to be:
+             </p>
+                 <ul>
+                     <li>A place where Clients gather, collaborate and exchange knowledge on Finastra products and other specific topics relating to the usage of our products</li>
+					<li>A place where Clients can share their feedback with Finastra on how to improve their user experience when using the features from the Community</li>
+					<li>A place where Finastra can convey important information to its clients, including new or updated documentation and general announcements</li>
+            	</ul>
+                <p>
+                    By accepting the terms and conditions you acknowledge and agree:
+                 </p>
+				<ul>
+                    <li>Not to use the groups to promote non Finastra products or services</li>
+                    <li>Not to post company confidential or secure information from your business</li>
+                    <li>Not to use the Chatter groups as a substitute for reporting software defects: you should use the standard case logging process if you want formal assistance from Finastra </li>
+                    <li>Responses from Finastra personnel to the Chatter groups are excluded from contractual Service Level Agreement response times. Service Level Agreement response times apply only to Support Cases raised formally through the Finastra Online Support Community.</li>
+            	</ul>
+             
+              <p>
+                  <apex:inputCheckbox id="chkDisclaimer" styleClass="checkbox" onchange="disclaimerCheck()" /> Please tick box to agree to the terms and conditions of Chatter
+            </p>
+
+            
+             <!--<apex:commandButton id="modalClose" styleClass="modal-close" value="Close" action="{!CloseWindow}" title="Close">
+            
+             </apex:commandButton> -->
+           
+                	<button id="modal2Close" disabled="true" class="modal-close" >Close</button>
+                
+        </div>
+      </div>
+           
+    </div>
+  </apex:outputPanel>     
+  <apex:outputPanel rendered="{!!showChatterDisclaimer}">
+       <div id="DisclaimerModal"></div>
+  </apex:outputPanel>
+</apex:form>
+    <div class="grid   sub-nav-grid">
+            <div class="col-1-1">
+                <div class="content-pad  sub-nav">
+                    <a class="hint--left  hint--bounce" data-hint="{!CTA_Helptext}" href="{!CTA_URL}" target="_blank"><i class="fa fa-book"></i><apex:outputText value=" {!CTA_Title}"></apex:outputText></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-1">
+             <!--   <div class="content-pad content group">
+                    <h3 class="green">Find what you're looking for.</h3>
+                    <apex:outputPanel onclick="changeLinks();" layout="block" styleClass="container" id="containerDiv" >
+                        <chatteranswers:searchask communityId="{!$Label.ChatterSiteId}" /> 
+                    </apex:outputPanel>
+                </div> -->
+            </div>
+        </div>
+    
+<!--Products area-->
+
+<div class="grid">
+
+    <div class="col-9-12">
+        <div class="grid">
+            <div class="col-1-1">
+                <div class="content-pad content  editable-content  group">
+                    <h3><apex:outputText value="{!LeadContentTitle}"></apex:outputText></h3>
+                    <apex:image url="/servlet/servlet.FileDownload?file={!LeadContentImage}" rendered="{!showLeadImage}"/>
+                    <p><apex:outputText value="{!LeadContentBody}" escape="false"></apex:outputText></p>
+                    <apex:repeat value="{!LeadContentLinks}" var="LeadLinks">
+                       <apex:outputLink target="_blank" value="{!LeadLinks.URL__c}">{!LeadLinks.Hyperlink_Text__c}  <i class="fa fa-angle-double-right "></i></apex:outputLink>
+                    </apex:repeat>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <apex:repeat var="contentItems" value="{!MiHomeCMSContent}">
+              <div class="col-1-2  match-height">
+                <div class="content-pad content    editable-content  group">
+                    <h3><apex:outputText value="{!contentItems.Title__c}"></apex:outputText></h3>
+                    <p><apex:outputText value="{!contentItems.Body_Copy__c}" escape="false"></apex:outputText></p>
+                    <apex:repeat var="l" value="{!contentItems.Community_Feature_Hyperlinks__r}">
+                      <apex:outputLink target="_blank" styleClass="info-block-link" value="{!l.URL__c}">{!l.Hyperlink_Text__c}  <i class="fa fa-angle-double-right "></i></apex:outputLink>
+                    </apex:repeat>
+                </div>
+            </div>
+       
+        </apex:repeat>
+        </div>
+    </div>
+
+    <div class="col-3-12">
+       <div class="content-pad content group">
+           
+           <table class="productsTable">    
+            <tr>
+                <th><h3>Fusion Products</h3></th>
+                <th>Expires</th>
+            </tr>
+            <apex:repeat value="{!lstProductSetVersion}" var="psvList">
+            <tr class="{!psvList.updateClass}">
+                <td>
+                    <span><apex:outputText value="{!psvList.ProductSetDetail.Name}" /></span>Version / <apex:outputText value=" {!psvList.productVersionMaster.Product_Version__c}" /><apex:outputPanel rendered="{!psvList.showUpdate}"><span class="updateTxt"><i class="fa fa-bell"></i><apex:outputLink value="{!queryString}articles/Documentation/The-Misys-Product-Release-Policy?navBack=H4sIAAAAAAAAAIuuVipWslLyzssvz0lNSU_1yM9NVdJRygaKFSSmp4ZkluSA-KVAvn5waUFBflGJc35ubmleZkmlfnxppn42TKc-kINqTG0sAI_kqvleAAAA&popup=false#" target="_blank"> Update available</apex:outputLink></span></apex:outputPanel>
+                </td>
+                <td>
+                    <apex:outputText value="{0,date,MMMM'-'yy}">
+                        <apex:param value="{!psvList.ProductSetDetail.Sustaining_Support__c}" /> 
+                    </apex:outputText>
+                </td>
+            </tr>            
+            </apex:repeat>             
+        </table>
+       </div>
+    </div>
+    
+</div>
+<div style="display: none;">
+    
+</div>
+
+</apex:page>

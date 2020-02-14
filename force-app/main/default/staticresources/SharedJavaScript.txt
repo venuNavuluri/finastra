@@ -1,0 +1,16 @@
+function animateButton(button, disabled, path)
+{
+	button.disabled = disabled;
+	if(disabled)
+	{
+		button.style.backgroundImage = path;
+		button.style.backgroundRepeat = "no-repeat";
+		button.style.backgroundPosition = "center center";
+	}
+	else
+	{
+		button.style.backgroundImage = "url(/img/alohaSkin/btn_sprite.png)";
+		button.style.backgroundRepeat = "repeat-x";
+		button.style.backgroundPosition = "100% 0%";
+	}
+}

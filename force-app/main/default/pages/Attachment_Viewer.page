@@ -1,0 +1,115 @@
+<apex:page controller="AttachmentViewerController" standardStylesheets="true" tabStyle="Attachment" sidebar="True" showHeader="True">
+<!-- Currently, this page only loads attachments DIRECTLY related to the object it is called from.     -->
+<!-- For example, for an Account, it only shows attachments directly related to the Account and not ones related to a case or contact on the account -->
+	<apex:sectionHeader title="Attachments" subtitle="Attachment Viewer" />
+	<apex:form >
+		<apex:pageMessages />
+		<apex:pageBlock id="pbMain" title="Related Attachments" >
+           	<apex:pageBlockSection id="pbsParentRecord" columns="1" >
+           		<apex:pageBlockSectionItem >
+           			<apex:outputLabel value="Parent Record" />
+           			<apex:outputLink value="/{!strParentId}" >{!strParentName}</apex:outputLink>              		
+           		</apex:pageBlockSectionItem>
+           	</apex:pageBlockSection>
+           	<apex:pageBlockSection id="pbsFilters" columns="2">
+           		<apex:pageBlockSectionItem >
+            		<apex:outputLabel value="Date Created" />
+            		<apex:selectList id="selectDate" value="{!selDateRange}" multiselect="false" size="1" >
+						<apex:selectOptions value="{!DateRangeOptions}" />
+						<apex:actionSupport event="onchange" action="{!findAttachments}" rerender="SearchTable" status="searchStatus"/>
+                    </apex:selectList>            		
+           		</apex:pageBlockSectionItem>
+           		<apex:pageBlockSectionItem >
+                    <apex:outputLabel value="File Type" />
+                    <apex:selectList id="selectFileType" value="{!selFileType}" multiselect="false" size="1" >
+                    	<apex:selectOptions value="{!FileTypes}"/>
+                    	<apex:actionSupport event="onchange" action="{!findAttachments}" rerender="SearchTable" status="searchStatus"/>
+                    </apex:selectList>
+           		</apex:pageBlockSectionItem>
+           	</apex:pageBlockSection>
+           	<!--  <hr />  -->
+           	<apex:pageBlockSection id="SearchTable"  columns="1">
+           		<apex:actionStatus startText=" Searching Attachments..." id="searchStatus" />
+                   <apex:pageBlockTable id="Data_Table" value="{!ListAttachments}" var="rec"> 
+                   
+					<!-- View Link -->
+					<apex:column >
+						<apex:facet name="header">
+							<apex:outputLabel value="Action" />
+						</apex:facet>
+						<apex:outputLink value="/servlet/servlet.FileDownload?file={!rec.id}">View</apex:outputLink>
+						<apex:outputText >&nbsp;|&nbsp;</apex:outputText>
+						<apex:outputLink value="/{!rec.id}">Details</apex:outputLink>
+					</apex:column>
+
+					<!-- File Name -->
+					<apex:column >
+						<apex:facet name="header">
+							<apex:commandLink value="File Name{!IF(sortField=='Name',IF(sortDir='desc','▼','▲'),'')}" 
+								action="{!toggleSort}" rerender="SearchTable">
+								<apex:param name="sortField" value="Name" assignTo="{!sortField}" />
+							</apex:commandLink>
+						</apex:facet>
+						<apex:outputField value="{!rec.Name}"/>
+					</apex:column>
+
+   					<!-- Size -->
+					<apex:column >
+						<apex:facet name="header">
+							<apex:commandLink value="Size{!IF(sortField=='BodyLength',IF(sortDir='desc','▼','▲'),'')}" 
+								action="{!toggleSort}" rerender="SearchTable">
+								<apex:param name="sortField" value="BodyLength" assignTo="{!sortField}" />
+							</apex:commandLink>
+						</apex:facet>
+						<apex:outputField value="{!rec.BodyLength}"/>
+					</apex:column>                        
+                       
+                       <!-- File Type -->
+					<apex:column >
+						<apex:facet name="header">
+							<apex:commandLink value="File Type{!IF(sortField=='ContentType',IF(sortDir='desc','▼','▲'),'')}" 
+								action="{!toggleSort}" rerender="SearchTable">
+								<apex:param name="sortField" value="ContentType" assignTo="{!sortField}" />
+							</apex:commandLink>
+						</apex:facet>
+						<apex:outputField value="{!rec.ContentType}"/>
+					</apex:column>
+					                        
+                 		<!-- Owner -->
+					<apex:column >
+						<apex:facet name="header">
+							<apex:commandLink value="Owner{!IF(sortField=='OwnerId',IF(sortDir='desc','▼','▲'),'')}" 
+								action="{!toggleSort}" rerender="SearchTable">
+								<apex:param name="sortField" value="OwnerId" assignTo="{!sortField}" />
+							</apex:commandLink>
+						</apex:facet>
+						<apex:outputField value="{!rec.ownerId}"/>
+					</apex:column>                        
+                       
+					<!-- Create Date -->
+					<apex:column >
+						<apex:facet name="header">
+							<apex:commandLink value="Create Date{!IF(sortField=='CreatedDate',IF(sortDir='desc','▼','▲'),'')}" 
+								action="{!toggleSort}" rerender="SearchTable">
+								<apex:param name="sortField" value="CreatedDate" assignTo="{!sortField}" />
+							</apex:commandLink>
+						</apex:facet>
+						<apex:outputField value="{!rec.CreatedDate}"/>
+					</apex:column>
+                       
+					<!-- Last Modified Date -->
+  						<apex:column >
+						<apex:facet name="header">
+							<apex:commandLink value="Last Modified Date{!IF(sortField=='LastModifiedDate',IF(sortDir='desc','▼','▲'),'')}" 
+								action="{!toggleSort}" rerender="SearchTable">
+								<apex:param name="sortField" value="LastModifiedDate" assignTo="{!sortField}" />
+							</apex:commandLink>
+						</apex:facet>
+						<apex:outputField value="{!rec.LastModifiedDate}"/>
+					</apex:column>
+                       
+                </apex:pageBlockTable>             
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

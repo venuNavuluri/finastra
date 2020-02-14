@@ -1,0 +1,13 @@
+<apex:page id="CPIUplift" standardController="Contract" >
+              <apex:includeLightning /> 
+    <div id="lightning"/>
+    <script>
+        $Lightning.use("c:CPIUpliftApp", function () {
+            $Lightning.createComponent("c:CPIUplift",
+                    {
+                        recordId : '{!$CurrentPage.parameters.id}'
+                    },
+                    "lightning");
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:page title="CFTP PDF Form Generator" standardController="Partner_Approvals_Renewals__c" extensions="CFTP_PDFform_CE" showHeader="false" sidebar="false" action="{!createPDF}" >
+	Please wait while the form is saved and the PDF file is generated...
+<apex:outputText value="{!Partner_Approvals_Renewals__c.Account__r.Name}" id="hiddenAccountName" rendered="false" />
+</apex:page>

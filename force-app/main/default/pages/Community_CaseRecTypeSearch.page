@@ -1,0 +1,110 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="Community_CaseRecTypeSearchController">
+
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/7786472/695626/css/fonts.css" />
+
+<style>
+.SearchByProductModule p,
+a,
+input {
+    font-family: 'Gotham SSm A', 'Gotham SSm B', Arial, Helvetica, sans-serif!important; 
+    font-weight: 700 !important;  
+    font-style: normal !important; 
+}
+
+a {
+    font-size:11px;
+    color:#353535 ;
+    text-decoration:none;
+    border-bottom:1px dotted #353535;
+}
+
+a:hover {
+    color:#F18881;
+    border-bottom:1px dotted #F18881;
+}
+
+
+.SearchByProductModule p {
+    color:#fff;
+    font-size: 14px;
+    border-top:1px solid #2ab5b2;
+    padding-top: 1.5em;
+    font-family: 'Gotham SSm A', 'Gotham SSm B', Arial, Helvetica, sans-serif!important; 
+    font-weight: 300 !important;  
+    font-style: normal !important; 
+}
+
+.SearchByProductModule .sidebarModuleHeader {
+    padding: 3px 6% 0 6%;
+    display: block;
+    background: #3c3c3b!important;
+    margin-bottom:15px;
+}
+
+.sidebarModule {
+    background-color: #3c3c3b;
+    padding-bottom: 20px;
+
+}
+
+.SearchByProductModule .sidebarModuleBody {
+    padding-left:6%;
+    padding-right:6%;
+}
+.SearchByProductModule .sidebarModuleBody input {   
+    color: #fff;
+    text-transform:uppercase;
+    padding: 12px 14px;
+    width:100%;
+    border-box:box-sizing;
+    border: 0;
+    background: none;
+    background-color: #2ab5b2;
+    font-size: .85em;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor:pointer;
+    -webkit-box-shadow: 0 4px 8px 1px rgba(0,0,0,.85);
+    box-shadow: 0 4px 8px 1px rgba(0,0,0,.85);
+    -webkit-transition:  ease-out .25s;
+    -moz-transition:  ease-out .25s;
+    -o-transition:  ease-out .25s;
+    transition:  ease-out .25s;
+}
+
+.SearchByProductModule .sidebarModuleBody input:hover {
+    color:#fff;
+    background-color:#f18881;    
+    -webkit-box-shadow: 0 0px 4px 1px rgba(0,0,0,.85);
+    box-shadow: 0 0px 4px 1px rgba(0,0,0,.85);
+}
+    
+.SearchByProductModule .sidebarModuleBody input:focus{
+    outline:none;
+    }    
+    
+</style>
+
+<div class = "SearchByProductModule sidebarModule">
+    <div class = "sidebarModuleHeader brandPrimaryBgr">
+         <p class = "brandPrimaryFgr">
+             Search By Product
+         </p>
+    </div>
+    <div class = "sidebarModuleBody">
+        <div >
+        <form method="get" name="myForm" action="/SupportCommunity/apex/Community_CaseRecordTypeSearch" target="_parent" size="2" style="FONT-FAMILY: Arial,Sans-Serif" id="frmLAC">
+         <span style="FONT-FAMILY: 'Arial','sans-serif'; COLOR: black;FONT-SIZE: 10pt">
+            <input value="Search By Product" action="https://{!$Site.Domain}{!URLFOR($Page.Community_CaseRecordTypeSearch)}" method="get" type="submit"/>
+        </span>   
+        </form>
+       
+        </div>
+    </div>
+</div>
+
+
+
+
+</apex:page>

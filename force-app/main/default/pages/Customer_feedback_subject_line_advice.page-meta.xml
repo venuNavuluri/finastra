@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>28.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Provides advice for the user when filling out the subject line for &#39;Customer Feedback&#39; cases.</description>
+    <label>Customer feedback subject line advice</label>
+</ApexPage>

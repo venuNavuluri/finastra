@@ -1,0 +1,44 @@
+<apex:component >
+    <div class="infowrap">
+    <div class="info-left">
+            <h3>Product Documentation</h3>
+            
+            <p>Access the Misys Documentation Portal. Whether you are new to Misys or an advanced user, 
+            you can find useful information about our products and solutions, ranging from release notes
+             to online Help and technical guides.</p>
+            
+            <a href="http://docportal.misys.com/SFDCCommunity.aspx?emailId=sfdc_doc%40misys.com" target="_blank">Click here for our Document Portal</a>
+        
+        <h3>Mihub community site</h3>
+            
+            <p>MiHUB is the new Midas community site, a place where Midas users can discuss and ask 
+                questions about the Midas product line, find out news and information about current 
+                and upcoming developments, and search and explore the Midas switchable feature catalogue, 
+                all at the click of a mouse.</p>
+            
+            <a href="http://mihub.misys.com/" target="_blank">Access Mihub here using the same login credentials 
+                as you have for this support portal</a>
+        
+        </div>
+        <div class="info-right">        
+            <h3>Misys Academy Public Training</h3>
+            
+            <p>Why public training courses? Public training courses are the ideal solution when you have one or two
+             employees to be trained, as the courses are open to registration to employees from multiple organizations.
+              The courses are taught by highly skilled instructors, experts in their subject matter and with excellent
+               presentation skills. Courses are available globally. The fees communicated in the event calendar are per
+                person per course.</p>
+            
+            <a href= "http://docportal.misys.com/SFDCTraining.aspx?emailId=sfdc_doc%40misys.com" target="_blank">Click here for the full range
+             of the Misys Academy public training courses</a>
+                            
+        </div>
+    </div>
+
+    
+    <div class="banner">
+        <a href="https://www.misys.com/products/misys-bankfusion-digital-channels.aspx" target="_blank">
+        <img src="/resource/1399992739000/CSPBanner"/>
+        </a>
+</div>
+</apex:component>

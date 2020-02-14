@@ -1,0 +1,15 @@
+<apex:page standardController="Case" tabStyle="Case" sideBar="false" showHeader="false">
+	<apex:sectionHeader title="Case Metrics Analysis" subtitle="Case {!Case.CaseNumber}" />
+	<apex:pageBlock >
+		<apex:pageBlockSection title="Case Performance Metrics" columns="2" >
+			<apex:repeat value="{!$ObjectType.Case.Fieldsets.Case_Performance_Metrics}" var="c" >
+				<apex:outputField id="metric" value="{!Case[c]}" />
+			</apex:repeat>
+		</apex:pageBlockSection>
+		<apex:pageBlockSection title="Original Priority Information" columns="2" >
+			<apex:repeat value="{!$ObjectType.Case.FieldSets.Original_Priority_Information}" var="i" >
+				<apex:outputField id="info" value="{!Case[i]}" />
+			</apex:repeat>
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:page>

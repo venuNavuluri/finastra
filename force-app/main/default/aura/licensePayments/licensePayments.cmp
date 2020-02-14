@@ -1,0 +1,110 @@
+<aura:component controller="paymentTerms_controller">
+    <aura:attribute name="recordId" type="string" />
+    
+    <!-- Attributes for the Benefits Edit DataTable -->
+    <aura:attribute name="tableCols" type="List" />
+    <aura:attribute name="errors" type="string"/>
+    <aura:attribute name="quote" type="SBQQ__Quote__c" />
+    <aura:attribute name="selectedValue" type="String" default="Standard"/>
+    
+    <!-- Attributes for the Benefits Status List -->
+    <aura:attribute name="hasRows" type="string" default="slds-hide" />
+    <aura:attribute name="obsItems" type="Opportunity_Billing_Schedule_Item__c[]" />
+    <aura:attribute name="draftValues" type="Opportunity_Billing_Schedule_Item__c[]" default="[]"/>
+    <aura:attribute name="selectedObsItems" type="Opportunity_Billing_Schedule_Item__c[]" default="[]" />
+    <aura:attribute name="isNonStandard" type="boolean" default="false" />
+    <!-- Initializer -->
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <!-- Component -->
+    <div id="license-payment">
+        <lightning:card>
+            <div class="slds-page-header" >
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container" title="Quote">
+                                    <lightning:icon iconName="custom:custom17" alternativeText="quotes" />
+                                    <span class="slds-assistive-text"><b>License Payments</b></span>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-truncate" title="Quote Name"><b>License Payments</b></span>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <p class="slds-page-header__name-meta">{!v.quote.Name}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slds-grid slds-gutters">
+                <lightning:spinner aura:id="spinner" alternativeText="Loading" size="medium" />
+                <!-- <div class="slds-col slds-size_2-of-12" /> -->
+                <div class="slds-col slds-size_2-of-2">
+                    <div class="slds-p-around_medium ">
+                        <lightning:select aura:id="license-terms" name="payment-terms" label="License Payment Terms?" class = "select" required="false" onchange="{!c.handleLicenseTerms}" value="{!v.selectedValue}">
+                            <option value="">choose one...</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Non - Standard">Non - Standard</option>
+                        </lightning:select>
+                    </div>
+                  <!--  <aura:if isTrue="{!v.showError}"/>
+                        <div class="slds-notify slds-notify_toast slds-theme_error">
+                            <span class="slds-assistive-text">error</span>
+                            <div class="slds-notify__content">
+                                <h5 class="slds-text-heading_small slds-align_absolute-center">Error Message </h5>
+                                <br/>
+                                <p class="slds-align_absolute-center">{!v.errorMessage}</p>                
+                            </div>
+                        </div> -->
+                    <div class="slds-card__body slds-card__body_inner">
+                        <aura:if isTrue="{!v.errors != null}">
+                                <div class="slds-notify_container slds-is-relative">
+                                    <div class="slds-notify slds-notify_toast slds-theme_error" role="status">
+                                        <span class="slds-assistive-text">error</span>
+                                        <div class="slds-notify__content">
+                                            <h2 class="slds-text-heading_small ">
+                                                {!v.errors}
+                                            </h2>
+                                        </div>
+                                        <div class="slds-notify__close">
+                                            <button class="slds-button slds-button_icon slds-button_icon-inverse" title="Close">
+                                                <span class="slds-assistive-text">Close</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aura:if>
+                        <lightning:datatable aura:id="lp"  keyField="Id" data="{! v.obsItems }" 
+                                             columns="{! v.tableCols }" 
+                                             class = "cols"
+                                             draftValues="{! v.draftValues }"
+                                             showRowNumberColumn="false"
+                                             hideCheckboxColumn="{!!v.isNonStandard}"
+                                             onrowselection="{! c.handleRowSelection }"
+                                             onsave="{!c.handleSaveEdition }"/>
+                        
+                        <br />
+                        
+                        <lightning:layout horizontalAlign="left">
+                            <lightning:layoutItem class="slds-button" >
+                                <lightning:button label="Add Row"  title="Add Row" onclick="{! c.addRow }" class="{!v.isNonStandard ? '' : 'slds-hide'}"/>
+                            </lightning:layoutItem> 
+                            <lightning:layoutItem class="{!v.isNonStandard ? '' : 'slds-hide'}" >
+                                <lightning:button aura:id="del-btn" class="{!v.hasRows}" variant="destructive" label="Delete" title="Delete" onclick="{! c.handleRowsDeletion }"/>
+                            </lightning:layoutItem>
+                        </lightning:layout> 
+                    </div>
+                </div>
+                <!--  <div class="slds-col slds-size_2-of-12" /> -->
+            </div>
+        </lightning:card>
+    </div>
+</aura:component>

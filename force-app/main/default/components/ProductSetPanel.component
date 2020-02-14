@@ -1,0 +1,64 @@
+<apex:component controller="ProductSetPanelController">
+    <apex:attribute name="attrProductSet" type="PickableProductSet" assignTo="{!TheProductSet}" required="true" description="The ProductSet this component is presenting"/>
+    <apex:attribute name="attrEditable" type="boolean" assignTo="{!EditMode}" required="false" default="false" description="Mode the component is displayed in"/>
+    <apex:attribute name="attrExpandLinkWidth" type="Integer" required="true" description="width"/>
+    <apex:attribute name="attrPaddingWidth" type="Integer" required="true" description="width"/>
+    <apex:attribute name="attrProductNameWidth" type="Integer" required="true" description="width"/>
+    <apex:attribute name="attrAmountWidth" type="Integer" required="true" description="width"/>
+    <div style="position: relative;">
+        <apex:outputpanel >
+            <apex:actionstatus id="blurProductSet">
+                <apex:facet name="start">
+                    <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                            height: 100%;opacity:0.65;width:100%;"> 
+                        <div class="waitingHolder" style="top: 0px; width: 91px;">
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                            <span class="waitingDescription">Loading...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionstatus>
+        </apex:outputpanel>
+        <apex:outputPanel id="thePanel">
+            <table width="100%"><tr>
+                <td width="{!attrExpandLinkWidth}%"><apex:commandLink action="{!ToggleExpanded}" value="{!IF(TheProductSet.IsExpanded,'Collapse','Expand')}" rerender="thePanel" id="expandLink" /></td>
+                <td width="{!attrPaddingWidth + attrProductNameWidth}%">
+                    <apex:inputCheckBox value="{!TheProductSet.Selected}" id="cb" disabled="{!NOT(EditMode)}">
+                        <apex:actionSupport event="onchange" action="{!productSetSelectChanged}" rerender="thePanel" status="blurProductSet"/>
+                    </apex:inputCheckBox>
+                    <apex:outputLabel value="{!TheProductSet.NonNullName}" for="cb" rendered="{!NOT(TheProductSet.HasSelectedProducts)}"/>
+                    <apex:outputLabel value="{!TheProductSet.NonNullName}" style="background-color:#A9A9A9;" for="cb" rendered="{!TheProductSet.HasSelectedProducts}"/>
+                </td>
+                <!--KK: Added License Metric as a part of service desk 1482648 -->
+                <td class="rightAlign" width="{!attrAmountWidth}%"></td>
+                <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!TheProductSet.SumContracted}" attrColor="{!TheProductSet.CoverageColorCode}"/></td>
+                <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!TheProductSet.SumAssetized}" attrColor="{!TheProductSet.CoverageColorCode}"/></td>
+                <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!TheProductSet.RemainingBefore}" attrColor="{!TheProductSet.CoverageColorCode}"/></td>
+                <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!TheProductSet.Assetizing}" attrColor="{!TheProductSet.AssetizingActionColorCode}"/></td>
+                <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!TheProductSet.RemainingAfter}" attrColor="{!TheProductSet.AssetizingActionColorCode}"/></td>
+            </tr></table>
+            <apex:outputPanel rendered="{!TheProductSet.IsExpanded}">
+                <table width="100%">
+                    <apex:repeat value="{!TheProductSet.SortedProducts}" var="prod" id="theRepeat">
+                        <tr>
+                            <td width="{!attrExpandLinkWidth + attrPaddingWidth}%"><apex:outputLabel value="{!prod.TheOLI.Location__c}"/></td>
+                            <td width="{!attrProductNameWidth}%">
+                                <apex:inputCheckBox value="{!prod.Selected}" id="productCb" disabled="{!NOT(EditMode)}">
+                                    <apex:actionSupport event="onchange" action="{!productSelectChanged}" rerender="thePanel" status="blurProductSet"/>
+                                </apex:inputCheckBox>
+                                <apex:outputLabel value="{!prod.Name}" for="productCb"/>
+                            </td>
+                            <!--KK: Added License Metric as a part of service desk 1482648 -->
+                            <td class="rightAlign" width="{!attrAmountWidth}%"><apex:outputLabel value="{!prod.TheOLI.License_Metric__c}"/> </td>
+                            <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!prod.SumContracted}" attrColor="{!prod.CoverageColorCode}"/></td>
+                            <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!prod.SumAssetized}" attrColor="{!prod.CoverageColorCode}"/></td>
+                            <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!prod.RemainingBefore}" attrColor="{!prod.CoverageColorCode}"/></td>
+                            <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!prod.Assetizing}" attrColor="{!prod.AssetizingActionColorCode}"/></td>
+                            <td class="rightAlign" width="{!attrAmountWidth}%"><c:CurrencyField attrAmount="{!prod.RemainingAfter}" attrColor="{!prod.AssetizingActionColorCode}"/></td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </div>
+</apex:component>

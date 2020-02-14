@@ -1,0 +1,34 @@
+<apex:page id="paymentSchedule" standardStylesheets="false">
+    <apex:slds />
+    <apex:includeLightning /> 
+    <div class="slds-p-around_x-small">
+        <div class="slds-align_absolute-center">
+            
+            <a href="/{!$Currentpage.parameters.id}" class="slds-button slds-button_neutral">Back To Quote</a>
+            
+        </div>
+    </div>
+    <div id="lightning"/>
+    
+    <script>
+    $Lightning.use("c:paymentSchedulesApp", function () {
+        $Lightning.createComponent("c:licensePayments",
+                                   {
+                                       recordId : '{!$CurrentPage.parameters.id}'
+                                   },
+                                   "lightning");
+        
+        $Lightning.createComponent("c:servicePayments",
+                                   {
+                                       recordId : '{!$CurrentPage.parameters.id}'
+                                   },
+                                   "lightning");
+                                   
+         $Lightning.createComponent("c:RecurringPaymentTerms",
+                                   {
+                                       recordId : '{!$CurrentPage.parameters.id}'
+                                   },
+                                   "lightning");
+    });
+    </script>
+</apex:page>

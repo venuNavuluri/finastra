@@ -1,0 +1,13 @@
+<apex:page id="AssetUplift">
+                   <apex:includeLightning /> 
+    <div id="lightning"/>
+    <script>
+        $Lightning.use("c:AssetUpliftApp", function () {
+            $Lightning.createComponent("c:AssetUplift",
+                    {
+                        recordId : '{!$CurrentPage.parameters.id}'
+                    },
+                    "lightning");
+        });
+    </script>
+</apex:page>

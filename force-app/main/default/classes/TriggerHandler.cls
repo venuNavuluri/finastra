@@ -1,15 +1,98 @@
-/**
- * @File Name          : TriggerHandler.cls
- * @Description        : Base class for all trigger handlers
- * @Author             : venu.navuluri@finastra.com
- * @Group              : 
- * @Last Modified By   : venu.navuluri@finastra.com
- * @Last Modified On   : 04/11/2019, 15:29:30
- * @Modification Log   : 
- * Ver       Date            Author      		    Modification
- * 1.0    01/11/2019   venu.navuluri@finastra.com     Initial Version
-**/
+/* Class:       TriggerHandler
+** Created by:   //Copied from https://developer.salesforce.com/page/Trigger_Frameworks_and_Apex_Trigger_Best_Practices
+** Description: Base class for all trigger handlers
+*/
 public virtual class TriggerHandler {
+        /**
+     * Returns true if the field value has changed.
+     */
+    public boolean fieldChanged(SObject record, String field) {
+        return record.get(field) != Trigger.oldMap.get(record.Id).get(field);
+    }
+
+    /**
+     * Returns true if the field value has changed to a specific value.
+     */
+    public boolean fieldChangedTo(SObject record, String field, String value) {
+        return fieldChanged(record, field) && (record.get(field) == value);
+    }
+
+    /**
+     * Returns a list of records whose field has changed to a specific value.
+     */
+    public List<SObject> getRecordsWithFieldChangedTo(String field, String value) {
+        List<SObject> changed = new List<SObject>();
+        for (SObject record : Trigger.new) {
+            if (fieldChangedTo(record, field, value)) {
+                changed.add(record);
+            }
+        }
+        return changed;
+    }
+    private List<SObject> subsetWithValue(List<SObject> records, String field, Object value) {
+        List<SObject> subset = new List<SObject>();
+        for (SObject record : records) {
+            if (record.get(field) == value) {
+                subset.add(record);
+            }
+        }
+        return subset;
+    }
+    private String objectName {get {
+        if(objectName == null) {
+            if(Trigger.new != null && Trigger.new[0] != null) {
+                objectName = Trigger.new[0].getSObjectType().getDescribe().getName().toUpperCase();
+            } else if (Trigger.old != null && Trigger.old[0] != null) {
+                objectName = Trigger.old[0].getSObjectType().getDescribe().getName().toUpperCase();
+            }
+        }
+        return objectName;
+    } set;} 
+    public boolean validField(String fieldName) {
+        if(!validObjectName(objectName)) {
+            return false;
+        }
+        return globalDescribe.get(objectName).getDescribe().fields.getMap().containsKey(fieldName);
+    }
+    public Boolean isChanged(String fieldName, sObject newRecord){
+        sObject oldRecord = Trigger.oldMap != null ? Trigger.oldMap.get((Id)newRecord.get('id')) : null;
+        if(oldRecord == null){
+            return true;
+        } 
+        if(newRecord == null) {
+            return null;
+        }
+        if(validField(objectName, fieldName)) {
+            System.debug(fieldName);
+            System.debug(oldRecord.get(fieldName));
+            System.debug(newRecord.get(fieldName));
+            System.debug( oldRecord.get(fieldName) != newRecord.get(fieldName));
+            return oldRecord.get(fieldName) != newRecord.get(fieldName);
+        }
+        return false;
+    }
+    public static boolean validObjectName(String objName) {
+        if(globalDescribe.get(objName) == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public static boolean validField(String objName, String fieldName) {
+        if(!validObjectName(objName)) {
+            return false;
+        }
+        return globalDescribe.get(objName).getDescribe().fields.getMap().containsKey(fieldName);
+    }
+
+    private static Map<String, Schema.SObjectType> globalDescribe { 
+        get {
+            if(globalDescribe == null) {
+            globalDescribe = Schema.getGlobalDescribe();
+            } 
+            return globalDescribe;
+        } set;
+    }
 
     // static map of handlername, times run() was invoked
     private static Map<String, LoopCount> loopCountMap;

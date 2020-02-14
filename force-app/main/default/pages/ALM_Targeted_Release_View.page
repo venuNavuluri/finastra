@@ -1,0 +1,74 @@
+<apex:page id="trPage" standardController="Case" showHeader="false" extensions="ALM_Targeted_Release_View_CE">
+
+<script>
+
+if ("{!refreshParent}" == "true") {
+    parent.location.href = '/{!customerCase.id}';  
+} 
+
+function handleSelection(obj) {
+
+  var tableID = '{!$Component.trPage.trForm.trPageBlock.trPageBlockTable}';
+  var loopObj = document.getElementById(tableID + ':' + '0' + ':trCheckbox');
+  var i = 1;
+  
+  while (loopObj) {
+    if (loopObj.id != obj.id) {
+      loopObj.checked = false;
+    }
+    loopObj = document.getElementById(tableID + ':' + (i++) + ':trCheckbox');    
+  }
+  enableSave();
+}
+
+
+</script>
+
+<apex:form id="trForm"> 
+  <apex:pageMessages />
+  <apex:actionFunction name="enableSave" action="{!enableSave}" rerender="saveButton,cancelButton" />
+  <apex:pageBlock rendered="{!showTRList}" id="trPageBlock">
+    <apex:pageBlockButtons location="top" >
+      <apex:commandButton value="Save Changes" id="saveButton"   disabled="{!!saveEnabled}" action="{!doSave}"/>
+      <apex:commandButton value="Cancel"       id="cancelButton" disabled="{!!saveEnabled}" action="{!doCancel}"/>
+    </apex:pageBlockButtons>
+    <apex:pageBlockTable value="{!targetedReleases}" var="tr" id="trPageBlockTable">
+      <apex:column >
+        <apex:facet name="header">&nbsp;</apex:facet>
+        <apex:inputCheckbox value="{!tr.selected}" disabled="{!!tr.selectable}" id="trCheckbox" onclick="handleSelection(this)"/>
+      </apex:column>
+      <apex:column >
+      	<apex:facet name="header">Targeted Release Name</apex:facet>
+      	<apex:outputLink value="/{!tr.tr.id}" target="_blank">
+      		<apex:outputText value="{!tr.tr.name}"/>
+      	</apex:outputLink>
+      </apex:column>
+      
+		<apex:column value="{!tr.tr.L3_Status__c}"/>
+		<apex:column value="{!tr.tr.Priority__c}"/>
+		<apex:column value="{!tr.tr.Component__c}"/>
+      <apex:column value="{!tr.tr.Delivery_Reference__c}"/>
+      <apex:column value="{!tr.tr.Resolution_Type__c}"/>
+      <apex:column value="{!tr.tr.Resolution_Details__c}"/>
+      <!-- <apex:column value="{!tr.tr.Project_Type__c}"/>  -->
+      <apex:column value="{!tr.tr.CSFE_Issue_Id__c}"/>
+      <apex:column value="{!tr.tr.Customer_Case__c}"/>
+      <apex:column value="{!tr.tr.Scheduled_Delivery_Date__c}"/>
+	  <!-- 
+      <apex:column >
+        <apex:facet name="header">Active Cases</apex:facet>
+        <apex:repeat value="{!tr.tr.cases__r}" var="cases">
+          <apex:outputLink value="/{!cases.id}" target="_blank">
+            <apex:outputText value="{!cases.caseNumber}"/> 
+          </apex:outputLink>&nbsp;&nbsp;
+        </apex:repeat>
+      </apex:column>
+       -->
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+
+  <apex:pageBlock rendered="{!!showTRList}">
+    No Targeted Releases found.
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

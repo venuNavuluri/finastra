@@ -1,0 +1,327 @@
+<apex:page title="Partner Risk Assessment" standardController="Partner_Approvals_Renewals__c" extensions="CFTP_RiskAssessment_CE" renderAs="{!renderMode}" >
+<head>
+<style type="text/css">
+@page {
+	size:landscape;
+	} 
+table {
+	margin-left:10px;
+	}
+table.innerPanelGrid {
+	margin-left:0px;
+	text-align:center;
+	}	
+table.innerPanelGridRadio {
+	margin-left:30%;
+	text-align:center;
+	}	
+table.innerPanelGridBorder {
+	margin-left:0px;
+	text-align:center;
+	border:1px solid;
+	}	
+.innerPanelGridColumn {
+	padding:4px;
+}
+.headerText {
+	margin-left:10px;
+	font-size:16px;
+	text-decoration:underline;
+	font-weight:bold;
+	}
+.columnHeader {
+	margin-left:0px;
+	font-weight:bold;
+	text-decoration:underline;
+	text-align:center;
+	}
+.noBorder {
+	border:0px;
+	}
+.addBorder {
+	border:1px solid;
+	padding:3px;
+	}	
+.column60 {
+	width:60%;
+	}
+.column25 {
+	width:25%;
+	text-align:center;
+	}
+.column15 {
+	width:15%;
+	text-align:center;
+	}
+</style>
+	<apex:form rendered="{!$CurrentPage.parameters.p!='pdf'}">
+	<apex:pageBlock title="{!Partner_Approvals_Renewals__c.Account__r.Name}" >
+	<apex:pageMessages />
+	<apex:pageBlockSection columns="1" showHeader="false">
+	<apex:outputText styleClass="headerText" value="Risk Assessment" id="formHeader" label="" />
+	<apex:panelGrid columns="4" id="mainPanelGrid" border="1" width="90%" cellPadding="5px" >
+		<!-- Row 1 -->
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+			<apex:outputText value="TOTAL RISK SCORE BASED ON ASSESSMENT OF INDIVIDUAL ELEMENTS BELOW" id="cellR2C1" />
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="columnHeader" >
+			<apex:outputText value="Partner Selection" id="cellR1C2" />
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="columnHeader" >
+			<apex:outputText value="Partner Total" id="cellR1C3"/>
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="columnHeader" >
+			<apex:outputText value="Point Value" id="cellR1C4" />
+		</apex:panelGrid>
+		<!-- Row 2 -->
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+			<apex:outputText escape="false" value="Scoring: <b>Elevated Risk</b> = 151 or above; <b>Standard Risk</b> = 100 to 150; <b>Low Risk</b> = 0 to 99" id="cellR1C1" />
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+			<apex:outputText value="" id="cellR2C2" />
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" border="1" width="100%" styleClass="innerPanelGridBorder" columnClasses="noBorder" bgcolor="{!CASE(RiskLevel,'Low','yellow','Standard','orange','Elevated','red','')}" id="pnlgrdR2C3">
+			<apex:outputText value="{!TotalRiskScore}" id="cellR2C3a"  />
+			<apex:outputText value="{!RiskLevel}" id="cellR2C3b" />
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+			<apex:outputText value="350 Max" id="cellR2C4" />
+		</apex:panelGrid>
+		<!-- Row 3 -->
+		<apex:panelGrid columns="3" border="0" width="100%" columnClasses="column60,column25,column15" cellPadding="5px" style="margin-left:0px;">
+			<apex:outputText escape="false" value="Corruption Perceptions Index score for <u>territory</u> for which CFTP is to be appointed (see link below)" id="cellR3C1a"/>
+			<apex:outputText value="Includes any country scoring:" id="cellR3C1b"/>
+			<apex:panelGrid columns="1" border="0" id="gridTerritoryScore" width="100%" style="margin-left:0px;" >
+				<apex:outputText value="45 or below" id="cellR3C1ca" />
+				<apex:outputText value="46 to 59" id="cellR3C1cb" />
+				<apex:outputText value="60 or above" id="cellR3C1cc" />
+			</apex:panelGrid>
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGridRadio" columnClasses="{!IF($CurrentPage.parameters.p=='pdf','innerPanelGridColumn','')}" id="pnlgrdCPITerritorySelection" >
+			<apex:actionRegion >
+			<apex:selectRadio value="{!CPITerritoryScore}" id="radioCPIterritory" layout="pageDirection" disabled="{!IsLocked}"  >
+				<apex:selectOptions value="{!CPITerrScores}" />
+				<apex:actionSupport event="onclick" rerender="pnlgrdR2C3,pnlgrdCPITerritoryScore" />
+			</apex:selectRadio>
+			</apex:actionRegion>
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" id="pnlgrdCPITerritoryScore" styleClass="innerPanelGrid" columnClasses="addBorder" >
+			<apex:outputText value="{!CPITerritoryHighValue}" id="cellR3C3a" />
+			<apex:outputText value="{!CPITerritoryMedValue}" id="cellR3C3b" />
+			<apex:outputText value="{!CPITerritoryLowValue}" id="cellR3C3c" />
+		</apex:panelGrid>
+		<apex:panelGrid styleClass="innerPanelGrid" columns="1" width="100%" cellPadding="4px" >
+			<apex:outputText value="{!constHigh}" id="cellR3C4a" />
+			<apex:outputText value="{!constMed}" id="cellR3C4b" />
+			<apex:outputText value="{!constLow}" id="cellR3C4c" />
+		</apex:panelGrid>
+		<!-- Row 4 -->
+		<apex:panelGrid columns="3" border="0" width="100%" columnClasses="column60,column25,column15" cellPadding="5px" style="margin-left:0px;">
+			<apex:outputText escape="false" value="Corruption Perceptions Index score for <u>country of incorporation</u> of CFTP (see link below)" id="cellR4C1a" />
+			<apex:outputText value="Includes any country scoring:" id="cellR4C1b" />
+			<apex:panelGrid columns="1" border="0" id="gridCountryScore" width="100%" style="margin-left:0px;" >
+				<apex:outputText value="45 or below" id="cellR4C1ca" />
+				<apex:outputText value="46 to 59" id="cellR4C1cb" />
+				<apex:outputText value="60 or above" id="cellR4C1cc" />
+			</apex:panelGrid>
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGridRadio" columnClasses="{!IF($CurrentPage.parameters.p=='pdf','innerPanelGridColumn','')}" id="pnlgrdCPICountrySelection" >
+			<apex:actionRegion >
+			<apex:selectRadio value="{!CPICountryScore}" id="radioCPIcountry" layout="pageDirection" disabled="{!IsLocked}" >
+				<apex:selectOptions value="{!CPICntryScores}" />
+				<apex:actionSupport event="onclick" rerender="pnlgrdR2C3,pnlgrdCPICountryScore" />
+			</apex:selectRadio>
+			</apex:actionRegion>
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" id="pnlgrdCPICountryScore" styleClass="innerPanelGrid" columnClasses="addBorder" >
+			<apex:outputText value="{!CPICountryHighValue}" id="cellR4C3a" />
+			<apex:outputText value="{!CPICountryMedValue}" id="cellR4C3b" />
+			<apex:outputText value="{!CPICountryLowValue}" id="cellR4C3c" />
+		</apex:panelGrid>
+		<apex:panelGrid styleClass="innerPanelGrid" columns="1" width="100%" cellPadding="4px" >
+			<apex:outputText value="100" id="cellR4C4a" />
+			<apex:outputText value="50" id="cellR4C4b" />
+			<apex:outputText value="25" id="cellR4C4c" />
+		</apex:panelGrid>
+		<!-- Row 5 -->
+		<apex:outputText style="margin-left:10px;" value="Appointment is as Sales Agent" id="cellR5C1" />
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" id="pnlGrdSalesAgent" >
+			<apex:image value="{!CheckboxApptAsAgent}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+			<apex:actionRegion >
+			<apex:inputCheckbox value="{!Partner_Approvals_Renewals__c.Appt_is_as_Sales_Agent__c}" id="cellR5C2" disabled="{!IsLocked}" rendered="{!!isLocked}" >
+				<apex:actionSupport event="onclick" rerender="pnlgrdR2C3,cellR5C3" />
+			</apex:inputCheckbox>
+			</apex:actionRegion>
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" columnClasses="addBorder" >
+			<apex:outputText value="{!SalesAgentApptValue}" id="cellR5C3" />
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+			<apex:outputText value="50" id="cellR5C4" />
+		</apex:panelGrid>
+		<!-- Row 6 -->
+		<apex:outputText style="margin-left:10px;" value="Sales Agent Commission is above 30%" id="cellR6C1" />
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" id="pnlGrdCommission">
+			<apex:image value="{!CheckboxSalesAgentComm}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+			<apex:actionRegion >
+			<apex:inputCheckbox value="{!Partner_Approvals_Renewals__c.Sales_Agent_Comm_High__c}" id="cellR6C2" disabled="{!IsLocked}" rendered="{!!isLocked}" >
+				<apex:actionSupport event="onclick" rerender="pnlgrdR2C3,cellR6C3" />
+			</apex:inputCheckbox>
+			</apex:actionRegion>
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" columnClasses="addBorder" >
+			<apex:outputText value="{!SalesCommOver30Value}" id="cellR6C3" />
+		</apex:panelGrid>
+		<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+			<apex:outputText value="100" id="cellR6C4" />
+		</apex:panelGrid>
+	</apex:panelGrid>
+	<apex:pageBlockSectionItem >
+		<apex:outputLabel value="Corruption Perceptions Index (CPI) score: " />
+		<apex:outputLink target="_blank" value="{!$Label.CFTP_RA_CPI_Score_Link}">{!$Label.CFTP_RA_CPI_Score_Link}</apex:outputLink>
+	</apex:pageBlockSectionItem>
+	</apex:pageBlockSection>
+	<apex:pageBlockButtons location="bottom" > 
+		<apex:commandButton id="btnSaveClose" action="{!saveThisForm}" value="{!IF(IsLocked,'Close','Save Changes')}" title="Save changes and return to the Partner Approval record. (Also attaches saved form as a PDF)" rendered="{!!IsLocked && !isComplete}" />
+		<apex:commandButton id="btnComplete" action="{!completeForm}" value="Submit for Approval" title="Complete and Submit for Approval. (Also attaches saved form as a PDF)" rendered="{!!IsLocked}" />
+		<apex:commandButton id="btnCancel" action="{!backToRecord}" value="Cancel" title="Cancel any changes and go back to the Partner Approval record" immediate="true" rendered="{!!IsLocked}" />
+		<apex:commandButton id="btnClose" action="{!backToRecord}" value="Close" title="Return to the Partner Approval record" immediate="true" rendered="{!IsLocked}" />
+	</apex:pageBlockButtons>
+	</apex:pageBlock>
+	</apex:form>
+	
+	<apex:outputPanel rendered="{!$CurrentPage.parameters.p=='pdf'}" >
+		<apex:outputText value="{!Partner_Approvals_Renewals__c.Account__r.Name}" />
+		<hr />
+		<apex:outputText styleClass="headerText" value="Risk Assessment" id="formHeader" label="" />
+		<apex:panelGrid columns="4" id="mainPanelGrid_pdf" border="1" width="90%" cellPadding="5px" >
+			<!-- Row 1 -->
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+				<apex:outputText value="TOTAL RISK SCORE BASED ON ASSESSMENT OF INDIVIDUAL ELEMENTS BELOW" id="cellR2C1" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="columnHeader" >
+				<apex:outputText value="Partner Selection" id="cellR1C2_pdf" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="columnHeader" >
+				<apex:outputText value="Partner Total" id="cellR1C3_pdf"/>
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="columnHeader" >
+				<apex:outputText value="Point Value" id="cellR1C4_pdf" />
+			</apex:panelGrid>
+			<!-- Row 2 -->
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+				<apex:outputText escape="false" value="Scoring: <b>Elevated Risk</b> = 151 or above; <b>Standard Risk</b> = 100 to 150; <b>Low Risk</b> = 0 to 99" id="cellR1C1_pdf" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+				<apex:outputText value="" id="cellR2C2_pdf" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" border="1" width="100%" styleClass="innerPanelGridBorder" columnClasses="noBorder" bgcolor="{!CASE(RiskLevel,'Low','yellow','Standard','orange','Elevated','red','')}" id="pnlgrdR2C3_pdf">
+				<apex:outputText value="{!TotalRiskScore}" id="cellR2C3a_pdf" />
+				<apex:outputText value="{!RiskLevel}" id="cellR2C3b_pdf" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+				<apex:outputText value="350 Max" id="cellR2C4_pdf" />
+			</apex:panelGrid>
+			<!-- Row 3 -->
+			<apex:panelGrid columns="3" border="0" width="100%" columnClasses="column60,column25,column15" cellPadding="5px" style="margin-left:0px;">
+				<apex:outputText escape="false" value="Corruption Perceptions Index score for <u>territory</u> for which CFTP is to be appointed (see link below)" id="cellR3C1a_pdf"/>
+				<apex:outputText value="Includes any country scoring:" id="cellR3C1b_pdf"/>
+				<apex:panelGrid columns="1" border="0" id="gridTerritoryScore_pdf" width="100%" style="margin-left:0px;" >
+					<apex:outputText value="45 or below" id="cellR3C1ca_pdf" />
+					<apex:outputText value="46 to 59" id="cellR3C1cb_pdf" />
+					<apex:outputText value="60 or above" id="cellR3C1cc_pdf" />
+				</apex:panelGrid>
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGridRadio" columnClasses="innerPanelGridColumn" id="pnlgrdCPITerritorySelection_pdf" >
+				<apex:image value="{!CheckboxTerritory100}" width="21" height="16" styleClass="checkImg" />
+				<apex:image value="{!CheckboxTerritory50}" width="21" height="16" styleClass="checkImg" />
+				<apex:image value="{!CheckboxTerritory25}" width="21" height="16" styleClass="checkImg" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" id="pnlgrdCPITerritoryScore_pdf" styleClass="innerPanelGrid" columnClasses="addBorder" >
+				<apex:outputText value="{!CPITerritoryHighValue}" id="cellR3C3a_pdf" />
+				<apex:outputText value="{!CPITerritoryMedValue}" id="cellR3C3b_pdf" />
+				<apex:outputText value="{!CPITerritoryLowValue}" id="cellR3C3c_pdf" />
+			</apex:panelGrid>
+			<apex:panelGrid styleClass="innerPanelGrid" columns="1" width="100%" cellPadding="4px" >
+				<apex:outputText value="{!constHigh}" id="cellR3C4a_pdf" />
+				<apex:outputText value="{!constMed}" id="cellR3C4b_pdf" />
+				<apex:outputText value="{!constLow}" id="cellR3C4c_pdf" />
+			</apex:panelGrid>
+			<!-- Row 4 -->
+			<apex:panelGrid columns="3" border="0" width="100%" columnClasses="column60,column25,column15" cellPadding="5px" style="margin-left:0px;">
+				<apex:outputText escape="false" value="Corruption Perceptions Index score for <u>country of incorporation</u> of CFTP (see link below)" id="cellR4C1a_pdf" />
+				<apex:outputText value="Includes any country scoring:" id="cellR4C1b_pdf" />
+				<apex:panelGrid columns="1" border="0" id="gridCountryScore" width="100%" style="margin-left:0px;" >
+					<apex:outputText value="45 or below" id="cellR4C1ca_pdf" />
+					<apex:outputText value="46 to 59" id="cellR4C1cb_pdf" />
+					<apex:outputText value="60 or above" id="cellR4C1cc_pdf" />
+				</apex:panelGrid>
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGridRadio" columnClasses="innerPanelGridColumn" id="pnlgrdCPICountrySelection_pdf" >
+				<apex:image value="{!CheckboxCountry100}" width="21" height="16" styleClass="checkImg" />
+				<apex:image value="{!CheckboxCountry50}" width="21" height="16" styleClass="checkImg" />
+				<apex:image value="{!CheckboxCountry25}" width="21" height="16" styleClass="checkImg" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" id="pnlgrdCPICountryScore_pdf" styleClass="innerPanelGrid" columnClasses="addBorder" >
+				<apex:outputText value="{!CPICountryHighValue}" id="cellR4C3a_pdf" />
+				<apex:outputText value="{!CPICountryMedValue}" id="cellR4C3b_pdf" />
+				<apex:outputText value="{!CPICountryLowValue}" id="cellR4C3c_pdf" />
+			</apex:panelGrid>
+			<apex:panelGrid styleClass="innerPanelGrid" columns="1" width="100%" cellPadding="4px" >
+				<apex:outputText value="100" id="cellR4C4a_pdf" />
+				<apex:outputText value="50" id="cellR4C4b_pdf" />
+				<apex:outputText value="25" id="cellR4C4c_pdf" />
+			</apex:panelGrid>
+			<!-- Row 5 -->
+			<apex:outputText style="margin-left:10px;" value="Appointment is as Sales Agent" id="cellR5C1_pdf" />
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" columnClasses="innerPanelGridColumn" id="pnlGrdSalesAgent_pdf" >
+				<apex:image value="{!CheckboxApptAsAgent}" width="21" height="16" styleClass="checkImg" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" columnClasses="addBorder" >
+				<apex:outputText value="{!SalesAgentApptValue}" id="cellR5C3_pdf" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+				<apex:outputText value="50" id="cellR5C4_pdf" />
+			</apex:panelGrid>
+			<!-- Row 6 -->
+			<apex:outputText style="margin-left:10px;" value="Sales Agent Commission is above 30%" id="cellR6C1" />
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" columnClasses="innerPanelGridColumn" id="pnlGrdCommission_pdf" >
+				<apex:image value="{!CheckboxSalesAgentComm}" width="21" height="16" styleClass="checkImg" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" columnClasses="addBorder" >
+				<apex:outputText value="{!SalesCommOver30Value}" id="cellR6C3_pdf" />
+			</apex:panelGrid>
+			<apex:panelGrid columns="1" width="100%" styleClass="innerPanelGrid" >
+				<apex:outputText value="100" id="cellR6C4_pdf" />
+			</apex:panelGrid>
+		</apex:panelGrid>
+		<hr />
+		<apex:outputLabel value="Corruption Perceptions Index (CPI) score: " />
+		<apex:outputLink target="_blank" value="{!$Label.CFTP_RA_CPI_Score_Link}">{!$Label.CFTP_RA_CPI_Score_Link}</apex:outputLink>
+		<hr />
+		<apex:outputText id="txtRACompleteDate_pdf" value="Risk Assessment Completed Date: {!IF((ISBLANK($CurrentPage.parameters.compdate)||$CurrentPage.parameters.compdate=='null'),'(Incomplete)',$CurrentPage.parameters.compdate)}" />
+		<apex:outputPanel >
+			<br/><hr/><br/>
+			<center><apex:outputText value="Completed by: {!UserFullName}" /></center>
+			<center><apex:outputText value="Date: {!todayDate}" /></center>
+			<center><apex:outputText value="Misys plc - Risk Assessment Form" /></center>
+		</apex:outputPanel>
+	</apex:outputPanel>	
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Level_of_Risk__c}" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.RSD_Approval_Submitted_Dt__c}" id="hiddenRSDApprovalSubmitDate" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Regional_Sales_Director_Approval_Status__c}" id="hiddenRSDApprovalStatus" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Reg_Services_Director_Approval_Status__c}" id="hiddenRSvcDApprovalStatus" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Risk_Assessment_Completed_Date__c}" id="hiddenRACompleteDate" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.CPI_Territory_100__c}" id="hiddenCPIT100" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.CPI_Territory_50__c}" id="hiddenCPIT50" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.CPI_Territory_25__c}" id="hiddenCPIT25" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.CPI_Territory_Score__c}" id="hiddenCPIT1" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.CPI_Country_Score__c}" id="hiddenCPIC1" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Partner_Selection_Form_completed__c}" id="hiddenTerritoryForm" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Completed_Uploaded_Date__c}" id="hiddenCompleteUpload" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Contract_Term__c}" id="hiddenContractTerm" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Proposed_Commission__c}" id="hiddenProposedCommission" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Solution_Coverage__c}" id="hiddenSolutionCoverage" rendered="false" />
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Exclusive_or_not__c}" id="hiddenExclusiveOrNot" rendered="false" />
+</head>	
+</apex:page>

@@ -1,0 +1,87 @@
+<!-- 
+  
+  REQ-3514 - Gaetan Barbeu - 14.06.2019
+
+-->
+
+
+<aura:component controller="paymentTerms_controller">
+  <aura:attribute name="recordId" type="string" />
+  <aura:attribute name="quoteRecord" type="SBQQ__Quote__c" />
+  <aura:attribute name="showSuccess" type="Boolean" default="false" />
+  <aura:attribute name="errorMessage" type="String" default="" />
+  <aura:attribute name="isProcessing" type="Boolean" default="true" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <aura:if isTrue="{!v.quoteRecord.Total_Annualized_Committed_Recurring_Fee__c > 0}">
+    <lightning:card>
+      <div class="slds-page-header">
+        <div class="slds-page-header__row">
+          <div class="slds-page-header__col-title">
+            <div class="slds-media">
+              <div class="slds-media__figure">
+                <span class="slds-icon_container" >
+                  <lightning:icon iconName="custom:custom17" alternativeText=""/>
+                  <span class="slds-assistive-text">
+                    <b>{!$Label.c.Recurring_Payment_Terms}</b>
+                  </span>
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <div class="slds-page-header__name">
+                  <div class="slds-page-header__name-title">
+                    <h1>
+                      <span class="slds-page-header__title slds-truncate">
+                        <b>{!$Label.c.Recurring_Payment_Terms}</b>
+                      </span>
+                    </h1>
+                  </div>
+                </div>
+                <p class="slds-page-header__name-meta">{!v.quoteRecord.Name}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <lightning:layout multipleRows="true">
+        <lightning:spinner class="{!((v.isProcessing)? '': 'slds-hide')}" alternativeText="" size="medium" />
+        <aura:if isTrue="{!v.errorMessage != ''}">
+          <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+            <div class="slds-notify_container slds-is-relative">
+              <div class="slds-notify slds-notify_toast slds-theme_error" role="status">
+                <div class="slds-notify__content">
+                    {!v.errorMessage}
+                </div>
+              </div>
+            </div>
+          </lightning:layoutItem>
+        </aura:if>
+        <aura:if isTrue="{!v.showSuccess}">
+          <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+              <div class="slds-notify_container slds-is-relative">
+                <div class="slds-notify slds-notify_toast slds-theme_success" role="status">
+                  <div class="slds-notify__content">
+                    {!$Label.c.Quote_Save_Success_Message}
+                  </div>
+                </div>
+              </div>
+          </lightning:layoutItem>
+        </aura:if>
+        <aura:if isTrue="{!v.quoteRecord.Total_Annualized_Committed_Recurring_Fee__c > 0}">
+          <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+              <lightning:input
+                  type="String"
+                  label="{!$Label.c.Recurring_Fee_Payment_Terms_Field_Label}"
+                  value="{!v.quoteRecord.Recurring_Fee_Payment_Terms__c}"
+                  required="true"
+                  messageWhenValueMissing="{!$Label.c.Required_Field_Missing_Value}"
+                  class ="recFeePaymentTerm"/>
+          </lightning:layoutItem>
+        </aura:if>
+        <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+          <lightning:button iconPosition="left" label="{!$Label.c.Save_Button_Label}" title="{!$Label.c.Save_Button_Label}" onclick="{!c.handleQuoteSaveEdition}"/>
+        </lightning:layoutItem>
+      </lightning:layout>
+    </lightning:card>
+  </aura:if>
+</aura:component>

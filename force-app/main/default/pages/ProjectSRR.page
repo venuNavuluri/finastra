@@ -1,0 +1,48 @@
+<apex:page standardController="MyProject__c">
+    <apex:pageBlock title="SRR - {!MyProject__c.Name}">
+        <apex:pageBlockSection columns="2">
+            <apex:outputField value="{!MyProject__c.Name}"/>
+            <apex:outputField value="{!MyProject__c.ProjectNumber__c}"/>
+            <apex:outputField value="{!MyProject__c.Department__c}"/>
+            <apex:outputField value="{!MyProject__c.Owner.Name}" label="IS Project Manager"/>
+            <apex:outputField value="{!MyProject__c.Business_Owner__c}"/>
+            <apex:outputField value="{!MyProject__c.CreatedBy.Name}"/>
+            <apex:outputField value="{!MyProject__c.Business_Sponsor__c}" label="Executive Sponsor"/>
+            <apex:outputField value="{!MyProject__c.LastModifiedBy.Name}"/>
+            <apex:outputField value="{!MyProject__c.Requested_By__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1">
+            <apex:outputField value="{!MyProject__c.Preferred_Start_Date__c}"/>
+            <apex:outputField value="{!MyProject__c.Preferred_End_Date__c}"/>
+            <apex:outputField value="{!MyProject__c.Division__c}"/>
+            <apex:outputField value="{!MyProject__c.Requested_Priority__c}"/>
+            <apex:outputField value="{!MyProject__c.Request_Category__c}"/>
+            <apex:outputField value="{!MyProject__c.Project_Summary__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="2" title="Project Justification"> 
+        	<apex:outputField value="{!MyProject__c.Corporate_Strategic_Value__c}"/>
+        	<apex:outputField value="{!MyProject__c.Direct_Financial_Impact__c}"/>
+        	<apex:outputField value="{!MyProject__c.Increase_Customer_Satisfaction__c}"/>
+        	<apex:outputField value="{!MyProject__c.Budget_Approved__c}"/>
+        	<apex:outputField value="{!MyProject__c.Productivity_Gains__c}"/>
+        	<apex:outputField value="{!MyProject__c.Capital_Investment_K__c}"/>
+        	<apex:outputField value="{!MyProject__c.Corporate_or_Strategic_Association__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1">
+        	<apex:outputField value="{!MyProject__c.Business_Justification__c}"/>
+        	<apex:outputField value="{!MyProject__c.Opportunity_or_Problem_Statement__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1" title="Project Outcome">
+        	<apex:outputField value="{!MyProject__c.Goals__c}"/>
+        	<apex:outputField value="{!MyProject__c.Success_Factors__c}"/>
+        	<apex:outputField value="{!MyProject__c.Description__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1" title="Solution Guidance">
+        	<apex:outputField value="{!MyProject__c.Assumptions__c}"/>
+        	<apex:outputField value="{!MyProject__c.Business_Effort_Input_Definitions__c}"/>
+        	<apex:outputField value="{!MyProject__c.Dependencies_Constraints__c}"/>
+        	<apex:outputField value="{!MyProject__c.Project_Replication_Opportunities__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:relatedList list="NotesAndAttachments"/>
+</apex:page>

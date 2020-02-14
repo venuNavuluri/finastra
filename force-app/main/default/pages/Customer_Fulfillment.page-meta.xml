@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>34.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>AG_Account;AG_Acct_By_Sub__c;AG_Contact;AG_Contract;AG_Contract_Asset__c;AG_Billing_Group__c;AG_Sales_Order__c;AG_NS_Subscriptions__c;AG_Opportunity;AG_Bill_To_Ship_To__c;AG_Case;AG_Entitlement__c;AG_Product_Set__c;AG_System__c;AG_Client_Asset__c;AG_Source_Asset__c;AG_Licence_Compliance__c;AG_CCRT__c</description>
+    <label>Customer Fulfillment</label>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>65</minorNumber>
+        <namespace>CRMC_PP</namespace>
+    </packageVersions>
+</ApexPage>

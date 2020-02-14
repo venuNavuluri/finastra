@@ -1,0 +1,5 @@
+<apex:component >
+	<apex:includeScript value="{!URLFOR($Resource.JQuery, 'jquery-ui-1.10.3.custom/js/jquery-1.9.1.js')}"  />
+	<apex:includeScript value="{!URLFOR($Resource.JQuery, 'jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js')}"  />
+	<apex:stylesheet value="{!URLFOR($Resource.JQuery, 'jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css')}"  />
+</apex:component>

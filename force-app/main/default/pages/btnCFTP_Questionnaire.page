@@ -1,0 +1,24 @@
+<apex:page standardController="Partner_Approvals_Renewals__c" extensions="CFTP_Questionnaire_CE" standardStylesheets="true">
+<style type="text/css">
+.commandButton
+{
+	text-align:center;
+	height:20px;
+}
+</style>
+	<apex:form id="frmQuestionnaireButton" >
+		<apex:pageBlock mode="maindetail">
+			<apex:pageBlockSection columns="1" >				
+				<apex:pageBlockSectionItem >
+				<apex:commandButton value="Internal Questionnaire >>" title="{!ButtonTip}" id="btnQuestionnaireForm" onclick="window.parent.location.href='/apex/CFTP_Questionnaire?id={!Partner_Approvals_Renewals__c.Id}';" styleClass="commandButton" disabled="{!!FormAllowed}"/>
+				</apex:pageBlockSectionItem>
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Form_completed__c}" id="hiddenQuestionnaireComplete" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Completed_Date__c}" id="hiddenQuestionnaireDate" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Regional_Sales_Director_Approval_Status__c}" id="hiddenSalesDirApprovalStatus" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Reg_Services_Director_Approval_Status__c}" id="hiddenServDirApprovalStatus" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Risk_Assessment_Completed_Date__c}" id="hiddenRACompletedDate" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Level_of_Risk__c}" id="hiddenLevelOfRisk" rendered="false" />
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form> 
+</apex:page>

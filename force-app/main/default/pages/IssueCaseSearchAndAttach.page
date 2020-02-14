@@ -1,0 +1,152 @@
+<apex:page standardController="Case" extensions="IssueCaseSearchAndAttachExtension" title="{!$Label.Search_for_Issue_Cases}" id="issueCaseSearchPage">
+<!-- 
+     Saaspoint 10/Aug/2009
+    
+     ALM Project. This page allows the user to lookup and attach an Issue Case to a Customer Case
+    
+     Modification History:
+     who    mm/dd/yyyy     description
+    
+ -->
+<script>
+
+function handleCaseSelection(obj) {
+// Prevents multiple selection of cases found in the search
+  var tableID = '{!$Component.issueCaseSearchPage.pageForm.resultsBlock.caseTable}';
+  var loopObj = document.getElementById(tableID + ':' + '0' + ':selCase');
+  var i = 1;
+  
+  while (loopObj) {
+    if (loopObj.id != obj.id) {
+      loopObj.checked = false;
+    }
+    loopObj = document.getElementById(tableID + ':' + (i++) + ':selCase');    
+  }
+}
+
+function checkSelectedAndAction() {
+// checks that at least one row has been selected
+  var selected = false;
+  var tableID = '{!$Component.issueCaseSearchPage.pageForm.resultsBlock.caseTable}';
+  var loopObj = document.getElementById(tableID + ':' + '0' + ':selCase');
+  var i = 1;
+  
+  while (loopObj) {
+    if (loopObj.checked) {
+      selected = true;
+    }
+    loopObj = document.getElementById(tableID + ':' + (i++) + ':selCase');    
+  }
+
+  if (selected) {
+    return true;    
+  } else {
+    alert('{!$Label.Please_Select_Issue_Case}');
+    return false;
+  }
+
+      
+</script>
+
+  <apex:form id="pageForm">   
+    
+    <apex:outputPanel id="criteria">
+      <apex:pageBlock title="{!$Label.Search_for_Issue_Cases}" rendered="{!alreadyAttached}">
+        <apex:pageBlockButtons location="bottom">
+            <apex:commandButton value="{!$Label.override_button}" action="{!doOverride}" rendered="{!showOverrideButton}" />
+            <apex:commandButton value="{!$Label.cancel_button}" action="{!doCancel}"/>
+        </apex:pageBlockButtons>
+        <apex:outputText value="{!$Label.already_issue_case_override}" rendered="{!showOverrideButton}"/> 
+        <apex:outputText value="{!$Label.already_issue_case_but_no_override_allowed}" rendered="{!not(showOverrideButton)}"/>         
+      </apex:pageBlock>      
+      <apex:pageBlock title="{!$Label.Search_for_Issue_Cases}" rendered="{!!alreadyAttached}">
+        <apex:pageBlockButtons location="bottom">
+           <apex:commandButton value="{!$Label.Search_Button}" action="{!doSearch}"/>
+           <apex:commandButton value="{!$Label.cancel_button}" action="{!doCancel}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection columns="1">
+           <apex:pageBlockSectionItem >
+              <apex:outputLabel value="{!$Label.Keyword}" for="keyword"/>
+              <apex:inputText value="{!issueCaseKeyword}" id="keyword" size="100"/>
+           </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="2">
+           <apex:pageBlockSectionItem >
+              <apex:outputLabel value="{!$ObjectType.case.fields.caseNumber.label}" for="caseNumber"/>
+              <apex:inputText value="{!issueCaseNumber}" id="caseNumber"/>
+           </apex:pageBlockSectionItem>
+           
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="{!$ObjectType.case.fields.Self_Service_Product__c.label}" for="selProduct"/>
+             <apex:selectList value="{!issueCaseCriteria.Self_Service_Product__c}" multiselect="false" id="selProduct" size="1">
+                <apex:selectOptions value="{!issueCaseProducts}"/>
+             </apex:selectList>
+           </apex:pageBlockSectionItem>
+
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="{!$ObjectType.case.fields.Case_Category__c.label}" for="selCategory"/>
+             <apex:selectList value="{!issueCaseCriteria.Case_Category__c}" multiselect="false" id="selCategory" size="1">
+                <apex:selectOptions value="{!issueCaseCategories}"/>
+             </apex:selectList>
+           </apex:pageBlockSectionItem>
+
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="{!$ObjectType.case.fields.Status.label}" for="selStatus"/>
+             <apex:selectList value="{!issueCaseCriteria.Status}" multiselect="false" id="selProduct" size="1">
+                <apex:selectOptions value="{!issueCaseStatus}"/>
+             </apex:selectList>
+           </apex:pageBlockSectionItem>
+            
+        </apex:pageBlockSection>
+        <!-- apex:outputText value="{!query}"/-->
+      </apex:pageBlock>
+    </apex:outputPanel>
+     
+    <apex:pageMessages /> 
+    <apex:outputPanel id="searchResults">
+      
+      <apex:pageBlock rendered="{!noResultsFound}">
+        <apex:outputText value="{!$Label.No_Issue_Cases_Found}"/> 
+      </apex:pageBlock>
+    
+      <apex:pageBlock id="resultsBlock" rendered="{!displayResults}">
+
+        <apex:pageBlockButtons >
+          <apex:commandButton value="{!$Label.Attach_To_Case_Button}" onclick="return checkSelectedAndAction()" action="{!doAttach}" rendered="{!showAttachButton}"/>
+          <apex:commandButton value="{!$Label.cancel_button}" action="{!doCancel}"/>
+        </apex:pageBlockButtons>
+
+        <apex:pageBlockTable id="caseTable" value="{!allIssueCases}" var="cases">
+          <apex:column >
+            <apex:inputCheckbox id="selCase" value="{!cases.selected}" onclick="handleCaseSelection(this)"/>
+          </apex:column>
+          <apex:column >
+            <apex:facet name="header"> 
+              <apex:outputText value="{!$ObjectType.case.fields.caseNumber.label}"/>
+            </apex:facet>
+            <apex:outputLink value="/{!cases.internalCase.id}" target="_blank">
+              <apex:outputText value="{!cases.internalCase.caseNumber}"/>
+            </apex:outputLink>
+          </apex:column>
+          <apex:column >
+            <apex:facet name="header"> 
+              <apex:outputText value="{!$ObjectType.case.fields.subject.label}"/>
+            </apex:facet>
+            <apex:outputLink value="/{!cases.internalCase.id}" target="_blank">
+              <apex:outputText value="{!cases.internalCase.subject}"/>
+            </apex:outputLink>
+          </apex:column>
+          <apex:column value="{!cases.internalCase.Case_Category__c}"/>
+          <apex:column value="{!cases.internalCase.Self_Service_Product__c}"/>
+          <apex:column value="{!cases.internalCase.status}"/>
+          <apex:column value="{!cases.internalCase.CSFE_Parent_Status__c}"/>
+          <apex:column value="{!cases.internalCase.Product_Version__c}"/>
+          <apex:column value="{!cases.internalCase.Client_Count__c}"/>
+          <apex:column value="{!cases.internalCase.Call_Count__c}"/>
+          <apex:column value="{!cases.internalCase.createdDate}"/>
+        </apex:pageBlockTable> 
+
+      </apex:pageBlock>
+    </apex:outputPanel>
+  </apex:form>
+</apex:page>

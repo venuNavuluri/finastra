@@ -1,0 +1,13 @@
+.THIS .input {
+font-weight: bold;
+}
+.THIS .slds-page-header{
+    background-color: #97BCF0;
+    color: black;
+}
+.THIS .slds-form-element__label {
+    font-weight: bold;
+}
+.THIS .recFeePaymentTerm{
+    width: 100%;
+}

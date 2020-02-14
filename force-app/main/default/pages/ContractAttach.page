@@ -1,0 +1,139 @@
+<apex:page standardcontroller="Opportunity" extensions="ContractAttach_CE">
+<c:ImportJQuery />
+<script>
+   $j = jQuery.noConflict();
+   $j(document).ready(function() {
+    $j("#warning").dialog({
+    	autoOpen: false,
+    	modal: true,
+    	position: 'center',
+    	    buttons: {
+			    "OK": function() {
+				    $j(this).dialog("close");
+			    }
+			}
+    });
+   });
+   
+   function showDialog(title, text){
+      $j("#warningText").html(text);
+      $j("#warning").dialog("open");
+      $j('#warning').dialog("option" , "title" , title);
+      $j('#warning').dialog('option', 'position', 'center');
+      return false;
+   }
+   
+	function uploadPressedHasContract(){
+		if (selectedContractCnt() != 1) {
+			showDialog('Incorrect form', 'Please pick exactly one contract record!');
+			return;
+		}
+		if (!confirmContractDocCheckBoxChecked()) {
+			showDialog('Incomplete form', 'Please confirm that it is a signed contract document you are uploading!');
+			return;
+		}
+		uploadDocToExistingContract();
+	}
+	
+	function uploadPressedNoContract(){
+		if (!confirmNewCheckBoxChecked()) {
+			showDialog('Incomplete form', 'Please confirm that you want to create a new contract record!');
+			return;
+		}
+		if (!confirmContractDocCheckBoxChecked()) {
+			showDialog('Incomplete form', 'Please confirm that it is a signed contract document you are uploading!');
+			return;
+		}
+		createContractAndUploadDoc();
+	}
+	
+	function selectedContractCnt()
+	{
+		var retVal = 0;
+		$j("[name$=cbContractSelect]").each(
+			function(index) {
+				//console.log(index + ": " + $j(this).prop('checked'));
+				if ($j(this).prop('checked')) { retVal = retVal + 1; }
+			}
+		);
+		return retVal;
+	}
+</script>
+<apex:sectionHeader title="Attach Contract to Opportunity" subtitle="{!TheOpportunity.Name}"/>
+	<apex:form >
+		<apex:actionFunction name="uploadDocToExistingContract" action="{!UploadDocToExistingContract}" />
+		<apex:actionFunction name="createContractAndUploadDoc" action="{!CreateContractAndUploadDoc}" />
+        <apex:pageMessages />
+		<apex:pageBlock >
+			<apex:pageBlockSection title="Opportunity" columns="2">
+				<apex:outputField value="{!TheOpportunity.Name}" /> 
+				<apex:outputField value="{!TheOpportunity.StageName}" />
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Contract" rendered="{!OpportunityHasContract}" columns="1">
+				<apex:outputLabel value="Select the contract record to use for this upload:"/>
+				<apex:pageBlockTable value="{!OpportunityContracts}" var="contract">
+					<apex:column >
+						<apex:facet name="header">Select</apex:facet>
+						<apex:inputCheckbox value="{!contract.Selected}" id="cbContractSelect"/>
+					</apex:column>
+		 			<apex:column >
+						<apex:facet name="header">Contract Name</apex:facet>
+						<apex:outputText value="{!contract.Name}"/>
+		 			</apex:column>
+		 			<apex:column >
+						<apex:facet name="header">Account</apex:facet>
+						<apex:outputText value="{!contract.AccountName}"/>
+		 			</apex:column>
+		 			<apex:column >
+						<apex:facet name="header">Contract Number</apex:facet>
+						<apex:outputText value="{!contract.ContractNumber}"/>
+		 			</apex:column>
+		 			<apex:column >
+						<apex:facet name="header">Created</apex:facet>
+						<apex:outputText value="{!contract.CreatedDate}"/>
+		 			</apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Document" columns="1">
+				<apex:pageBlockSectionItem rendered="{!NOT(OpportunityHasContract)}">
+					<apex:outputPanel >
+						<apex:inputCheckBox value="{!ConfirmCreateNew}" id="confirmNewCheckBox"/>
+						<script>
+							function confirmNewCheckBoxChecked() {
+								return document.getElementById("{!$Component.confirmNewCheckBox}").checked;
+							}
+						</script>
+					</apex:outputPanel>
+					<apex:outputLabel value="NEW contract record will be created" / >
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						<apex:inputCheckBox value="{!ConfirmContractDocument}" id="confirmContractDocCheckBox"/>
+						<script>
+							function confirmContractDocCheckBoxChecked() {
+								return document.getElementById("{!$Component.confirmContractDocCheckBox}").checked;
+							}
+						</script>
+					</apex:outputPanel>
+					<apex:outputLabel value="I confirm a valid customer signed contract document is being uploaded" / >
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons >
+<!-- 				<apex:commandButton onclick="return verifyCheckBoxes();" action="{!Upload}" value="Upload"/>-->
+				<apex:outputPanel rendered="{!OpportunityHasContract}">
+					<input class="btn" type="button" value="Upload" onclick="uploadPressedHasContract();" />
+				</apex:outputPanel>
+				<apex:outputPanel rendered="{!NOT(OpportunityHasContract)}">
+					<input class="btn" type="button" value="Upload" onclick="uploadPressedNoContract();" />
+				</apex:outputPanel>
+				<apex:commandButton action="{!Cancel}" value="Cancel"/>
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+	<div id="warning" >
+		<p>
+		<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+		<div id="warningText"></div>
+		</p>
+	</div>
+</apex:page>

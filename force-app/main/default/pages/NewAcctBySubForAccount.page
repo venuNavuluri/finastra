@@ -1,0 +1,14 @@
+<apex:page standardController="Acct_By_Sub__c" recordSetVar="acctBySubs" extensions="newAcctBySubForAccount_Extension" action="{!checkCCRT}">
+  <apex:pageBlock title="New AcctBySub for Account">
+    <apex:pageBlockSection columns="1">
+      <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Error" for="errorField"/>
+        <apex:outputText value="{!errorMessage}" id="errorField" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Return to Account" for="accountNameField"/>
+        <apex:outputLink value="/{!accountRecord.Id}" id="accountNameField">{!accountRecord.Name}</apex:outputLink>
+      </apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:page>

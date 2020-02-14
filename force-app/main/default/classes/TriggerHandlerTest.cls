@@ -1,17 +1,9 @@
-/**
- * @File Name          : TriggerHandlerTest.cls
- * @Description        : Test class for TriggerHandler
- * @Author             : venu.navuluri@finastra.com
- * @Group              : 
- * @Last Modified By   : venu.navuluri@finastra.com
- * @Last Modified On   : 01/11/2019, 13:13:04
- * @Modification Log   : 
- * Ver       Date            Author      		    Modification
- * 1.0    01/11/2019   venu.navuluri@finastra.com     Initial Version
-**/
+/* Class:       TriggerHandlerTest
+** Created by:  OpFocus (Veena Sundara-Heragu) on 5/22/18
+** Description: Unit test for TriggerHandler
+*/
 @IsTest
 private class TriggerHandlerTest {
-    
     private static final String TRIGGER_CONTEXT_ERROR = 'Trigger handler called outside of Trigger execution';
 
     private static String lastMethodCalled;

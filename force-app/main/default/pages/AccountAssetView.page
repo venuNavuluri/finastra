@@ -1,0 +1,47 @@
+<apex:page standardController="Account" Extensions="AccountAssetViewCE" tabStyle="Account" sideBar="false" showHeader="false" >
+    <style>
+    .activeTab {background-color: #236FBD; color:white; background-image:none}
+    .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+    </style>
+	<apex:sectionHeader title="Account Asset View" subtitle="{!Account.Name}" />
+	<apex:pageBlock >
+		<apex:pageBlockSection title="Account Information" columns="2" >
+			<apex:repeat value="{!$ObjectType.Account.Fieldsets.Asset_View_Fields}" var="a" >
+				<apex:outputField id="AcctField" value="{!Account[a]}" />
+			</apex:repeat>
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+    <apex:tabPanel switchType="client" selectedTab="name2" id="AccountTabPanel"  tabClass="activeTab" inactiveTabClass="inactiveTab">
+        <apex:tab label="Support Entitlements" name="SuppEnt" id="tabOne">
+        	<apex:relatedList list="Support_Entitlements__r" />
+        </apex:tab>
+        <apex:tab label="Product Sets" name="ProdSet" id="tabTwo">
+        	<apex:relatedList list="Product_Sets__r" />
+        </apex:tab>
+        <apex:tab label="Systems" name="Systems" id="tabThree">
+    		<apex:relatedList list="Customer_Systems__r" />
+    	</apex:tab>
+    	<apex:tab label="Client Assets" name="ClientAssets" id="tabFour">
+    		<apex:relatedList list="Client_Assets__r" />
+    	</apex:tab>
+    	<apex:tab label="Contract Assets" name="ContractAssets" id="tabFive">
+    		<apex:relatedList list="Troy_Assets__r" />
+    	</apex:tab>
+    	<apex:tab label="Locations of Use" name="LocationsOfUse" id="tabSix">
+			<apex:pageBlock title="Locations of Use">
+			<!-- <apex:pageBlockSection columns="1" collapsible="false"> -->
+			<apex:pageBlockTable value="{!listLOUs}" var="rec" >
+				<!-- <apex:column value="rec={!rec.Id}" /> -->
+				<apex:column headerValue="Loc Name" value="{!rec.Name}" />
+				<apex:column headerValue="Product Set" value="{!rec.Product_Set__c}" />
+				<apex:column headerValue="Client Asset" value="{!rec.Client_Asset__c}" />
+				<apex:column headerValue="Environment(s)" value="{!rec.Environment_s__c}" />
+				<apex:column headerValue="Asset Account Site" value="{!rec.Asset_Account_Site__c}" />
+				<apex:column headerValue="Customer Advocate" value="{!rec.Customer_Advocate__c}" />
+			</apex:pageBlockTable>
+			<!-- </apex:pageBlockSection> -->
+			</apex:pageBlock>    	
+    	</apex:tab>
+    </apex:tabPanel>
+    		
+</apex:page>

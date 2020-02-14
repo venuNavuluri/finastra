@@ -1,0 +1,105 @@
+<apex:component controller="Territory_AP_Controller" allowDML="true">
+    <apex:messages />
+    <apex:attribute name="Account1" type="Account" assignTo="{!acct}" description="Attribute to store acc data" required="False"/>
+  
+   <apex:actionFunction name="reRenderBlock" rerender="thePageBlock"/>
+    <script>
+        function setRequired(){
+        if((document.getElementById('{!$Component.thePageBlock.panelgrid.input}').value == '')&&(document.getElementById('{!$Component.thePageBlock.panelgrid.investigated}').value == 'Investigated')) 
+        document.getElementById('{!$Component.thePageBlock.panelgrid.input}').value = '0';
+    
+        reRenderBlock();
+        }
+    </script>
+    
+    <apex:pageBlock mode="inlineEdit" id="thePageBlock">
+        <apex:actionFunction name="reRenderBlock" rerender="thePageBlock" action="{!setRequired}" immediate="false"/>
+        <apex:panelGrid columns="6" id="panelgrid">
+            <apex:outputLabel style="font-weight: bold">Business Function  </apex:outputLabel>
+            <apex:outputLabel style="font-weight: bold">  Grade  </apex:outputLabel>
+            <apex:outputLabel style="font-weight: bold">  Account Planning Status  </apex:outputLabel>
+            <apex:outputLabel style="font-weight: bold">  Review In  </apex:outputLabel>
+            <apex:outputLabel style="font-weight: bold">  Comments</apex:outputLabel>
+            <apex:outputLabel style="font-weight: bold">  History</apex:outputLabel>
+            
+            <apex:outputText >Core Banking</apex:outputText>
+            <apex:outputField value="{!Account1.Core_Banking_Grade__c}"/>
+            <apex:inputField value="{!Account1.Account_Planning_Status_CB__c}"/>
+            <apex:inputField value="{!Account1.Review_In_CB__c}"/>
+            <apex:inputField value="{!Account1.Comments_CB__c}" style="width:450px"/>
+            <apex:outputField value="{!Account1.Commentary_CB__c}"/>
+            
+            <apex:outputText >Digital Channels</apex:outputText>
+            <apex:outputField value="{!Account1.Digital_Channel_Grade__c}"/>
+            <apex:inputField value="{!Account1.Account_Planning_Status_DC__c}"/>
+            <apex:inputField value="{!Account1.Review_In_DC__c}"/>
+            <apex:inputField value="{!Account1.Comments_DC__c}" style="width:450px" />
+            <apex:outputField value="{!Account1.Commentary_DC__c}"/>
+            
+            <apex:outputText >Enterprise Risk</apex:outputText>
+            <apex:outputField value="{!Account1.Enterprise_Risk_Grade__c}"/>
+            <apex:inputField value="{!Account1.Account_Planning_Status_ER__c}" />
+            <apex:inputField value="{!Account1.Review_In_ER__c}"/>
+            <apex:inputField value="{!Account1.Comments_ER__c}" style="width:450px"/>
+            <apex:outputField value="{!Account1.Commentary_ER__c}"/>
+            
+            <apex:outputText >Lending</apex:outputText>
+            <apex:outputField value="{!Account1.Lending_Grade__c}"/>
+            <apex:inputField value="{!Account1.Account_Planning_Status_Lending__c}" />
+            <apex:inputField value="{!Account1.Review_In_Lending__c}"/>
+            <apex:inputField value="{!Account1.Comments_Lending__c}" style="width:450px"/>
+            <apex:outputField value="{!Account1.Commentary_Lending__c}"/>
+            
+            <apex:outputText >Treasury and Capital Markets</apex:outputText>
+            <apex:outputField value="{!Account1.Capital_Markets_Grade__c}"/>
+            <apex:inputField value="{!Account1.Account_Planning_Status_CMBO__c}" />
+            <apex:inputField value="{!Account1.Review_In_CMBO__c}"/>
+            <apex:inputField value="{!Account1.Comments_CMBO__c}" style="width:450px"/>
+            <apex:outputField value="{!Account1.Commentary_CMBO__c}"/>
+            
+            <apex:outputText >Asset Management</apex:outputText>
+            <apex:outputField value="{!Account1.Asset_Management_Grade__c}"/>
+            <apex:inputField value="{!Account1.Account_Planning_Status_AM__c}" />
+            <apex:inputField value="{!Account1.Review_In_AM__c}"/>
+            <apex:inputField value="{!Account1.Comments_AM__c}" style="width:450px"/>
+            <apex:outputField value="{!Account1.Commentary_AM__c}"/>
+            
+            <apex:outputText >Hedge Funds</apex:outputText>
+            <apex:outputField value="{!Account1.Hedge_Fund_Grade__c}"/>
+            <apex:inputField value="{!Account1.Account_Planning_Status_HF__c}" />
+            <apex:inputField value="{!Account1.Review_In_HF__c}"/>
+            <apex:inputField value="{!Account1.Comments_HF__c}" style="width:450px"/>
+            <apex:outputField value="{!Account1.Commentary_HF__c}"/>
+            
+            <apex:outputText >Trade Finance</apex:outputText>
+            <apex:outputField value="{!Account1.Trade_Finance_Grade__c}"/>
+            <apex:inputField value="{!Account1.Account_Planning_Status_TF__c}" />
+            <apex:inputField value="{!Account1.Review_In_TF__c}"/>
+            <apex:inputField value="{!Account1.Comments_TF__c}" style="width:450px"/>
+            <apex:outputField value="{!Account1.Commentary_TF__c}"/>
+            
+            <apex:outputText >Payment and Messaging</apex:outputText>
+            <apex:outputField value="{!Account1.Payments_Messaging_Grade__c}"/>
+            <apex:inputField value="{!Account1.Account_Planning_Status_PM__c}" />
+            <apex:inputField value="{!Account1.Review_In_PM__c}"/>
+            <apex:inputField value="{!Account1.Comments_PM__c}" style="width:450px"/>
+            <apex:outputField value="{!Account1.Commentary_PM__c}"/>
+        </apex:panelGrid>
+        <apex:pageBlockSection columns="2">
+            <apex:pageBlockSectionItem >
+            <apex:commandButton value="Save" action="{!save}"  style="width:100px"/>
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+            
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+            <apex:outputPanel rendered="{!refreshPage}">    
+                <script>       
+                    window.top.location='/{!Account1.id}';    
+                </script> 
+            </apex:outputPanel>
+            <apex:outputText style="width:750px">Last Modified By:{!Account1.modifiedDetail__c}</apex:outputText>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+            
+</apex:component>

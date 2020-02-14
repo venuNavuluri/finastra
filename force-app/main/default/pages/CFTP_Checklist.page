@@ -1,0 +1,202 @@
+<apex:page title="CommOps Checklist" standardController="Partner_Approvals_Renewals__c" extensions="CFTP_Checklist_CE" >
+<head>
+<style type="text/css">
+.headerText {
+	font-size:16px;
+	text-decoration:underline;
+	font-weight:bold;
+	}
+.textAreaBox {
+	width:75%;
+	}
+.textBoxReadOnly {
+	width:75%;
+	border:1px solid;
+	background-color:#EBEBE4;
+	padding:2px;
+	}
+.panelGridBorder {
+	margin-left:0px;
+	border:1px solid;
+	height:20px;
+	background-color:#EBEBE4;
+	}	
+.indentedLabel {
+	padding-left:20px;
+	padding-right:0px;
+	}
+.tableColValue {
+	width:23%;
+	text-align:right;
+	}
+.tableColText {
+	width:77%;
+	}	
+.tableRowTall {
+	}	
+</style>
+</head>
+<body>
+	<apex:form rendered="{!$CurrentPage.parameters.p!='pdf'}" >
+	<apex:pageBlock title="{!Partner_Approvals_Renewals__c.Account__r.Name}" id="mainPageBlock" >
+		<apex:pageMessages />
+		<apex:pageBlockSection columns="1" >
+			<apex:outputText styleClass="headerText" value="CommOps Checklist" id="formHeader" label="" />
+		<!-- Question 1 -->
+		<apex:panelGrid columns="2" id="panelGrid1" width="95%" columnClasses="tableColValue,tableColText" >
+			<apex:inputField value="{!Partner_Approvals_Renewals__c.Names_of_Partners_Directors_Provided__c}" rendered="{!!isLocked}" />
+			<apex:outputText value="{!Partner_Approvals_Renewals__c.Names_of_Partners_Directors_Provided__c}" styleClass="textBoxReadOnly" rendered="{!isLocked}" />
+			<apex:outputText value="1. Have names of all partners/directors for the last three years and when appointed been provided?" />
+		</apex:panelGrid>
+		<!-- Question 2 -->
+		<apex:panelGrid columns="2" id="panelGrid2" width="95%" columnClasses="tableColValue,tableColText" >
+			<apex:inputField value="{!Partner_Approvals_Renewals__c.Company_Registration_Docs_Provided__c}" rendered="{!!isLocked}" />
+			<apex:outputText value="{!Partner_Approvals_Renewals__c.Company_Registration_Docs_Provided__c}" styleClass="textBoxReadOnly" rendered="{!isLocked}" />
+			<apex:outputText value="2. Have copies of company registration documents including, where applicable, certificate of incorporation been provided?" />
+		</apex:panelGrid>
+		<!-- Question 3 -->
+		<apex:panelGrid columns="2" id="panelGrid3" width="95%" columnClasses="tableColValue,tableColText" >
+			<apex:InputField value="{!Partner_Approvals_Renewals__c.References_Provided_and_Checked__c}" rendered="{!!isLocked}" />
+			<apex:outputText value="{!Partner_Approvals_Renewals__c.References_Provided_and_Checked__c}" styleClass="textBoxReadOnly" rendered="{!isLocked}" />
+			<apex:outputText value="3. Have references been provided and checked?" />
+			<apex:outputText value="" />
+			<apex:outputText value="Reference Comments:" styleClass="indentedLabel" />
+			<apex:outputText value="" />
+			<apex:inputTextarea label="" value="{!Partner_Approvals_Renewals__c.Comments_References_Provided__c}" rows="5" styleClass="textAreaBox" style="margin-left:20px;" rendered="{!!isLocked}"/>
+			<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" style="margin-left:20px;" rendered="{!isLocked}" >
+				<apex:outputField value="{!Partner_Approvals_Renewals__c.Comments_References_Provided__c}" />
+			</apex:panelGrid>
+		</apex:panelGrid>
+		<!-- Question 4 -->
+		<apex:panelGrid columns="2" id="panelGrid4" width="95%" columnClasses="tableColValue,tableColText" >
+			<apex:inputField value="{!Partner_Approvals_Renewals__c.Check_with_Lawyer_on_Addtl_Requirements__c}" rendered="{!!isLocked}" />
+			<apex:outputText value="{!Partner_Approvals_Renewals__c.Check_with_Lawyer_on_Addtl_Requirements__c}" styleClass="textBoxReadOnly" rendered="{!isLocked}" />
+			<apex:outputText value="4. Check with local lawyer for additional requirements for doing business in region or engaging CFTPs, such as agents?" />
+			<apex:outputText value="" />
+			<apex:outputText value="List any additional requirements:" styleClass="indentedLabel" />
+			<apex:outputText value="" />
+			<apex:inputTextarea label="" value="{!Partner_Approvals_Renewals__c.Comments_Check_with_Local_Lawyer__c}" rows="5" styleClass="textAreaBox" style="margin-left:20px;" rendered="{!!isLocked}" />
+			<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" style="margin-left:20px;" rendered="{!isLocked}" >
+				<apex:outputField value="{!Partner_Approvals_Renewals__c.Comments_Check_with_Local_Lawyer__c}" />
+			</apex:panelGrid>						
+		</apex:panelGrid>
+		<!-- Question 5 -->
+		<apex:panelGrid columns="2" id="panelGrid5" width="95%" columnClasses="tableColValue,tableColText" >
+			<apex:inputField value="{!Partner_Approvals_Renewals__c.Questionnaire_for_CFTP_Completed__c}" rendered="{!!isLocked}" />
+			<apex:outputText value="{!Partner_Approvals_Renewals__c.Questionnaire_for_CFTP_Completed__c}" styleClass="textBoxReadOnly" rendered="{!isLocked}" />
+			<apex:outputText value="5. Has the Questionnaire relating to a prospective CFTP been completed?" />
+		</apex:panelGrid>
+		<!-- Question 6 -->
+		<apex:panelGrid columns="2" id="panelGrid6" width="95%" columnClasses="tableColValue,tableColText" >
+			<apex:inputField value="{!Partner_Approvals_Renewals__c.Form_Attached_to_Partner_Letter_Complete__c}" rendered="{!!isLocked}" />
+			<apex:outputText value="{!Partner_Approvals_Renewals__c.Form_Attached_to_Partner_Letter_Complete__c}" styleClass="textBoxReadOnly" rendered="{!isLocked}" />
+			<apex:outputText value="6. Has the form attached to the Partner Letter been completed?" />
+		</apex:panelGrid>
+		<!-- Question 7 -->
+		<apex:panelGrid columns="2" id="panelGrid7" width="95%" columnClasses="tableColValue,tableColText" >
+			<apex:outputText value="" />
+			<apex:outputText value="7. Other Comments" />
+			<apex:outputText value="" />
+			<apex:inputTextarea value="{!Partner_Approvals_Renewals__c.Comments_Checklist__c}" rows="5" styleClass="textAreaBox" style="margin-left:20px;" rendered="{!!isLocked}" />
+			<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" style="margin-left:20px;" rendered="{!isLocked}" >
+				<apex:outputField value="{!Partner_Approvals_Renewals__c.Comments_Checklist__c}" />
+			</apex:panelGrid>			
+		</apex:panelGrid>
+		<!-- Question 8 -->
+		<apex:panelGrid columns="2" id="panelGrid8" width="95%" columnClasses="tableColValue,tableColText" >
+			<apex:inputField value="{!Partner_Approvals_Renewals__c.Lexis_Check__c}" rendered="{!!isLocked}" />
+			<apex:outputText value="{!Partner_Approvals_Renewals__c.Lexis_Check__c}" styleClass="textBoxReadOnly" rendered="{!isLocked}" />
+			<apex:outputText value="8. Have you carried out a Lexis Check?" />
+		</apex:panelGrid>
+		</apex:pageBlockSection>
+		<apex:pageBlockButtons location="bottom" > 			
+			<apex:commandButton id="btnSaveChanges" action="{!saveChanges}" value="Save Changes" title="Save changes to the form and come back later to complete" rendered="{!!isLocked}" />
+			<apex:commandButton id="btnSaveComplete" action="{!saveComplete}" value="Submit for Approval" title="Complete and Submit for Approval. (Also attaches saved form as a PDF)" rendered="{!!isLocked}" />
+			<apex:commandButton id="btnCancel" action="{!backToRecord}" value="Cancel" title="Cancel any changes and go back to the Partner Approval record" immediate="true" rendered="{!!isLocked}" />
+			<apex:commandButton id="btnClose" action="{!backToRecord}" value="Close" title="Return to the Partner Approval record" immediate="true" rendered="{!isLocked}" />
+		</apex:pageBlockButtons>
+	</apex:pageBlock>
+	</apex:form>
+	<apex:relatedList list="NotesAndAttachments" rendered="{!$CurrentPage.parameters.p!='pdf'}" />
+
+	<apex:outputPanel rendered="{!$CurrentPage.parameters.p=='pdf'}" >
+		<apex:outputText value="{!Partner_Approvals_Renewals__c.Account__r.Name}" id="mainPageBlock_pdf" />
+		<hr />
+		<apex:outputPanel >
+			<apex:outputText styleClass="headerText" value="CommOps Checklist" id="formHeader_pdf" label="" />
+			<hr />
+			<!-- Question 1 -->
+			<apex:panelGrid columns="2" id="panelGrid1_pdf" width="95%" columnClasses="tableColValue,tableColText" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Names_of_Partners_Directors_Provided__c}" styleClass="textBoxReadOnly" />
+				<apex:outputText value="1. Have names of all partners/directors for the last three years and when appointed been provided?" />
+			</apex:panelGrid>
+			<!-- Question 2 -->
+			<apex:panelGrid columns="2" id="panelGrid2_pdf" width="95%" columnClasses="tableColValue,tableColText" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Company_Registration_Docs_Provided__c}" styleClass="textBoxReadOnly" />
+				<apex:outputText value="2. Have copies of company registration documents including, where applicable, certificate of incorporation been provided?" />
+			</apex:panelGrid>
+			<!-- Question 3 -->
+			<apex:panelGrid columns="2" id="panelGrid3_pdf" width="95%" columnClasses="tableColValue,tableColText" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.References_Provided_and_Checked__c}" styleClass="textBoxReadOnly" />
+				<apex:outputText value="3. Have references been provided and checked?" />
+				<apex:outputText value="" />
+				<apex:outputText value="Reference Comments:" styleClass="indentedLabel" />
+				<apex:outputText value="" />
+				<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" style="margin-left:20px;" >
+					<apex:outputField value="{!Partner_Approvals_Renewals__c.Comments_References_Provided__c}" />
+				</apex:panelGrid>
+			</apex:panelGrid>
+			<!-- Question 4 -->
+			<apex:panelGrid columns="2" id="panelGrid4_pdf" width="95%" columnClasses="tableColValue,tableColText" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Check_with_Lawyer_on_Addtl_Requirements__c}" styleClass="textBoxReadOnly" />
+				<apex:outputText value="4. Check with local lawyer for additional requirements for doing business in region or engaging CFTPs, such as agents?" />
+				<apex:outputText value="" />
+				<apex:outputText value="List any additional requirements:" styleClass="indentedLabel" />
+				<apex:outputText value="" />
+				<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" style="margin-left:20px;" >
+					<apex:outputField value="{!Partner_Approvals_Renewals__c.Comments_Check_with_Local_Lawyer__c}" />
+				</apex:panelGrid>						
+			</apex:panelGrid>
+			<!-- Question 5 -->
+			<apex:panelGrid columns="2" id="panelGrid5_pdf" width="95%" columnClasses="tableColValue,tableColText" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Questionnaire_for_CFTP_Completed__c}" styleClass="textBoxReadOnly" />
+				<apex:outputText value="5. Has the Questionnaire relating to a prospective CFTP been completed?" />
+			</apex:panelGrid>
+			<!-- Question 6 -->
+			<apex:panelGrid columns="2" id="panelGrid6_pdf" width="95%" columnClasses="tableColValue,tableColText" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Form_Attached_to_Partner_Letter_Complete__c}" styleClass="textBoxReadOnly" />
+				<apex:outputText value="6. Has the form attached to the Partner Letter been completed?" />
+			</apex:panelGrid>
+			<!-- Question 7 -->
+			<apex:panelGrid columns="2" id="panelGrid7_pdf" width="95%" columnClasses="tableColValue,tableColText" >
+				<apex:outputText value="" />
+				<apex:outputText value="7. Other Comments" />
+				<apex:outputText value="" />
+				<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" style="margin-left:20px;" >
+					<apex:outputField value="{!Partner_Approvals_Renewals__c.Comments_Checklist__c}" />
+				</apex:panelGrid>			
+			</apex:panelGrid>
+			<!-- Question 8 -->
+			<apex:panelGrid columns="2" id="panelGrid8_pdf" width="95%" columnClasses="tableColValue,tableColText" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Lexis_Check__c}" styleClass="textBoxReadOnly" />
+				<apex:outputText value="8. Have you carried out a Lexis Check?" />
+			</apex:panelGrid>
+		</apex:outputPanel>
+		<apex:outputPanel >
+			<br/><hr/><br/>
+			<center><apex:outputText value="Completed by: {!UserFullName}" /></center>
+			<center><apex:outputText value="Date: {!TODAY()}" /></center>
+			<center><apex:outputText value="Misys plc - Comm Ops Checklist" /></center>
+		</apex:outputPanel>
+	</apex:outputPanel>
+	<apex:outputField value="{!Partner_Approvals_Renewals__c.CommOps_checklist_completed__c}" rendered="false" />
+	<apex:outputField value="{!Partner_Approvals_Renewals__c.Regional_Sales_Director_Approval_Status__c}" rendered="false" />
+	<apex:outputField value="{!Partner_Approvals_Renewals__c.Reg_Services_Director_Approval_Status__c}" rendered="false" />
+	<apex:outputField value="{!Partner_Approvals_Renewals__c.External_Agency_Letter_Uploaded_Date__c}" rendered="false" />
+	<apex:outputField value="{!Partner_Approvals_Renewals__c.Due_dilligence_completed_date__c}" rendered="false" />
+	<apex:outputField value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Completed_Date__c}" rendered="false" />
+	<apex:outputField value="{!Partner_Approvals_Renewals__c.Management_Approval_Status__c}" rendered="false" />
+	<apex:outputField value="{!Partner_Approvals_Renewals__c.Final_Approval_Status__c}" rendered="false" />
+	<apex:outputField value="{!Partner_Approvals_Renewals__c.Level_of_Risk__c}" rendered="false" />
+</body>
+</apex:page>

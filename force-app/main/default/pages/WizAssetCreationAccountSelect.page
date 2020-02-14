@@ -1,0 +1,77 @@
+<apex:page controller="WizAssetCreationController" tabStyle="Contract">
+	<c:ImportJQuery />
+	<c:JQueryConfirmCancel />
+	<apex:sectionHeader title="Asset Creation" subtitle="Select Locations"/>
+	<apex:form >
+		<apex:actionFunction name="cancel" action="{!Cancel}"/>
+		<apex:pageBlock >
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!AccountSelectFinished}" value="Next"/>
+				<apex:commandButton value="Cancel" onclick="return showConfirmCancelDialog()"/>
+			</apex:pageBlockButtons>
+			<apex:outputPanel id="pageMsg">
+				<apex:pageMessage summary="{!ThePageMessage}" severity="error" strength="3" rendered="{!ThePageMessage != null}"/>
+			</apex:outputPanel>
+			<c:WizAssetCrtContractSection attrContract="{!contract}" />
+			<c:WizAssetCrtProductSetSection attrProductSets="{!WrappedProductSets}" attrEditable="false"/>
+			<apex:pageBlockSection columns="3" title="Asset locations" collapsible="false">
+				<apex:inputField value="{!AccountSearchDummyObject.Account__c}"/>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Add Children"/>
+					<apex:inputCheckBox value="{!IncludeAccountChildren}"/>
+				</apex:pageBlockSectionItem>
+				<apex:commandButton action="{!AddAccount}" value="Add Account(s)" rerender="accountsPanel, pageMsg"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection columns="1" id="accountsPanel">
+				<apex:pageBlockTable value="{!accounts}" var="acct">
+					<apex:column >
+						<apex:commandLink action="{!DeleteLocationInstance}" value="Delete" rerender="accountsPanel, pageMsg">
+							<apex:param name="accountId" value="{!acct.Id}" assignTo="{!LocationIdToDelete}"/>
+						</apex:commandLink>
+					</apex:column>
+					<apex:column value="{!acct.TheAccount.Name}">
+						<apex:facet name="header">Account Name</apex:facet>
+					</apex:column>
+					<apex:column value="{!acct.TheAccount.Site}">
+						<apex:facet name="header">Account Site</apex:facet>
+					</apex:column>
+					<apex:column value="{!acct.TheAccount.Country__c}">
+						<apex:facet name="header">Country</apex:facet>
+					</apex:column>
+					<apex:column value="{!acct.TheAccount.CSN__c}">
+						<apex:facet name="header">CSN</apex:facet>
+					</apex:column>
+					<apex:column value="{!acct.TheAccount.Type}">
+						<apex:facet name="header">Type</apex:facet>
+					</apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection columns="3" title="Additional locations of use" collapsible="false">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="CCRT Name"/>
+					<apex:inputField value="{!CcrtSearchDummyObject.CCRT__c}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem />
+				<apex:commandButton action="{!AddCcrt}" value="Add CCRT" rerender="ccrtsPanel, pageMsg"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection columns="1" id="ccrtsPanel">
+				<apex:pageBlockTable value="{!ccrts}" var="ccrt">
+					<apex:column >
+						<apex:commandLink action="{!DeleteLocationInstance}" value="Delete" rerender="ccrtsPanel, pageMsg">
+							<apex:param name="ccrtId" value="{!ccrt.Id}" assignTo="{!LocationIdToDelete}"/>
+						</apex:commandLink>
+					</apex:column>
+					<apex:column value="{!ccrt.TheCcrt.Name}">
+						<apex:facet name="header">CCRT Name</apex:facet>
+					</apex:column>
+					<apex:column value="{!ccrt.TheCcrt.Client_Site_Number__c}">
+						<apex:facet name="header">Client Site Number</apex:facet>
+					</apex:column>
+					<apex:column value="{!ccrt.TheCcrt.Country_ISO_Code__c}">
+						<apex:facet name="header">Country ISO Code</apex:facet>
+					</apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

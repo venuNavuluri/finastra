@@ -1,0 +1,31 @@
+<apex:component controller="AccountAndSystemController">
+	<apex:attribute name="attrSumLoadingPercentage" type="Integer" assignTo="{!SumLoadingPercentage}" required="true" description="blah"/>
+	<apex:attribute name="attrThePair" type="WACAccountWithSystem" assignTo="{!ThePair}" required="true" description="EnvironmentName"/>
+	<script>
+		$j(function(){
+			//calling the createSlider Method to create the slider in designated location
+			createSlider(
+				'{!ThePair.MyId}slider',
+				'{!ThePair.MyId}dispCurrent',
+				{!ThePair.LoadingPercentage},
+				0,
+				{!SliderMaxValue},
+				'{!$Component.idLoadingPercentage}'
+			);
+				
+		});
+	</script>
+	<table width="100%"><tr>
+		<td width="25%"><apex:outputLabel value="{!ThePair.MyId}"/></td>
+		<td width="5%"><div id="{!ThePair.MyId}dispCurrent"/></td><!--Slider Output here-->
+		<td width="{!SliderWidth}%">
+			<apex:outputPanel >
+				<!--Slider will be created Here-->
+				<div id="{!ThePair.MyId}slider"/>
+<!-- 			<div id="{!ThePair.MyId}previous">{!ThePair.LoadingPercentage} - {!SliderMaxValue} - {!SliderWidth} - {!SliderPaddingWidth}</div> -->
+				<apex:inputHidden value="{!ThePair.LoadingPercentage}" id="idLoadingPercentage" /> <!--  -->
+			</apex:outputPanel>
+		</td>
+		<td width="{!SliderPaddingWidth}%"/>
+	</tr></table>
+</apex:component>

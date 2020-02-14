@@ -1,0 +1,128 @@
+<apex:page controller="community_SearchResultsController" tabStyle="Cases__tab" readOnly="true">
+<c:community_GoogleTracking /> 
+<apex:stylesheet value="{!URLFOR($Resource.community_jQueryDataTables, 'css/jquery.dataTables.css')}"/>
+    
+    <style type="text/css">
+        h2 {
+            font-family: Arial, Verdana, Helvetica, sans-serif !important; 
+            font-weight: 400 !important;
+            font-style: bold !important;
+            }
+
+        .searchTextBox {
+            width:250px;
+            padding:5px;
+        }
+        .sorting {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_both.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_asc {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_asc.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_desc {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_desc.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_asc_disabled {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_asc_disabled.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_desc_disabled {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_desc_disabled.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        table.dataTable tr.odd { background-color: white; }
+        table.dataTable tr.even { background-color: white; }
+        table.dataTable tr.odd td.sorting_1 { background-color: white; }
+        table.dataTable tr.odd td.sorting_2 { background-color: white; }
+        table.dataTable tr.odd td.sorting_3 { background-color: white; }
+        table.dataTable tr.even td.sorting_1 { background-color: white; }
+        table.dataTable tr.even td.sorting_2 { background-color: white; }
+        table.dataTable tr.even td.sorting_3 { background-color: white; }
+        .dataTables_info, .dataTables_paginate {
+            padding: 3px;
+        }
+        .dataTables_length, .dataTables_filter {
+           display:none; 
+        }
+
+        select {width:250px;}
+
+        input::-ms-clear {
+          width : 0;
+          height: 0;
+        }
+    </style>
+<apex:form >
+    <apex:pageBlock title="Search Results">
+        <apex:outputPanel id="listView">
+            <apex:outputPanel layout="block" >
+            <div class="table-scroller">
+                <apex:pageBlockTable value="{!Cases}" var="case" styleClass="dataTable" id="caseTable">
+                    <apex:column headerValue="Case Number">
+                        <apex:outputLink value="/{!case.Id}">{!case.CaseNumber}</apex:outputLink>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Your Account Name" value="{!case.Account_Name__c}"></apex:column>
+                    <apex:column headerValue="Your Account Site" value="{!case.Your_Account_Site__c}" />
+                    <apex:column headerValue="Your Contact Name" value="{!case.Your_Contact_Name__c}" />
+                    <apex:column headerValue="Your Reference" value="{!case.Client_Reference__c}" />
+                    <apex:column headerValue="Case Product" value="{!case.RecordTypeName__c}" />
+                    <apex:column headerValue="Subject">
+                        <div style="width:180px"><apex:outputLink value="/{!case.Id}">{!case.subject}</apex:outputLink></div>
+                    </apex:column>
+                    <apex:column headerValue="Severity">
+                        <div style="width:100px"><apex:outputText value="{!case.Severity__c}"></apex:outputText></div>
+                    </apex:column>          
+                    <apex:column headerValue="Status" value="{!case.Status}" />             
+                    <apex:column headerValue="Sub-Status" value="{!case.Sub_Status__c}" />
+                    <apex:column headerValue="System Status" value="{!case.System_Status__c}" />
+                    <apex:column headerValue="Date/Time Opened" >
+                      <c:FormatLocalDatetime date_Timevalue="{!case.createdDate}"/>                   
+                    </apex:column>
+                    <apex:column headerValue="Date/Time Closed" rendered="{!showCloseDate}">
+                      <c:FormatLocalDatetime date_Timevalue="{!case.ClosedDate}"/>                   
+                    </apex:column>
+                </apex:pageBlockTable>
+            </div>
+            <div>
+                <br/><br/>
+                <b>Search Again:</b>
+               &nbsp;&nbsp;
+                
+                <apex:selectList value="{!searchOptions}" multiselect="false" size="1" >
+                    <apex:selectOptions value="{!items}"/>
+                </apex:selectList>
+                <input id="setLast" type="hidden" value="1" name="setLast"/>
+                <apex:inputText id="sbstr" value="{!searchText}"  styleClass="searchTextBox" style="searchTextBox"/>
+                <apex:commandButton value="Search" action="{!search}"/>
+               
+            </div>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+    </apex:pageBlock>
+    
+        <script type="text/javascript" src="{!URLFOR($Resource.community_jQueryDataTables, 'js/jquery.js')}"/>
+        <script type="text/javascript" src="{!URLFOR($Resource.community_jQueryDataTables, 'js/jquery.dataTables.min.js')}"/>
+        <script type="text/javascript">
+            
+            j$ = jQuery.noConflict();
+            j$('table.dataTable').dataTable({
+                sPaginationType: "full_numbers",          
+                "iDisplayLength" : 15,    
+                "pageLength": 15,
+                "bFilter": true,
+                "bProcessing": true,
+                "aLengthMenu": [[20, 35, 50,100, -1], [10, 35, 50, 100, "All"]],
+                oSearch: { "sSearch": "", "bRegex": true, "bSmart": true }
+            });
+
+            
+        </script>
+
+
+    </apex:form>
+</apex:page>

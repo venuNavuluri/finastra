@@ -1,0 +1,34 @@
+<apex:component controller="WizAssetCrtProductSetSectionController">
+    <style>
+        td.rightAlign { text-align:right; }
+    </style>
+    <apex:attribute name="attrProductSets" type="WACProductSetListWrapper" required="true" description="The ProductSet list this component is presenting"/>
+    <apex:attribute name="attrEditable" type="boolean" required="true" description="Is Editable?"/>
+    <apex:pageBlockSection columns="1" title="Product Sets">
+        <apex:outputPanel >
+            <span style="font-weight:bold;">
+                <table width="100%">
+                    <tr>
+                        <td width="{!ExpandLinkWidth + PaddingWidth}%" style="text-align:center;"><apex:outputLabel value="Location"/></td>
+            
+                        <td width="{!ProductNameWidth}%"></td>
+                        <!--KK: Added License Metric as a part of service desk 1482648 -->
+                        <td class="rightAlign" width="{!AmountWidth}%"><apex:outputLabel value="License Metric"/></td>
+                        <td class="rightAlign" width="{!AmountWidth}%"><apex:outputLabel value="Contracted"/></td>
+                        <td class="rightAlign" width="{!AmountWidth}%"><apex:outputLabel value="Assetized"/></td>
+                        <td class="rightAlign" width="{!AmountWidth}%"><apex:outputLabel value="Remaining"/></td>
+                        <td class="rightAlign" width="{!AmountWidth}%"><apex:outputLabel value="Assetizing"/></td>
+                        <td class="rightAlign" width="{!AmountWidth}%"><apex:outputLabel value="Remaining After Action"/></td>
+                    </tr>
+                </table>
+            </span>
+        </apex:outputPanel>
+        <apex:repeat value="{!attrProductSets.ProductSets}" var="prodSet">
+            <c:ProductSetPanel attrProductSet="{!prodSet}" attrEditable="{!attrEditable}"
+                attrExpandLinkWidth="{!ExpandLinkWidth}"
+                attrPaddingWidth="{!PaddingWidth}"
+                attrProductNameWidth="{!ProductNameWidth}"
+                attrAmountWidth="{!AmountWidth}" />
+        </apex:repeat>
+    </apex:pageBlockSection>
+</apex:component>

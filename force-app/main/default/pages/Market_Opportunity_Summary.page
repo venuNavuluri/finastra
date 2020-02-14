@@ -1,0 +1,211 @@
+<apex:page standardController="Acct_Profile__c" Extensions="Market_Opp_SummaryController">
+  <apex:messages />
+  <apex:form >
+      <apex:pageBlock mode="inlineEdit">
+          <apex:panelGrid columns="7" rendered="{!savebutton}" width="1370px">
+          <apex:outputLabel style="font-weight: bold;">Business Function  </apex:outputLabel>
+          <!--<apex:outputLabel style="font-weight: bold">  Unconstrained <BR/> Market Value</apex:outputLabel>-->
+          <apex:outputLabel style="font-weight: bold;">  Upsell Value(‘000 USD)</apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold;">  New Product <BR/>Value(‘000 USD) </apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold;">  Suggested Solution</apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold;">  Reviewed Upsell <BR/>Value(‘000 USD)</apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold;">  Reviewed New <BR/>Product Value(‘000 USD) </apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold;">  Commentary</apex:outputLabel>
+
+          <apex:outputText >Core Banking</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_CB__c}"/>-->
+          <apex:inputField value="{!acctpro.Upsell_Value_CB__c}"/>
+          <apex:inputField value="{!acctpro.Xsell_Value_CB__c}"/>
+          <apex:inputField value="{!acctpro.Suggested_Solution_CB__c}" style="width:360px"/>
+          <apex:inputField value="{!acctpro.Regional_UpSell_CB__c}"/>
+          <apex:inputField value="{!acctpro.Regional_XSell_CB__c}"/>
+          <apex:inputField style="width:200px" value="{!acctpro.Market_opp_CB_commentary__c}"/>
+
+          <apex:outputText >Digital Channels</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_DC__c}"/>-->
+          <apex:inputField value="{!acctpro.Upsell_Value_DC__c}"/>
+          <apex:inputField value="{!acctpro.Xsell_Value_DC__c}"/>
+          <apex:inputField value="{!acctpro.Suggested_Solution_DC__c}" style="width:360px"/>
+          <apex:inputField value="{!acctpro.Regional_UpSell_DC__c}"/>
+          <apex:inputField value="{!acctpro.Regional_XSell_DC__c}"/>
+          <apex:inputField style="width:200px" value="{!acctpro.Market_opp_DC_commentary__c}"/>
+
+          <apex:outputText style="width:300px">Enterprise Risk</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_ER__c}"/>-->
+          <apex:inputField value="{!acctpro.Upsell_Value_ER__c}"/>
+          <apex:inputField value="{!acctpro.Xsell_Value_ER__c}"/>
+          <apex:inputField value="{!acctpro.Suggested_Solution_ER__c}" style="width:360px"/>
+          <apex:inputField value="{!acctpro.Regional_UpSell_ER__c}"/>
+          <apex:inputField value="{!acctpro.Regional_XSell_ER__c}"/>
+          <apex:inputField style="width:200px" value="{!acctpro.Market_opp_ER_commentary__c}"/>
+
+          <apex:outputText >Lending</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_Lending__c}"/>-->
+          <apex:inputField value="{!acctpro.Upsell_Value_Lending__c}"/>
+          <apex:inputField value="{!acctpro.Xsell_Value_Lending__c}"/>
+          <apex:inputField value="{!acctpro.Suggested_Solution_Lending__c}" style="width:360px"/>
+          <apex:inputField value="{!acctpro.Regional_UpSell_Lending__c}"/>
+          <apex:inputField value="{!acctpro.Regional_XSell_Lending__c}"/>
+          <apex:inputField style="width:200px" value="{!acctpro.Market_opp_LEND_commentary__c}"/>
+
+          <apex:outputText >Treasury and Capital Markets</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_CM__c}"/>-->
+          <apex:inputField value="{!acctpro.Upsell_Value_CM__c}"/>
+          <apex:inputField value="{!acctpro.Xsell_Value_CM__c}"/>
+          <apex:inputField value="{!acctpro.Suggested_Solution_CM__c}" style="width:360px"/>
+          <apex:inputField value="{!acctpro.Regional_UpSell_CM__c}"/>
+          <apex:inputField value="{!acctpro.Regional_XSell_CM__c}"/>
+          <apex:inputField style="width:200px" value="{!acctpro.Market_opp_TCM_commentary__c}"/>
+
+          <apex:outputText >Investment Management</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_AM__c}"/>-->
+          <apex:inputField value="{!acctpro.Upsell_Value_AM__c}"/>
+          <apex:inputField value="{!acctpro.Xsell_Value_AM__c}"/>
+          <apex:inputField value="{!acctpro.Suggested_Solution_AM__c}" style="width:360px"/>
+          <apex:inputField value="{!acctpro.Regional_UpSell_AM__c}"/>
+          <apex:inputField value="{!acctpro.Regional_XSell_AM__c}"/>
+          <apex:inputField style="width:200px" value="{!acctpro.Market_opp_IM_commentary__c}"/>
+
+          <apex:outputText >Corporate Channels</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_HF__c}"/>-->
+          <apex:inputField value="{!acctpro.Upsell_Value_HF__c}"/>
+          <apex:inputField value="{!acctpro.Xsell_Value_HF__c}"/>
+          <apex:inputField value="{!acctpro.Suggested_Solution_HF__c}" style="width:360px"/>
+          <apex:inputField value="{!acctpro.Regional_UpSell_HF__c}"/>
+          <apex:inputField value="{!acctpro.Regional_XSell_HF__c}"/>
+          <apex:inputField style="width:200px" value="{!acctpro.Market_opp_CC_commentary__c}"/>
+
+          <apex:outputText >Trade Finance</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_TF__c}"/>-->
+          <apex:inputField value="{!acctpro.Upsell_Value_TF__c}"/>
+          <apex:inputField value="{!acctpro.Xsell_Value_TF__c}"/>
+          <apex:inputField value="{!acctpro.Suggested_Solution_TF__c}" style="width:360px"/>
+          <apex:inputField value="{!acctpro.Regional_UpSell_TF__c}"/>
+          <apex:inputField value="{!acctpro.Regional_XSell_TF__c}"/>
+          <apex:inputField style="width:200px" value="{!acctpro.Market_opp_TF_commentary__c}"/>
+
+          <apex:outputText >Payment and Messaging</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_PM__c}"/>-->
+          <apex:inputField value="{!acctpro.Upsell_Value_PM__c}"/>
+          <apex:inputField value="{!acctpro.Xsell_Value_PM__c}"/>
+          <apex:inputField value="{!acctpro.Suggested_Solution_PM__c}" style="width:360px"/>
+          <apex:inputField value="{!acctpro.Regional_UpSell_PM__c}"/>
+          <apex:inputField value="{!acctpro.Regional_XSell_PM__c}"/>
+          <apex:inputField style="width:200px" value="{!acctpro.Market_opp_PM_commentary__c}"/>
+         </apex:panelGrid>
+
+        <apex:panelGrid columns="7" rendered="{!editbutton}" width="1370px">
+
+          <apex:outputLabel style="font-weight: bold">Business Function  </apex:outputLabel>
+          <!--<apex:outputLabel style="font-weight: bold">  Unconstrained <BR/> Market Value</apex:outputLabel>-->
+          <apex:outputLabel style="font-weight: bold">  Upsell Value(‘000 USD)</apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold">  New Product <BR/>Value(‘000 USD) </apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold">  Suggested Solution</apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold">Reviewed Upsell <BR/>Value(‘000 USD)</apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold">Reviewed New <BR/>Product Value(‘000 USD)</apex:outputLabel>
+          <apex:outputLabel style="font-weight: bold;">  Commentary</apex:outputLabel>
+
+          <apex:outputText >Core Banking</apex:outputText>
+          <!--<apex:inputField value="{!acctpro.Unconstraint_Market_Value_CB__c}"/>-->
+          <apex:outputText value="{!acctpro.Upsell_Value_CB__c}"/>
+          <apex:outputText value="{!acctpro.Xsell_Value_CB__c}"/>
+          <apex:outputText value="{!acctpro.Suggested_Solution_CB__c}" style="width:360px"/>
+          <apex:outputText value="{!acctpro.Regional_UpSell_CB__c}"/>
+          <apex:outputText value="{!acctpro.Regional_XSell_CB__c}"/>
+          <apex:outputText style="width:200px" value="{!acctpro.Market_opp_CB_commentary__c}"/>
+
+          <apex:outputText >Digital Channels</apex:outputText>
+          <!--<apex:inputText value="{!acctpro.Unconstraint_Market_Value_DC__c}"/>-->
+          <apex:outputText value="{!acctpro.Upsell_Value_DC__c}"/>
+          <apex:outputText value="{!acctpro.Xsell_Value_DC__c}"/>
+          <apex:outputText value="{!acctpro.Suggested_Solution_DC__c}" style="width:360px"/>
+          <apex:outputText value="{!acctpro.Regional_UpSell_DC__c}"/>
+          <apex:outputText value="{!acctpro.Regional_XSell_DC__c}"/>
+          <apex:outputText style="width:200px" value="{!acctpro.Market_opp_DC_commentary__c}"/>
+
+          <apex:outputText >Enterprise Risk</apex:outputText>
+          <!--<apex:inputText value="{!acctpro.Unconstraint_Market_Value_ER__c}"/>-->
+          <apex:outputText value="{!acctpro.Upsell_Value_ER__c}"/>
+          <apex:outputText value="{!acctpro.Xsell_Value_ER__c}"/>
+          <apex:outputText value="{!acctpro.Suggested_Solution_ER__c}" style="width:360px"/>
+          <apex:outputText value="{!acctpro.Regional_UpSell_ER__c}"/>
+          <apex:outputText value="{!acctpro.Regional_XSell_ER__c}"/>
+          <apex:outputText style="width:200px" value="{!acctpro.Market_opp_ER_commentary__c}"/>
+
+          <apex:outputText >Lending</apex:outputText>
+          <!--<apex:inputText value="{!acctpro.Unconstraint_Market_Value_Lending__c}"/>-->
+          <apex:outputText value="{!acctpro.Upsell_Value_Lending__c}"/>
+          <apex:outputText value="{!acctpro.Xsell_Value_Lending__c}"/>
+          <apex:outputText value="{!acctpro.Suggested_Solution_Lending__c}" style="width:360px"/>
+          <apex:outputText value="{!acctpro.Regional_UpSell_Lending__c}"/>
+          <apex:outputText value="{!acctpro.Regional_XSell_Lending__c}"/>
+          <apex:outputText style="width:200px" value="{!acctpro.Market_opp_LEND_commentary__c}"/>
+
+          <apex:outputText >Treasury and Capital Markets</apex:outputText>
+          <!--<apex:inputText value="{!acctpro.Unconstraint_Market_Value_CM__c}"/>-->
+          <apex:outputText value="{!acctpro.Upsell_Value_CM__c}"/>
+          <apex:outputText value="{!acctpro.Xsell_Value_CM__c}"/>
+          <apex:outputText value="{!acctpro.Suggested_Solution_CM__c}" style="width:360px"/>
+          <apex:outputText value="{!acctpro.Regional_UpSell_CM__c}"/>
+          <apex:outputText value="{!acctpro.Regional_XSell_CM__c}"/>
+          <apex:outputText style="width:200px" value="{!acctpro.Market_opp_TCM_commentary__c}"/>
+
+          <apex:outputText >Investment Management</apex:outputText>
+          <!--<apex:inputText value="{!acctpro.Unconstraint_Market_Value_AM__c}"/>-->
+          <apex:outputText value="{!acctpro.Upsell_Value_AM__c}"/>
+          <apex:outputText value="{!acctpro.Xsell_Value_AM__c}"/>
+          <apex:outputText value="{!acctpro.Suggested_Solution_AM__c}" style="width:360px"/>
+          <apex:outputText value="{!acctpro.Regional_UpSell_AM__c}"/>
+          <apex:outputText value="{!acctpro.Regional_XSell_AM__c}"/>
+          <apex:outputText style="width:200px" value="{!acctpro.Market_opp_IM_commentary__c}"/>
+
+          <apex:outputText >Corporate Channels</apex:outputText>
+          <!--<apex:inputText value="{!acctpro.Unconstraint_Market_Value_HF__c}"/>-->
+          <apex:outputText value="{!acctpro.Upsell_Value_HF__c}"/>
+          <apex:outputText value="{!acctpro.Xsell_Value_HF__c}"/>
+          <apex:outputText value="{!acctpro.Suggested_Solution_HF__c}" style="width:360px"/>
+          <apex:outputText value="{!acctpro.Regional_UpSell_HF__c}"/>
+          <apex:outputText value="{!acctpro.Regional_XSell_HF__c}"/>
+          <apex:outputText style="width:200px" value="{!acctpro.Market_opp_CC_commentary__c}"/>
+
+          <apex:outputText >Trade Finance</apex:outputText>
+          <!--<apex:inputText value="{!acctpro.Unconstraint_Market_Value_TF__c}"/>-->
+          <apex:outputText value="{!acctpro.Upsell_Value_TF__c}"/>
+          <apex:outputText value="{!acctpro.Xsell_Value_TF__c}"/>
+          <apex:outputText value="{!acctpro.Suggested_Solution_TF__c}" style="width:360px"/>
+          <apex:outputText value="{!acctpro.Regional_UpSell_TF__c}"/>
+          <apex:outputText value="{!acctpro.Regional_XSell_TF__c}"/>
+          <apex:outputText style="width:200px" value="{!acctpro.Market_opp_TF_commentary__c}"/>
+
+          <apex:outputText >Payment and Messaging</apex:outputText>
+          <!--<apex:inputText value="{!acctpro.Unconstraint_Market_Value_PM__c}"/>-->
+          <apex:outputText value="{!acctpro.Upsell_Value_PM__c}"/>
+          <apex:outputText value="{!acctpro.Xsell_Value_PM__c}"/>
+          <apex:outputText value="{!acctpro.Suggested_Solution_PM__c}" style="width:360px"/>
+          <apex:outputText value="{!acctpro.Regional_UpSell_PM__c}"/>
+          <apex:outputText value="{!acctpro.Regional_XSell_PM__c}"/>
+          <apex:outputText style="width:200px"  value="{!acctpro.Market_opp_PM_commentary__c}"/>
+        </apex:panelGrid>
+        <apex:pageBlockSection columns="2">
+          <apex:pageBlockSectionItem rendered="{!savebutton}">
+            <apex:commandButton value="Save" action="{!save}"  style="width:100px"/>
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!editbutton}">
+            <apex:commandButton value="Edit" action="{!edit}"  style="width:100px"/>
+          </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:outputPanel rendered="{!refreshPage}">
+          <script>
+                    window.top.location='/{!acctpro.id}';
+                </script>
+        </apex:outputPanel>
+        <!--<apex:commandButton action="{!cancel}" value="cancel"/>
+            <apex:outputPanel rendered="{!refreshPage}">
+                <script>
+                    window.top.location='/{!acctpro.id}';
+                </script>
+            </apex:outputPanel>-->
+        </apex:pageBlock>
+  </apex:form>
+</apex:page>

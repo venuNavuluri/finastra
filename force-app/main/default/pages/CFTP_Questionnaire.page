@@ -1,0 +1,319 @@
+<apex:page title="Questionnaire" standardController="Partner_Approvals_Renewals__c" extensions="CFTP_Questionnaire_CE" >
+<head>
+<style type="text/css">
+.headerText {
+	font-weight:bold;
+	font-size:16px;
+	text-decoration:underline;
+	}
+.questionText {
+	font-weight:bold;
+	}
+.panelGridBorder {
+	margin-left:0px;
+	border:1px solid;
+	height:20px;
+	background-color:#EBEBE4;
+	}
+.panelBlockCol1 {
+	text-align:right;
+	}
+.panelBlockCol2 {
+	}
+ol {
+	list-style-type:lower-roman;
+	} 
+li {
+	margin-top:5;
+	margin-bottom:5;
+	}
+.textAreaBox {
+	width:75%;
+	}	
+</style>
+</head>
+<body>
+	<apex:form rendered="{!$CurrentPage.parameters.p!='pdf'}" >
+	<apex:pageBlock id="mainPageBlock" title="{!Partner_Approvals_Renewals__c.Account__r.Name}" >
+		<apex:pageMessages />
+		<apex:pageBlockSection columns="1" >
+			<apex:outputText value="Questionnaire relating to a prospective CFTP" styleClass="headerText" id="txtHeader" label="" />
+			<apex:outputText value="(This questionnaire is to be completed by the Salesperson responsible for the account or region where 
+				the prospective CFTP is situated.)" id="txtSubHeader"/>
+		</apex:pageBlockSection>
+		<apex:pageBlockSection columns="1" showHeader="true" collapsible="false" title="Question 1" >
+			<apex:outputText id="txtQuestion1" value="How did you first hear about the proposed CFTP?" />
+			<apex:inputTextarea value="{!Partner_Approvals_Renewals__c.How_first_hear_about_proposed_CFTP__c}" rendered="{!!isLocked}" 
+				disabled="{!isLocked}" label="" rows="5" style="width:75%;"/>
+			<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" rendered="{!isLocked}" >
+				<apex:outputField value="{!Partner_Approvals_Renewals__c.How_first_hear_about_proposed_CFTP__c}" />
+			</apex:panelGrid>
+		</apex:pageBlockSection>
+		<apex:pageBlockSection columns="1" showHeader="true" collapsible="false" title="Question 2" >
+			<apex:outputText id="txtQuestion2" value="To the best of your knowledge, can you verify that the CFTP has no ties with the government of the country in question, with Misys, 
+				or with the proposed Customer?" />
+			<apex:actionRegion rendered="{!!isLocked}" > 
+				<apex:inputField value="{!Partner_Approvals_Renewals__c.Can_you_verify_CFTP_has_no_ties__c}" label="" rendered="{!!isLocked}" id="pickVerify" >
+					<apex:actionSupport event="onchange" rerender="txtExplanation" />
+				</apex:inputField>
+			</apex:actionRegion>
+			<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" rendered="{!isLocked}" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Can_you_verify_CFTP_has_no_ties__c}" />
+			</apex:panelGrid>
+			<apex:outputText id="txtQuestion2a" value="'No Ties' would mean that:" />
+			<ol>
+			<li>the CFTP is not an official, agent, or employee of any government, governmental agency, or political party or a candidate for any political 
+				office as of this time; and<p> </p></li>
+			<li>none of the CFTP�s officers, directors, or shareholders are an officer, director, shareholder or employee of Misys or any of Misys�s affiliates or 
+				subsidiaries, and there are no relationships between the officers, directors or management of the CFTP and an officer, director, shareholder or 
+				employee of Misys that may create the appearance of a conflict of interest;<p> </p></li>
+			<li>none of the CFTP�s officers, directors, or shareholders are an officer, director, shareholder or employee of the proposed Customer or any of the 
+				proposed Customer�s affiliates or subsidiaries, and there are no relationships between the officers, directors or management of the CFTP and an 
+				officer, director, shareholder or employee of the Customer that may create the appearance of a conflict of interest; and<p> </p></li>
+			<li>CFTP will not engage in any activity for Misys or any of Misys�s affiliates where any of the CFTP�s officers, directors, or shareholders are an 
+				officer, director, shareholder or employee of the proposed Customer or any of the proposed Customer�s affiliates or subsidiaries, or where there 
+				are relationships between the officers, directors or management of the CFTP and an officer, director, shareholder or employee of the Customer that 
+				may create the appearance of a conflict of interest.</li>
+			</ol>
+			<apex:outputText id="txtExplain2a" value="If you cannot provide this verification, please explain the circumstances where there may be a conflict." />
+			<apex:inputTextarea value="{!Partner_Approvals_Renewals__c.Explain_why_unable_to_verify_no_ties__c}" rendered="{!!isLocked}" id="txtExplanation" label="" rows="5" style="width:75%;" />
+			<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" rendered="{!isLocked && Partner_Approvals_Renewals__c.Can_you_verify_CFTP_has_no_ties__c=='Unable to Verify'}" >
+				<apex:outputField value="{!Partner_Approvals_Renewals__c.Explain_why_unable_to_verify_no_ties__c}" />
+			</apex:panelGrid>
+		</apex:pageBlockSection>
+		<apex:pageBlockSection columns="1" showHeader="true" collapsible="false" title="Question 3" >
+			<apex:panelGrid columns="2" id="panelGrid5" width="95%">
+				<!-- <apex:image value="{!CheckboxImage5}" width="21" height="16" styleClass="checkImg" id="checkbox5" /> -->
+				<apex:outputText value="Which of the following services will the prospective CFTP perform:" />
+				<apex:outputText value="" />
+				<apex:panelGrid columns="2" id="panelGrid5a" width="100%" cellPadding="5px"> 
+					<!-- Question 3a -->
+					<apex:inputField value="{!Partner_Approvals_Renewals__c.Will_CFTP_Assist_with_Visas_and_Permits__c}" id="answer3a" rendered="{!!isLocked}" />
+					<apex:image value="{!CheckboxImageA}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+					<apex:outputText value="a. Assisting Misys to obtain required visas and work permits" />			
+					<!-- Question 3b -->
+					<apex:inputField label="" value="{!Partner_Approvals_Renewals__c.Will_CFTP_Facilitate_Requested_Meetings__c}" id="answer3b" rendered="{!!isLocked}" />
+					<apex:image value="{!CheckboxImageB}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+					<apex:outputText value="b. Facilitation of meetings with specific clients and other existing and/or prospective Misys clients as requested by Misys"/>	
+					<!-- Question 3c -->
+					<apex:inputField label="" value="{!Partner_Approvals_Renewals__c.Will_CFTP_Provide_Bid_Bonds_Guarantees__c}" id="answer3c" rendered="{!!isLocked}" />
+					<apex:image value="{!CheckboxImageC}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+					<apex:outputText value="c. Provision of bid bonds and/or performance guarantees" />
+					<apex:outputText value="" />
+					<apex:panelGrid columns="1" width="100%" >
+						<apex:outputText value="Name the bid bonds or details of the performance guarantee(s):" />
+						<apex:inputTextarea label="" value="{!Partner_Approvals_Renewals__c.Comments_Bid_Bonds_or_Perf_Guarantees__c}" rows="5" styleClass="textAreaBox" rendered="{!!isLocked}" />
+						<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" rendered="{!isLocked}">
+							<apex:outputText value="{!Partner_Approvals_Renewals__c.Comments_Bid_Bonds_or_Perf_Guarantees__c}" />
+						</apex:panelGrid>
+					</apex:panelGrid>
+					<!-- Question 3d -->
+					<apex:inputField label="" value="{!Partner_Approvals_Renewals__c.Will_CFTP_Identify_Prospective_Clients__c}" id="answer3d" rendered="{!!isLocked}" />
+					<apex:image value="{!CheckboxImageD}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+					<apex:outputText value="d. Identification of prospective new clients and presentation of the same to Misys within contract Territory" />
+					<!-- Question 3e -->
+					<apex:inputField label="" value="{!Partner_Approvals_Renewals__c.Will_CFTP_Provide_Resources_to_Assist__c}" id="answer3e" rendered="{!!isLocked}" />
+					<apex:image value="{!CheckboxImageE}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+					<apex:outputText value="e. Provision of resources to assist Misys in relation to specified tasks" />
+					<!-- Question 3f -->
+					<apex:inputField label="" value="{!Partner_Approvals_Renewals__c.Will_CFTP_Advise_on_Local_Customs__c}" id="answer3f" rendered="{!!isLocked}" />
+					<apex:image value="{!CheckboxImageF}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+					<apex:outputText value="f. Advice and guidance to Misys regarding local business custom and practice and the operation of local and national government bodies within contract territory" />
+					<!-- Question 3g -->
+					<apex:inputField label="" value="{!Partner_Approvals_Renewals__c.Will_CFTP_Facilitate_Local_Support_Svcs__c}" id="answer3g" rendered="{!!isLocked}" />
+					<apex:image value="{!CheckboxImageG}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+					<apex:outputText value="g. Facilitation of required local business support� services such as translation services, office space and meeting facilities at Company�s offices (subject to availability)" />
+					<!-- Question 3h -->
+					<apex:inputField label="" value="{!Partner_Approvals_Renewals__c.Will_CFTP_Provide_Other_Services__c}" id="answer3h" rendered="{!!isLocked}" />
+					<apex:image value="{!CheckboxImageH}" width="21" height="16" styleClass="checkImg" rendered="{!isLocked}" />
+					<apex:outputText value="h. Will the CFTP provide other services as agreed between the Parties?"/>
+					<apex:outputText value="" />
+					<apex:panelGrid columns="1" width="100%" >
+						<apex:outputText value="List other services provided by the CFTP, as agreed between the two Parties:" />
+						<apex:inputTextarea label="" value="{!Partner_Approvals_Renewals__c.Comments_Other_Services_Provided__c}" rows="5" styleClass="textAreaBox" rendered="{!!isLocked}" />
+						<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" rendered="{!isLocked}">
+							<apex:outputText value="{!Partner_Approvals_Renewals__c.Comments_Other_Services_Provided__c}"  />
+						</apex:panelGrid>
+					</apex:panelGrid>
+				</apex:panelGrid>
+			</apex:panelGrid>
+		</apex:pageBlockSection>
+		<apex:pageBlockSection columns="1" showHeader="true" collapsible="false" title="Form Signature and Verification" >
+			<apex:outputField label="Partner Account" value="{!Partner_Approvals_Renewals__c.Account__c}" rendered="{!!isLocked}" />
+			<apex:outputField value="{!Partner_Approvals_Renewals__c.Sales_Mgr_Rep__c}" rendered="{!!isLocked}" />
+			<apex:pageBlockSectionItem rendered="{!!isLocked}" >
+				<apex:outputLabel value="" />
+				<apex:outputText value="I hereby confirm to the best of my knowledge that the information provided in this questionnaire is accurate and complete." />
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem rendered="{!!isLocked}" >
+				<apex:outputLabel value="Verification" for="verifyQuestionnaire"/>
+				<apex:inputField value="{!Partner_Approvals_Renewals__c.Verify_Questionnaire__c}" id="verifyQuestionnaire" />
+			</apex:pageBlockSectionItem>
+			<apex:inputField value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Completed_Date__c}" rendered="{!!isLocked}" />
+			<apex:panelGrid columns="2" columnClasses="panelBlockCol1,panelBlockCol2" rendered="{!isLocked}" >
+				<apex:outputLabel value="Partner Account" />
+				<apex:panelGrid columns="1" styleClass="panelGridBorder" >
+					<apex:outputText value="{!Partner_Approvals_Renewals__c.Account__r.Name}" />
+				</apex:panelGrid>
+				<apex:outputLabel value="Sales Mgr / Rep" />
+				<apex:panelGrid columns="1" styleClass="panelGridBorder" >
+					<apex:outputText value="{!Partner_Approvals_Renewals__c.Sales_Mgr_Rep__r.Name}" />
+				</apex:panelGrid>
+				<apex:outputLabel value="" />
+				<apex:panelGrid columns="1" >
+					<apex:outputText value="I hereby confirm to the best of my knowledge that the information provided in this questionnaire is accurate and complete." id="pdfVerifyText"/>
+				</apex:panelGrid>
+				<apex:outputLabel value="Verification" />
+				<apex:panelGrid columns="1" styleClass="panelGridBorder" >
+					<apex:outputText value="{!Partner_Approvals_Renewals__c.Verify_Questionnaire__c}" id="pdfVerifyQuestionnaire" />
+				</apex:panelGrid>
+				<apex:outputLabel value="Internal Questionnnaire Completed Date" />
+				<apex:panelGrid columns="1" styleClass="panelGridBorder" >
+					<apex:outputText label="Internal Questionnnaire Completed Date" value="{0,date,MMM dd yyyy}" >
+						<apex:param value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Completed_Date__c}" />
+					</apex:outputText>
+				</apex:panelGrid>
+			</apex:panelGrid>
+		</apex:pageBlockSection>
+		<apex:pageBlockButtons location="bottom" > 
+			<apex:commandButton id="btnSaveChanges" action="{!saveChanges}" value="Save Changes" title="Save changes to the form and come back later to complete" rendered="{!!isLocked}" />
+			<apex:commandButton id="btnSaveClose" action="{!saveComplete}" value="Submit for Approval" title="Save the form as completed and Submit for Approval and return to the Partner Approval record. (Also attaches saved form as a PDF)" rendered="{!!isLocked}" />
+			<apex:commandButton id="btnCancel" action="{!backToRecord}" value="Cancel" title="Cancel any changes and go back to the Partner Approval record" immediate="true" rendered="{!!isLocked}" />
+			<apex:commandButton id="btnClose" action="{!backToRecord}" value="Close" title="Return to the Partner Approval record" immediate="true" rendered="{!isLocked}" />
+		</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+	
+	<apex:outputPanel rendered="{!$CurrentPage.parameters.p=='pdf'}" >
+		<apex:outputText id="mainPageBlock_pdf" value="{!Partner_Approvals_Renewals__c.Account__r.Name}" />
+		<hr />
+		<apex:outputText value="Questionnaire relating to a prospective CFTP" styleClass="headerText" id="txtHeader_pdf" label="" />
+		<br />
+		<apex:outputText value="(This questionnaire is to be completed by the Salesperson responsible for the account or region where the prospective CFTP is situated.)" id="txtSubHeader_pdf" />
+		<hr />
+		<apex:outputPanel layout="block" >
+			<apex:outputText value="Question 1 " styleClass="questionText" /><br />
+			<apex:outputText id="txtQuestion1_pdf" value="How did you first hear about the proposed CFTP?" />
+			<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.How_first_hear_about_proposed_CFTP__c}" />
+			</apex:panelGrid>
+		</apex:outputPanel>
+		<br />
+		<apex:outputPanel layout="block" >
+			<apex:outputText value="Question 2 " styleClass="questionText" /><br />
+			<apex:outputText id="txtQuestion2_pdf" value="To the best of your knowledge, can you verify that the CFTP has no ties with the government of the country in question, with Misys, 
+				or with the proposed Customer?" />
+			<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" >
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Can_you_verify_CFTP_has_no_ties__c}" />
+			</apex:panelGrid>
+			<apex:outputText id="txtQuestion2a" value="'No Ties' would mean that:" />
+			<ol>
+			<li>the CFTP is not an official, agent, or employee of any government, governmental agency, or political party or a candidate for any political 
+				office as of this time; and</li>
+			<li>none of the CFTP�s officers, directors, or shareholders are an officer, director, shareholder or employee of Misys or any of Misys�s affiliates or 
+				subsidiaries, and there are no relationships between the officers, directors or management of the CFTP and an officer, director, shareholder or 
+				employee of Misys that may create the appearance of a conflict of interest;</li>
+			<li>none of the CFTP�s officers, directors, or shareholders are an officer, director, shareholder or employee of the proposed Customer or any of the 
+				proposed Customer�s affiliates or subsidiaries, and there are no relationships between the officers, directors or management of the CFTP and an 
+				officer, director, shareholder or employee of the Customer that may create the appearance of a conflict of interest; and</li>
+			<li>CFTP will not engage in any activity for Misys or any of Misys�s affiliates where any of the CFTP�s officers, directors, or shareholders are an 
+				officer, director, shareholder or employee of the proposed Customer or any of the proposed Customer�s affiliates or subsidiaries, or where there 
+				are relationships between the officers, directors or management of the CFTP and an officer, director, shareholder or employee of the Customer that 
+				may create the appearance of a conflict of interest.</li>
+			</ol>
+			<apex:outputText id="txtExplain2a" value="If you cannot provide this verification, please explain the circumstances where there may be a conflict." />
+			<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" >
+				<apex:outputField value="{!Partner_Approvals_Renewals__c.Explain_why_unable_to_verify_no_ties__c}" />
+			</apex:panelGrid>
+		</apex:outputPanel>
+		<br />
+		<apex:outputPanel layout="block" >
+			<apex:outputText value="Question 3" styleClass="questionText"/>
+			<apex:panelGrid columns="2" id="panelGrid5_pdf" width="95%">
+				<apex:outputText value="Which of the following services will the prospective CFTP perform:" />
+				<apex:outputText value="" />
+				<apex:panelGrid columns="2" id="panelGrid5a_pdf" width="100%" cellPadding="5px"> 
+					<!-- Question 3a -->
+					<apex:image value="{!CheckboxImageA}" width="21" height="16" styleClass="checkImg" />
+					<apex:outputText value="a. Assisting Misys to obtain required visas and work permits" />			
+					<!-- Question 3b -->
+					<apex:image value="{!CheckboxImageB}" width="21" height="16" styleClass="checkImg" />
+					<apex:outputText value="b. Facilitation of meetings with specific clients and other existing and/or prospective Misys clients as requested by Misys" />	
+					<!-- Question 3c -->
+					<apex:image value="{!CheckboxImageC}" width="21" height="16" styleClass="checkImg" />
+					<apex:outputText value="c. Provision of bid bonds and/or performance guarantees" />
+					<apex:outputText value="" />
+					<apex:panelGrid columns="1" width="100%" >
+						<apex:outputText value="Name the bid bonds or details of the performance guarantee(s):" />
+						<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" >
+							<apex:outputText value="{!Partner_Approvals_Renewals__c.Comments_Bid_Bonds_or_Perf_Guarantees__c}" />
+						</apex:panelGrid>
+					</apex:panelGrid>
+					<!-- Question 3d -->
+					<apex:image value="{!CheckboxImageD}" width="21" height="16" styleClass="checkImg" />
+					<apex:outputText value="d. Identification of prospective new clients and presentation of the same to Misys within contract Territory" />
+					<!-- Question 3e -->
+					<apex:image value="{!CheckboxImageE}" width="21" height="16" styleClass="checkImg" />
+					<apex:outputText value="e. Provision of resources to assist Misys in relation to specified tasks" />
+					<!-- Question 3f -->
+					<apex:image value="{!CheckboxImageF}" width="21" height="16" styleClass="checkImg" />
+					<apex:outputText value="f. Advice and guidance to Misys regarding local business custom and practice and the operation of local and national government bodies within contract territory" />
+					<!-- Question 3g -->
+					<apex:image value="{!CheckboxImageG}" width="21" height="16" styleClass="checkImg" />
+					<apex:outputText value="g. Facilitation of required local business support� services such as translation services, office space and meeting facilities at Company�s offices (subject to availability)" />
+					<!-- Question 3h -->
+					<apex:image value="{!CheckboxImageH}" width="21" height="16" styleClass="checkImg" />
+					<apex:outputText value="h. Will the CFTP provide other services as agreed between the Parties?"/>
+					<apex:outputText value="" />
+					<apex:panelGrid columns="1" width="100%" >
+						<apex:outputText value="List other services provided by the CFTP, as agreed between the two Parties:" />
+						<apex:panelGrid columns="1" width="75%" styleClass="panelGridBorder" >
+							<apex:outputText value="{!Partner_Approvals_Renewals__c.Comments_Other_Services_Provided__c}"  />
+						</apex:panelGrid>
+					</apex:panelGrid>
+				</apex:panelGrid>
+			</apex:panelGrid>
+		</apex:outputPanel>
+		<hr />
+		<apex:outputPanel layout="block" style="page-break-inside:avoid">
+			<apex:outputText value="Form Signature and Verification" styleClass="questionText"/>
+			<apex:panelGrid columns="2" columnClasses="panelBlockCol1,panelBlockCol2" >
+				<apex:outputLabel value="Partner Account" />
+				<apex:panelGrid columns="1" styleClass="panelGridBorder" >
+					<apex:outputText value="{!Partner_Approvals_Renewals__c.Account__r.Name}" />
+				</apex:panelGrid>
+				<apex:outputLabel value="Sales Mgr / Rep" />
+				<apex:panelGrid columns="1" width="20%" styleClass="panelGridBorder" >
+					<apex:outputText value="{!Partner_Approvals_Renewals__c.Sales_Mgr_Rep__r.Name}" />
+				</apex:panelGrid>
+				<apex:outputLabel value="" />
+				<apex:panelGrid columns="1" >
+					<apex:outputText value="I hereby confirm to the best of my knowledge that the information provided in this questionnaire is accurate and complete." id="pdfVerifyText"/>
+				</apex:panelGrid>
+				<apex:outputLabel value="Verification" />
+				<apex:panelGrid columns="1" width="20%" styleClass="panelGridBorder" >
+					<apex:outputText value="{!Partner_Approvals_Renewals__c.Verify_Questionnaire__c}" id="pdfVerifyQuestionnaire" />
+				</apex:panelGrid>
+				<apex:outputLabel value="Internal Questionnnaire Completed Date" />
+				<apex:panelGrid columns="1" width="20%" styleClass="panelGridBorder" >
+					<apex:outputText label="Internal Questionnnaire Completed Date" value="{0,date,MMM dd yyyy}" >
+						<apex:param value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Completed_Date__c}" />
+					</apex:outputText>
+				</apex:panelGrid>
+			</apex:panelGrid>
+		</apex:outputPanel>
+		<apex:outputPanel >
+			<br/><hr/><br/>
+			<center><apex:outputText value="Completed by: {!UserFullName}" /></center>
+			<center><apex:outputText value="Date: {!TODAY()}" /></center>
+			<center><apex:outputText value="Misys plc - Internal Sales Questionnaire" /></center>
+		</apex:outputPanel>
+	</apex:outputPanel>
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Form_completed__c}" id="hiddenQuestionnaireCompleted" rendered="false"/>
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Completed_Date__c}" id="hiddenQuestionnaireCompletedDate" rendered="false"/>
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.How_first_hear_about_proposed_CFTP__c}" id="hiddenHowFirstHearAboutCFTP" rendered="false"/>
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Partner_Role__c}" id="hiddenPartnerRole" rendered="false"/>
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Level_of_Risk__c}" id="hiddenLevelOfRisk" rendered="false"/>
+	<apex:outputText value="{!Partner_Approvals_Renewals__c.Partner_Selection_Form_completed__c}" id="hiddenSalesTerritoryPlanningTool" rendered="false"/>
+</body>
+</apex:page>

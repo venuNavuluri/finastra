@@ -1,0 +1,94 @@
+<apex:component >
+    <link type="text/css" rel="stylesheet" href="https://fast.fonts.net/cssapi/4afa30c0-9c4d-4c18-b8d3-19cccd2650df.css"/>
+    <apex:includeScript value="{!URLFOR($Resource.JQueryRedesign)}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.hintCss)}"/>
+    <apex:includeScript loadOnReady="false" value="{!URLFOR($Resource.selectricJS)}"/>
+    
+    <script>
+        $(function (){            
+            $( "a.arrowdwn" ).click(function() {                 
+              $( ".searchForm" ).slideToggle( "slow" );              
+            });
+        
+            $( "a.close" ).click(function() {
+              $( ".searchForm" ).slideToggle( "slow" );
+            });
+        
+            $( "a.arrowdwn" ).click(function() {
+              $( this ).toggleClass( "step1" );
+            });
+        
+            $( "a.close" ).click(function() {
+              $( "a.arrowdwn" ).removeClass( "step1" );
+            });
+            
+            $('.knowledge-search select').selectric();
+        
+            var select = $('select');
+            $(select).each(function(){
+                var dataHint = $(this).attr('data-hint');
+                $(this).parents('.selectricWrapper').attr('data-hint',dataHint);
+            });
+        });
+    
+    function executeSearch() {
+        var searchTerms = $('#search').val();
+                
+        var productFilterSearchTerms = [];
+        var dropdowns = $('#filterGroup .selectricHideSelect > select').each(function() {
+            var productFilter = $(this).attr('data-filter');
+            var selectedValue = $(this).val();
+            if(productFilter != selectedValue) {
+                productFilterSearchTerms.push(productFilter + ':' + selectedValue);
+            }
+        });
+        
+        var articleTypeSearchTerms = [];
+        var checkboxes = $('#articleGroup').find('input[type="checkbox"]').each(function() {            
+            if($(this).is(':checked')) {
+                articleTypeSearchTerms.push($(this).attr('value'));
+            }
+        });
+        
+        if(articleTypeSearchTerms.length == 0) {
+            alert('Please ensure you have selected an article type...');            
+        } else {
+            var delimiter = '?';
+            var queryString = '';
+            
+            if(searchTerms != "") {
+                queryString += delimiter;
+                queryString += 'search=' + searchTerms;
+                delimiter = '&';
+            }
+            
+            if(productFilterSearchTerms.length != 0) {
+                queryString += delimiter;
+                queryString += 'category=' + productFilterSearchTerms.join(', ');
+                delimiter = '&';
+            }
+            
+            queryString += delimiter;
+            queryString += 'articleTypes=' + articleTypeSearchTerms.join(', ');
+            
+            if(inIframe()) {
+            window.open('/apex/ArticlePage' + queryString);
+            } else {
+                window.location.href = '/apex/ArticlePage' + queryString;
+            }
+        }
+        
+        
+        
+        return false;
+    }
+    
+    function inIframe () {
+        try {
+            return window.self !== window.top;
+        } catch (e) {
+            return true;
+        }
+    }
+    </script>
+</apex:component>

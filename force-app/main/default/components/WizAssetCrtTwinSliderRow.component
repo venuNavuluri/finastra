@@ -1,0 +1,37 @@
+<apex:component controller="WizAssetCrtTwinSliderRowController">
+	<apex:attribute name="attrSumLoadingPercentage" type="Double" assignTo="{!SumLoadingPercentage}" required="true" description="blah"/>
+	<apex:attribute name="attrThePair" type="WACAccountWithSystem" assignTo="{!ThePair}" required="true" description="EnvironmentName"/>
+	<script>
+		$j(function(){
+			//calling the createSlider Method to create the slider in designated location
+			createSliderTwinSliders(
+				'{!ThePair.MyId}SliderIntegers',
+				'{!ThePair.MyId}SliderDecimals',
+				'{!ThePair.MyId}DispCurrentIntegers',
+				'{!ThePair.MyId}DispCurrentDecimals',
+				{!LoadingPercentageInt}, {!LoadingPercentageDec},
+				0,
+				{!MaxAvailableIntegerPart}, {!MaxAvailableDecimalPart},
+				'{!$Component.idLoadingPercentage}'
+			);
+				
+		});
+	</script>
+	<table width="100%"><tr>
+		<td width="25%"><apex:outputLabel value="{!ThePair.MyReadableId}"/></td>
+		<td width="5%"><span id="{!ThePair.MyId}DispCurrentIntegers"/>.<span id="{!ThePair.MyId}DispCurrentDecimals"/>%</td>
+		<td width="70%">
+			<apex:outputPanel >
+				<!--Slider will be created Here-->
+				<table width="100%"><tr>
+					<td width="{!IntegerSliderWidth}%" id="{!ThePair.MyId}SliderIntegers" />
+					<td width="{!IntegerSliderPaddingWidth}%"/>
+					<td width="{!SeparatorWidth}%" ></td>
+					<td width="{!DecimalSliderWidth}%" id="{!ThePair.MyId}SliderDecimals"></td>
+					<td width="{!DecimalSliderPaddingWidth}%"/>
+				</tr></table>
+				<apex:inputHidden value="{!ThePair.LoadingPercentage}" id="idLoadingPercentage" /> <!--  -->
+			</apex:outputPanel>
+		</td>
+	</tr></table>
+</apex:component>

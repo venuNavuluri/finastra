@@ -1,0 +1,34 @@
+<apex:component >
+	<script>
+		$j = jQuery.noConflict();
+		$j(document).ready(function() {
+			$j("#confirmCancelDialog").dialog({
+				autoOpen: false,
+				modal: true,
+				position: 'center',
+					buttons: {
+						"Yes": function() {
+							$j(this).dialog("close");
+							cancel();
+						},
+						"No": function() {
+							$j(this).dialog("close");
+						}
+					}
+			});
+		});
+		
+		function showConfirmCancelDialog(){
+			$j("#confirmCancelDialog").dialog("open");
+			$j('#confirmCancelDialog').dialog("option" , "title" , "Contract Asset Wizard");
+			$j('#confirmCancelDialog').dialog('option', 'position', 'center');
+			return false;
+		}
+	</script>
+	<div id="confirmCancelDialog">
+		<p>
+		<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+		<div id="messageText">Are you sure you wish to exit the Wizard?</div>
+		</p>
+	</div>
+</apex:component>

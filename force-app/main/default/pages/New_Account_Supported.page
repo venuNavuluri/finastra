@@ -1,0 +1,22 @@
+<apex:page standardController="Accounts_Supported__c"
+	extensions="NewAccountSupportedController"
+	tabStyle="Accounts_Supported__c">
+	<apex:sectionHeader title="Accounts Supported Edit"
+		subtitle="New Accounts Supported" />
+	<apex:form id="searchForm">
+		<apex:pageMessages />
+		<apex:pageBlock title="Accounts Supported Edit" mode="edit">
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!save}" />
+				<apex:commandButton value="Save & New" action="{!saveAndNew}" />
+				<apex:commandButton value="Cancel" action="{!cancel}"
+					immediate="true" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Information" columns="1">
+				<apex:inputField value="{!accountSupported.Supported_Account__c}"
+					required="true" />
+				<apex:inputField value="{!accountSupported.Contact__c}" />
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

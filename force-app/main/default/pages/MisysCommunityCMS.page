@@ -1,0 +1,47 @@
+<apex:page showHeader="true" sidebar="true" standardController="Community_Homepage_CMS__c" extensions="MisysCommunityCMS_Extension" >
+<script type="text/javascript">
+
+function SelectFile( fileUrl ) {
+// window.opener.SetUrl( url, width, height, alt);
+	parent.SetUrl( fileUrl ) ;
+}
+
+</script>
+	<apex:form >
+		<apex:pageBlock title="Community Content Management">
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!Save}" />
+				<apex:commandButton value="Cancel" action="{!Cancel}" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection columns="1">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Content Title"></apex:outputLabel>
+					<apex:inputField value="{!Community_Homepage_CMS__c.Title__c}" />
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Content Body Copy"></apex:outputLabel>
+					<apex:inputField value="{!Community_Homepage_CMS__c.Body_Copy__c}" />
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Associated Image"></apex:outputLabel>
+					<apex:inputfile value="{!myfile.body}" filename="{!myfile.Name}" />
+				</apex:pageBlockSectionItem>
+
+				<apex:inputField value="{!Community_Homepage_CMS__c.Page_to_Display__c}" required="true" />
+
+				<apex:inputField value="{!Community_Homepage_CMS__c.Chatter_Group_Id__c}" />
+				
+				<apex:inputField value="{!Community_Homepage_CMS__c.Is_Lead_Feature__c}" />
+
+				<apex:inputField value="{!Community_Homepage_CMS__c.Active__c}" />
+
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+	<script>
+		this.onload = function() {
+		SelectFile('{!url}');
+		}
+	</script>
+</apex:page>

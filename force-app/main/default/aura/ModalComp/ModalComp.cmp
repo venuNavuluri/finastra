@@ -1,0 +1,60 @@
+<!-- /**
+ *  @who    Gen Estrada <genalyn.estrada@weare4c.com>
+ *			Sadiq Adesanya <sadiq.adesanya@weare4c.com>
+ *  @when   24/07/2018
+ *  @what   Reusable component that displays a modal 
+ * -->
+<aura:component>
+    <aura:attribute name="isOpen" type="boolean" default="true"/>
+	<aura:attribute name="titleMessage" type="String" default="Something went wrong!"/>
+    <aura:attribute name="bodyMessage" type="String"/>
+    <aura:attribute name="boldMessage" type="String" default=""/>
+    <aura:attribute name="status" type="String" default="Info"/>
+    <aura:attribute name="backRecordId" type="String" default=""/>
+     <aura:attribute name="displayClose" type="Boolean" default="true"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-m-around_xx-large">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header slds-theme_alert-texture" aura:id="modalHeader">
+                        <aura:if isTrue="{! v.displayClose}">
+                             <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModal }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        </aura:if>
+
+                       
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{! v.titleMessage }</h2>
+                    </header>
+
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <br/>
+                        <p> <center>{! v.bodyMessage } </center></p>
+                        <br/>
+                        <p><center><strong> {! v.boldMessage } </strong></center></p>
+                    </div>
+
+                    <footer class="slds-modal__footer">
+                        <aura:if isTrue="{! v.backRecordId != '' }">
+                            <a class="slds-button slds-button--brand" href="{! '/' + v.backRecordId }"> Back to record </a>
+                        </aura:if>
+
+                        <aura:if isTrue="{! v.displayClose}">
+                            <lightning:button variant="neutral" 
+                                          label="Close"
+                                          title="Close"
+                                          onclick="{! c.closeModal }"/>
+                        </aura:if>
+
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

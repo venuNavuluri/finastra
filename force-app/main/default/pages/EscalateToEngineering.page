@@ -1,0 +1,63 @@
+<apex:page standardController="Case" extensions="EscalateToEngineeringContExt">
+    <apex:pagemessages id="errMsg"/>
+    <apex:sectionHeader title="Case Escalation" subtitle="New Engineering Case" />
+    <apex:form >
+        <apex:commandLink action="{!backToCase}" value="Back to case {!Case.CaseNumber}" rendered="{!!cm.isEscalateable}" />
+        <apex:pageBlock id="pbEngineering" rendered="{!cm.isEscalateable}">
+            <apex:pageblockSection columns="2" title="Case Information">
+                <apex:outputField value="{!Case.CaseNumber}"/>
+                <!-- <apex:outputField value="{!Case.EntitlementID}"/> -->
+                <apex:outputField value="{!Case.Support_Entitlement__c}"/>
+                <apex:outputField value="{!Case.Type}"/>
+                <apex:outputField value="{!Case.Product_Set__c}" />
+                <apex:outputField value="{!Case.Status}"/>
+                <apex:outputField value="{!Case.System__c}"/>
+                <apex:outputField value="{!Case.Priority}"/>
+                <!-- <apex:outputField value="{!Case.Asset__c}"/> -->
+                <apex:outputField value="{!Case.Client_Asset__c}"/>
+                <apex:pageblockSectionItem />
+                <apex:outputField value="{!Case.Product_Set_Version__c}"/>
+                <apex:pageblockSectionItem />
+                <apex:outputField value="{!Case.Product_Set_Module__c}"/>
+                <apex:pageblockSectionItem />
+                <apex:outputField value="{!Case.Product_Set_Module_Version__c}"/>
+                <!-- <apex:outputField value="{!Case.Additional_Environment__c}"/> -->
+                <!-- <apex:outputField value="{!Case.Component_Name__c}"/> -->
+                <apex:pageblockSectionItem />
+                
+            </apex:pageblockSection>
+            
+            <apex:pageBlockSection columns="1" title="Escalated Case Information" collapsible="false">
+                <apex:outputField value="{!engineeringCase.Subject}" />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Additional Notes" />
+                    <apex:inputTextArea value="{!additionalEscalatedCaseNotes}" style="width:85%" />
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!engineeringCase.Description}" />
+                <apex:outputField value="{!engineeringCase.Steps_to_Reproduce__c}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Time Tracking" columns="2" id="timetracking" >
+                <apex:pageblockSectionItem >
+                    <apex:pageblockSection columns="1" showHeader="false">
+                        <!-- <apex:inputField value="{!engineeringCase.Time_Spent_Hours__c}" required="true"/> -->
+                        <!-- <apex:inputField value="{!engineeringCase.Time_Spent_Minutes__c}" required="true"/> -->
+                        <apex:inputField value="{!engineeringCase.Time_spent_on_issue__c}" required="true" />
+                    </apex:pageblockSection>
+                </apex:pageblockSectionItem>
+                <apex:pageblockSectionItem >.</apex:pageblockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" 
+                    action="{!createEscalatedCase}"
+                    reRender="pbEngineering, errMsg"
+                    onclick="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                    oncomplete="animateButton(this, false, null);" />
+                <apex:commandButton value="Cancel" action="{!cancel}" />
+            </apex:pageBlockButtons>
+              
+        </apex:pageBlock>
+    </apex:form>
+    <apex:includeScript value="{!$Resource.SharedJavaScript}"/>
+</apex:page>

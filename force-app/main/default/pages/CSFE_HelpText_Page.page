@@ -1,0 +1,69 @@
+<apex:page standardController="Case">
+See below how the fields are integrated from SFDC <> CSFE
+</BR></BR>
+    
+<table width="70%" border="0" cellspacing="1" cellpadding="1">
+  <tr align="left" valign="top">
+    <td><strong>From CSFE to SFDC</strong></td>
+    <td><strong>From SFDC to CSFE</strong></td>
+    <td><strong>Bi-directional fields</strong></td>
+  </tr>
+  <tr align="left" valign="top">
+    <td>CSFE Parent Issue</td>
+    <td>Case Number</td>
+    <td>CSFE Parent Status</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td>Fix Type</td>
+    <td>Case Count</td>
+    <td>Case Category</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td>Fix Details</td>
+    <td>Customer Count</td>
+    <td>SFDC-CSFE Commentary</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td>CSFE Sync Result</td>
+    <td>System Status</td>
+    <td>Replication steps for L3</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td>&nbsp;</td>
+    <td>Chargeable</td>
+    <td>Product Module</td>
+      </tr>
+  <tr align="left" valign="top">
+    <td>&nbsp;</td>
+    <td>Created By Name</td>
+    <td>Severity</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td>&nbsp;</td>
+    <td>Product</td>
+    <td>Product Version</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td>&nbsp;</td>
+    <td>Customer Name</td>
+    <td>Description</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td>&nbsp;</td>
+    <td>Hardware Platform</td>
+    <td>Subject</td>
+  </tr>
+    <tr align="left" valign="top">
+    <td>&nbsp;</td>
+    <td>Database</td>
+    <td>&nbsp;</td>
+  </tr>
+    <tr align="left" valign="top">
+    <td>&nbsp;</td>
+    <td>Operating System Version</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+</apex:page>

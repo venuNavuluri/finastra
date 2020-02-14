@@ -1,0 +1,6 @@
+﻿<apex:page standardController="Account">
+    <apex:form >
+        <c:accountplanningcomponent1 Account1="{!Account}" />
+    </apex:form>    
+    
+</apex:page>

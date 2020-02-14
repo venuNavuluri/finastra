@@ -1,0 +1,544 @@
+<apex:page standardController="Account_Plan__c" showHeader="false" renderAs="pdf">
+<apex:stylesheet value="{!URLFOR($Resource.pdfresources, 'styles.css')}"/>
+
+<!--  Company Information -->
+    <body>
+    
+    <table width="100%" white-space ="pre">
+        <tr width="100%">
+            <td width="70%" align="left">
+<apex:image value="{!URLFOR($Resource.MisysLogo)}" width="200" height="35"/>
+            </td>
+            <td width="30%" align="left">
+                 <apex:panelGrid columns="1" width="100%" styleClass="quoteinfo">
+                     <apex:outputText value="Financial Year: {!Account_Plan__c.Planning_Year__c}"  styleClass="customerName"/>
+                     <apex:outputText value="Account Strategy Plan Name {!Account_Plan__c.Name}"  styleClass="customerName"/>
+                     <apex:outputText value="Last Modified Date: 
+                         {0,date,dd'/'MM'/'yyyy} " styleClass="companyName"> 
+                         <apex:param value="{!Account_Plan__c.lastmodifieddate}" />
+                     </apex:outputText>  
+                   </apex:panelGrid>
+            </td>
+           </tr>
+           <tr>
+               <td width="50%" align="left">
+                    <apex:outputText value="{!$Organization.Name} - " styleClass="companyName"/>
+                    <apex:outputText value="{!$Organization.Street} - " styleClass="companyName"/>
+                    <apex:outputText value="{!$Organization.City}, {!$Organization.State} {!$Organization.PostalCode}" styleClass="companyName"/>
+               </td>
+            </tr>
+        </table>
+   <br/>
+
+<apex:outputPanel layout="block" styleClass="lineSmall"/>         
+<!--  DOCUMENT TYPE  -->
+
+        <apex:panelGrid columns="1" width="100%" cellpadding="0" cellspacing="0" columnClasses="centre">
+            <apex:outputText value="Account Strategy Planning Summary" styleClass="Title"/>
+        </apex:panelGrid>
+
+           <apex:outputPanel layout="block" styleClass="lineSmall"/>
+<!--  Customer Information -->
+    <apex:panelGrid columns="1" styleClass="centered" width="100%">
+        <apex:panelGrid columns="2" width="100%" cellpadding="0" cellspacing="0" columnClasses="colstyle">
+
+            <apex:outputText value="Billing Address" styleClass="BOLD12"/>
+
+            <apex:outputText value="Shipping Address" styleClass="BOLD12"/>             
+
+            
+            <apex:outputText value="{!Account_Plan__c.account__r.name}" styleClass="customerName"/>
+
+            <apex:outputText value="" />             
+
+
+
+              <apex:outputText value="{!Account_Plan__c.account__r.Billingstreet}" styleClass="customerName"/>
+
+              <apex:outputText value="{!Account_Plan__c.account__r.Shippingstreet}" styleClass="customerName"/>
+            
+
+              <apex:outputText value="{!Account_Plan__c.account__r.BillingCity}" styleClass="customerName"/>
+
+              <apex:outputText value="{!Account_Plan__c.account__r.ShippingCity}" styleClass="customerName"/>
+            
+
+              <apex:outputText value="{!Account_Plan__c.account__r.BillingState}" styleClass="customerName"/>
+
+              <apex:outputText value="{!Account_Plan__c.account__r.ShippingState}" styleClass="customerName"/>              
+            
+
+              <apex:outputText value="{!Account_Plan__c.account__r.BillingPostalCode}" styleClass="customerName"/>
+
+              <apex:outputText value="{!Account_Plan__c.account__r.ShippingPostalCode}" styleClass="customerName"/> 
+            
+
+              <apex:outputText value="{!Account_Plan__c.account__r.BillingCountry}" styleClass="customerName"/> 
+
+              <apex:outputText value="{!Account_Plan__c.account__r.ShippingCountry}" styleClass="customerName"/>   
+ 
+        </apex:panelGrid>
+
+<apex:outputPanel layout="block" styleClass="lineSmall"/>
+
+        <apex:panelGrid columns="4" width="100%" cellpadding="0" cellspacing="0" columnClasses="ColStyle">
+            
+            <apex:outputText value="Account Name:" styleClass="BOLD12"/>
+              <apex:outputText value="{!Account_Plan__c.Account__r.name}" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/> 
+
+            <apex:outputText value="Account Type:" styleClass="BOLD12" />
+              <apex:outputText value="{!Account_Plan__c.Account_Type__c}" styleClass="customerName"/> 
+            <apex:outputText value="Plan Status:" styleClass="BOLD12" />
+              <apex:outputText value="{!Account_Plan__c.Plan_Status__c}" styleClass="customerName"/> 
+
+            <apex:outputText value="Sales Region:" styleClass="BOLD12"/>
+              <apex:outputText value="{!Account_Plan__c.Sales_Region__c}" styleClass="customerName"/> 
+            <apex:outputText value="Last Plan Revision Date:" styleClass="BOLD12" />
+              <apex:outputText value="{!Account_Plan__c.Last_Plan_Revision_Date__c}" styleClass="customerName"/> 
+
+            <apex:outputText value="Close Ratio:" styleClass="BOLD12" />
+              <apex:outputText value="{0,number,0}%" styleClass="customerName">
+                  <apex:param value="{!Account_Plan__c.Close_Ratio__c}" />
+                 </apex:outputText>
+            <apex:outputText value="Account Sales Goal:" styleClass="BOLD12"/>
+              <apex:outputText value="USD {0, number, 000,000.00}" styleClass="customerName">
+                  <apex:param value="{!Account_Plan__c.Account_revenue_goal__c}" />
+                 </apex:outputText>
+
+            <apex:outputText value="Additional Revenue:" styleClass="BOLD12"/>
+              <apex:outputText value="{!Account_Plan__c.revenue_from_existing_base__c}" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/> 
+
+            <apex:outputText value="Sum Closed Won:" styleClass="BOLD12" />
+              <apex:outputText value="USD {0, number, 000,000.00}" styleClass="customerName">
+                     <apex:param value="{!Account_Plan__c.SumClosedWon__c}" />
+                      </apex:outputText>
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/> 
+
+            <apex:outputText value="Sum Closed Open:" styleClass="BOLD12"/>
+              <apex:outputText value="USD {0, number, 000,000.00}" styleClass="customerName">
+                     <apex:param value="{!Account_Plan__c.SumOpen__c}" />
+                      </apex:outputText> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/> 
+ 
+        </apex:panelGrid>
+
+<apex:outputPanel layout="block" styleClass="lineSmall"/>
+
+        <apex:panelGrid columns="2" width="50%" cellpadding="0" cellspacing="0" columnClasses="Colstyle">
+
+            <apex:outputText value="New Sales Needed:" styleClass="BOLD12"/>
+              <apex:outputText value="USD {0,number,0,000.00}" styleClass="customerName">
+                  <apex:param value="{!Account_Plan__c.new_revenue_needed__c}" />
+                 </apex:outputText>
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/> 
+
+            <apex:outputText value="Pipeline Needed:" styleClass="BOLD12"/>
+              <apex:outputText value="USD {0,number,0,000.00}" styleClass="customerName">
+                  <apex:param value="{!Account_Plan__c.Pipeline_Needed__c}" />
+                 </apex:outputText> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/>
+              
+            <apex:outputText value="Pipeline Gap:" styleClass="BOLD12"/>
+              <apex:outputText value="USD {0,number,0,000.00}" styleClass="customerName">
+                  <apex:param value="{!Account_Plan__c.Pipeline_gap__c}" />
+                 </apex:outputText> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/>
+ 
+        </apex:panelGrid>
+
+<apex:outputPanel layout="block" styleClass="lineSmall"/>
+
+        <apex:panelGrid columns="4" width="50%" cellpadding="0" cellspacing="0" columnClasses="Colstyle">
+
+            <apex:outputText value="Describe Their Business:" styleClass="BOLD12"/>
+              <apex:outputText value="" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/> 
+
+            <apex:outputText value="Industry Trends impacting their business:" styleClass="BOLD12"/>
+              <apex:outputText value="" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/>
+
+            <apex:outputText value="Keys Trendsin the geography:" styleClass="BOLD12"/>
+              <apex:outputText value="" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/>
+
+            <apex:outputText value="Accounts Strategic Initiatives:" styleClass="BOLD12"/>
+              <apex:outputText value="" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/>
+
+ 
+        </apex:panelGrid>
+
+<apex:outputPanel layout="block" styleClass="lineSmall"/>
+
+        <apex:panelGrid columns="4" width="50%" cellpadding="0" cellspacing="0" columnClasses="Colstyle"> 
+
+            <apex:outputText value="Budget/Funding Process:" styleClass="BOLD12"/>
+              <apex:outputText value="" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/>
+
+            <apex:outputText value="Decision Process:" styleClass="BOLD12"/>
+              <apex:outputText value="" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/>
+
+            <apex:outputText value="Commitments Needed:" styleClass="BOLD12"/>
+              <apex:outputText value="" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/>
+
+            <apex:outputText value="Our Sales Approach:" styleClass="BOLD12"/>
+              <apex:outputText value="" styleClass="customerName"/> 
+            <apex:outputText value="" />
+              <apex:outputText value="" styleClass="customerName"/>
+
+    </apex:panelGrid>
+        </apex:panelGrid>
+
+
+<!--  ACCOUNT PLAN GOALS -->    
+    <Div style="page-break-inside:avoid">
+              
+              <apex:outputText value="Account Plan Goals:" styleClass="TBLHeading"/>           
+              <apex:dataTable value="{!Account_Plan__c.Account_Goals__r}" var="c" 
+                  id="Table1" 
+              rowClasses="odd,even" styleclass="row" columnsWidth="300px,200px,100px,100px">
+              <apex:column > 
+                  <apex:facet name="header">Goal</apex:facet>
+                  <apex:outputfield value="{!c.Name}"/>
+              </apex:column>
+              
+              <apex:column >
+                  <apex:facet name="header">Criteria</apex:facet>
+                  <apex:outputfield value="{!c.Criteria__c}"/>
+              </apex:column>
+              
+              <apex:column >
+                  <apex:facet name="header">Achieve By:</apex:facet>
+                  <apex:outputfield value="{!c.Achieve_by__c}"/>
+              </apex:column>
+
+              <apex:column >
+                  <apex:facet name="header">Status</apex:facet>
+                  <apex:outputfield value="{!c.Goal_Status__c}"/>
+              </apex:column>
+
+         </apex:dataTable>
+
+    <!-- Totals --> 
+    <!--         
+        <apex:panelGrid columns="2" columnClasses="right" width="100%">
+            <apex:panelGrid columns="2" columnClasses="right totalLabel,right total" width="100%">
+                <apex:outputText value="Total"/>
+                <apex:outputField value="{!Account_Plan__c.Consumablevalue__c}"/>
+            </apex:panelGrid>
+        </apex:panelGrid> -->
+
+</div>         
+
+
+<!--  STRENGTHS WEAKNESSES OPPORTUNITIES AND THREATS-->
+ <div style="page-break-inside:avoid">       
+
+            <apex:outputText value="S.W.O.T:" styleClass="TBLHeading"/> 
+
+<apex:dataTable value="{!Account_Plan__c.Strength_Weakness_Opportunity_Threat__r}" var="c" id="Table2" 
+
+rowClasses="odd,even" styleclass="row" columnsWidth="100px, 100px, 500px">
+
+              <apex:column style="border: 1px"> 
+                  <apex:facet name="header">SWOT Ref:</apex:facet>
+                  <apex:outputfield value="{!c.Name}"/>
+              </apex:column>
+              <apex:column >
+                  <apex:facet name="header" >Type</apex:facet>
+                  <apex:outputfield value="{!c.Type__c}"/>
+              </apex:column>
+              <apex:column >
+                  <apex:facet name="header">Description</apex:facet>
+                  <apex:outputfield value="{!c.SWOT_Description__c}"/>
+              </apex:column>  
+                
+  </apex:dataTable>
+  
+    <!-- Totals -->         
+        <!-- <apex:panelGrid columns="2" columnClasses="right" width="100%">
+            <apex:panelGrid columns="2" columnClasses="right totalLabel,right total" width="100%">
+                <apex:outputText value="Total"/>
+                <apex:outputField value="{!Account_Plan__c.Equipment_Total__c}"/>
+            </apex:panelGrid>
+        </apex:panelGrid> -->
+  
+</div>
+
+<!--  STRATEGIES --> 
+  <div style="page-break-inside:avoid">     
+
+                 <apex:outputText value="Strategies:" styleClass="TBLHeading"/> 
+            
+                <apex:dataTable value="{!Account_Plan__c.Strategies__r}" var="c" id="Table3" 
+
+rowClasses="odd,even" styleclass="row" columnsWidth="100px, 150px, 150px, 100px, 100px, 100px">
+
+
+              <apex:column style="border: 1px"> 
+                  <apex:facet name="header">Strategy Name</apex:facet>
+                  <apex:outputfield value="{!c.Name}"/>
+              </apex:column>
+              <apex:column >
+                  <apex:facet name="header" >Tactic</apex:facet>
+                  <apex:outputfield value="{!c.strategy_description__c}"/>
+              </apex:column>
+              <apex:column >
+                  <apex:facet name="header">Business Problem Addressed</apex:facet>
+                  <apex:outputfield value="{!c.Business_Problem_Addressed__c}"/>
+              </apex:column>   
+
+              <apex:column >
+                  <apex:facet name="header">Strategy Status</apex:facet>
+                  <apex:outputText value="{!c.Strategy_Status__c}"/>
+              </apex:column>
+              <apex:column >
+                  <apex:facet name="header">Estimated Completion Date</apex:facet>
+                  <apex:outputText value="{!c.Estimated_Completion_Date__c}"/>              
+               </apex:column>
+               
+              <apex:column >
+                  <apex:facet name="header">Estimated Revenue</apex:facet>
+                  <apex:outputText value="{!c.Estimated_Revenue__c}"/>              
+               </apex:column>
+
+  </apex:dataTable>
+
+    <!-- Totals -->         
+        <!-- <apex:panelGrid columns="2" columnClasses="right" width="100%">
+            <apex:panelGrid columns="2" columnClasses="right totalLabel,right total" width="100%">
+                <apex:outputText value="Total"/>
+                <apex:outputField value="{!Account_Plan__c.Support_Costs__c}"/>
+            </apex:panelGrid>
+        </apex:panelGrid>  -->
+
+</div> 
+   
+<!--  OPPORTUNITIES -->
+
+    <div style="page-break-inside:avoid">
+        <apex:outputtext value="Opportunities:" styleClass="TBLHeading"/> 
+        <apex:dataTable value="{!Account_Plan__c.Opportunities__r}" var="c" id="Table4" 
+        rowClasses="odd,even" styleclass="row" columnsWidth="100px, 70px, 130px, 100px, 100px, 100px, 100px
+        ">
+
+
+              <apex:column style="border: 1px"> 
+                  <apex:facet name="header">Opportunity Name</apex:facet>
+                  <apex:outputfield value="{!c.Name}"/>
+              </apex:column>
+              <apex:column >
+                  <apex:facet name="header" >Opportunity Number</apex:facet>
+                  <apex:outputfield value="{!c.Order_Number__c}"/>
+              </apex:column>
+              <apex:column >
+                  <apex:facet name="header">Opportunity Type</apex:facet>
+                  <apex:outputfield value="{!c.Type}"/>
+              </apex:column>   
+              
+              <apex:column >
+                  <apex:facet name="header">Amount</apex:facet>
+                  <apex:outputText value="USD {0,number,0,000.00}">
+                      <apex:param value="{!c.Amount}" />
+                  </apex:outputText>
+                  
+              </apex:column>
+
+              <apex:column >
+                  <apex:facet name="header">Stage</apex:facet>
+                  <apex:outputText value="{!c.StageName}"/>              
+               </apex:column>              
+
+              <apex:column >
+                  <apex:facet name="header">Probability</apex:facet>
+                  <apex:outputField value="{!c.Probability}"/>
+              </apex:column>
+
+              <apex:column >
+                  <apex:facet name="header">Forecast Category</apex:facet>
+                  <apex:outputField value="{!c.ForecastCategoryName}"/>              
+               </apex:column>
+
+            <apex:column > 
+                  <apex:facet name="header">Close Date</apex:facet>
+                  <apex:outputField value="{!c.CloseDate}"/>
+            </apex:column>
+
+  </apex:dataTable>
+
+    <!-- Totals -->         
+        <!-- <apex:panelGrid columns="2" columnClasses="right" width="100%">
+            <apex:panelGrid columns="2" columnClasses="right totalLabel,right total" width="100%">
+                <apex:outputText value="Total"/>
+                <apex:outputField value="{!Account_Plan__c.Warranty_Costs__c}"/>
+            </apex:panelGrid>
+        </apex:panelGrid>  -->
+
+</div>
+      
+<!--  RELATIONSHIPS --> 
+<div style="page-break-inside:avoid">
+             <apex:outputText value="Relationships:" styleClass="TBLHeading"/>           
+              <apex:dataTable value="{!Account_Plan__c.AccountPlan_Relationships__r}" var="c" 
+                  id="Table5" 
+  rowClasses="odd,even" styleclass="row" columnsWidth="100px, 100px, 250px, 250px">
+              <apex:column > 
+                  <apex:facet name="header">Name</apex:facet>
+                  <apex:outputField value="{!c.Contact__c}"/>
+              </apex:column>
+              
+              <apex:column >
+                  <apex:facet name="header">Buying Role</apex:facet>
+                  <apex:outputField value="{!c.Buying_Role__c}"/>
+              </apex:column>
+              
+              <apex:column >
+                  <apex:facet name="header">Our Unique Value to Them</apex:facet>
+                  <apex:outputField value="{!c.brief_bio__c}"/>
+              </apex:column>
+
+              <apex:column >
+                  <apex:facet name="header">Relationship Strategy</apex:facet>
+                  <apex:outputText value="{!c.Relationship_Strategy__c}"/>
+              </apex:column>
+
+         </apex:dataTable>
+         
+    <!-- Totals -->         
+       <!--  <apex:panelGrid columns="2" columnClasses="right" width="100%">
+            <apex:panelGrid columns="2" columnClasses="right totalLabel,right total" width="100%">
+                <apex:outputText value="Total"/>
+                <apex:outputField value="{!Account_Plan__c.Rent__c}"/>
+            </apex:panelGrid>
+        </apex:panelGrid>    -->   
+
+</div>
+
+<!--  TEAM MEMBERS -->
+<div style="page-break-inside:avoid"> 
+             <apex:outputText value="Team Members:" styleClass="TBLHeading"/ >           
+              <apex:dataTable value="{!Account_Plan__c.Account_Team__r}" var="c" 
+                  id="Table6" 
+  rowClasses="odd,even" styleclass="row" columnsWidth="100px, 600px">
+              <apex:column > 
+                  <apex:facet name="header">Member</apex:facet>
+                  <apex:outputfield value="{!c.Team_Member__c}"/>
+              </apex:column>
+              
+              <apex:column >
+                  <apex:facet name="header">Role</apex:facet>
+                  <apex:outputfield value="{!c.Team_Role__c}"/>
+              </apex:column>
+
+         </apex:dataTable>
+         
+    <!-- Totals -->         
+     <!--    <apex:panelGrid columns="2" columnClasses="right" width="100%">
+            <apex:panelGrid columns="2" columnClasses="right totalLabel,right total" width="100%">
+                <apex:outputText value="Total"/>
+                <apex:outputField value="{!Account_Plan__c.Chemistry_Costs__c}"/>
+            </apex:panelGrid>
+        </apex:panelGrid> -->
+</div>
+
+<!--  PARTNERS -->
+<div style="page-break-inside:avoid">
+              <apex:outputText value="Partners" styleClass="TBLHeading" />              
+              <apex:dataTable value="{!Account_Plan__c.AccountPlan_Partners__r}" var="c" 
+                  id="Test" 
+              rowClasses="odd,even"  styleclass="row" columnsWidth="100px, 100px, 100px, 400px">
+              <apex:column > 
+            
+                  <apex:facet name="header">Partner Company</apex:facet>
+                  <apex:outputfield value="{!c.Account__c}"/>
+              </apex:column>
+              
+              <apex:column >
+                  <apex:facet name="header">Partner Contact</apex:facet>
+                  <apex:outputfield value="{!c.Contacts__c}"/>
+              </apex:column>
+              
+              <apex:column >
+                  <apex:facet name="header">Type</apex:facet>
+                  <apex:outputfield value="{!c.Partner_relationship__c}"/>
+              </apex:column>
+
+              <apex:column >
+                  <apex:facet name="header">Partner Strategy</apex:facet>
+                  <apex:outputText value="{!c.Partner_strategy__c}"/>
+              </apex:column>
+         </apex:dataTable>
+</div>
+
+<apex:outputPanel layout="block" styleClass="lineSmall"/>
+
+       <!--  <apex:panelGrid columns="2" columnClasses="right" width="100%">
+            <apex:panelGrid columns="2" columnClasses="right totalLabel,right total" width="100%">
+                <apex:outputText value="Total"/>
+                <apex:outputField value="{!Account_Plan__c.Consumablevalue__c}"/>
+            </apex:panelGrid>
+        </apex:panelGrid>
+
+        <apex:outputPanel layout="block" styleClass="line"/>
+        <apex:outputPanel layout="block" styleClass="thinline"/>   
+             
+        <apex:panelGrid columns="2" columnClasses="right" width="100%">
+            <apex:panelGrid columns="2" columnClasses="right totalLabel,right total" width="100%">
+                <apex:outputText value="Deal Total"/>
+                <apex:outputField value="{!Account_Plan__c.Deal_Value__c}"/>
+            </apex:panelGrid>
+        </apex:panelGrid>
+        <apex:outputPanel layout="block" styleClass="line"/> -->
+        
+    
+        <apex:panelGrid columns="1" width="100%" cellpadding="0" cellspacing="0" columnClasses="centre"  >
+                <apex:outputText value="" styleClass="BOLD12"/>
+        </apex:panelGrid>
+         
+                <apex:panelGrid columns="1" width="100%" cellpadding="0" cellspacing="0" columnClasses="centre"  >
+                <apex:outputText value=""/>
+        </apex:panelGrid>    
+        
+        
+        <apex:outputPanel layout="block" styleClass="lineSmall"/>
+<!--  Customer Information -->
+    <apex:panelGrid columns="1" styleClass="centered" width="100%">
+        <apex:panelGrid columns="1" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+        <apex:outputText value="Sales Managers Signature:" styleClass="BOLD12"/>
+        <apex:outputText value="Date:" styleClass="BOLD12"/>
+        <apex:outputPanel layout="block" styleClass="lineSmall"/>
+        <apex:outputText value="Sales Executives Signature:" styleClass="BOLD12" />
+        <apex:outputText value="Date:" styleClass="BOLD12"/>
+
+        </apex:panelGrid>
+        </apex:panelGrid>
+
+<apex:outputPanel layout="block" styleClass="lineSmall"/>   
+         
+         <apex:panelGrid columns="1" width="100%" cellpadding="0" cellspacing="0" columnClasses="centre"  >
+                <apex:outputText value="INTERNAL USE ONLY – DO NOT DISTRIBUTE" styleClass="BOLD12"/>
+        </apex:panelGrid>        
+         
+            </body>
+</apex:page>

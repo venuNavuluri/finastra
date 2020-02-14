@@ -1,0 +1,61 @@
+<apex:page controller="WizAssetCreationController" tabStyle="Contract">
+	<c:ImportJQuery />
+	<c:JQueryConfirmCancel />
+	<c:JQueryTwinSliders />
+	<apex:sectionHeader title="Asset Creation" subtitle="Allocate Contract Asset Amounts"/>
+		<apex:form >
+			<apex:actionFunction action="{!UpdateOLIInfoFields}" name="sliderStopped" rerender="sliderList, productSection"/>
+			<apex:actionFunction name="cancel" action="{!Cancel}"/>
+		
+			<apex:pageBlock >
+				<apex:pageBlockButtons >
+	 				<!-- <apex:commandButton action="{!Debug}" value="Debug"/> -->
+					<apex:commandButton action="{!ProductSelect}" value="Previous"/>
+					<apex:commandButton action="{!CreateAssets}" value="Create"/>
+					<apex:commandButton value="Cancel" onclick="return showConfirmCancelDialog()"/>
+				</apex:pageBlockButtons>
+				<apex:outputPanel id="pageMsg">
+					<apex:pageMessage summary="{!ThePageMessage}" severity="error" strength="3" rendered="{!ThePageMessage != null}"/>
+				</apex:outputPanel>
+				<c:WizAssetCrtContractSection attrContract="{!contract}" />
+				<c:WizAssetCrtProductSetSection attrProductSets="{!WrappedProductSets}" attrEditable="false" id="productSection"/>
+				<c:WizAssetCrtAccounts attrAccounts="{!AccountListWrapper}" attrCcrts="{!CcrtListWrapper}" />
+				<apex:pageBlockSection title="Amounts Allocation" columns="1" id="sliderList">
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Assetize based on"/>
+						<apex:selectRadio value="{!AssetizationBase}" layout="pageDirection">
+							<apex:selectOption itemValue="remaining" itemlabel="Remaining Amounts"/>
+							<apex:selectOption itemValue="contracted" itemlabel="Contracted Amounts" />
+							<apex:actionSupport event="onchange" action="{!UpdateOLIInfoFields}" rerender="sliderList, productSection"/> 
+						</apex:selectRadio>
+					</apex:pageBlockSectionItem>
+					<hr/>
+					<apex:outputPanel >
+						<table width="100%" style="font-weight:bold;">
+							<tr>
+								<td width="25%"/>
+								<td width="5%"/>
+								<td width="32%" style="text-align:center;"><apex:outputLabel value="Integer Part"/></td>
+								<td width="6%"/>
+								<td width="32%" style="text-align:center;"><apex:outputLabel value="Fractional Part"/></td>
+							</tr>
+						</table>
+					</apex:outputPanel>
+					<apex:repeat value="{!AccountAndSystemPairs}" var="acctAndSys">
+<!--  						<c:AccountAndSystem attrSumLoadingPercentage="{!SumLoadingPercentage}" attrThePair="{!acctAndSys}"	/>-->
+ 						<c:WizAssetCrtTwinSliderRow attrSumLoadingPercentage="{!SumLoadingPercentage}" attrThePair="{!acctAndSys}"	/>
+					</apex:repeat>
+					<hr/>
+					<apex:outputPanel >
+						<table width="100%" style="font-weight:bold;">
+							<tr>
+								<td width="25%"><apex:outputLabel value="Total"/></td>
+								<td width="5%"><apex:outputLabel value="{!SumLoadingPercentage}%"/></td>
+								<td width="70%"/>
+							</tr>
+						</table>
+					</apex:outputPanel>
+				</apex:pageBlockSection>
+			</apex:pageBlock>
+	</apex:form>
+</apex:page>

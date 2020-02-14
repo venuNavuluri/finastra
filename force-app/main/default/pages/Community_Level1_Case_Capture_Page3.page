@@ -1,0 +1,133 @@
+<apex:page controller="Community_Level1CaseCaptPage2Controller" tabStyle="cases__tab" id="newCasePage2">
+    
+    <apex:includeScript value="{!$Resource.SharedJavaScript}"/>   
+    
+    <apex:sectionHeader title="New Case" subtitle="New Case" rendered="{!CurrentSessionInfo.InPortal}"/>
+    <apex:sectionHeader title="Edit Case" subtitle="Edit Case" rendered="{!!CurrentSessionInfo.InPortal}"/>
+    <apex:outputPanel id="errorMsgTop">
+        <apex:pageMessages />
+        <apex:pageMessage summary="Please correct the following validation errors" severity="error" strength="3" escape="false" detail="{!validationMessage}" rendered="{!displayValidationMessage}" />
+        <apex:pageMessage summary="Support Alert!" severity="warning" strength="2" escape="false" detail="{!supportAlert}" rendered="{!hasSupportAlert && !CurrentSessionInfo.InPortal}" /> 
+    </apex:outputPanel>
+    
+    <apex:form id="caseForm2" >
+        <apex:pageBlock id="pbCase2" mode="edit">
+            <apex:pageBlockButtons location="bottom">
+                
+                <apex:commandButton value="Back" action="{!PrevPage}" />
+                
+                <apex:commandButton value="Save" action="{!SaveOnly}" onclick="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                    oncomplete="animateButton(this, false, null);" reRender="errorMsgTop">
+                </apex:commandButton>               
+                
+                <apex:commandButton value="Save & Attach" action="{!SaveAndAttach}" onclick="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                    oncomplete="animateButton(this, false, null);" reRender="errorMsgTop">
+                </apex:commandButton>
+                
+                <apex:commandButton value="Cancel" action="{!cancel}" />
+          
+          </apex:pageBlockButtons>
+          
+          <apex:pageBlockSection id="analysis" title="Initial Analysis" columns="2">
+            
+            <apex:pageBlockSectionItem rendered="{!displayAllPage3Fields}" helpText="{!$ObjectType.Case.Fields.Reproduced__c.inlineHelpText}">
+                <apex:outputLabel value="Reproduced?"/> 
+                    <apex:inputField value="{!newCase.Reproduced__c}" />
+            </apex:pageBlockSectionItem>
+              
+            <apex:pageBlockSectionItem rendered="{!displayAllPage3Fields}" helpText="{!$ObjectType.Case.Fields.First_Occurrence__c.inlineHelpText}">
+                <apex:outputLabel value="First Occurrence?"/>
+                <apex:outputPanel layout="none">
+                    <div class="requiredInput">
+                        <div class="requiredBlock"></div> 
+                        <apex:inputField style="width:150px" value="{!newCase.First_Occurrence__c}" />
+                        <apex:actionFunction name="firstOccurrenceCheck" action="{!firstOccurrenceUpdated}" reRender="analysis">
+                            <apex:param name="occurrenceParam" id="occurrenceParam" value=""/>
+                        </apex:actionFunction>
+                    </div>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="{!displayAllPage3Fields}" helpText="{!$ObjectType.Case.Fields.Details_when_error_occurred_reproduced__c.inlineHelpText}">
+                <apex:outputLabel value="Details when error occurred / reproduced"/>
+                <apex:outputPanel layout="none">
+                    <div class="requiredInput">
+                        <div class="requiredBlock"></div> 
+                    <apex:inputField value="{!newCase.Details_when_error_occurred_reproduced__c}" />
+                    </div>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem id="RelCase" rendered="{!!relatedCaseRequired}" helpText="{!$ObjectType.Case.Fields.Related_Case__c.inlineHelpText}">
+                <apex:outputLabel value="Related Case"/>
+                    <apex:inputField value="{!newCase.Related_Case__c}" />
+            </apex:pageBlockSectionItem>
+
+
+            
+            <apex:pageblockSectionItem rendered="{!!displayAllPage3Fields}"/>
+            
+            <apex:pageBlockSectionItem id="RelCaseRequired" rendered="{!relatedCaseRequired}" helpText="{!$ObjectType.Case.Fields.Related_Case__c.inlineHelpText}">
+                <apex:outputLabel value="Related Case"/>
+                <apex:outputPanel layout="none">
+                    <div class="requiredInput">
+                        <div class="requiredBlock"></div>
+                        <apex:inputField value="{!newCase.Related_Case__c}" />
+                    </div>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>    
+            
+            <apex:pageBlockSectionItem rendered="{!displayAllPage3Fields}" helpText="{!$ObjectType.Case.Fields.Actions_done_to_do_workaround_or_resolve__c.inlineHelpText}">
+                <apex:outputLabel value="Actions done to work around or resolve"/>
+                <apex:outputPanel layout="none">
+                    <div class="requiredInput">
+                        <div class="requiredBlock"></div> 
+                    <apex:inputField value="{!newCase.Actions_done_to_do_workaround_or_resolve__c}" />
+                    </div>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem helpText="{!$ObjectType.Case.Fields.Regression__c.inlineHelpText}">
+                <apex:outputLabel value="Regression" />
+                <apex:inputField value="{!newCase.Regression__c}"/>
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem helpText="{!$ObjectType.Case.Fields.Did_you_find_KB_articles_helpful__c.inlineHelpText}">
+                <apex:outputLabel value="Did you find any KB Articles helpful?"/> 
+                    <apex:inputField value="{!newCase.Did_you_find_KB_articles_helpful__c}" />
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="{!!displayAllPage3Fields}"/>
+              
+            <apex:pageBlockSectionItem rendered="{!displayAllPage3Fields}" helpText="{!$ObjectType.Case.Fields.System_changes_that_may_impact_analysis__c.inlineHelpText}">
+                <apex:outputLabel value="System changes that may impact analysis"/>
+                    <apex:inputField value="{!newCase.System_changes_that_may_impact_analysis__c}" />
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem helpText="{!$ObjectType.Case.Fields.Product_document_used_for_analysis__c.inlineHelpText}">
+                <apex:outputLabel value="Product document used for analysis"/>
+                <apex:outputPanel layout="none">
+                    <div class="requiredInput">
+                        <div class="requiredBlock"></div> 
+                    <apex:inputField value="{!newCase.Product_document_used_for_analysis__c}" />
+                    </div>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem> 
+            
+            <apex:pageBlockSectionItem />
+            
+            <apex:pageBlockSectionItem helpText="{!$ObjectType.Case.Fields.Other_resources_used_for_analysis__c.inlineHelpText}">
+                <apex:outputLabel value="Other resources used for analysis"/>
+                    <apex:inputField value="{!newCase.Other_resources_used_for_analysis__c}" />
+            </apex:pageBlockSectionItem>          
+          </apex:pageBlockSection>
+            
+          <apex:pageBlockSection columns="1">
+            <p/>
+            <apex:outputText value="Please click ‘save and attach’ to add screenshots, log files or any other files you think might help us to resolve your case. If you have no files to attach please click ‘save’"/>    
+          </apex:pageBlockSection>
+           
+      </apex:pageBlock>
+  </apex:form>
+    
+</apex:page>

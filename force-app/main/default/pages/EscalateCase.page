@@ -1,0 +1,16 @@
+<apex:page controller="EscalateCaseCtrl" tabStyle="Case">
+    <apex:pagemessages id="errMsg"/>
+    <apex:sectionHeader title="Case Escalation"/>
+    <apex:form >
+    	<apex:actionFunction name="rerenderNextButton" rerender="thePageBlock"/>
+        <apex:commandLink action="{!BackToCase}" value="Back to case {!cm.TheCase.CaseNumber}" rendered="{!!cm.isEscalateable}" />
+    	<apex:pageBlock rendered="{!cm.isEscalateable}" id="thePageBlock">
+    		<apex:outputLabel value="Escalate To:" />
+	    	<apex:inputField value="{!cm.TheCase.EscalateTo__c}" onchange="rerenderNextButton();"/>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Next" action="{!Escalate}" disabled="{!cm.TheCase.EscalateTo__c == null}"/>
+                <apex:commandButton value="Cancel" action="{!BackToCase}" immediate="true"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

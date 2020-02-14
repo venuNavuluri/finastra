@@ -1,0 +1,341 @@
+<apex:page showHeader="true" sidebar="true">
+	
+
+    <script>
+        $(document).ready(function(){
+            
+            $('ul.tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+        
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+        
+                $(this).addClass('current');
+                $("#"+tab_id).addClass('current');
+            })
+        
+        })
+    </script>
+    
+       <script type="text/javascript">
+            (function() {
+
+                $(function() {
+                    var byRow = $('body').hasClass('sfdcBody');
+                    $('.grid').each(function() {
+                        $(this).children('.match-height').matchHeight(byRow);
+                    });
+
+                });
+
+            })();
+        </script>
+    
+        
+    <div class="grid grid-visible">
+    
+        <div class="col-1-1">
+            <div class="content-pad content group">
+            
+                <!--tabs-->
+                <ul class="tabs">
+                    <li class="tab-link current" data-tab="tab-1">MI Products</li>
+                    <li class="tab-link" data-tab="tab-2">Overview</li>
+                    <li class="tab-link" data-tab="tab-3">MI Preferences</li>
+                </ul>
+                
+                
+                <!--tab content-->
+                <div id="tab-1" class="tab-content  current">
+                
+                    <div class="grid">
+                    
+                        <div class="col-1-2">
+                            <ul class="prod-key">
+                                <li class="grey"><span>9</span>Products</li>
+                                <li class="red"><span>9</span>Transitioned</li>
+                                <li class="amber"><span>9</span> Transitioning</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-1-2">
+                            <div class=" sub-nav">
+                                <a href="#"><i class="fa fa-file-pdf-o "></i> See Product Support Policy</a>&nbsp; &nbsp;
+                                <a href="#"><i class="fa fa-envelope-o"></i> Email Account Manager</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                      
+                </div>
+                
+                
+                <!--Products-->
+                
+                <div class="grid  grid-visible  products">
+                    
+                    <div class="col-1-4  match-height">
+                        <div class="content-pad content group">
+                            <div class="visible-info">
+                                <table>
+                                    <tr>
+                                        <th>                                
+                                            <h2>Product Name</h2>
+                                            <p>Opics Risk Plus</p>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Customer advocate name</h3>
+                                            <p>Steve Nixon</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Product version</h3>
+                                            <p>6.1</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn open">
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="hidden-info">
+                                <table>
+                                    <tr>
+                                        <td>                                
+                                            <h3>GA Date</h3>
+                                            <p>January-12</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Standard Support Date</h3>
+                                            <p>Expires: April-16</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Sustaining Support</h3>
+                                            <p>Expires: Jan-19</p>
+                                        </td>
+                                    </tr>                                
+                                    <tr>
+                                        <td>                                
+                                            <h3>Technical Support</h3>
+                                            <p>Indefinite</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Support Type</h3>
+                                            <p>Sustaining Support</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn close">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div><!--End Item-->
+                    
+                    
+                    <div class="col-1-4  match-height">
+                        <div class="content-pad  content  expired  group">
+                            <div class="visible-info">
+                                <table>
+                                    <tr>
+                                        <th>                                
+                                            <h2>Product Name</h2>
+                                            <p>Opics Risk Plus</p>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Customer advocate name</h3>
+                                            <p>Steve Nixon</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Product version</h3>
+                                            <p>6.1</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn open">
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="hidden-info">
+                                <table>
+                                    <tr>
+                                        <td>                                
+                                            <h3>GA Date</h3>
+                                            <p>January-12</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Standard Support Date</h3>
+                                            <p>Expires: April-16</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Sustaining Support</h3>
+                                            <p>Expires: Jan-19</p>
+                                        </td>
+                                    </tr>                                
+                                    <tr>
+                                        <td>                                
+                                            <h3>Technical Support</h3>
+                                            <p>Indefinite</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Support Type</h3>
+                                            <p>Sustaining Support</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn close">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End Item-->
+
+
+                    <div class="col-1-4  match-height">
+                        <div class="content-pad  content  expiring  group">
+                            <div class="visible-info">
+                                <table>
+                                    <tr>
+                                        <th>                                
+                                            <h2>Product Name</h2>
+                                            <p>Opics Risk Plus</p>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Customer advocate name</h3>
+                                            <p>Steve Nixon</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Product version</h3>
+                                            <p>6.1</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn open">
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="hidden-info">
+                                <table>
+                                    <tr>
+                                        <td>                                
+                                            <h3>GA Date</h3>
+                                            <p>January-12</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Standard Support Date</h3>
+                                            <p>Expires: April-16</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Sustaining Support</h3>
+                                            <p>Expires: Jan-19</p>
+                                        </td>
+                                    </tr>                                
+                                    <tr>
+                                        <td>                                
+                                            <h3>Technical Support</h3>
+                                            <p>Indefinite</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                
+                                            <h3>Support Type</h3>
+                                            <p>Sustaining Support</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn close">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End Item-->
+
+
+
+                </div><!--End Products-->
+                
+                
+            </div>
+            
+        </div>
+        
+
+    
+    
+    </div> 
+    
+    
+    
+    <script>
+        $(document).ready(function(){
+        
+            var productWrap = $('.products'),
+                productItem = $(productWrap).find('.content');
+                
+             $(document).click(function(e){
+                $(productWrap ).removeClass('active');
+                $(productItem).removeClass('active');
+            });
+            
+                        
+            $(productItem).each(function(){
+                var self = $(this),
+                    btnOpen = $(this).find('.btn.open'),
+                    btnClose = $(this).find('.btn.close');
+                
+                   
+                $(btnOpen).click(function(e){
+                    $(self).addClass('active');
+                    $(productWrap).addClass('active');
+                    e.stopPropagation();
+                    
+                    $(self).click(function(e){
+                        e.stopPropagation();
+                    });
+                });
+                
+                $(btnClose).click(function(e){
+                    $(self).removeClass('active');
+                    $(productWrap).removeClass('active');  
+                    e.stopPropagation();     
+                });
+
+            });
+        
+        });
+    
+    </script>
+    
+    
+  <c:community_GoogleTracking />   
+
+
+</apex:page>

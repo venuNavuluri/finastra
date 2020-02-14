@@ -1,0 +1,8 @@
+<apex:page standardController="Opportunity" extensions="OppContractCreateAttach_CE" action="{!CreateAttachContract}">
+	<apex:pageMessages />
+	<apex:outputLink value="/{!opportunity.Id}">Back to Opportunity</apex:outputLink>
+	
+	<!-- Hidden fields - include a field here to have it automatically loaded for use in the contract creation.  Must also be mapped in ContractServices. -->
+	<apex:outputfield value="{!opportunity.AccountId}" rendered="false" />
+	
+</apex:page>

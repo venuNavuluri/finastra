@@ -1,0 +1,190 @@
+<apex:page controller="community_KnowledgeController" readOnly="true">
+ <c:community_GoogleTracking /> 
+   <script type="text/javascript">
+            (function() {
+
+                $(function() {
+                    var byRow = $('body').hasClass('sfdcBody');
+                    $('.grid').each(function() {
+                        $(this).children('.match-height').matchHeight(byRow);
+                    });
+
+                });
+
+            })();
+        </script>
+           <style>
+    .Custom61Tab .apexp .bPageBlock.apexDefaultPageBlock .pbBody table td {
+     border-bottom: 0px solid #eee!important; 
+    
+    }
+        .apexp .bPageBlock.apexDefaultPageBlock .pbBody table td {
+    border-bottom: 0px solid #eee;
+  border-left: 0px solid #eee !important;
+     padding: 14px 6px;
+    }
+    </style>
+  <apex:form id="frm1">
+    <apex:actionStatus id="actStatusId" >
+    <apex:facet name="start">
+    <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+    height: 100%;opacity:0.65;width:100%;"> 
+    <div class="waitingHolder" style="top: 74.2px; width: 91px;">
+    <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+    <span class="waitingDescription">Please Wait...</span>
+    </div>
+    </div>
+    </apex:facet>
+    </apex:actionStatus> 
+    <div class="grid   sub-nav-grid">
+            <div class="col-1-1">
+                <div class="content-pad  sub-nav">
+                    <a  href="http://docportal.misys.com/SFDCCommunity.aspx?emailId=sfdc_doc@misys.com" target="_blank"><i class="fa fa-user"></i><apex:outputText value=" Product Documentation"></apex:outputText></a>
+                </div>
+            </div>
+        </div>
+    <div class="grid">
+    
+        <div class="col-1-1">
+            <div class="content-pad content group">
+                 
+                <h1 class="knowledgeSearch">
+                    Find what you're looking for.
+                </h1>
+                   
+               <apex:inputText value="{!searchstring}" id="theSearchstring" maxlength="100" size="90" styleClass="knowledgeSearch" onkeypress="if (event.keyCode == 13) {refreshSearchResult();return false;} "/>
+               <apex:commandButton value="Search" id="submitButton" reRender="theSearchResults,intMsg" styleClass="goBtn" status="actStatusId" onclick="ga('send', 'event','Search', 'Searched Text', 'Viewed Title','{!GAUserId}');"/>
+               <apex:commandButton value="Reset" id="ResetButton" action="{!ResetAll}" styleClass="resetBtn" reRender="theSearchResults,frm1,intMsg" status="actStatusId" />
+
+                <apex:messages />
+                <h2 class="knowledgeSearch">
+                   Filter Results 
+                </h2> 
+                <table class="filterTable">
+                    <tr>
+                        <td><apex:outputlabel value="Banking Module" for="banking"  /></td>
+                        <td><apex:outputlabel value="Issue Type" for="issues" /></td>
+                        <td><apex:outputlabel value="Lending Module" for="lending" /></td>
+                        <td><apex:outputlabel value="Product" for="product" /></td>
+                        <td><apex:outputlabel value="Capital Invest Risk Module" for="capital" /></td>
+                        <td><apex:outputlabel value="Article Type" for="article" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <apex:selectList value="{!moduleCat}" size="1" id="banking"   onchange="refreshSearchResult()" styleClass="pick"  >
+                                  <apex:selectOptions value="{!lstModuleOptions}" />
+                              </apex:selectList>
+                        </td>
+                        <td>
+                            <apex:selectList value="{!IssueCat}" size="1" id="issues"  onchange="refreshSearchResult()" styleClass="pick" >
+                             <apex:selectOptions value="{!lstIssueTypeOptions}"/>
+                          </apex:selectList>
+                        </td>
+                        <td>
+                            <apex:selectList value="{!LeadCat}" size="1" id="lending" onchange="refreshSearchResult()" styleClass="pick" >
+                              <apex:selectOptions value="{!lstLeadModuleOptions}"/>
+                              </apex:selectList>
+                        </td>
+                        <td>
+                            <apex:selectList value="{!ProductCat}" size="1" id="product" onchange="refreshSearchResult()" styleClass="pick" >
+                              <apex:selectOptions value="{!lstProductOptions}"/>
+                              </apex:selectList>
+                        </td>
+                        <td class="capital">
+                            <apex:selectList value="{!TreasuryCat}" size="1" id="capital"  onchange="refreshSearchResult()" styleClass="pick">
+                              <apex:selectOptions value="{!lstTresuaryOptions}"/>
+                              </apex:selectList>
+                        </td>
+                        <td>
+                            <apex:selectList value="{!articleTypePick}" size="1" id="article" onchange="refreshSearchResult()" styleClass="pick" label="">
+                              <apex:selectOptions value="{!ArticleTypes}"/>
+                              </apex:selectList>
+                        </td>
+                    </tr>
+                </table>
+                              
+                              
+
+                <apex:panelGroup id="theSearchResults" styleClass="theSearchResults">
+                    <apex:pageBlock title="Search Results" id="searchResult" > 
+                     <apex:panelGrid width="100%" > 
+                            <table width="100%" class="knowledgeListHeader">
+                                <tr>
+                                  <th width="40%">Title</th>
+                                  <th width="15%">Article Number</th>
+                                  <th width="10%">Article Type</th>
+                                  <th width="20%">Last Published Date</th>
+                           
+                                  <th width="15%">Follow</th>
+                                </tr>
+                         
+                                <knowledge:articleList sortBy="lastUpdated" articleTypes="{!articleTypePick}" articleVar="article"  categories="{!categoryKeywordCustom}" Keyword="{!searchstring}" pageNumber="{!currentPageNumber}" hasMoreVar="true" pageSize="10">
+                                    <tr class="knowledgeList">       
+                                        <td width="40%">
+                                          <!--  <apex:outputLink value="{!URLFOR($Action.KnowledgeArticle.View, article.id,['popup' = 'false','navBack' = 'false'])}">{!article.title}</apex:outputLink> -->
+                                            <apex:outputLink value="community_KnowledgeArticle?Id={!article.Id}&articleType={!article.articleTypeLabel}" onclick="ga('send', 'event','Title', '{!article.title}', 'Click on Article','{!GAUserId}');">{!article.title}</apex:outputLink> 
+                                        </td>
+                                         <td width="15%"><apex:outputText >{!article.articleNumber}</apex:outputText></td>   
+                                         <td width="10%"><apex:outputText >{!article.articleTypeLabel}</apex:outputText></td>
+                                         <td width="25%"><apex:outputText >{!article.LastPublishedDate}</apex:outputText></td>
+                                     
+                                         <td width="15%"><chatter:follow entityId="{!article.id}" /></td> 
+                                    </tr>
+                                </knowledge:articleList>
+                          </table>
+                            
+               </apex:panelGrid>  
+                </apex:pageBlock>
+
+                         <apex:panelGrid columns="5"  styleClass="footer">
+                         <apex:outputLabel styleClass="" value="No Of Records : {!noOfRecords}"></apex:outputLabel>
+                            <apex:commandLink action="{!first}"  value="First" status="actStatusId" styleClass="footerBtn first"  style="{!IF(firstPage = true,'display:block','display:none')}" reRender="theSearchResults,intMsg"/ >
+                            <apex:commandLink action="{!previous}" value="Previous" status="actStatusId"  styleClass="footerBtn prev" style="{!IF(prevRequired = true,'display:block','display:none')}" reRender="theSearchResults,intMsg"/> 
+                            <apex:commandLink action="{!next}" value="Next" status="actStatusId"  styleClass="footerBtn next" style="{!IF(nextRequired = true,'display:block','display:none')}" reRender="theSearchResults,intMsg"/>  
+                            <apex:commandLink action="{!last}" value="Last" status="actStatusId"  styleClass="footerBtn last" style="{!IF(lastRequired = true,'display:block','display:none')}" reRender="theSearchResults,intMsg"/>   
+                         </apex:panelGrid>
+                         </apex:panelGroup>
+
+
+
+                  
+            </div>
+        </div>
+        
+        <div class="col-1-1  side-lists">
+        
+            <div class="grid">
+                <div class="col-1-2    match-height">    
+                    <div class="content-pad content group">
+                            <h3>Most Rated</h3>
+                            <ol>
+                                <apex:repeat value="{!KnowledgeArticleRatings}" var="knowledgeArticleRating">
+                                 <li>
+                                    <apex:outputLink value="community_KnowledgeArticle?Id={!knowledgeArticleRating.ArticleUrl}" >{!knowledgeArticleRating.Title}</apex:outputLink>
+                                </li>
+                                </apex:repeat>
+                               
+                            </ol>
+                    </div>       
+                </div>
+                <div class="col-1-2    match-height">    
+                    <div class="content-pad content group">
+                        <h3>Most Viewed</h3>
+                        <ol>
+                            <apex:repeat value="{!KnowledgeArticles}" var="knowledgeArticle">
+                            <li>
+                                <apex:outputLink value="community_KnowledgeArticle?Id={!knowledgeArticle.ArticleUrl}" >{!knowledgeArticle.Title}</apex:outputLink>
+                            </li>
+                            </apex:repeat>
+                        </ol>
+                    </div>      
+                </div>
+           </div>
+           
+        </div>
+        
+    </div>
+    <apex:actionFunction action="{!refreshSearchResult}" name="refreshSearchResult" rerender="theSearchResults,intMsg" status="actStatusId" ></apex:actionFunction>
+    </apex:form>
+  
+</apex:page>

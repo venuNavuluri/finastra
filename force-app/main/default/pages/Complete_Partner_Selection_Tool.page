@@ -1,0 +1,19 @@
+<apex:page standardController="Account">
+<font color="#CC3300"><strong>For New Partner Agent Appointments APPROVALS & RENEWALS:</strong></font>
+
+<br/>
+<font color="#CC3300"><strong>1. Regional Partner Manager ensures the Sales and Territory Planning Tool has been completed.</strong></font>
+<br/>
+
+<br/>
+<font color="#CC3300"><strong>2. When you have all the relavant  and  correct information to complete the Partner Structure details then please scroll down to the Partner Approvals / Renewals related list and create a NEW Partner Approval / Renewal record.</strong></font>
+<br/>
+
+<br/>
+<font color="#CC3300"><strong>3. Please complete all the mandatory fields under the 'Information, 'Sales and Territory Planning Tool Completed,' and 'Partner Structure details' sections.  You must also ensure you have checked the 'Sales Territory & Planning Tool' checkbox as this will trigger the automated email to the next person in the process once you have Saved the record.</strong></font>
+<br/>
+<br/>
+<font color="#CC3300"><strong>Note - You must not partially complete these sections (i.e. you cannot put placeholders in fields where you do not have the relevant details) in order to Save the record, as the process will automatically send an email to the nominated Sales Rep to complete the 'No Conflict' questionnaire.</strong></font>
+<br/>
+
+</apex:page>

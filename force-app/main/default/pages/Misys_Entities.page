@@ -1,0 +1,109 @@
+<apex:page controller="MisysEntitiesController" showHeader="false" sideBar="false">
+ 
+<apex:stylesheet value="{!URLFOR($Resource.jQueryDataTablesZip, 'css/jquery.dataTables.css')}"/>
+<style type="text/css">
+.sorting {
+    background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_both.png') }') no-repeat center right !important;
+    padding-right: 20px !important;
+}
+.sorting_asc {
+    background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_asc.png') }') no-repeat center right !important;
+    padding-right: 20px !important;
+}
+.sorting_desc {
+    background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_desc.png') }') no-repeat center right !important;
+    padding-right: 20px !important;
+}
+.sorting_asc_disabled {
+    background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_asc_disabled.png') }') no-repeat center right !important;
+    padding-right: 20px !important;
+}
+.sorting_desc_disabled {
+    background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_desc_disabled.png') }') no-repeat center right !important;
+    padding-right: 20px !important;
+}
+table.dataTable tr.odd { background-color: white; }
+table.dataTable tr.even { background-color: white; }
+table.dataTable tr.odd td.sorting_1 { background-color: white; }
+table.dataTable tr.odd td.sorting_2 { background-color: white; }
+table.dataTable tr.odd td.sorting_3 { background-color: white; }
+table.dataTable tr.even td.sorting_1 { background-color: white; }
+table.dataTable tr.even td.sorting_2 { background-color: white; }
+table.dataTable tr.even td.sorting_3 { background-color: white; }
+.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
+    padding: 3px;
+}
+</style>
+<apex:sectionHeader title="Misys Legal Entities and Authorised Signatories"/>
+
+<apex:pageBlock mode="detail">
+        <apex:pageBlockTable value="{!MisysEntities}" var="me" styleClass="dataTable">
+            <apex:column value="{!me.Country_of_Incorporation__c}">
+            	<apex:facet name="header">Country of Incorporation</apex:facet>
+			</apex:column>
+            <apex:column value="{!me.Name}">
+            	<apex:facet name="header">Legal Entity Name</apex:facet>
+			</apex:column>
+            <apex:column value="{!me.Misys_Entity_Legal_Name__c}">
+            	<apex:facet name="header">Legal Name</apex:facet>
+			</apex:column>
+            <apex:column value="{!me.Previous_Entity_Name__c}">
+            	<apex:facet name="header">Previous Entity Name</apex:facet>
+            </apex:column>
+            <apex:column value="{!me.Company_Number__c}">
+            	<apex:facet name="header">Company Number</apex:facet>
+            </apex:column>
+            <apex:column >
+            	<apex:facet name="header">Registered Office Address</apex:facet>
+            	<!--  apex:outputText value="{!me.BE_Address_Name__c}, "  rendered="{!NOT(ISBLANK(me.BE_Address_Name__c))}"/ -->
+            	<apex:outputText value="{!me.BE_Misys_Address_1__c}, " rendered="{!NOT(ISBLANK(me.BE_Misys_Address_1__c))}"/>
+            	<apex:outputText value="{!me.BE_Misys_Address_2__c}, " rendered="{!NOT(ISBLANK(me.BE_Misys_Address_2__c))}"/>
+            	<apex:outputText value="{!me.BE_Misys_Address_3__c}, " rendered="{!NOT(ISBLANK(me.BE_Misys_Address_3__c))}"/>
+            	<apex:outputText value="{!me.BE_Misys_Address_4__c}, " rendered="{!NOT(ISBLANK(me.BE_Misys_Address_4__c))}"/>
+            	<apex:outputText value="{!me.BE_Misys_Address_City__c}, " rendered="{!NOT(ISBLANK(me.BE_Misys_Address_City__c))}"/> 
+            	<apex:outputText value="{!me.BE_Misys_Address_Zip_Postal_Code__c}, " rendered="{!NOT(ISBLANK(me.BE_Misys_Address_Zip_Postal_Code__c))}"/>
+            	<apex:outputText value="{!me.BE_Misys_Address_Country__c}" rendered="{!NOT(ISBLANK(me.BE_Misys_Address_Country__c))}"/>
+            </apex:column>
+            <apex:column >
+            	<apex:facet name="header">Preferred Signatories</apex:facet>
+            	<apex:outputText value="{!me.Primary_signatory__r.name}, "  rendered="{!NOT(ISBLANK(me.Primary_signatory__r.name))}"/>
+            	<apex:outputText value="({!me.Primary_signatory_role__c}); " rendered="{!NOT(ISBLANK(me.Primary_signatory_role__c))}"/>
+            	<apex:outputText value="{!me.Preferred_signatory_1__r.name}, " rendered="{!NOT(ISBLANK(me.Preferred_signatory_1__r.name))}"/>
+            	<apex:outputText value="({!me.Preferred_signatory_1_role__c}); " rendered="{!NOT(ISBLANK(me.Preferred_signatory_1_role__c))}"/>
+            	<apex:outputText value="{!me.Preferred_signatory_2__r.name}, " rendered="{!NOT(ISBLANK(me.Preferred_signatory_2__r.name))}"/>
+            	<apex:outputText value="({!me.Preferred_signatory_2_role__c}); " rendered="{!NOT(ISBLANK(me.Preferred_signatory_2_role__c))}"/>
+            	<apex:outputText value="{!me.Preferred_signatory_3__r.name}, " rendered="{!NOT(ISBLANK(me.Preferred_signatory_3__r.name))}"/>
+            	<apex:outputText value="({!me.Preferred_signatory_3_role__c}); " rendered="{!NOT(ISBLANK(me.Preferred_signatory_3_role__c))}"/>
+            	<apex:outputText value="{!me.Preferred_signatory_4__r.name}, " rendered="{!NOT(ISBLANK(me.Preferred_signatory_4__r.name))}"/>
+            	<apex:outputText value="({!me.Preferred_signatory_4_role__c})" rendered="{!NOT(ISBLANK(me.Preferred_signatory_4_role__c))}"/>
+                <br/>
+                <apex:outputText value="{!me.Signing_Instructions__c}" rendered="{!NOT(ISBLANK(me.Signing_Instructions__c))}"/>
+            </apex:column>
+            <apex:column >
+            	<apex:facet name="header">Alternative Signatories</apex:facet>
+            	<apex:outputText value="{!me.Second_signatory__r.name}, "  rendered="{!NOT(ISBLANK(me.Second_signatory__r.name))}"/>
+            	<apex:outputText value="({!me.Second_signatory_role__c}); " rendered="{!NOT(ISBLANK(me.Second_signatory_role__c))}"/>
+            	<apex:outputText value="{!me.Second_signatory_2__r.Name}, "  rendered="{!NOT(ISBLANK(me.Second_signatory_2__r.Name))}"/>
+            	<apex:outputText value="({!me.Second_signatory_2_role__c}); " rendered="{!NOT(ISBLANK(me.Second_signatory_2_role__c))}"/>
+            	<apex:outputText value="{!me.Alternative_signatory_1__r.name}, "  rendered="{!NOT(ISBLANK(me.Alternative_signatory_1__r.name))}"/>
+            	<apex:outputText value="({!me.Alternative_signatory_1_role__c}); " rendered="{!NOT(ISBLANK(me.Alternative_signatory_1_role__c))}"/>
+            	<apex:outputText value="{!me.Alternative_signatory_2__r.name}, "  rendered="{!NOT(ISBLANK(me.Alternative_signatory_2__r.name))}"/>
+            	<apex:outputText value="({!me.Alternative_signatory_2_role__c}); " rendered="{!NOT(ISBLANK(me.Alternative_signatory_2_role__c))}"/>
+            	<apex:outputText value="{!me.Alternative_signatory_3__r.name}, "  rendered="{!NOT(ISBLANK(me.Alternative_signatory_3__r.name))}"/>
+            	<apex:outputText value="({!me.Alternative_signatory_3_role__c}); " rendered="{!NOT(ISBLANK(me.Alternative_signatory_3_role__c))}"/>
+            	<apex:outputText value="{!me.Alternative_signatory_4__r.name}, "  rendered="{!NOT(ISBLANK(me.Alternative_signatory_4__r.name))}"/>
+            	<apex:outputText value="({!me.Alternative_signatory_4_role__c})" rendered="{!NOT(ISBLANK(me.Alternative_signatory_4_role__c))}"/>
+            </apex:column>
+        </apex:pageBlockTable>
+</apex:pageBlock>
+
+<script type="text/javascript" language="javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'js/jquery.js')}"></script>
+<script type="text/javascript" language="javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'js/jquery.dataTables.js')}"></script>
+<script type="text/javascript" language="javascript">
+var j$ = jQuery.noConflict();
+j$('table.dataTable').dataTable({
+    sPaginationType: "full_numbers"
+});
+</script>
+ 
+</apex:page>

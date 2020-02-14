@@ -1,0 +1,40 @@
+<apex:component >
+	<script>
+		$j = jQuery.noConflict();
+
+			/*   ----------------------------
+			*	Method to create the Slider
+			*	----------------------------
+			*	PARAMETERS : "destination" = The Id of the div where the slider needs to be created
+			*				 "dispCurrentOutput" = The Id of the div where the momentary slider value needs to be displayed
+			*				 "startVal" = initial position of slider
+			*				 "minVal", "maxVal" = minimum and maximum value of slider
+			*				 "inputHiddenId" = The ID of the "apex:inputHidden" component where the slider value
+			*					should be saved when the slider is released
+			**/
+			function createSlider(
+				destination,
+				dispCurrentOutput,
+				startVal,
+				minVal,
+				maxVal,
+				inputHiddenId)
+			{
+				$j("[id='"+destination+"']").slider({
+					animate: true, 
+					range: false, 
+					min: minVal,
+					max: maxVal,
+					values: [startVal],
+					stop: function(event, ui){
+						$j("[id='"+inputHiddenId+"']").val(parseInt(ui.values[0]));
+						sliderStopped();
+					},
+					slide: function(event, ui) {
+						$j("[id='"+dispCurrentOutput+"']").html(ui.values[0] + '%');
+					}
+				});
+				$j("[id='"+dispCurrentOutput+"']").html(startVal + '%');
+			}
+	</script> 
+</apex:component>

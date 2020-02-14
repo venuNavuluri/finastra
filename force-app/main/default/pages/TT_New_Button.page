@@ -1,0 +1,2 @@
+<apex:page standardController="Territory_Team1__c" action="/a4h/e?RecordType={!$CurrentPage.parameters.RecordType}&Name=New&cancelURL={!$CurrentPage.parameters.retURL}&nooverride=1">
+</apex:page>

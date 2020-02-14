@@ -1,0 +1,9 @@
+<apex:page standardController="Account" extensions="LocationOfUseAccountsController">
+	<apex:pageBlock title="Accounts Using Assets from this Account">
+		<apex:pageBlockTable value="{!LocationOfUseAccounts}" var="acct">
+			<apex:repeat value="{!DisplayFields}" var="f">
+				<apex:column value="{!acct[f.fieldPath]}" />
+			</apex:repeat>
+		</apex:pageBlockTable>
+	</apex:pageBlock>
+</apex:page>

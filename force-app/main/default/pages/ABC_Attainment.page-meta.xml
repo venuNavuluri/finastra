@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>32.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Used by an individual from Sales Org. They can enter his/her name and then the Date Range for which they are going to check their Attainment Achieved in % which will show up on the same page.</description>
+    <label>ABC_Attainment</label>
+</ApexPage>

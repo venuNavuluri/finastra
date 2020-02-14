@@ -1,0 +1,352 @@
+<apex:page standardController="Account" extensions="agcontrollertrial" >
+    <apex:form >
+  
+        <apex:pageBlock title="Account Governance Profile" mode="edit">
+            <apex:OutputLabel value="Account Name" />  
+            <apex:inputtext value="{!a1.Name}" /> 
+
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!search}" value="Get Data" />   
+                    <apex:commandbutton action="{!Clear}" value="Clear" />  
+                </apex:pageBlockButtons> 
+      
+
+            <apex:pageBlockSection columns="2" >
+                <apex:repeat value="{!a1}" var="Acc" >
+                    <!--apex:OutputLabel value="Account Name" /-->
+                    <apex:outputField value="{!Acc.Name}"/> 
+                    <!--apex:OutputLabel value="18 Char ID" /-->
+                    <apex:outputField value="{!Acc.Account_18chr_Id__c}"/> 
+                    <!--apex:OutputLabel value="Account Owner" /-->
+                    <apex:outputField value="{!Acc.owner.name}"/>
+                    <!--apex:OutputLabel value="Sales Region" /-->
+                    <apex:outputField value="{!Acc.Account_Governance_Profile__c}"/>
+                    <apex:outputField value="{!Acc.Sales_Region__c}"/>         
+                </apex:repeat>
+            </apex:pageBlockSection>  
+        </apex:pageBlock>
+
+<apex:pageBlock title="Misys Connect Summary">
+
+         <apex:pageBlockSection title="Account Performance Scores" columns="1">
+                <apex:pageBlockTable value="{!a1}" var="Ac" width="100%">
+                        
+                        <apex:column headerValue="Misys Connect Score" headerClass="dateTable" value="{!Ac.Misys_Connect_Score__c}" />
+                        <apex:column headerValue="Reference Client" headerClass="dateTable" value="{!Ac.Reference_Client__c}" />
+                        <apex:column headerValue="Annual Renewal Value RLF (USD)" headerClass="dateTable" value="{!Ac.Annual_Renewal_Value_RLF_USD__c}" />
+                        <apex:column headerValue="ILF Closed Current FY" headerClass="dateTable" value="{!Ac.ILF_Closed_Current_FY__c}" />
+                        <apex:column headerValue="Services Closed Current FY" headerClass="dateTable" value="{!Ac.Services_Closed_Current_FY__c}" />
+                        <apex:column headerValue="ILF Pipeline" headerClass="dateTable" value="{!Ac.ILF_Pipeline__c}" />
+                        <apex:column headerValue="Services Pipeline" headerClass="dateTable" value="{!Ac.Services_Pipeline__c}" />
+                        
+                        
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="Customer Satisfaction Scores" columns="1">
+                <apex:pageBlockTable value="{!a1}" var="Ac" width="100%">
+                        
+                        <apex:column headerValue="Survey Wave 1" headerClass="dateTable" value="{!Ac.Survey_Wave_1__c}" />
+                        <apex:column headerValue="Survey Score 1" headerClass="dateTable" value="{!Ac.Survey_Score_1__c}" />
+                        <apex:column headerValue="Survey Wave 2" headerClass="dateTable" value="{!Ac.Survey_Wave_2__c}" />
+                        <apex:column headerValue="Survey Score 2" headerClass="dateTable" value="{!Ac.Survey_Score_2__c}" />
+                        <apex:column headerValue="Survey Wave 3" headerClass="dateTable" value="{!Ac.Survey_Wave_3__c}" />
+                        <apex:column headerValue="Survey Score 3" headerClass="dateTable" value="{!Ac.Survey_Score_3__c}" />
+        
+               </apex:pageBlockTable>
+            </apex:pageBlockSection>
+
+         
+        </apex:pageBlock>      
+ 
+        <apex:pageBlock title="Account Governance Task Summary">
+            <a href="/00T/e?what_id={!Account.Id}&retURL={!Account.Id}&RecordType=01220000000UYJb&ent=Task" target="blank">Log a New Task</a> 
+
+            <apex:pageblockSection columns="2">   
+     
+               <apex:inputfield value="{!t1.Activity_Start_Date__c}" />
+                    
+               <apex:inputfield value="{!t1.Activity_End_Date__c}" />
+       
+               <apex:commandbutton action="{!search}" value="Find Tasks" />
+                 
+               <apex:commandbutton action="{!Clear}" value="Clear" /> 
+                
+                                
+</apex:pageblockSection>    
+        </apex:pageBlock>
+
+        <apex:outputPanel > 
+                               
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!activities}" var="a" width="100%">
+                        <apex:column headerValue="SFDC Link" >
+                        <apex:outputlink value="/{!a.Id}">{!a.Id}</apex:outputlink>
+                        </apex:column>
+
+                        <apex:column headerValue="Account Name" headerClass="dateTable" value="{!a.What.Name}" />
+                        <apex:column headerValue="User" headerClass="dateTable" value="{!a.owner.name}" />
+                        <apex:column headerValue="Role" headerClass="dateTable" value="{!a.Sales_Role__c}" />
+                        <apex:column headerValue="Sales Activity Type" headerClass="dateTable" value="{!a.Sales_Activity_Type__c}" />
+                        <apex:column headerValue="Activity Type" headerClass="dateTable" value="{!a.Activity_Type__c}" />
+                        <apex:column headerValue="Status" headerClass="dateTable" value="{!a.Status}" />
+                        <apex:column headerValue="Activity Date" headerClass="dateTable" value="{!a.ActivityDate}" />
+                        <apex:column headerValue="Completed Date" headerClass="dateTable" value="{!a.Completed_Date__c}" />
+                        
+
+
+
+
+
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+        </apex:outputPanel> 
+        
+        
+<apex:pageBlock title="Account Governance Event Summary">
+
+
+
+<a href="/00U/e?what_id={!Account.Id}&retURL={!Account.Id}&RecordType=01220000000UYJg&ent=Event" target="_blank">Log a New Event</a>
+            
+
+            <apex:pageblockSection columns="2">   
+     
+               <apex:inputfield value="{!e1.Activity_Start_Date__c}" />
+                    
+               <apex:inputfield value="{!e1.Activity_End_Date__c}" />
+       
+               <apex:commandbutton action="{!search}" value="Find Events" />
+                 
+               <apex:commandbutton action="{!Clear}" value="Clear" /> 
+                
+                                
+</apex:pageblockSection>    
+        </apex:pageBlock>
+
+        <apex:outputPanel > 
+                               
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!events}" var="e" width="100%">
+                        <apex:column headerValue="SFDC Link" >
+                        <apex:outputlink value="/{!e.Id}">{!e.Id}</apex:outputlink>
+                        </apex:column>
+
+                        <apex:column headerValue="Account Name" headerClass="dateTable" value="{!e.What.Name}" />
+                        <apex:column headerValue="User" headerClass="dateTable" value="{!e.owner.name}" />
+                        <apex:column headerValue="Type" headerClass="dateTable" value="{!e.Type}" />
+                        <apex:column headerValue="Start Date" headerClass="dateTable" value="{!e.StartDateTime}" />
+                        <apex:column headerValue="End Date" headerClass="dateTable" value="{!e.EndDateTime}" />
+                        <apex:column headerValue="Invitees" headerClass="dateTable" value="{!e.Who.Name}" />
+                        <apex:column headerValue="Activity Currency" headerClass="dateTable" value="{!e.CurrencyIsoCode}" />
+                        <!--apex:column headerValue="Completed Date" headerClass="dateTable" value="{!a.Completed_Date__c}" /-->
+                        
+
+
+
+
+
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+        </apex:outputPanel>         
+
+
+   
+        <apex:pageBlock title="Account - Opportunity Summary">
+        </apex:pageBlock>
+
+        <apex:outputPanel > 
+                                
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!opportunities}" var="o" width="100%">
+                        <apex:column headerValue="SFDC Link">
+                        <apex:outputlink value="/{!o.Id}">{!o.Id}</apex:outputlink>
+                        </apex:column> 
+
+                        <apex:column headerValue="Opportunity Name" headerClass="dateTable" value="{!o.Name}" />
+                        <apex:column headerValue="Opportunity Owner" headerClass="dateTable" value="{!o.Owner.Name}" />
+                        <apex:column headerValue="Stage" headerClass="dateTable" value="{!o.StageName}" />
+                        <apex:column headerValue="Total In QTR ILF" headerClass="dateTable" value="{!o.Total_ILF_In_Qtr__c}" />
+                        <apex:column headerValue="Close Date" headerClass="dateTable" value="{!o.CloseDate}" />
+                        <apex:column headerValue="Misys Forecast" headerClass="dateTable" value="{!o.Misys_Forecast__c}" />
+                                        
+
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+        </apex:outputPanel> 
+
+
+
+        <apex:pageBlock title="Account - Case Summary">
+        </apex:pageBlock>
+
+        <apex:outputPanel > 
+               
+                                
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!cases}" var="cas" width="100%">
+                        <apex:column headerValue="SFDC Link">
+                        <apex:outputlink value="/{!cas.Id}">{!cas.Id}</apex:outputlink>
+                        </apex:column>
+                        <apex:column headerValue="Account Name" headerClass="dateTable" value="{!cas.Account.Name}" />
+                        <apex:column headerValue="Case Owner" headerClass="dateTable" value="{!cas.Owner.Name}" />
+                        <apex:column headerValue="Contact Name" headerClass="dateTable" value="{!cas.Contact.Name}" />
+                        <apex:column headerValue="Subject" headerClass="dateTable" value="{!cas.Subject}" />
+                        <apex:column headerValue="Case Number" headerClass="dateTable" value="{!cas.CaseNumber}" />
+                        <apex:column headerValue="Status" headerClass="dateTable" value="{!cas.Status}" />
+                        <apex:column headerValue="Case Age" headerClass="dateTable" value="{!cas.Case_Age_Days__c}" />
+                        
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+                
+        </apex:pageBlock> 
+
+        </apex:outputPanel>  
+        
+<apex:pageBlock title="Account - Capi Summary">
+        </apex:pageBlock>
+
+        <apex:outputPanel > 
+               
+                                
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!capi}" var="cap" width="100%">
+                        <apex:column headerValue="SFDC Link">
+                        <apex:outputlink value="/{!cap.Id}">{!cap.Id}</apex:outputlink>
+                        </apex:column>
+                        <apex:column headerValue="Account Profile Name" headerClass="dateTable" value="{!cap.Name}" />
+                        <apex:column headerValue="Account Grade" headerClass="dateTable" value="{!cap.Account_Level_Grade__c}" />
+                        <apex:column headerValue="Company Score" headerClass="dateTable" value="{!cap.Company_Score_Overall__c}" />
+                        <apex:column headerValue="Product Level Fit Score" headerClass="dateTable" value="{!cap.Product_Level_Fit_Score_Overall__c}" />
+                        <apex:column headerValue="Industry" headerClass="dateTable" value="{!cap.Industry__c}" />
+                        <!--apex:column headerValue="Status" headerClass="dateTable" value="{!cap.Status}" /-->
+                        <!--apex:column headerValue="Case Age" headerClass="dateTable" value="{!cap.Case_Age_Days__c}" /-->
+                        
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+                
+        </apex:pageBlock> 
+
+        </apex:outputPanel>  
+
+<apex:pageBlock title="Account - At Risk Summary">
+        </apex:pageBlock>
+
+        <apex:outputPanel > 
+               
+                                
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!AtRisks}" var="AR" width="100%">
+                        <apex:column headerValue="SFDC Link">
+                        <apex:outputlink value="/{!AR.Id}">{!AR.Id}</apex:outputlink>
+                        </apex:column>
+                        <apex:column headerValue="At Risk Name" headerClass="dateTable" value="{!AR.Name}" />
+                        <apex:column headerValue="Created By" headerClass="dateTable" value="{!AR.CreatedBy.Name}" />
+                        <apex:column headerValue="Products AtRisk" headerClass="dateTable" value="{!AR.Products_At_Risk__c}" />
+                        <apex:column headerValue="Date AtRisk" headerClass="dateTable" value="{!AR.Revenue_at_risk_date__c}" />
+                        <apex:column headerValue="Risk Level" headerClass="dateTable" value="{!AR.Risk_Level__c}" />
+                        <apex:column headerValue="Risk Code" headerClass="dateTable" value="{!AR.Risk_Code__c}" />
+                        <apex:column headerValue="Currency" headerClass="dateTable" value="{!AR.CurrencyIsoCode}" />
+                        
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+                
+        </apex:pageBlock> 
+
+        </apex:outputPanel>  
+
+</apex:form>
+
+<apex:relatedList list="AccountTeamMembers" title="Account Team">
+        
+    </apex:relatedList>
+
+
+<!--
+<apex:relatedList list="At_Risk__c" title="At Risk">
+        
+    </apex:relatedList>
+
+<apex:relatedList list="Acct_Profile__c" title="CAPi Account Profile">
+        
+    </apex:relatedList>
+    
+-->
+
+
+
+
+
+
+<!--div style="width:100%; height:10px; background:blue;"></div-->
+  
+        <!--apex:pageBlock title="Account Team"-->
+            
+            <!--apex:pageBlockSection columns="4">
+                <apex:repeat value="{!accounts}" var="Acc">
+                    <!--apex:OutputLabel value="SAG" /-->
+                    <!--apex:outputText value="{!Acc.SAG_Owner1__c}"/> 
+                    <!--apex:OutputLabel value="Executive Sponsor" /-->
+                    <!--apex:outputText value="{!Acc.Executive_Sponsor__c}"/> 
+                    <!--apex:OutputLabel value="Customer Support" /-->
+                    <!--apex:outputText value="{!Acc.GMS_Customer_Support_Owner__c}"/>
+                    <!--apex:OutputLabel value="Customer Advocate" /-->
+                    <!--apex:outputText value="{!Acc.Misys_Customer_Advocate__c}"/>                     
+                <!--/apex:repeat>
+            <!--/apex:pageBlockSection-->
+            
+                           
+              
+
+
+        <!--/apex:pageBlock--> 
+
+
+ 
+<apex:pageBlock title="Useful Links"> 
+          
+   <a href="https://emea.salesforce.com/01Z20000000jaTO" target="blank">Link for Account Governance Dashboard</a>   
+
+</apex:pageBlock>
+
+<apex:outputPanel > 
+                
+                
+                
+                <!--
+<apex:relatedList list="Account_Teams__r">
+<apex:PageBlock > 
+     <apex:pageBlockTable value="{!atmembers}" var="Atm" width="100%">
+                    <apex:column headerValue="Name" headerClass="dateTable" value="{!Atm.User.Name}" />
+    <apex:column headerValue="Team Role" headerClass="dateTable" value="{!Atm.TeamMemberRole}" />
+   
+        <apex:column >
+        <apex:facet name="header">Name</apex:facet>
+        {!Atm.User.Name}
+        </apex:column>
+        
+
+<apex:column >
+        <apex:facet name="header">Team Role</apex:facet>
+        {!Atm.TeamMemberRole}
+        </apex:column>
+       </apex:PageBlockTable>
+        </apex:PageBlock>
+        
+    </apex:relatedList>
+    -->
+    
+    
+</apex:outputPanel>
+  
+</apex:page>

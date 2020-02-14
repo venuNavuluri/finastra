@@ -1,0 +1,1080 @@
+<apex:page standardController="Case" extensions="Community_CaseViewExtension" tabStyle="Cases__tab" action="{!if(OR($Profile.Name == 'Customer Community Banking User',$Profile.Name == 'Customer Community Banking User - SSO'), null, urlFor($Action.Case.View, case.Id, null, true))}" >
+<style>
+.buttons {margin-top: 10px; padding-bottom: 10px;  margin-left: 60px}
+.top-buttons { margin-left: 400px; padding-bottom: 10px}
+</style>
+<script>
+    $(document).ready(function(){
+        
+        $('ul.tabs li').click(function(){
+            var tab_id = $(this).attr('data-tab');
+    
+            $('ul.tabs li').removeClass('current');
+            $('.tab-content').removeClass('current');
+    
+            $(this).addClass('current');
+            $("#"+tab_id).addClass('current');
+        })
+    
+    })
+
+
+</script>
+
+   <script type="text/javascript">
+        (function() {
+
+            $(function() {
+                var byRow = $('body').hasClass('sfdcBody');
+                $('.grid').each(function() {
+                    $(this).children('.match-height').matchHeight(byRow);
+                });
+
+            });
+
+        })();
+    </script>
+<div class="case-details-wrap">
+
+
+
+     <div class="grid grid-visible">
+        
+            <div class="col-1-1">
+                <div class="content-pad content group">
+                    <p><a href="community_caseListing">Back to case listing</a></p>
+                    <!--tabs-->
+                    <ul class="tabs">
+                        <li class="tab-link current" data-tab="tab-1">Case Details</li>
+                        <li class="tab-link" data-tab="tab-2">Case Feed</li>
+                    </ul>
+                    
+                    
+                    <!--tab content-->
+                    <div id="tab-1" class="tab-content  current">
+<apex:form >
+<apex:outputText value="{!offset}" />
+
+    <!--<apex:sectionHeader title="Case Details"  />-->
+
+    <!-- all case fields except Kondor -->
+    <apex:pageBlock >
+    <div class="top-buttons">         
+            <apex:commandButton action="{!edit}" value="Edit" rendered="{!!isEdit}"></apex:commandButton>&nbsp;
+            <apex:commandButton action="{!cancel}" value="Cancel" rendered="{!isEdit}"></apex:commandButton>
+            <apex:commandButton action="{!save}" value="Save Changes" rendered="{!isEdit}"></apex:commandButton>
+        </div>
+        <apex:pageBlockSection title="Case Information" columns="2" rendered="{!showAllProducts}" collapsible="false">
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Your Account Name"/>
+                <apex:outputText value="{!theCase.Account_Name__c}" rendered="true" />
+            </apex:pageblockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Case Origin" />
+                <apex:outputText value="{!theCase.origin}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Your Account Site" />
+                <apex:outputText value="{!theCase.Your_Account_Site__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Case Number" />
+                <apex:outputText value="{!theCase.CaseNumber}" />
+            </apex:pageBlockSectionItem>    
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Your Contact Name" />
+                <apex:outputText value="{!theCase.Your_Contact_Name__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Case Record Type" />
+                <apex:outputText value="{!theCase.RecordTypeName__c}" />
+            </apex:pageBlockSectionItem>
+
+              <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Contact Email" />
+                <apex:outputText value="{!theCase.Your_Contact_Email__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Type" />
+                <apex:outputText value="{!theCase.Type}" />
+            </apex:pageBlockSectionItem>
+
+             <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Contact Phone" />
+                <apex:outputText value="{!theCase.Your_Contact_Phone__c}" />
+            </apex:pageBlockSectionItem>
+
+           
+
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Workaround Provided" />
+                <apex:outputText value="{!theCase.Workaround_Provided__c}" />
+            </apex:pageBlockSectionItem>
+
+    <!--        <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Contact Name" />
+                <apex:outputText value="{!theCase.Your_Contact_Name__c}" />
+            </apex:pageBlockSectionItem> -->
+
+           
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Status" />
+                <apex:outputText value="{!theCase.status}" />
+            </apex:pageBlockSectionItem>
+
+           <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Related Case" />
+                <apex:outputText value="{!theCase.Related_Case__r.CaseNumber}" />
+            </apex:pageBlockSectionItem>
+
+
+             <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Sub Status" />
+                <apex:outputText value="{!theCase.Sub_Status__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Severity" />
+                <apex:outputText value="{!theCase.Severity__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageblockSectionItem rendered="{!!isEdit}">
+                <apex:outputLabel value="Client Reference" />
+                <apex:outputText value="{!theCase.Client_Reference__c}" />
+            </apex:pageblockSectionItem>
+
+            <apex:pageblockSectionItem rendered="{!isEdit}">
+                <apex:outputLabel value="Client Reference" />
+                <apex:inputText value="{!theCase.Client_Reference__c}" />
+            </apex:pageblockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="System Status" />
+                <apex:outputLabel value="{!theCase.System_Status__c}" />
+            </apex:pageBlockSectionItem>
+
+             <apex:pageBlockSectionItem rendered="{!showGroup}">
+                <apex:outputLabel value="Case Owner" />
+                <apex:outputText value="{!caseGroup.Name}" />
+            </apex:pageBlockSectionItem>
+        
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="System" />
+                <apex:outputText value="{!systemName}" />
+            </apex:pageBlockSectionItem>
+
+             <apex:pageBlockSectionItem rendered="{!showSophis}">
+                <apex:outputLabel value="Type" />     
+                <apex:outputText value="{!theCase.Type}" />
+            </apex:pageBlockSectionItem>
+    
+            
+        
+
+            
+
+            <apex:pageBlockSectionItem rendered="{!showUser}">
+                <apex:outputLabel value="Case Owner" />     
+                <apex:outputText value="{!caseOwner.Firstname + ' ' + caseOwner.Lastname}" />
+            </apex:pageBlockSectionItem>
+
+            
+            
+           
+            
+            <apex:pageBlockSectionItem rendered="false">
+                <apex:outputLabel value="Case Category" />
+                <apex:outputText value="{!theCase.Case_Category__c}" />
+            </apex:pageBlockSectionItem>
+
+             <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Product" />
+                <apex:outputText value="{!theCase.Self_Service_Product__c}" />
+            </apex:pageBlockSectionItem>      
+
+        <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Date/Time Opened" />
+                <apex:outputText value="{!dateTimeValue}">
+                </apex:outputText>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Product Version" />
+                <apex:outputText value="{!theCase.Product_Version__c}" />
+            </apex:pageBlockSectionItem>
+
+             <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Date/Time Closed" />
+                <apex:outputText value="{!closedDateTimeValue}" > </apex:outputText>                           
+            </apex:pageBlockSectionItem>
+                     
+             <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Customer Delivery Date" />
+                <apex:outputText value="{!theCase.Customer_Delivery_Date__c}" >
+                </apex:outputText>
+            </apex:pageBlockSectionItem>
+
+                   
+            
+           
+            <apex:pageBlockSectionItem rendered="false" >
+                <apex:outputLabel value="Priority" />
+                <apex:outputText value="{!theCase.Priority}" />
+            </apex:pageBlockSectionItem>
+            
+             <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Case Last Updated" />
+                 <apex:outputText value="{0,date,dd/MM/yyyy}" >
+                        <apex:param value="{!theCase.Case_Last_Updated__c}" />
+                    </apex:outputText>
+            </apex:pageBlockSectionItem>
+            
+            
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Delivery Reference" />
+                <apex:outputText value="{!theCase.Delivery_Reference__c}" />
+            </apex:pageBlockSectionItem>
+
+            
+<!-- digital channels added fields -->
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="PS Project" />
+                <apex:outputField value="{!theCase.PS_Project__c}" />
+            </apex:pageBlockSectionItem>
+           
+            <apex:pageBlockSectionItem rendered="false">
+                <apex:outputLabel value="Project ID from Portal" />
+                <apex:outputField value="{!theCase.Project_ID_from_Portal__c}" />
+            </apex:pageBlockSectionItem>
+
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Triage By" />
+                <apex:outputText value="{!triageName.Firstname + ' ' + triageName.Lastname}" />
+            </apex:pageBlockSectionItem>
+
+       <!--    <apex:pageBlockSectionItem /> -->
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Triage Status" />
+                <apex:outputText value="{!theCase.Triage_Status__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!showDigitalChannels}">
+                <apex:outputLabel value="MD (Main Day)" />
+                <apex:outputText value="{!theCase.MD_Man_Day__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="{!showDigitalChannels}">
+                <apex:outputLabel value="PS Project Name" />
+                <apex:outputText value="{!theCase.PS_Project_Name__c}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+
+
+<!--  *********************************************    Case details for Kondor cases    ************************************************************   -->
+
+        <apex:pageBlockSection title="Case Information" columns="2" rendered="{!showKondor}" collapsible="false">
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Your Account Name"/>
+                <apex:outputText value="{!theCase.Account_Name__c}" />
+            </apex:pageblockSectionItem>
+
+            <apex:pageblockSectionItem rendered="{!!isEdit}">
+                <apex:outputLabel value="Client Reference" />
+                <apex:outputText value="{!theCase.Client_Reference__c}" />
+            </apex:pageblockSectionItem>
+
+            <apex:pageblockSectionItem rendered="{!isEdit}">
+                <apex:outputLabel value="Client Reference" />
+                <apex:inputText value="{!theCase.Client_Reference__c}" />
+            </apex:pageblockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Your Account Site" />
+                <apex:outputText value="{!theCase.Your_Account_Site__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Cross Reference" />
+                <apex:outputText value="{!theCase.Cross_Reference__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Your Contact Name" />
+                <apex:outputText value="{!theCase.Your_Contact_Name__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Case Number" />
+                <apex:outputText value="{!theCase.CaseNumber}" />
+            </apex:pageBlockSectionItem>   
+
+            
+
+       <!--     <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Contact Name" />
+                <apex:outputText value="{!theCase.Your_Contact_Name__c}" />
+            </apex:pageBlockSectionItem> -->
+
+                     
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Contact Email" />
+                <apex:outputText value="{!theCase.Your_Contact_Email__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Related Case" />
+                <apex:outputText value="{!theCase.Related_Case__r.CaseNumber}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Severity" />
+                <apex:outputText value="{!theCase.Severity__c}" />
+            </apex:pageBlockSectionItem>
+
+            
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Contact Phone" />
+                <apex:outputText value="{!theCase.Your_Contact_Phone__c}" />
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Status" />
+                <apex:outputText value="{!theCase.status}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="false">
+                <apex:outputLabel value="Case Origin" />
+                <apex:outputText value="{!theCase.origin}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="false">
+                <apex:outputLabel value="Product" />
+                <apex:outputText value="{!theCase.Self_Service_Product__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="System" />
+                <apex:outputText value="{!systemName}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Sub Status" />
+                <apex:outputText value="{!theCase.Sub_Status__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="false">
+                <apex:outputLabel value="Legacy Turaz Product Set" />
+                <apex:outputText value="{!theCase.Legacy_Turaz_Product_Set_temp__c}" />
+            </apex:pageBlockSectionItem>
+
+            
+           
+        
+             <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Product Set Text" />
+                <apex:outputText value="{!theCase.Product_Set_Text__c}" />
+            </apex:pageBlockSectionItem>
+
+             <apex:pageBlockSectionItem rendered="{!showGroup}">
+                <apex:outputLabel value="Case Owner" />
+                <apex:outputText value="{!caseGroup.Name}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!showUser}">
+                <apex:outputLabel value="Case Owner" />     
+                <apex:outputText value="{!caseOwner.Firstname + ' ' + caseOwner.Lastname}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Product Set Version" />
+                <apex:outputText value="{!theCase.Product_Set_Version__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Case Category" />
+                <apex:outputText value="{!theCase.Case_Category__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Product Set Module" />
+                <apex:outputText value="{!theCase.Product_Set_Module__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Date/Time Opened" />
+                <apex:outputText value="{!theCase.createdDate}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Product Set Module Version" />
+                <apex:outputText value="{!theCase.Product_Set_Module_Version__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Date/Time Closed" />
+                <apex:outputText value="{!theCase.ClosedDate}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="PS Project" />
+                <apex:outputField value="{!theCase.PS_Project__c}" />
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Case Last Updated" />
+                 <apex:outputText value="{0,date,dd/MM/yyyy}" >
+                        <apex:param value="{!theCase.Case_Last_Updated__c}" />
+                    </apex:outputText>
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem />
+            <apex:pageBlockSectionItem rendered="false">
+                <apex:outputLabel value="Project ID from Portal" />
+                <apex:outputField value="{!theCase.Project_ID_from_Portal__c}" />
+            </apex:pageBlockSectionItem>
+           
+          <!--  <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Priority" />
+                <apex:outputText value="{!theCase.Priority}" />
+            </apex:pageBlockSectionItem> -->
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Customer Delivery Date" />
+                <apex:outputText value="{!theCase.Customer_Delivery_Date__c}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+<!-- MR 15-07-2015 - additions to facilitate Premium Support Services record type -->    
+<!--  *********************************************    Case details for Premium Support Services cases    ************************************************************   -->
+        <apex:pageBlockSection title="Case Information" columns="2" rendered="{!showPremiumSupport}" collapsible="false">
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Case Record Type"/>
+                    <apex:outputText value="{!theCase.RecordType.Name}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Type of Request"/>
+                    <apex:outputText value="{!theCase.Type_of_Request__c}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Case Owner"/>
+                    <apex:outputText value="{!theCase.Owner.Name}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Service Request Items"/>
+                    <apex:outputText value="{!theCase.Service_Request_Items__c}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Case Number"/>
+                    <apex:outputText value="{!theCase.CaseNumber}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Specify type of service needed"/>
+                    <apex:outputText value="{!theCase.Specify_type_of_service_needed__c}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Priority"/>
+                    <apex:outputText value="{!theCase.Priority}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Service Start Date"/>
+                    <apex:outputText value="{0,date,dd/MM/yyyy}" >
+                        <apex:param value="{!theCase.Service_Start_Date__c}" />
+                    </apex:outputText>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Status"/>
+                    <apex:outputText value="{!theCase.Status}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Service Start Time"/>
+                    <apex:outputText value="{!theCase.Service_Start_Time__c}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Account Name"/>
+                    <apex:outputText value="{!theCase.Account_Name__c}"/>
+                </apex:pageblockSectionItem>
+
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Service End Date"/>
+                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                        <apex:param value="{!theCase.Service_End_Date__c}" />
+                    </apex:outputText>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Contact Name"/>
+                    <apex:outputText value="{!theCase.Your_Contact_Name__c}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Service End Time"/>
+                    <apex:outputText value="{!theCase.Service_End_Time__c}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Contact Email"/>
+                    <apex:outputText value="{!theCase.SuppliedEmail}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Location & Time zone where support req"/>
+                    <apex:outputText value="{!theCase.Location_Time_zone_where_support_req__c}"/>
+                </apex:pageblockSectionItem>
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Contact Phone"/>
+                    <apex:outputText value="{!theCase.Your_Contact_Phone__c}"/>
+                </apex:pageblockSectionItem>
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Booked Support Products"/>
+                    <apex:outputText value="{!theCase.Booked_Support_Product_s__c}"/>
+                </apex:pageblockSectionItem>
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Case Origin"/>
+                    <apex:outputText value="{!theCase.Origin}"/>
+                </apex:pageblockSectionItem>
+            
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Operating System Name & Version"/>
+                    <apex:outputText value="{!theCase.Operating_System_Name_Version__c}"/>
+                </apex:pageblockSectionItem>    
+                <apex:pageblockSectionItem />
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Database Name & Version"/>
+                    <apex:outputText value="{!theCase.Database_Name_Version__c}"/>
+                </apex:pageblockSectionItem> 
+                <apex:pageblockSectionItem />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="PS Project" />
+                    <apex:outputField value="{!theCase.PS_Project__c}" />
+                </apex:pageBlockSectionItem>
+                 <apex:pageblockSectionItem />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Project ID from Portal" />
+                    <apex:outputField value="{!theCase.Project_ID_from_Portal__c}" />
+                </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>  
+
+        
+        
+        <!--  *********************************************    Premium Support Services billing information    ************************************************************   -->       
+        <apex:outputPanel rendered="{!showPremiumSupport}">
+        	<table border="0" width="100%" rendered="{!showPremiumSupport}">
+                <tr>
+                    <td class="pbTitle"><h2 class="mainTitle">Billing Information</h2></td>
+                </tr>
+            </table>
+        </apex:outputPanel>
+        
+        <apex:pageBlockSection columns="2" rendered="{!showPremiumSupport}" collapsible="false">
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Billing Address"/>
+                <apex:outputText value="{!theCase.Billing_Address__c}" />
+            </apex:pageblockSectionItem>
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Billing Currency" />
+                <apex:outputText value="{!theCase.Billing_Currency__c}" />
+            </apex:pageblockSectionItem>
+        </apex:pageBlockSection>
+
+        
+
+        <!-- description block -->
+		<table border="0" width="100%" >
+
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Description Information</h2></td>
+            </tr>
+        </table>
+        <apex:pageBlockSection title="Description Information" columns="1" collapsible="false">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Subject" />
+                <apex:outputText value="{!theCase.subject}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Description" />
+                <apex:outputText escape="false" value="{0}">
+                    <p><apex:param value="{!caseDescription}" /></p>
+                </apex:outputText>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+
+        <!-- Platform and additional information -->
+        <apex:outputPanel rendered="{!showAllProductsAdditional}">
+        <table border="0" width="100%" rendered="{!showAllProductsAdditional}">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Platform &amp; Program Information</h2></td>
+            </tr>
+        </table>
+        </apex:outputPanel>
+		
+        <apex:pageBlockSection columns="2" title="Platform & Program Information" rendered="{!showAllProductsAdditional}" collapsible="false">
+            <apex:pageBlockSectionItem rendered="{!!isEdit}">
+                <apex:outputLabel value="System ID" />
+                <apex:outputText value="{!theCase.System_ID__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="{!isEdit}">
+                <apex:outputLabel value="System ID" />
+                <apex:inputText value="{!theCase.System_ID__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Program Name" />
+                <apex:outputText value="{!theCase.Program_Name__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Operating System Version" />
+                <apex:outputText value="{!theCase.Operating_System_Version__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Program Version" />
+                <apex:outputText value="{!theCase.Program_Version__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Hardware Platform" />
+                <apex:outputText value="{!theCase.Hardware__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Patch Level" />
+                <apex:outputText value="{!theCase.Patch_Level__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Database" />
+                <apex:outputText value="{!theCase.Database__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Cross Reference" />
+                <apex:outputText value="{!theCase.Cross_Reference__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Database Version" />
+                <apex:outputText value="{!theCase.Database_Version__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Change Reference" />
+                <apex:outputText value="{!theCase.Change_Reference__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Committed Delivery Date" />
+                <apex:outputText value="{!theCase.Committed_Delivery_Date__c}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+        <!-- ********************************* Additional case information ***********************************************************  -->
+		<table border="0" width="100%">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Additional Information</h2></td>
+            </tr>
+        </table>
+        <apex:pageBlockSection columns="2" title="Additional Information" collapsible="false">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Number of user affected"></apex:outputLabel>
+                <apex:outputText value="{!theCase.Number_of_users_affected__c}"></apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="First Occurrence"></apex:outputLabel>
+                <apex:outputText value="{!theCase.First_Occurrence__c}"></apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Reproduced"></apex:outputLabel>
+                <apex:outputField value="{!theCase.Reproduced__c}"></apex:outputField>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Related Case"></apex:outputLabel>
+                <apex:outputText value="{!theCase.Related_Case__r.CaseNumber}"></apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Details when error occurred/reproduced"></apex:outputLabel>
+                <apex:outputText value="{!theCase.Details_when_error_occurred_reproduced__c}"></apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Regression"></apex:outputLabel>
+                <apex:outputText value="{!theCase.Regression__c}"></apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Did you find KB articles helpful"></apex:outputLabel>
+                <apex:outputField value="{!theCase.Did_you_find_KB_articles_helpful__c}"></apex:outputField>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Actions done to do workaround or resolve"></apex:outputLabel>
+                <apex:outputText value="{!theCase.Actions_done_to_do_workaround_or_resolve__c}"></apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Product document used for analysis"></apex:outputLabel>
+                <apex:outputText value="{!theCase.Product_document_used_for_analysis__c}"></apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="System changes that may impact analysis"></apex:outputLabel>
+                <apex:outputText value="{!theCase.System_changes_that_may_impact_analysis__c}"></apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Other resources used for analysis"></apex:outputLabel>
+                <apex:outputText value="{!theCase.Other_resources_used_for_analysis__c}"></apex:outputText>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+
+        <!--  ********************************  Kondor additional information   *********************************************************    -->
+		<apex:outputPanel rendered="{!showKondorAdditional}">
+        <table border="0" width="100%" rendered="{!showKondorAdditional}">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Additional Information</h2></td>
+            </tr>
+        </table>
+        </apex:outputPanel>
+		
+        <apex:pageBlockSection columns="1" rendered="{!showKondorAdditional}" collapsible="false" >
+
+          <!--  <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Reason Case Opened" />
+                <apex:outputText value="{!theCase.Case_Closure_Reason__c}" />
+            </apex:pageBlockSectionItem> -->
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Closure/Resolution Details" />
+                <apex:outputText value="{!theCase.Closure_Resolution_Details__c}" />
+            </apex:pageBlockSectionItem>
+
+        </apex:pageBlockSection>
+
+
+
+        <!--   ***************************************    Digital Channels information    **************************************************      -->
+        <apex:outputPanel rendered="{!showDigitalChannels}">
+        	<table border="0" width="100%" rendered="{!showDigitalChannels}">
+                <tr>
+                    <td class="pbTitle"><h2 class="mainTitle">IND Case Migration Information</h2></td>
+                </tr>
+            </table>
+        </apex:outputPanel>
+        
+
+        <apex:pageBlockSection columns="2" rendered="{!showDigitalChannels}" collapsible="false">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="IND Migrated Case" />
+                <apex:outputField value="{!theCase.IND_Migrated_Case__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="IND Component" />
+                <apex:outputText value="{!theCase.IND_Component__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="IND Legacy ID" />
+                <apex:outputText value="{!theCase.IND_Legacy_ID__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="IND Environment" />
+                <apex:outputText value="{!theCase.IND_Environment__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value="IND Project Name" />
+                <apex:outputText value="{!theCase.IND_Project_Name__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Project Module" />
+                <apex:outputText value="{!theCase.Product_Module__c}" />
+            </apex:pageBlockSectionItem>
+            
+        </apex:pageBlockSection>
+		<apex:outputPanel rendered="{!showSophis}">
+        <table border="0" width="100%" rendered="{!showSophis}">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Sophis Information</h2></td>
+            </tr>
+        </table>
+        </apex:outputPanel>
+		
+        <!-- Sophis additional informaiton -->
+        <apex:pageBlockSection columns="2" title="Sophis Information" rendered="{!showSophis}" collapsible="false">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Misys Sophis Category" />
+                <apex:outputText value="{!theCase.Misys_Sophis_Category__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Released In version" />
+                <apex:outputText value="{!theCase.Released_In_Version__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Misys Sophis Sub Category" />
+                <apex:outputText value="{!theCase.Misys_Sophis_Sub_Category__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="{!!isEdit}">
+                <apex:outputLabel value="Customer Field"/>
+                <apex:outputText value="{!theCase.Field_4__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!isEdit}">
+                <apex:outputLabel value="Customer Field"/>
+                <apex:inputText value="{!theCase.Field_4__c}" />
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA Id (Sophis Only)" />
+                <apex:outputText value="{!theCase.JIRA_ID_Sophis_only__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="TTP Id" />
+                <apex:outputText value="{!theCase.TTP_ID__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Userdesk ID" />
+                <apex:outputText value="{!theCase.Userdesk_ID__c}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+
+        <!-- Fusion Banking additional informaiton -->
+        <apex:pageBlockSection columns="2" title="Fusion Banking (Lending)" rendered="{!showFusion}" collapsible="false">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="CCS Migrated Case" />
+                <apex:outputField value="{!theCase.CCS_Migrated_Case__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Mantis Legacy Id" />
+                <apex:outputText value="{!theCase.Mantis_Legacy_ID__c}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+
+        <!--   *******************************************  Kondor JIRA resolution details  **************************************************    -->
+		
+        <apex:pageBlockSection title="Resolution Details" rendered="{!showKondorJira}" collapsible="false">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA ID" />
+                <apex:outputText value="{!theCase.JIRA_ID__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA Target Release Date" />
+                <apex:outputText value="{!theCase.Engineering_Target_Release_Qtr__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value=" " />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA Target Release Version" />
+                <apex:outputText value="{!theCase.Engineering_Target_Release__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA ID #2" />
+                <apex:outputText value="{!theCase.JIRA_ID_2__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA ID #2 Target Release Date" />
+                <apex:outputText value="{!theCase.JIRA_ID_2_Target_Release_Date__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value=" " />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA ID #2 Target Release Version" />
+                <apex:outputText value="{!theCase.JIRA_ID_2_Target_Release_Version__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA ID #3" />
+                <apex:outputText value="{!theCase.JIRA_ID_3__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA ID #3 Target Release Date" />
+                <apex:outputText value="{!theCase.JIRA_ID_3_Target_Release_Date__c}" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value=" " />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="JIRA ID #3 Target Release Version" />
+                <apex:outputText value="{!theCase.JIRA_ID_3_Target_Release_Version__c}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+<!-- MR 15-07-2015 - additions to facilitate Premium Support Services record type -->    
+<!--  *********************************************    System Information for Premium Support Services cases    ************************************************************   -->
+        <apex:outputPanel rendered="{!showPremiumSupport}">
+        <table border="0" width="100%" rendered="{!showPremiumSupport}">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">System Information</h2></td>
+            </tr>
+        </table>
+        </apex:outputPanel>
+        
+        <apex:pageBlockSection title="System Information" columns="2" rendered="{!showPremiumSupport}" collapsible="false">
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Date/Time Opened"/>
+                <apex:outputText value="{0,date,dd/MM/yyyy ':' HH:mm}">
+                    <apex:param value="{!theCase.CreatedDate}" />
+                </apex:outputText>
+            </apex:pageblockSectionItem>
+            <!-- <apex:pageblockSectionItem >
+                <apex:outputLabel value="Last Modified By"/>
+                <apex:outputText value="{!theCase.LastModifiedById}"/>
+            </apex:pageblockSectionItem> -->
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Created By"/>
+                <apex:outputText value="{!theCase.Created_By_Name__c}"/>
+            </apex:pageblockSectionItem>
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Date/Time Closed"/>
+                <apex:outputText value="{!theCase.ClosedDate}"/> 
+            </apex:pageblockSectionItem>
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Case Last Updated"/>
+                <apex:outputText value="{0,date,dd/MM/yyyy ':' HH:mm}">
+                    <apex:param value="{!theCase.Case_Last_Updated__c}" />
+                </apex:outputText>
+            </apex:pageblockSectionItem>
+        </apex:pageBlockSection>  
+        
+        
+<!-- MR 15-07-2015 - additions to facilitate Premium Support Services record type -->    
+<!--  *********************************************    Web Links for Premium Support Services cases    ************************************************************   -->
+        <apex:pageBlockSection title="Web Links" columns="1" rendered="{!showPremiumSupport}" collapsible="false">
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Web Email" />
+                <apex:outputText value="{!theCase.SuppliedEmail}" />
+            </apex:pageblockSectionItem>
+        </apex:pageBlockSection>
+
+<!-- ***********************************************  PF 25/04/2016 - add case history fields   ****************************************************************  -->
+        <table border="0" width="100%">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Case History</h2></td>
+            </tr>
+        </table>
+       <apex:pageBlockSection title="Case History" columns="1" collapsible="false">
+           
+        </apex:pageBlockSection>
+        <apex:pageBlockTable title="Case History" columns="5" var="ch1" value="{!caseHistory}" >
+            <apex:column headerValue="Date/time">
+                 <apex:outputText value="{0,date,dd/MM/yyyy ':' HH:mm}">
+                    <apex:param value="{!ch1.createdDate}" />
+                </apex:outputText>
+            </apex:column>
+            <apex:column headerValue="User">
+                <apex:outputText value="{!ch1.createdBy}"></apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Field">
+                <apex:outputText value="{!ch1.FieldName}"></apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Old Value">
+                <apex:outputText value="{!ch1.oldValue}"></apex:outputText>
+            </apex:column>
+            <apex:column headerValue="New Value">
+                <apex:outputText value="{!ch1.newValue}"></apex:outputText>
+            </apex:column>
+        </apex:pageBlockTable>
+        <div class="buttons">         
+            <apex:commandButton action="{!edit}" value="Edit" rendered="{!!isEdit}"></apex:commandButton>&nbsp;
+            <apex:commandButton action="{!cancel}" value="Cancel" rendered="{!isEdit}"></apex:commandButton>
+            <apex:commandButton action="{!save}" value="Save Changes" rendered="{!isEdit}"></apex:commandButton>
+        </div>
+    </apex:pageBlock>
+</apex:form>
+<apex:form >
+    <apex:pageBlock >
+        <table border="0" width="100%">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Attachments</h2></td>
+                <td class="pbTitle"><apex:commandButton value="ATTACH FILE" action="{!AttachFile}" /></td>
+            </tr>
+        </table>
+        
+        <apex:pageBlockTable value="{!caseAttachment}" var="attachment" columns="4">
+            <apex:column headerValue="File Name">
+                <apex:outputLink value="/community_ViewAttachment?AttId={!attachment.AttachmentId}">{!attachment.AttachmentName}</apex:outputLink>
+            </apex:column>
+            <apex:column headerValue="Size" value="{!attachment.BodyLength}" />
+            <apex:column headerValue="Last Modified">
+                <apex:outputText value="{0,date,dd/MM/yyyy ':' HH:mm }" >
+                    <apex:param value="{!attachment.LastModifiedDate}" />
+                </apex:outputText>
+            </apex:column>    
+
+            <apex:column headerValue="Created By" value="{!attachment.CreatedByName}" />
+        </apex:pageBlockTable>  
+    </apex:pageBlock>
+
+     <apex:pageBlock >
+        <table width="100%">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Case Comments</h2></td>
+                <td class="pbTitle"><apex:commandButton value="ADD COMMENT" action="{!AddComment}" /></td>
+            </tr>
+        </table>
+        
+        <apex:pageBlockTable value="{!caseComments}" var="c" cellpadding="10">
+            <apex:column headerValue="Case Comment">
+                <apex:outputText escape="false" value="<strong>{0}</strong>">
+                    <strong>Created By: <apex:param value="{!c.createdByName}" /></strong>&nbsp;
+                </apex:outputText>
+                <apex:outputText escape="false" value="<strong>({0, date, dd/MM/yyyy})</strong><br/>">
+                    <strong><apex:param value="{!c.createdDate}" /></strong>
+                </apex:outputText>  
+                <apex:outputText escape="false" value="{0}">
+                    <p><apex:param value="{!c.commentbody}" /></p>
+                </apex:outputText>
+                    
+                
+            </apex:column>  
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+
+<!--     <apex:pageBlock >
+        <table width="100%">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Case Events</h2></td>
+                <td class="pbTitle"><apex:commandButton value="ADD CASE EVENT" action="{!AddCaseEvent}" /></td>
+            </tr>
+        </table>
+        
+        <apex:pageBlockTable value="{!caseEvents}" var="ce" cellpadding="10">
+            <apex:column headerValue="Summary">
+                <apex:outputLink value="{!'/apex/CaseEvent?id=' + ce.Id}">{!ce.Summary__c}</apex:outputLink>
+            </apex:column>
+            <apex:column value="{!ce.Owner.Name}" headerValue="Owner Name"/>
+            <apex:column value="{!ce.Event_Date__c}" headerValue="Event Date"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>-->
+
+    <apex:pageBlock >
+        <table width="100%">
+            <tr>
+                <td class="pbTitle"><h2 class="mainTitle">Articles</h2></td>
+                <td class="pbTitle"><apex:commandButton value="FIND ARTICLES" title="Find Article"  alt="Find Article" action="{!FindArticle}" /></td>
+            </tr>
+        </table>
+        
+        <apex:pageBlockTable value="{!KnowledgeArticles}" var="ka" columns="3">
+            <apex:column headerValue="Article Title" >
+                <apex:outputLink target="_blank" value="/apex/community_KnowledgeArticle?Id={!ka.ArticleId}" >{!ka.title}</apex:outputLink>                            
+            </apex:column>
+            <apex:column headerValue="Article Number">
+                <apex:outputLink value="/apex/community_KnowledgeArticle?Id={!ka.ArticleId}">{!ka.ArticleNumber}</apex:outputLink>
+            </apex:column>
+            <apex:column headerValue="Summary" value="{!ka.Summary}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:form>
+                    </div>
+
+                     <div id="tab-2" class="tab-content ">
+                        <chatter:feed entityId="{!theCase.Id}" feedItemType="CaseCommentPost" showPublisher="true"/>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <c:community_GoogleTracking /> 
+</apex:page>

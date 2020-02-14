@@ -1,0 +1,118 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false">
+<head>
+<title>Misys Benefits Portal</title>
+
+<style type="text/css">
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #000;
+    
+}
+a:link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #000;
+    text-decoration: underline;
+}
+a:visited{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #5C7F92;
+    text-decoration: underline;
+}
+a:hover {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #00AFDB;
+    text-decoration: underline;
+}
+
+</style>
+</head>
+
+  <!-- Begin Default Content REMOVE THIS -->
+
+<body class="body">
+<table width="100%" border="0" align="center" background="/resource/1370944690000/SalesPortalBackground">
+  <tr>
+    <td height="100%" valign="top"><br />
+      <br />
+      <br />
+      <table width="85%" border="0" align="center" cellpadding="5" cellspacing="0">
+        <tr>
+        <td height="80" bgcolor="#FFFFFF"><table width="87%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+           <td><img src="/resource/1370942492000/Misys_Logo" width="188" height="74" alt="Misys" /></td>
+         <td align="right"><h1><b>Misys Benefits Portal</b></h1> </td>
+          </tr>
+        </table></td>
+        </tr>
+      <tr>
+        <td height="412" align="center" valign="middle" bgcolor="#FFFFFF"><table width="90%" border="0" cellpadding="3" cellspacing="3">
+          <tr>
+            <td height="186" colspan="3" align="left"><table width="100%" border="0">
+              <tr>
+                <td height="26" align="center" valign="middle" bgcolor="#CCCCCC"><strong>Misys Sales Playbook</strong></td>
+                <td align="center" valign="middle" bgcolor="#CCCCCC"><strong>Other Links</strong></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><p>Section 1: Corporate       Overview (Coming soon)<br />
+                  Section 2:  <a href="https://emea.salesforce.com/015?fcf=00l20000001VcCD" target="_blank">Sales Process (AVAILABLE NOW!)</a><br />
+                  Section 3:  Product &amp; Market Overview (Coming soon)<br />
+                  Section 4: Partners (Coming soon)</p></td>
+                <td align="left" valign="top"><p><u><a href="https://c.eu0.content.force.com/servlet/servlet.FileDownload?file=00P2000000P2WYo" target="_blank">Test Video 123 </a></u><br />
+                  <u><a href="http://home.insidemisys.com/communications/brandstudio/Pages/default.aspx" target="_blank">CORPORATE  PRESENTATION, BRANDING &amp; TEMPLATES<br />
+                  </a></u><u><a href="https://emea.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F9200000008b6w" target="_blank">OBJECTION  HANDLING KNOWLEDGEBASE<br />
+                  </a></u><u><a href="http://home.insidemisys.com/marketing/Pages/SalesTools.aspx" target="_blank">SALES TOOLS<br />
+                  </a></u><u><a href="http://10.80.52.244/confluence/display/MAR/Win-Loss+Analysis+Reports" target="_blank">WIN/LOSS  ANALYSIS</a></u></p></td>
+              </tr>
+            </table>
+              <p>*Please note that the links will open in a new window and may refer to pages only available on the Misys network. </p></td>
+            </tr>
+          <tr>
+            <td width="33%" height="27" align="center" bgcolor="#CCCCCC"><strong>Misys Products</strong></td>
+            <td width="33%" align="center" bgcolor="#CCCCCC"><strong>Product Battle Cards</strong></td>
+            <td width="33%" align="center" bgcolor="#CCCCCC"><strong>Roadmaps</strong></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top"><ul type="disc">
+              <li><u><a href="http://home.insidemisys.com/TCM/Pages/default.aspx" target="_blank">Capital Markets</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/BANKING/Pages/default.aspx" target="_blank">Core Banking</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/enterpriserisk/Pages/default.aspx" target="_blank">Enterprise       Risk</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/MisysSophis/Pages/default.aspx" target="_blank">Investment       Management</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/TCM/Loan%20IQ/Pages/default.aspx" target="_blank">Lending</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/TransactionBanking/Pages/default.aspx" target="_blank">Transaction       Banking</a></u></li>
+            </ul></td>
+            <td align="left" valign="top"><ul type="disc">
+              <li><u><a href="http://home.insidemisys.com/TCM/TCMMarketing/ProductMarketing/TreasuryPlusMarketing/Pages/Battlecards.aspx" target="_blank">CMS</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/Turaz/KondorPlus/Documents/Understand%20and%20Learn/Kondor%20Battlecard.pdf" target="_blank">Kondor</a>+</u></li>
+              <li><u><a href="http://home.insidemisys.com/TCM/TCMMarketing/ProductMarketing/LoanIQMarketing/Pages/Battlecards.aspx" target="_blank">Loan       IQ</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/EnterpriseRisk/Pages/MGRsalestools.aspx" target="_blank">MGR</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/TCM/TCMMarketing/ProductMarketing/OpicsPlusMarketing/Pages/Battlecards.aspx" target="_blank">Opics       Plus</a></u></li>
+            </ul></td>
+            <td align="left" valign="top"><ul type="disc">
+              <li><u><a href="http://home.insidemisys.com/Banking/Solutions/Misys%20Equation/Pages/Roadmap.aspx" target="_blank">Bankfusion       Equation</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/Banking/Solutions/Misys%20Midas%20Plus/Product%20Roadmap/Pages/default.aspx" target="_blank">Bankfusion       Midas</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/TCM/CMS/Pages/ProductDevelopment.aspx" target="_blank">CMS</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/Turaz/KondorPlus/Pages/default.aspx" target="_blank">Kondor+</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/Turaz/KTP/Documents/Forms/AllItems.aspx?RootFolder=/Turaz/KTP/Documents/Understand%20and%20Learn&amp;FolderCTID=&amp;View=%7b32060812-73C0-4A8F-B04E-7560602B411B%7d" target="_blank">KTP</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/TCM/Loan%20IQ/SolutionsManagement/Pages/Roadmaps.aspx" target="_blank">Loan       IQ</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/TCM/Opics1/Pages/default.aspx" target="_blank">Opics       Plus</a></u>   </li>
+              <li><u><a href="http://home.insidemisys.com/MisysSophis/productmanagement/Documents/Forms/AllItems.aspx?RootFolder=http%3a%2f%2fhome.insidemisys.com%2fMisysSophis%2fproductmanagement%2fDocuments%2fRoad%20maps&amp;FolderCTID=0x012000063CD8881F2FE444AC4E53FF71B7723E" target="_blank">Sophis</a></u></li>
+              <li><u><a href="http://home.insidemisys.com/TCM/Summit1/Product%20Management/Pages/Roadmap.aspx" target="_blank">Summit</a></u></li>
+            </ul></td>
+          </tr>
+        </table></td>
+        </tr>
+  </table></td>
+  </tr>
+</table>
+</body>
+
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

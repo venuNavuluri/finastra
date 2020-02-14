@@ -1,0 +1,223 @@
+<apex:page controller="KBSearchController" standardStylesheets="true" sidebar="True" showHeader="True" tabStyle="Solution" id="KBSearchPage">
+
+<style type="text/css">
+	.tCriteriaSmallText {
+		font-size:10px;
+		}
+	.tTableHeaderText {
+		font-weight:bold;
+		}
+	.pgSearchCriteria {
+		height:175px;
+		}
+	.pgFilterResults {
+		height:165px;
+		}
+	.pgFiltersCol1 {
+		width:35%;
+		}
+	.pgFiltersCol2 {
+		width:65%;
+		}
+	.opSearchPanel {
+		width:100%;
+		}
+	.opFilterPanel {
+		width:100%;
+		}
+	.pgMainColLeft {
+		width:50%;
+		}
+	.pgMainColRight {
+		width:50%;
+		}
+	.pgHeader {
+		font-weight:bold;
+		}
+</style>
+
+<script type="text/javascript">
+function getSearchResults() {
+	var criteria = new Array(
+		document.getElementById("KBSearchPage:searchForm:titleBlock:searchAll").value,
+		document.getElementById("KBSearchPage:searchForm:titleBlock:searchAny").value,
+		document.getElementById("KBSearchPage:searchForm:titleBlock:searchPhrase").value,
+		document.getElementById("KBSearchPage:searchForm:titleBlock:searchNot").value
+		);
+	var articleTypeNames = new Array();
+	var articleTypeSelections = new Array();
+	var a=0;
+	var articleNameId = "KBSearchPage:searchForm:titleBlock:dtArticleTypes:"+a+":dtArticleTypeText";
+	var articleSelectId = "KBSearchPage:searchForm:titleBlock:dtArticleTypes:"+a+":dtArticleTypeCheckbox";
+	//alert(articleNameId+","+articleSelectId);
+	var articleName=document.getElementById(articleNameId).innerHTML;
+	var articleSelect=document.getElementById(articleSelectId).checked;
+	//alert(articleName+","+articleSelect);
+	while(articleName!=null)
+	{
+		articleTypeNames[a] = articleName;
+		articleTypeSelections[a] = articleSelect;
+		a=a+1;
+		try{
+			articleNameId = "KBSearchPage:searchForm:titleBlock:dtArticleTypes:"+a+":dtArticleTypeText";
+			articleSelectId = "KBSearchPage:searchForm:titleBlock:dtArticleTypes:"+a+":dtArticleTypeCheckbox";
+			articleName=document.getElementById(articleNameId).innerHTML;
+			articleSelect=document.getElementById(articleSelectId).checked;
+		}catch(err){
+			articleName = null;
+		}
+	}
+	//alert(articleTypeNames[0]);
+	var categories = new Array();
+	var b=0;
+	var categoryField = "KBSearchPage:searchForm:titleBlock:categoryTable:"+b+":dtSelectList";
+	//alert(categoryField);
+	var categoryId = document.getElementById(categoryField).value;
+	//alert(categoryId);
+	while(categoryId!=null)
+	{
+		categories[b] = categoryId;
+		b=b+1;
+		categoryField = "KBSearchPage:searchForm:titleBlock:categoryTable:"+b+":dtSelectList";
+		try{
+			categoryId = document.getElementById(categoryField).value;
+		}catch(err){
+			categoryId = null;
+		}
+		//alert(b);
+	}
+	//alert(categories[0]);
+	var str;
+	KBSearchController.runSearchCases(criteria,articleTypeNames,articleTypeSelections,categories,function(resultPage,e)
+	{
+		if(e.status)
+		{
+			window.open(resultPage.replace(/;/g,'&'));
+			//window.open('http://cs13.salesforce.com/ui/solution/SolutionSearchPage','SolutionSearchMe','go=Find+Solution,searchtype=C,t=4');
+		}
+		else
+		{
+			//alert('failure');
+			//verifyInputs();
+		}
+	})
+}
+</script>
+		
+	<apex:form id="searchForm" >
+
+		<apex:actionFunction name="verifyInputs" action="{!validateForm}" />
+		
+		<apex:pageMessages id="theseMessages"/>
+		<apex:sectionHeader title="Case Knowledge Base" subtitle="Find Solution" />
+	
+		<apex:pageBlock tabStyle="Solution" title="Search the Knowledge Base" id="titleBlock" mode="edit" >
+			<!-- </apex:pageBlock> -->	
+			<!-- <apex:pageBlock tabStyle="Solution" id="bigBlock" > -->
+			<!-- <apex:outputPanel id="searchPanel" layout="none"> -->
+			<!-- <apex:pageBlockSection columns="1" collapsible="false" id="mainPageBlockSection" > -->
+			<apex:panelGrid columns="2" columnClasses="pgMainColLeft,pgMainColRight" id="pgMainGrid">
+				<!-- Search Criteria Panel -->
+				<apex:outputPanel id="form_criteria" styleClass="opSearchPanel" >
+					<!-- <apex:panelGrid columns="2" columnClasses="pgMainColRight,pgMainColLeft" > -->
+					<!-- <apex:pageBlock tabStyle="Solution" title="1. Specify Search Criteria" id="searchBlock" > -->
+					<!-- <apex:pageBlockSection title="1. Specify Search Criteria" columns="1" collapsible="false" id="searchBlock" > -->
+					<apex:panelGrid columns="1" headerClass="pgHeader" width="100%"> <!-- columnClasses="pgMainColRight,pgMainColLeft"  -->
+						<apex:facet name="header">1. Specify Search Criteria</apex:facet>
+						<br/>
+						<apex:actionRegion >
+						<apex:outputText value="To search all articles in the Knowledge Base, enter your search terms in the fields below and click Search." />
+						<br/>
+						<apex:panelGrid columns="2" id="pgSearchCriteria" width="100%" border="0" cellspacing="1" styleClass="pgSearchCriteria" >
+							<apex:panelGrid columns="1" width="100%" >
+								<apex:outputText escape="false" value="<b>ALL</b> of these words:" />
+								<apex:outputText value="(An 'AND' search with less results)" styleClass="tCriteriaSmallText" />
+							</apex:panelGrid>
+							<apex:inputText id="searchAll" value="{!searchALL}" size="30" title="Enter words separated by a space" disabled="{!!enableSearchFields}" />
+							<apex:panelGrid columns="1" width="100%" >
+								<apex:outputText escape="false" value="<b>ANY</b> of these words:" />
+								<apex:outputText value="(An 'OR' search with more results)" styleClass="tCriteriaSmallText" />
+							</apex:panelGrid>
+							<apex:inputText id="searchAny" value="{!searchANY}" size="30" title="Enter words separated by a space" disabled="{!!enableSearchFields}" />
+							<apex:panelGrid columns="1" width="100%" >
+								<apex:outputText escape="false" value="This <b>exact phrase</b>:" />
+								<apex:outputText value="(All these words in this order)" styleClass="tCriteriaSmallText" />
+							</apex:panelGrid>
+							<apex:inputText id="searchPhrase" value="{!searchPHRASE}" size="30" title="Text entered will be considered as one phrase" disabled="{!!enableSearchFields}" />
+							<apex:panelGrid columns="1" width="100%" >
+								<apex:outputText escape="false" value="<b>None</b> of these words:" />
+								<apex:outputText value="(A 'NOT' search excluding these words)" styleClass="tCriteriaSmallText" />
+							</apex:panelGrid>
+							<apex:inputText id="searchNot" value="{!searchNOT}" size="30" title="Enter words separated by a space" disabled="{!!enableSearchFields}" />
+						</apex:panelGrid>
+						</apex:actionRegion>
+					</apex:panelGrid>
+				</apex:outputPanel>
+				
+				<!-- Filters Panel -->
+				<apex:outputPanel id="form_filters2" styleClass="opFilterPanel" >
+					<apex:panelGrid columns="1" headerClass="pgHeader" width="100%">
+						<apex:facet name="header">2. Filter Your Results</apex:facet>
+						<!-- <apex:pageBlockSection title="2. Filter Your Results" columns="1" collapsible="false" id="filterBlock2" > --> 
+						<!-- <apex:pageBlock tabStyle="Solution" title="2. Filter Your Results" id="filterBlock2" rendered="{!showFilters}"> -->
+						<br/>
+						<apex:outputText value="Use the Article Type and Category filters below to refine your search." />
+						<br/>
+						<apex:panelGrid columns="2" id="pgFilterResults" width="100%" columnClasses="pgFiltersCol1,pgFiltersCol2" styleClass="pgFilterResults" rendered="{!showFilters}" >
+							<!-- <apex:actionRegion > -->
+							<!-- Table headers for the panelGrid component -->
+							<apex:outputText value="Article Types" styleClass="tTableHeaderText" />
+							<!-- <apex:outputText /> -->
+							<apex:outputText value="Categories" styleClass="tTableHeaderText" />
+						
+							<!-- Article Types section -->
+							<apex:dataTable value="{!lArticleTypes}" var="atp" id="dtArticleTypes" cellpadding="0" cellspacing="4" width="100%" rendered="{!showFilters}" >
+			    				<apex:column >
+				    				<!-- <apex:actionRegion > -->
+				    				<apex:inputCheckbox id="dtArticleTypeCheckbox" value="{!atp.selected}" />
+				    				<!-- <apex:actionSupport event="onchange" action="{!selectArticleType}" rerender="page1" status="statusFilterResults" /> -->			    					
+				    				<!-- </apex:inputCheckbox> -->
+			    					<!-- </apex:actionRegion> -->
+				    			</apex:column>
+				    			<apex:column >
+				    				<apex:outputText id="dtArticleTypeText" value="{!atp.item}" />
+			    				</apex:column>
+			    			</apex:dataTable>
+							
+							<!-- Category filters section -->
+							<apex:actionRegion >
+							<!-- <apex:panelGrid columns="2" width="100%" > -->
+							<apex:dataTable value="{!lCategories}" var="c" id="categoryTable" cellpadding="0" cellspacing="4" width="100%" rendered="{!showFilters}" >
+								<apex:column >
+									<!-- <apex:outputText id="dtCategoryIndent" escape="false" value="{!c.indent}" /> -->
+									<apex:outputText id="dtCategorySelected" value="{!c.itemLabel}" />
+								</apex:column>
+								<apex:column >
+									<apex:selectList value="{!c.itemId}" size="1" rendered="{!c.showSelectList}" id="dtSelectList">
+										<apex:selectOptions value="{!c.choices}" />
+										<apex:actionSupport event="onchange" action="{!selectSubCategoryFilter}" rerender="categoryTable" status="statusFilterResults" >
+											<apex:param name="iLevel" value="{!c.level}" /> 
+										</apex:actionSupport>
+									</apex:selectList>
+									<apex:inputText id="catPlaceHolder" value="{!defaultSelectList}" disabled="true" rendered="{!!c.ShowSelectList}" />
+								</apex:column>
+							</apex:dataTable>
+							</apex:actionRegion>
+							<!-- <apex:panelGrid columns="2" width="100%" columnClasses="pgFiltersCol1,pgFiltersCol2" styleClass="pgFilterResults" rendered="{!showFilters}" > -->
+							<!-- </apex:panelGrid> -->
+						</apex:panelGrid>
+						<!-- </apex:pageBlock> -->
+					</apex:panelGrid>	
+				</apex:outputPanel>
+			<!-- </apex:pageBlockSection> -->
+			<!-- </apex:outputPanel> -->
+			</apex:panelGrid>
+			<apex:pageBlockButtons location="bottom">
+				<apex:commandButton id="cmdSearch" onclick="getSearchResults();" value="Search" title="Run the search with the criteria and filters specified" onComplete="verifyInputs()" />
+				<apex:commandButton action="{!ClearSearch}" value="Clear Criteria" title="Clear search results, filters, and criteria to start over" />
+				<apex:commandButton action="{!ResetFilters}" rerender="form_filters2,page1" value="Reset Filters" status="statusFilterResults" title="Reset the filters to show all possible results from the search criteria" />
+			</apex:pageBlockButtons>
+			<apex:pageBlock rendered="false" id="pbtestme" />
+		</apex:pageBlock>       
+	</apex:form>
+</apex:page>

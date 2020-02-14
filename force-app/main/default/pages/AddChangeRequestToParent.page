@@ -1,0 +1,12 @@
+<apex:page standardController="Opportunity" extensions="AddChangeRequestToParent_CE" action="{!CopyOLIs}" >
+
+        <apex:sectionHeader title="Change Request Opportunity" subtitle="Add Change Request Line Items to Parent Opportunity" rendered="{!isError}" />
+        <apex:form >
+            <apex:pageblock >
+                <apex:pageMessages />
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="Return" action="{!returnToOpp}" />
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:form>
+</apex:page>

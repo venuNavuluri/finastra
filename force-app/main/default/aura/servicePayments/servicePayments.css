@@ -1,0 +1,20 @@
+.THIS .slds-button_icon-bare{
+    display: none;
+}
+
+.THIS .slds-fasak{
+    border: solid 1px green;
+}
+.THIS .cols thead th span {
+font-weight: bold; 
+}
+.THIS .select {
+    font-weight: bold;
+}
+.THIS .slds-page-header{
+    background-color: #A165F9;
+    color: black;
+}
+.THIS .slds-button{
+    margin-right :5px 
+}

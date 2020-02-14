@@ -1,0 +1,4 @@
+<apex:page standardController="Case">
+<p style="color:#000000; font-weight:bold;"><span style="color:#CC3300; font-weight:bold;">IMPORTANT</span> - The <span style="color:#CC3300"> 'Subject' </span>field will be merged into the case invitation email sent to the customer. Please provide an appropriate description of the project using the format - Client Name / Project Name / Type of implementation</p>
+<br/>
+</apex:page>

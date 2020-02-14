@@ -1,0 +1,56 @@
+<apex:page standardController="Opportunity" extensions="OpportunityDealApprovals" >
+<!-- Prashant Bhure(05/01/2009) - The page displays deals for the given opportunity. This page is used as 
+     a section on Opportunity page layouts. 
+     The details of the requirement can be obtained at https://emea.salesforce.com/01520000000iu6K -->
+
+<!-- <apex:detail subject="{!Opportunity}" relatedList="TRUE"/> -->
+
+    <apex:form >
+    <apex:pageBlock >
+          <apex:pageBlockSection >
+<!--            <td> <h3>Prash's Deal Approvals</h3> </td> -->
+           <td> <apex:commandButton value="New Deal Approval"  action="{!newDeal}">
+                   <apex:param name="daId" value="{!id}" />
+                   <apex:param name="oppName" value="{!Opportunity.Name}" />
+            </apex:commandButton> 
+            </td>
+          
+                      
+          <!--4{!OppDAList} BEGIN Return !OppDAList in controller and use this block             -->
+            <apex:dataTable value="{!OppDealApprovals}" var="lobj_OppDAList" StyleClass="list" columns="13"> 
+                <apex:column headerValue="Action" colspan="60">
+                      <apex:commandLink Value="Edit" style="font-weight: bold" action="{!edit}" target="_parent">
+                         <apex:param name="daId" value="{!lobj_OppDAList.iobj_DA.id}" />
+                      </apex:commandLink> 
+                       &nbsp;|&nbsp;   
+                        <apex:commandLink value="Del" style="font-weight: bold" action="{!del}"  target="_parent" onclick="return confirm('Are you sure?')">
+                         <apex:param name="daId" value="{!lobj_OppDAList.iobj_DA.id}" />
+                      </apex:commandLink>
+                   
+                 </apex:column>
+                 <apex:column headerValue="Deal Approval Name" colspan="250">
+                            <a href="/{!lobj_OppDAList.iobj_DA.Id}" target="_parent">{!lobj_OppDAList.iobj_DA.Name}</a>
+                 </apex:column>
+               <apex:column headerValue="Approval Ref" value="{!lobj_OppDAList.iobj_DA.Approval_Ref__c}" colspan="250"/>
+               <apex:column headerValue="Date Submitted" value="{!lobj_OppDAList.iobj_DA.Date_Submitted__c}" colspan="100"/>
+               <apex:column headerValue="1st Approver" value="{!lobj_OppDAList.iProcessInstanceStep_FirstAppr.ActorId}" colspan="100"/>                  
+               <apex:column headerValue="Status" value="{!lobj_OppDAList.iProcessInstanceStep_FirstAppr.StepStatus}" colspan="75"/>                  
+               <apex:column headerValue="2nd Approver" value="{!lobj_OppDAList.iProcessInstanceStep_SecondAppr.ActorId}" colspan="100"/>                  
+               <apex:column headerValue="Status" value="{!lobj_OppDAList.iProcessInstanceStep_SecondAppr.StepStatus}" colspan="75"/>                  
+               <apex:column headerValue="3rd Approver" value="{!lobj_OppDAList.iProcessInstanceStep_ThirdAppr.ActorId}" colspan="100"/>                  
+               <apex:column headerValue="Status" value="{!lobj_OppDAList.iProcessInstanceStep_ThirdAppr.StepStatus}" colspan="75"/>                  
+               <apex:column headerValue="4th Approver" value="{!lobj_OppDAList.iProcessInstanceStep_FourthAppr.ActorId}" colspan="100"/>                  
+               <apex:column headerValue="Status" value="{!lobj_OppDAList.iProcessInstanceStep_FourthAppr.StepStatus}" colspan="75"/>                  
+               
+               <apex:column headerValue="Approval Status" value="{!lobj_OppDAList.iobj_DA.Approval_Status__c}" colspan="100"/>                  
+            </apex:dataTable>
+             
+             
+            <!--4{!OppDAList} END Return OppDAList in controller and use this block -->
+             
+          </apex:pageBlockSection>
+         
+      </apex:pageBlock>
+      </apex:form>
+      
+</apex:page>

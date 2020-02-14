@@ -1,0 +1,24 @@
+<apex:page standardController="Partner_Approvals_Renewals__c" extensions="CFTP_RiskAssessment_CE" standardStylesheets="true" >
+<style type="text/css">
+.commandButton
+{
+    text-align:center;
+    height:20px;
+}
+</style>
+    <apex:form id="frmRiskAssessmentButton" >
+        <apex:pageBlock mode="maindetail">
+            <apex:pageBlockSection columns="2" >                
+                <apex:pageBlockSectionItem >
+                <apex:commandButton value="Risk Assessment Form >>" title="Open the Risk Assessment Form" id="btnRiskForm" onclick="window.parent.location.href='/apex/CFTP_RiskAssessmentForm?id={!Partner_Approvals_Renewals__c.Id}';" styleClass="commandButton"/>
+                </apex:pageBlockSectionItem>
+                <!-- By including the fields below and hiding them, they are automatically loaded by the constructor without additional coding -->
+                <apex:outputText value="{!Partner_Approvals_Renewals__c.Level_of_Risk__c}" id="hiddenLevelOfRisk" rendered="false" />
+                <apex:outputText value="{!Partner_Approvals_Renewals__c.Regional_Sales_Director_Approval_Status__c}" id="hiddenRSDApprovalStatus" rendered="false" />
+                <apex:outputText value="{!Partner_Approvals_Renewals__c.Reg_Services_Director_Approval_Status__c}" id="hiddenRegSDApprovalStatus" rendered="false" />
+                <apex:outputText value="{!Partner_Approvals_Renewals__c.Risk_Assessment_Completed_Date__c}" id="hiddenRACompleteDate" rendered="false" />
+                <apex:outputText value="{!Partner_Approvals_Renewals__c.RSD_Approval_Submitted_Dt__c}" id="hiddenRSDApprovalSubmitDate" rendered="false" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form> 
+</apex:page>

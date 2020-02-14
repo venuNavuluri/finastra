@@ -1,0 +1,37 @@
+<apex:page controller="CSP_Welcome_Controller" sidebar="false" showHeader="false" standardStylesheets="false">
+  <link type="text/css" rel="stylesheet" href="https://fast.fonts.net/cssapi/4afa30c0-9c4d-4c18-b8d3-19cccd2650df.css"/>
+  <style>
+      body { 
+        margin:0;
+        font-family:'Avenir LT W01 55 Roman' !important;
+        font-weight: normal;font-size: .75em;
+        background-color:#fff;
+      }
+      form {
+        padding: 0 .25em;
+        
+      }
+      a {
+          background-color: #2ab5b2;
+          color:#fff;
+        text-decoration:none;
+        font-size: 1em;
+        padding:10px;
+        margin: 10px 1px 5px 1px;
+        display:inline-block;
+      }
+      a:hover {
+         background-color: #2e3b3a;
+        }
+  </style>
+  
+  
+  <apex:form >
+      {!$User.FirstName} {!$User.LastName}
+       <apex:repeat value="{!Records}" var="rec">
+           {!rec}<Br/>
+       </apex:repeat>
+          <apex:commandLink id="profile" title="Myprofile" value="MyProfile" action="{!profile}" target="_parent"/>  
+          <apex:commandLink id="Logout" title="Logout" value="Logout" action="{!logout}" target="_parent"/>
+   </apex:form>
+</apex:page>

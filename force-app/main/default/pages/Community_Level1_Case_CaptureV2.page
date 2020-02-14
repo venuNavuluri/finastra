@@ -1,0 +1,228 @@
+<apex:page tabStyle="Case" standardController="Case" extensions="CommunityLevel1CaseCaptureControllerV2" id="communityLevel1CaseCapture" action="{!SearchCustomers}">
+<SCRIPT TYPE="text/javascript">
+
+function doSearchOnEnter(e){
+    var keynum = 0; 
+    if (window.event) {
+        keynum = window.event.keyCode; 
+    }else if(e.which){
+        keynum = e.which;
+    }
+
+    if (keynum == 13) {
+        var button = document.getElementById("{!$Component.searchForm.customerChoice.searchButton}");
+        button.click();
+    }
+}
+
+function openPopUpForCompleteCaseList(selectedContID){
+    if(selectedContID == ''){
+        alert('Find and Choose an Account');
+    }else{
+        window.open('/500?rlid=RelatedCaseList&id=' + selectedContID, '','toolbar=1,scrollbars=1,location=1,statusbar=1,menubar=1,resizable=1,width=1280,height=800,left = 0,top = 0');
+    }
+}
+
+
+function handleCaseSelection(obj) {
+
+  var tableID = '{!$Component.level1CaseCapture.SearchForm.CustomerChoice.caseSection.caseTable}';
+  var loopObj = document.getElementById(tableID + ':' + '0' + ':selCase');
+  var i = 1;
+  
+  while (loopObj) {
+    if (loopObj.id != obj.id) {
+      loopObj.checked = false;
+    }
+    loopObj = document.getElementById(tableID + ':' + (i++) + ':selCase');    
+  }
+}
+
+function handleContactSelection(obj) {
+  var tableID = '{!$Component.level1CaseCapture.SearchForm.CustomerChoice.showSearchResults.ContactTable}';
+  var numRecsPerPage = {!rowsPerPage};
+  for (var i=0; i<numRecsPerPage; i++) {
+    var currentCheckbox = document.getElementById(tableID + ':' + i + ':selContact');
+    if (currentCheckbox && currentCheckbox.id != obj.id) {
+      currentCheckbox.checked = false;
+    }
+  }
+  
+  selectContactFunction();
+
+}
+
+
+</SCRIPT>
+<style>
+.apexp .bPageBlock.apexDefaultPageBlock .pbBody table td {
+    border-bottom: 1px solid #eee !important;
+  border-left: 0px solid #fff !important;
+     padding: 14px 6px; 
+    }
+.apexp .bPageBlock.apexDefaultPageBlock .pbBody table {
+  border: 0px solid #fff !important;
+    border-collapse: collapse; 
+    }
+</style>
+
+<apex:sectionHeader title="New Case" subtitle="Find and Choose an Account"/>
+<apex:form id="searchForm">
+    <apex:pageBlock id="customerChoice"  mode="detail">
+        <apex:actionStatus id="searchStatus" startText="Searching Contacts..." startStyle="color:red"/><br/>
+        <apex:outputPanel id="validationErrors">
+            <apex:outputText id="noSearchAlert" value="Please enter a search value" style="font-weight:bold; color:red" rendered="{!NoSearchAlertDisplay}"/>
+        </apex:outputPanel>
+        <apex:pageBlockSection id="searchInputs" title="Search for Contact (Partial matches in one OR both fields accepted)" columns="2" rendered="{!!CurrentSessionInfo.InPortal}">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Account Detail" for="customerSearchInput"/>
+                <apex:inputText value="{!CustomerSearch}" id="customerSearchInput" onkeyup="doSearchOnEnter(event);"/>
+            </apex:pageBlockSectionItem>
+            <apex:outputText value="Search on Account by Account Name or Short Name"/>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Exact Account Match" for="exactMatchInput"/>
+                <apex:inputCheckbox value="{!ExactCustomerMatch}" id="exactMatchInput"/>
+            </apex:pageBlockSectionItem>
+            <apex:outputText value="When checked, will disable the wildcard search for Accounts"/>
+<!--                <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Include Legacy ID in search" for="legacyIdInput"/>
+                <apex:inputCheckbox value="{!IncludeLegacyID}" id="legacyIdInput"/>
+            </apex:pageBlockSectionItem> 
+                        <apex:outputText value="When checked, this will include Legacy ID in search. Note this will increase search time."/>  
+            <apex:outputText value="  "/>  -->
+            <apex:pageBlockSectionItem rendered="{!!CurrentSessionInfo.IsEmployeeOnSite}" >
+                <apex:outputLabel value="Contact Detail" for="contactSearchInput"/>
+                <apex:inputText value="{!ContactSearch}" id="contactSearchInput" onkeyup="doSearchOnEnter(event);"/>
+            </apex:pageBlockSectionItem>
+        
+          
+            <apex:outputText value="Search on Contact by Name or Phone" rendered="{!!CurrentSessionInfo.IsEmployeeOnSite}" />
+
+            <!-- DW 4/12 For some really weird reason, unless there is a second input text field on the page, pressing return to search seems to refresh the page. This happened for EOS. putting hidden field here to get around it. -->
+            <apex:inputText id="testing" style="visibility:hidden" />
+
+            <apex:pageBlockSectionItem rendered="FALSE">
+                <apex:outputLabel value="Records Per Page" for="numRecords"/>
+                <apex:selectList id="numRecords" value="{!rowsPerPage}" size="1">
+                   <apex:selectOption itemValue="25"   itemLabel="25"/>
+                   <apex:selectOption itemValue="50"   itemLabel="50"/>
+                   <apex:selectOption itemValue="100"  itemLabel="100"/>
+                   <apex:selectOption itemValue="500"  itemLabel="500"/>
+                   <apex:selectOption itemValue="1000" itemLabel="1000"/>
+                </apex:selectList>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:outputPanel rendered="{!!CurrentSessionInfo.InPortal}" layout="none">
+            <table style="width:100%; border:0px"><tr><td style="width:100%;text-align:center">
+                <apex:commandButton id="searchButton" value="Search" action="{!searchCustomers}" reRender="customerSearchResults,validationErrors,existingCustomerCases,searchInputs" status="searchStatus" />
+            </td></tr></table>
+        </apex:outputPanel>
+        <apex:outputPanel id="customerSearchResults">
+
+            <apex:outputText id="tooManyContToEditSelected" value="Too many contacts to edit selected" style="font-weight:bold; color:red" rendered="{!TooManyContToEditSelectedDisplay}"/><br/>
+            <apex:outputText id="noContToEditSelected" value="No contacts to edit selected" style="font-weight:bold; color:red" rendered="{!NoContToEditSelectedDisplay}"/><br/>
+            <apex:outputText id="noCustSelectAlert" value="Please select a contact to log this case against." style="font-weight:bold; color:red" rendered="{!NoCustSelectAlertDisplay}"/>
+            <apex:outputText id="tooManySelectAlert" value="You have selected too many contacts. Please select a single contact to log a case against." style="font-weight:bold; color:red" rendered="{!TooManySelectAlertDisplay}"/>
+            <apex:pageBlockSection title="Contact Search Results (Showing {!((currentPage-1)*rowsPerPage) + 1}-{!MIN(((currentPage-1)*rowsPerPage) + rowsPerPage,totalNumberRecords)} of {!totalNumberRecords})." rendered="{!ShowSearchResults}" collapsible="false" columns="1" id="showSearchResults">
+                <apex:outputPanel id="button" rendered="{!ShowSearchResults}" >
+                    <table style="width:100%; border:0px" >
+                    <tr>
+                    <td width="10%" nowrap="true">
+                          <apex:commandLink action="{!getPreviousPage}" reRender="customerSearchResults,existingCustomerCases" rendered="{!currentPage>1}">
+                            &lt;&lt; Previous {!rowsPerPage}
+                          </apex:commandLink>
+                    </td>
+                    <td width="80%">&nbsp;</td>
+                    <td width="10%" nowrap="true">
+                          <apex:commandLink action="{!getNextPage}" reRender="customerSearchResults,existingCustomerCases" rendered="{!currentPage<totalNumberPages}">
+                            Next {!rowsPerPage} &gt;&gt;
+                          </apex:commandLink>
+                    </td>
+                    </tr>                   
+                    <tr><td style="width:100%;text-align:center"> 
+                        <apex:commandButton value="Log New Case" action="{!LogCase}" reRender="customerSearchResults"/>
+
+                       
+                                                
+ <!--                        <apex:commandButton value="Edit Contact And Log Case" action="{!EditAndLog}" reRender="customerSearchResults" rendered="{!!CurrentSessionInfo.InPortal && !CurrentSessionInfo.IsEmployeeOnSite}"/> 
+ -->
+                    
+                    </td>
+                    </tr>
+                </table> 
+                </apex:outputPanel>
+                <apex:pageBlockTable value="{!CurrentPageDataSet}" var="sContact" width="100%" id="contactTable">
+                    <apex:column headerValue="Select" >
+                        <apex:inputCheckbox value="{!sContact.selected}" onclick="handleContactSelection(this)" id="selContact">
+<!--                             <apex:actionFunction name="selectContactFunction" action="{!ContactSelected}" rerender="viewCompleteContactCaseHistorySection,existingCustomerCases,button2,button" status="searchExistingCustStatus"/>
+ -->
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Account Number" value="{!sContact.account.AccountNumber}" />
+                    <apex:column headerValue="Account Name" value="{!sContact.account.Name}"/>
+                    <apex:column headerValue="Site" value="{!sContact.account.site}"/>                      
+                    <apex:column headerValue="Contact Name" value="{!sContact.contact.Name}" rendered="{!!CurrentSessionInfo.IsEmployeeOnSite}"/>
+                    <apex:column headerValue="Contact Phone" value="{!sContact.contact.Phone}" rendered="{!!CurrentSessionInfo.IsEmployeeOnSite}"/>
+                    <apex:column headerValue="Contact Email" value="{!sContact.contact.EMail}" rendered="{!!CurrentSessionInfo.IsEmployeeOnSite}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:outputPanel id="button2" rendered="{!ShowSearchResults}">
+                <table style="width:100%"><tr><td style="width:100%;text-align:center">
+                    <apex:commandButton value="Log New Case" action="{!LogCase}" reRender="customerSearchResults"/>
+<!--                     <apex:commandButton value="Edit Contact And Log Case" action="{!EditAndLog}" reRender="customerSearchResults" rendered="{!!CurrentSessionInfo.InPortal && !CurrentSessionInfo.IsEmployeeOnSite}"/>
+ -->
+                </td></tr>
+                    <tr>
+                    <td width="10%" nowrap="true">
+                          <apex:commandLink action="{!getPreviousPage}" reRender="customerSearchResults,existingCustomerCases" rendered="{!currentPage>1}">
+                            &lt;&lt; Previous {!rowsPerPage}
+                          </apex:commandLink>
+                    </td>
+                    <td width="80%">&nbsp;</td>
+                    <td width="10%" nowrap="true">
+                          <apex:commandLink action="{!getNextPage}" reRender="customerSearchResults,existingCustomerCases" rendered="{!currentPage<totalNumberPages}">
+                            Next {!rowsPerPage} &gt;&gt;
+                          </apex:commandLink>
+                    </td>
+                    </tr>               
+                </table>
+            </apex:outputPanel>
+        </apex:outputPanel>
+      <apex:outputPanel id="existingCustomerCases" rendered="{!!CurrentSessionInfo.InPortal}">
+        <apex:actionStatus id="searchExistingCustStatus" startText="Searching Existing Cases..." startStyle="color:red"/><br/>
+        <apex:outputText id="tooManyContSelected" value="Too many contacts selected" style="font-weight:bold; color:red" rendered="{!TooManyContSelectedDisplay}"/><br/>
+        <apex:outputText id="noCaseSelectAlert" value="You have not selected a case to edit." style="font-weight:bold; color:red" rendered="{!NoCaseSelectAlertDisplay}"/>
+        <apex:outputText id="tooManyCaseSelectAlert" value="You have selected too many cases to edit. Please select a single case." style="font-weight:bold; color:red" rendered="{!TooManyCaseSelectAlertDisplay}"/>
+<!-- 
+       <apex:pageBlockSection title="Contact Existing Cases" rendered="{!ShowCustomerCases}" collapsible="false" columns="1" id="caseSection">
+            <apex:pageBlockTable value="{!existingCustomerCases}" var="ecCases" width="100%" id="caseTable">
+                <apex:column headerValue="Select">
+                    <apex:inputCheckbox value="{!ecCases.selected}" onclick="handleCaseSelection(this)" id="selCase"/>
+                </apex:column>
+                <apex:column value="{!ecCases.internalCase.CaseNumber}"/>
+                <apex:column value="{!ecCases.internalCase.RecordTypeId}"/>
+                <apex:column value="{!ecCases.internalCase.Subject}"/>
+                <apex:column value="{!ecCases.internalCase.Priority}"/>
+                <apex:column value="{!ecCases.internalCase.Status}"/>
+ -->                        
+<!-- PB
+                <apex:column value="{!ecCases.internalCase.Description}"/>
+                <apex:column headerValue="Service Type" value="{!ecCases.internalCase.Select_a_Service_Type__c}"/>
+                <apex:column headerValue="Product" value="{!ecCases.internalCase.Select_a_Product__c}"/>
+                <apex:column headerValue="Module/Area of Issue" value="{!ecCases.internalCase.Select_a_Module_or_Area_of_Issue__c}"/>
+-->        
+    
+<!-- 
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+        <apex:outputPanel id="button1" rendered="{!ShowCustomerCases}">
+            <table style="width:100%"><tr><td style="width:100%;text-align:center;white-space:nowrap">
+                <apex:commandButton value="View Selected Case" action="{!EditSelectedCase}" rendered="{!ShowCustomerCases}" reRender="existingCustomerCases"/>
+                <input type="button" value="View Complete Contact Case History" onclick="openPopUpForCompleteCaseList('{!SelectedContactID}');" class="btn"/>
+            </td></tr></table>
+        </apex:outputPanel>
+ -->         
+      </apex:outputPanel>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

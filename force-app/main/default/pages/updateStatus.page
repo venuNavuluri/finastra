@@ -1,0 +1,17 @@
+<apex:page > 
+<apex:includescript value="/soap/ajax/19.0/connection.js">
+
+<script>  
+        sforce.connection.sessionId = "{!$Api.Session_ID}";  
+        var update_Case = new sforce.SObject("Case");
+        var CID = '{!$CurrentPage.parameters.RecId}' ;  
+        update_Case.Id = CID; 
+        update_Case.Status = 'On Hold';
+        var updateRecords = []; 
+        updateRecords.push(update_Case) ;
+        var result = sforce.connection.update(updateRecords); 
+//        window.location.href = '/{!$CurrentPage.parameters.AccId}#00120000000loSo_RelatedCaseList';
+        window.location.href = '/{!$CurrentPage.parameters.AccId}#{!$CurrentPage.parameters.AccId}_RelatedCaseList_target';
+</script> 
+</apex:includeScript>
+</apex:page>

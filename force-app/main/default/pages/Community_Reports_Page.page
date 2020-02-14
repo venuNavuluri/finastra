@@ -1,0 +1,1033 @@
+<apex:page Controller="CommunityReportsController" tabstyle="Reports__tab" standardStylesheets="false" sidebar="false" readOnly="true" docType="html-5.0">
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"/>
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/d3/3.3.3/d3.min.js" />
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.min.js" />
+    <apex:includeScript value="{!$Resource.jsCookies}"/>
+    <apex:includeScript value="{!$Resource.MisysChartsDashboard}"/>
+  <link href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css" rel="stylesheet" type="text/css" />
+        
+    <style>
+    
+      * {
+        box-sizing: border-box;
+      }
+    
+      .chart {
+          display: block
+          width: 100%;
+        /*padding-right: 2em;*/
+          position: relative; 
+        }
+    
+      .chart svg {
+        height: 500px!important;
+      }
+      
+      .load-icon {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+      }
+    
+      .load-icon.active {
+        display: block;
+      }
+        
+        
+    </style>  
+    
+    
+<script>
+    
+    $(document).ready(function(){
+        
+        $('ul.tabs li').click(function(){
+            var tab_id = $(this).attr('data-tab');
+            $('ul.tabs li').removeClass('current');
+            $('.tab-content').removeClass('current');
+    
+            $(this).addClass('current');
+            $("#"+tab_id).addClass('current');
+        })
+    
+    })
+
+</script>  
+    
+<script> 
+    
+    $(function(){
+      
+        createSticky(jQuery("#filter"));
+    });
+    
+    function createSticky(sticky) {
+        
+        if (typeof sticky !== "undefined") {
+    
+            var  pos = sticky.offset().top,
+                    win = jQuery(window);
+                
+            win.on("scroll", function() {
+                win.scrollTop() >= pos ? sticky.addClass("fixed") : sticky.removeClass("fixed");      
+            });      
+        }
+    }
+
+</script>  
+    
+<script> 
+    $(function(){
+      createStickyNav(jQuery("#nav"));
+    });
+    
+    function createStickyNav(sticky) {
+        
+        if (typeof sticky !== "undefined") {
+    
+            var  pos = sticky.offset().top - 100,
+                    win = jQuery(window);
+                
+            win.on("scroll", function() {
+                win.scrollTop() >= pos ? sticky.addClass("fixed-nav") : sticky.removeClass("fixed-nav");      
+            });      
+        }
+    }
+</script> 
+    
+<script> 
+    $(function(){
+      createChartsActive(jQuery("#charts"));
+    });
+    
+    function createChartsActive(sticky) {
+        
+        if (typeof sticky !== "undefined") {
+    
+            var  pos = sticky.offset().top - 100,
+                    win = jQuery(window);
+                
+            win.on("scroll", function() {
+                win.scrollTop() >= pos ? sticky.addClass("charts-active") : sticky.removeClass("charts-active");      
+            });      
+        }
+    }
+</script> 
+
+<script>  
+
+$(document).ready(function () {
+    $(document).on("scroll", onScroll);
+    
+    //smoothscroll
+    $('#nav a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+        
+        $('a').each(function () {
+            $(this).removeClass('active');
+        })
+        $(this).addClass('active');
+      
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top+2
+        }, 500, 'swing', function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
+    });
+});
+
+function onScroll(event){
+    var scrollPos = $(document).scrollTop();
+    $('#nav a').each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+            $('#nav ul li a').removeClass("active");
+            currLink.addClass("active");
+        }
+        else{
+            currLink.removeClass("active");
+        }
+    });
+}
+    
+</script>
+    
+    
+        <div class="bPageTitle">
+            <div class="ptBody">
+                <div class="content">
+                    
+                    <h1 class="report-title pageType">
+                        Reports            
+                    </h1>
+                    
+                    <!--tabs-->
+                    <ul class="tabs report-tabs">
+                        <li class="tab-link current" data-tab="tab-1">Dashboard</li>
+                        <li class="tab-link" data-tab="tab-2">Overview</li>
+                    </ul>
+                    
+          <!--tab content-->
+                    
+                    <div id="tab-1" class="tab-content  current">
+
+                       
+                            
+                         <!---FILTERS--->
+                                
+                            <apex:form styleClass="filters">
+                                <apex:outputPanel id="nothing" />
+                                <apex:pageblock >
+                                   
+                                    <apex:actionRegion >
+                                        <table id="filter">
+                                            <tr>
+                                                <td>
+                                                    
+                                                    <apex:OutputLabel value="System Status  " for="Status"/>
+                                                    <apex:selectList id="Status" title="If left empty, all are selected" value="{!systemStatus}" multiselect="false" size="1" html-data-name="Case.System_Status__c"  >
+                                                        <apex:selectOptions value="{!Status}"/>
+                                                        <apex:actionSupport event="onchange" action="{!changedPickList}" rerender="nothing" />
+                                                    </apex:selectList>
+                                                    
+                                                </td>
+                                                <td>
+                                                    <apex:outputLabel value="Owner  "  for="Picklist2"/>
+                                                    <apex:selectList id="Picklist2" title="If left empty, all are selected" value="{!systemOwner}" multiselect="false" size="1" html-data-name="Contact.name">
+                                                    <!--<apex:selectList id="Picklist2" title="If left empty, all are selected" value="{!systemOwner}" multiselect="false" size="1" html-data-name="Case.Case_Owner_User_lookup__c"> -->
+                                                        <apex:selectOptions value="{!COwner}"/>
+                                                        <!--onchange="setPicklist2Action(this.value);"!-->
+                                                        <apex:actionSupport event="onchange" action="{!changedPickList}" rerender="nothing" />
+                                                    </apex:selectList>  
+                                                </td>
+                                                <td>
+                                                    <apex:outputLabel value="Product Type  "  for="picklist3"/>
+                                                    <apex:selectList id="picklist3" title="If left empty, all are selected" value="{!systemRecType}" multiselect="false" size="1" html-data-name="RECORDTYPE">
+                                                        <apex:selectOptions value="{!CRecType}"/>
+                                                        <apex:actionSupport event="onchange" action="{!changedPickList}" rerender="nothing" />
+                                                    </apex:selectList>
+                                                </td>
+                                                <td>
+                                                    <apex:outputLabel value="Account Site  "  for="picklist4"/>
+                                                    <apex:selectList id="picklist4" title="If left empty, all are selected" value="{!systemSite}" multiselect="false" size="1" onchange="{!SetsystemSite}" html-data-name="Contact.Account_Site__c">
+                                                        <apex:selectOptions value="{!Site}"/>
+                                                        <apex:actionSupport event="onchange" action="{!changedPickList}" rerender="nothing" />
+                                                    </apex:selectList>  
+                                                </td>
+                                                <td>
+                                                    <button id="clearFilter">Clear all</button>
+                                                </td>
+                                            </tr>
+                                            
+                                        </table>
+                                    </apex:actionRegion>
+                                       
+                                </apex:pageblock>
+                            </apex:form> 
+                            
+                            
+                        <!--END FILTERS-->
+                        
+                        
+                        <div class="grid  grid-visible">
+                            
+                            <div class="col-1-4">
+                                <div class="left-nav" id="nav">
+                                    <ul>
+                                       <!-- Partialities Keys -->
+                                        <!-- <li><a href="#chart-00Og0000000UZA2EAO" class="active">Incoming Cases by Product</a></li>
+                                        <li><a href="#chart-00Og0000000UZA7EAO">Closed Cases by Product</a></li>
+                                        <li><a href="#chart-00Og0000000UZACEA4">Backlog by Status and Severity</a></li>
+                                        <li><a href="#chart-00Og0000000UZAM">Outstanding % Defect vs Non-Defect</a></li>
+                                        <li><a href="#chart-00Og0000000UZAREA4">Closed % Defect vs Non-Defect</a></li>
+                                        <li><a href="#chart-00Og0000000UZAWEA4">Backlog by Case Category</a></li>
+                                        <li><a href="#chart-00Og0000000UZAbEAO">Backlog by System Status</a></li>
+                                        <li><a href="#chart-00Og0000000UZAgEAO">Backlog Cases - In Progress by Sub-Status</a></li>
+                                        <li><a href="#chart-00Og0000000UZAlEAO">% Cases Logged via the Customer Portal</a></li>
+                                        <li><a href="#chart-00Og0000000UZAqEAO">Old Case Closure Survey</a></li>
+                                        <li><a href="#chart-00Og0000000Uda4EAC">NEW Case Closure Survey</a></li>  -->
+                                      
+                    <!-- Pre-Prod Keys -->
+                                        
+                    					<li><a href="#chart-00O20000007gjkh" class="active">Incoming Cases by Product</a></li>
+                                        <li><a href="#chart-00O20000007gjlB">Closed Cases by Case Category</a></li>
+                                        <li><a href="#chart-00O20000007gjla">Backlog by Status and Severity</a></li>
+                                        <li><a href="#chart-00O20000007gjlk">Outstanding % Defect vs Non-Defect</a></li>
+                                        <li><a href="#chart-00O20000007gjlz">Closed % Defect vs Non-Defect</a></li>
+                                        <li><a href="#chart-00O20000007gjm9">Backlog by Case Category</a></li>
+                                        <li><a href="#chart-00O200000072qM5">Backlog by System Status</a></li>
+                                        <li><a href="#chart-00O20000007gjmJ">Backlog Cases - In Progress by Sub-Status</a></li>
+                                        <li><a href="#chart-00O20000007gjnv">% Cases Logged via the Customer Portal</a></li>
+                                        <li><a href="#chart-00O200000072nim">NEW Case Closure Survey</a></li>
+                    
+                  </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-9-12">
+                                <!---CHARTS--->
+                                
+                                <div id="charts" class="charts">
+                                      <!--Incoming Cases by Product-->
+                                    <!--  <div class="chart" id="chart-00Og0000000UZA2EAO">
+                                           <h3 class="title"><a href="/00Og0000000UZA2EAO">Incoming Cases by Product</a></h3> -->
+                                      <div class="chart" id="chart-00O20000007gjkh">
+                                           <h3 class="title"><a href="#">Incoming Cases by Product</a></h3>   
+                                          <svg/>
+                                      </div>
+                                        
+                                      <!-- Closed Cases by Case Category -->
+                                     <!-- <div class="chart" id="chart-00Og0000000UZA7EAO">
+                                          <h3 class="title"><a href="/00Og0000000UZA7EAO">Closed Cases by Product</a></h3>  -->
+                                      <div class="chart" id="chart-00O20000007gjlB">
+                                          <h3 class="title"><a href="#">Closed Cases by Case Category</a></h3>    
+                                        <svg/>
+                                      </div>
+                                      
+                                      <!-- Backlog by Status and Severity -->
+                                      <!--<div class="chart" id="chart-00Og0000000UZACEA4">
+                                          <h3 class="title"><a href="/00Og0000000UZACEA4">Backlog by Status and Severity</a></h3>  -->
+                                      <div class="chart" id="chart-00O20000007gjla">
+                                          <h3 class="title"><a href="#">Backlog by Status and Severity</a></h3>    
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!-- Outstanding % Defect vs Non-Defect -->
+                                      <!--<div class="chart" id="chart-00Og0000000UZAM">
+                                          <h3 class="title"><a href="/00Og0000000UZAM">Outstanding % Defect vs Non-Defect</a></h3>  -->
+                                      <div class="chart" id="chart-00O20000007gjlk">
+                                          <h3 class="title"><a href="#">Outstanding % Defect vs Non-Defect</a></h3>    
+                                        <svg/>
+                                      </div>
+                                      
+                                      <!-- Closed % Defect vs Non-Defect -->
+                                      <!--<div class="chart" id="chart-00Og0000000UZAREA4">
+                                          <h3 class="title"><a href="/00Og0000000UZAREA4">Closed % Defect vs Non-Defect</a></h3>  -->
+                                      <div class="chart" id="chart-00O20000007gjlz">
+                                          <h3 class="title"><a href="#">Closed % Defect vs Non-Defect</a></h3>    
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!-- Backlog by Case Category -->
+                                      <!--<div class="chart" id="chart-00Og0000000UZAWEA4">
+                                          <h3 class="title"><a href="/00Og0000000UZAWEA4">Backlog by Case Category</a></h3>  -->
+                                      <div class="chart" id="chart-00O20000007gjm9">
+                                          <h3 class="title"><a href="/#">Backlog by Case Category</a></h3>    
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!-- Backlog by System Status -->
+                                      <!--<div class="chart" id="chart-00Og0000000UZAbEAO">
+                                          <h3 class="title"><a href="/00Og0000000UZAbEAO">Backlog by System Status</a></h3>  -->
+                                       <div class="chart" id="chart-00O200000072qM5">
+                                          <h3 class="title"><a href="#">Backlog by System Status</a></h3>    
+                                        <svg/>
+                                      </div>
+                                      
+                                      <!--Backlog Cases - In Progress by Sub-Status-->
+                                      <!--<div class="chart" id="chart-00Og0000000UZAgEAO">
+                                        <h3 class="title"><a href="/00Og0000000UZAgEAO">Backlog Cases - In Progress by Sub-Status</a></h3>  -->
+                                     <div class="chart" id="chart-00O20000007gjmJ">
+                                        <h3 class="title"><a href="#">Backlog Cases - In Progress by Sub-Status</a></h3>    
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!--% Cases Logged via the Customer Portal-->
+                                      <!--<div class="chart" id="chart-00Og0000000UZAlEAO">
+                                        <h3 class="title"><a href="/00Og0000000UZAlEAO">% Cases Logged via the Customer Portal</a></h3>  -->
+                                     <div class="chart" id="chart-00O20000007gjnv">
+                                        <h3 class="title"><a href="#">% Cases Logged via the Customer Portal</a></h3>    
+                                        <svg/>
+                                      </div>
+                                      
+                                      <!--<div class="chart" id="chart-00Og0000000UZAqEAO">
+                                        <h3 class="title"><a href="/00Og0000000UZAqEAO">Old Case Closure Survey</a></h3>   
+                                     <div class="chart" id="chart-00O8E000000KKRRUA4">
+                                        <h3 class="title"><a href="/00O8E000000KKRRUA4">Old Case Closure Survey</a></h3>    
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!--<div class="chart" id="chart-00Og0000000Uda4EAC">
+                                        <h3 class="title"><a href="/00Og0000000Uda4EAC">NEW Case Closure Survey</a></h3>   -->
+                                     <div class="chart" id="chart-00O200000072nim">
+                                        <h3 class="title"><a href="#">NEW Case Closure Survey</a></h3>    
+                                        <svg/>
+                                      </div> 
+                                        
+                                        
+                                    
+                                </div>
+                                    
+                                       
+                                    <script>
+                                    
+                                    $(document).ready(function () {
+                                        //var Misys = Misys || {};
+                                      Misys.debug = true;
+                                      Misys.pollRate = 10000;
+                                      Misys.instanceGetCountThreshold = 9999;
+                                      Misys.sitePrefix = '/SupportCommunity';
+                                      Misys.authKey = '{!$Api.Session_ID}';
+                                      Misys.endPoint = '/SupportCommunity/services/data/v37.0/analytics/reports/%i/instances';
+                                      var chartEngine = new Misys.ChartEngines.NVD3();
+                                        
+                                      
+                                      
+                                      var dash = new Misys.Dashboard([
+                                        {
+                                            title: 'Incoming Cases by Product',
+                                            
+                                            id: '00O20000007gjkh',
+                                            domId: '#chart-00O20000007gjkh',
+                                            
+                                            //id: 'Incoming Cases by Product',
+                                            //domId: '#chart-Incoming Cases by Product',
+                                            
+                                            renderChart: chartEngine.renderers.Column
+                                           
+                                        }, {
+                                            title: 'Closed Cases by Case Category',
+                                            
+                                            //id: '00Og0000000UZA7EAO',
+                                            //domId: '#chart-00Og0000000UZA7EAO',
+                                            
+                                            id: '00O20000007gjlB',
+                                            domId: '#chart-00O20000007gjlB',
+                                            
+                                            renderChart: chartEngine.renderers.Column
+                                        }
+                                        ,
+                                        {
+                                          title: 'Backlog by Status and Severity',
+                                          
+                                            //id: '00Og0000000UZACEA4',
+                                            //domId: '#chart-00Og0000000UZACEA4',
+                                            
+                                            id: '00O20000007gjla',
+                                            domId: '#chart-00O20000007gjla',
+                                            
+                                            renderChart: chartEngine.renderers.Column
+                                          
+                                        },
+                                        {
+                                          title: 'Outstanding % Defect vs Non-Defect',
+                                          
+                                            //id: '00Og0000000UZAM',
+                                            //domId: '#chart-00Og0000000UZAM',
+                                            
+                                            id: '00O20000007gjlk',
+                                            domId: '#chart-00O20000007gjlk',
+                                            
+                                          renderChart: chartEngine.renderers.Line
+                                            //postData: null
+                                        },
+                                        {
+                                            title: 'Closed % Defect vs Non-Defect',
+                                            
+                                            //id: '00Og0000000UZAREA4',
+                                            //domId: '#chart-00Og0000000UZAREA4',
+                                            
+                                            id: '00O20000007gjlz',
+                                            domId: '#chart-00O20000007gjlz',
+                                            
+                                            renderChart: chartEngine.renderers.Line
+                                        },
+                                        {
+                                          title: 'Backlog by Case Category',
+                                          
+                                            //id: '00Og0000000UZAWEA4',
+                                            //domId: '#chart-00Og0000000UZAWEA4',
+                                          
+                                            id: '00O20000007gjm9',
+                                            domId: '#chart-00O20000007gjm9',
+                                          
+                                          renderChart: chartEngine.renderers.Donut
+                                          // postData: {},
+                                        },
+                                        {
+                                          title: 'Backlog by System Status',
+                                            
+                                            //id: '00Og0000000UZAbEAO',
+                                            //domId: '#chart-00Og0000000UZAbEAO',
+                                            
+                                            id: '00O200000072qM5',
+                                            domId: '#chart-00O200000072qM5',
+                                            
+                                          renderChart: chartEngine.renderers.Donut
+                                          // postData: {},
+                                        },
+                                        {
+                                          title: 'Backlog Cases - In Progress by Sub-Status',
+                                            //id: '00Og0000000UZAgEAO',
+                                            //domId: '#chart-00Og0000000UZAgEAO',
+                                          id: '00O20000007gjmJ',
+                                          domId: '#chart-00O20000007gjmJ',
+                                          renderChart: chartEngine.renderers.Donut                                           
+                                        },
+                                        {
+                                          title: '% Cases Logged via the Customer Portal',
+                                            
+                                            //id: '00Og0000000UZAlEAO',
+                                            //domId: '#chart-00Og0000000UZAlEAO',
+                                            
+                                            id: '00O20000007gjnv',
+                                            domId: '#chart-00O20000007gjnv',
+                                            
+                                          renderChart: chartEngine.renderers.Column
+                                        },
+                                          //{
+                                          //title: 'Old Case Closure Survey',
+                                          //  
+                                            //id: '00Og0000000UZAqEAO',
+                                            //domId: '#chart-00Og0000000UZAqEAO',
+                                          
+                                          //  id: '00O8E000000KKRRUA4',
+                                          //  domId: '#chart-00O8E000000KKRRUA4',
+                                            
+                                          //renderChart: chartEngine.renderers.Column
+                                          //},
+                                        {
+                                          title: 'NEW Case Closure Survey',
+                                            
+                                            //id: '00Og0000000Uda4EAC',
+                                            //domId: '#chart-00Og0000000Uda4EAC',
+                                            
+                                            id: '00O200000072nim',
+                                            domId: '#chart-00O200000072nim',
+                                            
+                                          renderChart: chartEngine.renderers.Column
+                                        }
+                                        
+                                      ]);
+                                        
+                                        $(document).on('misys:filter', function(e, args) {
+                                          dash.update(args);
+                                      });
+                                    
+                                      $('.filters select').on('change', function (evt) {
+                                        $(document).trigger('misys:filter', [{ column: evt.target.dataset.name, value: evt.target.value }]);
+                                      });
+                                    
+                                      $('button#clearFilter').on('click', function () {
+                                        $(document).trigger('misys:filter');
+                                        $('.filters select').each(function (i, el) {
+                                          $('option', el)[0].selected = true;
+                                        });
+                                        return false;
+                                          
+                                      });
+                                    });
+                                    </script>
+                                            
+                                <!--END CHARTS-->
+                            </div>
+                            
+                        </div>
+                        
+
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    
+                    <div id="tab-2" class="tab-content">
+                        
+                        <div class="overviewHeaderDescription">
+                            Select the report you want to view from the list below.
+                        </div>
+                        
+                        <apex:pageBlock >
+                        <apex:pageBlockTable value="{!reports}" var="rep">
+                               <apex:column >
+                               <apex:facet name="header">Report Name</apex:facet>
+                                  <apex:outputLink target="_self" value="/{!rep.Id}">{!rep.Name}</apex:outputLink>
+                               </apex:column>
+                               <apex:column value="{!rep.LastViewedDate}"/>
+                               <apex:column value="{!rep.Description}"/>
+                        </apex:pageBlockTable>
+                        </apex:pageBlock>
+ 
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    
+    
+    
+
+    
+    
+
+     <c:community_GoogleTracking /> 
+
+
+<!--
+<apex:page Controller="CommunityReportsController" tabstyle="Reports__tab" standardStylesheets="false" sidebar="false">
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"/>
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/d3/3.3.3/d3.min.js" />
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.min.js" />
+  <apex:includeScript value="{!$Resource.MisysChartsDashboard}"/>
+  <link href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css" rel="stylesheet" type="text/css" />
+        
+    <style>
+    
+      * {
+        box-sizing: border-box;
+      }
+    
+      .chart {
+          display: block
+          width: 100%;
+        /*padding-right: 2em;*/
+          position: relative; 
+        }
+    
+      .chart svg {
+        height: 500px!important;
+      }
+      
+      .load-icon {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+      }
+    
+      .load-icon.active {
+        display: block;
+      }
+        
+        
+    </style>  
+    
+    
+<script>
+/*
+    
+    $(document).ready(function(){
+        
+        $('ul.tabs li').click(function(){
+            var tab_id = $(this).attr('data-tab');
+    
+            $('ul.tabs li').removeClass('current');
+            $('.tab-content').removeClass('current');
+    
+            $(this).addClass('current');
+            $("#"+tab_id).addClass('current');
+        })
+    
+    })
+
+
+</script>  
+    
+<script>
+/*
+    $(function(){
+      
+        createSticky(jQuery("#filter"));
+    });
+    
+    function createSticky(sticky) {
+        
+        if (typeof sticky !== "undefined") {
+    
+            var  pos = sticky.offset().top,
+                    win = jQuery(window);
+                
+            win.on("scroll", function() {
+                win.scrollTop() >= pos ? sticky.addClass("fixed") : sticky.removeClass("fixed");      
+            });      
+        }
+    }
+
+
+</script>  
+    
+<script> 
+/*
+    $(function(){
+      
+      createStickyNav(jQuery("#nav"));
+    });
+    
+    function createStickyNav(sticky) {
+        
+        if (typeof sticky !== "undefined") {
+    
+            var  pos = sticky.offset().top,
+                    win = jQuery(window);
+                
+            win.on("scroll", function() {
+                win.scrollTop() >= pos ? sticky.addClass("fixed-nav") : sticky.removeClass("fixed-nav");      
+            });      
+        }
+    }
+</script> 
+    
+<script> 
+/*
+    $(function() {
+      $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
+</script>
+    
+        <div class="bPageTitle">
+            <div class="ptBody">
+                <div class="content">
+                    
+                    <h1 class="report-title pageType">
+                        Reports            
+                    </h1>
+                    
+                    <!--tabs-->
+<!--
+                    <ul class="tabs report-tabs">
+                        <li class="tab-link current" data-tab="tab-1">Overview</li>
+                        <li class="tab-link" data-tab="tab-2">Dashboard</li>
+                    </ul>
+                    
+          <!--tab content-->
+<!--                    
+                    <div id="tab-1" class="tab-content  current">
+
+                       
+                            
+                         <!---FILTERS--->
+<!--                                
+                            <apex:form styleClass="filters">
+                                <apex:pageblock >
+                                    <apex:actionRegion >
+                                    <table id="filter">
+                                        <tr>
+                                          <td>
+                                              <apex:OutputLabel value="System Status  " for="Status"/>
+                                                <apex:selectList id="Status" title="System Status In" value="{!systemStatus}" multiselect="false" size="1" html-data-name="Case.System_Status__c"  >
+                                                    <apex:selectOptions value="{!Status}"/>
+                                                    <apex:actionSupport event="onchange" action="{!changedPickList}" rerender="" />
+                                                </apex:selectList>
+                                            </td>
+                                            <td>
+                                              <apex:outputLabel value="Owner  "  for="Picklist2"/>
+                                                <apex:selectList id="Picklist2" title="Owner" value="{!systemOwner}" multiselect="false" size="1" html-data-name="Case.Case_Owner_User_lookup__c">
+                                                    <apex:selectOptions value="{!COwner}"/>
+                                                    <!--onchange="setPicklist2Action(this.value);"!-->
+<!--                                                    <apex:actionSupport event="onchange" action="{!changedPickList}" rerender="" />
+                                                </apex:selectList>  
+                                            </td>
+                                            <td>
+                                              <apex:outputLabel value="Record Type  "  for="picklist3"/>
+                                                <apex:selectList id="picklist3" title="RecordType" value="{!systemRecType}" multiselect="false" size="1" html-data-name="RECORDTYPE">
+                                                    <apex:selectOptions value="{!CRecType}"/>
+                                                    <apex:actionSupport event="onchange" action="{!changedPickList}" rerender="" />
+                                                </apex:selectList>
+                                            </td>
+                                            <td>
+                                              <apex:outputLabel value="Account Site  "  for="picklist4"/>
+                                                <apex:selectList id="picklist4" title="Account Site" value="{!systemSite}" multiselect="false" size="1" onchange="{!SetsystemSite}" html-data-name="ACCOUNT.SITE">
+                                                    <apex:selectOptions value="{!Site}"/>
+                                                    <apex:actionSupport event="onchange" action="{!changedPickList}" rerender="" />
+                                                </apex:selectList>  
+                                            </td>
+                                            <td>
+                                              <button id="clearFilter">Clear all</button>
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>
+                                    </apex:actionRegion>
+                                
+                                </apex:pageblock>
+                            </apex:form> 
+                            
+                            
+                        <!--END FILTERS-->
+                        
+                        
+ <!--                       <div class="grid  grid-visible">
+                            
+                            <div class="col-1-4">
+                                <div class="left-nav" id="nav">
+                                    <ul>
+                                        <li><a href="#chart-00Og0000000UZA2EAO">Incoming Cases by Case Category</a></li>
+                                        <li><a href="#chart-00Og0000000UZA7EAO">Closed Cases by Case Category</a></li>
+                                        <li><a href="#chart-00Og0000000UZACEA4">Backlog by Status and Severity</a></li>
+                                        <li><a href="#chart-00Og0000000UZAM">Outstanding % Defect vs Non-Defect</a></li>
+                                        <li><a href="#chart-00Og0000000UZAREA4">Closed % Defect vs Non-Defect</a></li>
+                                        <li><a href="#chart-00Og0000000UZAWEA4">Backlog by Case Category</a></li>
+                                        <li><a href="#chart-00Og0000000UZAbEAO">Backlog by System Status</a></li>
+                                        <li><a href="#chart-00Og0000000UZAbEAO">Backlog Cases - In Progress by Sub-Status</a></li>
+                                        <li><a href="#chart-00Og0000000UZAlEAO">% Cases Logged via the Customer Portal</a></li>
+                                        <li><a href="#chart-00Og0000000UZAqEAO">Old Case Closure Survey</a></li>
+                                        <li><a href="#chart-00Og0000000Uda4EAC">NEW Case Closure Survey</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-9-12">
+                                <!---CHARTS--->
+                                
+ <!--                               <div class="charts">
+                                      <!--Incoming Cases by Case Category-->
+<!--                                      <div class="chart" id="chart-00Og0000000UZA2EAO">
+                                          <h3 class="title"><a href="/00Og0000000UZA2EAO">Incoming Cases by Case Category</a></h3>
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!-- Closed Cases by Case Category -->
+<!--                                      <div class="chart" id="chart-00Og0000000UZA7EAO">
+                                          <h3 class="title"><a href="/00Og0000000UZA7EAO">Closed Cases by Case Category</a></h3>
+                                        <svg/>
+                                      </div>
+                                      
+                                      <!-- Backlog by Status and Severity -->
+<!--                                      <div class="chart" id="chart-00Og0000000UZACEA4">
+                                          <h3 class="title"><a href="/00Og0000000UZACEA4">Backlog by Status and Severity</a></h3>
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!-- Outstanding % Defect vs Non-Defect -->
+ <!--                                     <div class="chart" id="chart-00Og0000000UZAM">
+                                          <h3 class="title"><a href="/00Og0000000UZAM">Outstanding % Defect vs Non-Defect</a></h3>
+                                        <svg/>
+                                      </div>
+                                      
+                                      <!-- Closed % Defect vs Non-Defect -->
+ <!--                                     <div class="chart" id="chart-00Og0000000UZAREA4">
+                                          <h3 class="title"><a href="/00Og0000000UZAREA4">Closed % Defect vs Non-Defect</a></h3>
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!-- Backlog by Case Category -->
+ <!--                                     <div class="chart" id="chart-00Og0000000UZAWEA4">
+                                          <h3 class="title"><a href="/00Og0000000UZAWEA4">Backlog by Case Category</a></h3>
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!-- Backlog by System Status -->
+ <!--                                     <div class="chart" id="chart-00Og0000000UZAbEAO">
+                                          <h3 class="title"><a href="/00Og0000000UZAbEAO">Backlog by System Status</a></h3>
+                                        <svg/>
+                                      </div>
+                                      
+                                      <!--Backlog Cases - In Progress by Sub-Status-->
+<!--                                      <div class="chart" id="chart-00Og0000000UZAgEAO">
+                                        <h3 class="title"><a href="/00Og0000000UZAgEAO">Backlog Cases - In Progress by Sub-Status</a></h3>
+                                        <svg/>
+                                      </div>
+                                        
+                                      <!--% Cases Logged via the Customer Portal-->
+ <!--                                     <div class="chart" id="chart-00Og0000000UZAlEAO">
+                                        <h3 class="title"><a href="/00Og0000000UZAlEAO">% Cases Logged via the Customer Portal</a></h3>
+                                        <svg/>
+                                      </div>
+                                      
+                                      <div class="chart" id="chart-00Og0000000UZAqEAO">
+                                        <h3 class="title"><a href="/00Og0000000UZAqEAO">Old Case Closure Survey</a></h3>
+                                        <svg/>
+                                      </div>
+                                        
+                                      <div class="chart" id="chart-00Og0000000Uda4EAC">
+                                        <h3 class="title"><a href="/00Og0000000Uda4EAC">NEW Case Closure Survey</a></h3>
+                                        <svg/>
+                                      </div> 
+                                        
+                                        
+                                    
+                                </div>
+                                    
+                                       
+                                    <script>
+/*                                   
+                                    $(document).ready(function () {
+                                        //var Misys = Misys || {};
+                                      Misys.debug = true;
+                                      Misys.authKey = '{!$Api.Session_ID}';
+                                      Misys.endPoint = '/SupportCommunity/services/data/v37.0/analytics/reports/%i';
+                                      var chartEngine = new Misys.ChartEngines.NVD3();
+                                      var dash = new Misys.Dashboard([
+                                        {
+                                            title: 'Incoming Cases by Case Category',
+                                            id: '00Og0000000UZA2EAO',
+                                            domId: '#chart-00Og0000000UZA2EAO',
+                                            renderChart: chartEngine.renderers.Column,
+                                            postData: {
+                                                "reportMetadata":{
+                                                    "groupingsAcross":[{"dateGranularity":"Month","name":"CREATED_DATEONLY","sortAggregate":null,"sortOrder":"Asc"}],
+                                                    "groupingsDown":[{"dateGranularity":"None","name":"Case.Case_Category__c","sortAggregate":null,"sortOrder":"Asc"}],
+                                                    "reportFilters":[{"column":"ACCOUNT.TYPE","isRunPageEditable":false,"operator":"equals","value":"Customer,Support Location Only"},{"column":"RECORDTYPE","isRunPageEditable":false,"operator":"equals","value":"Almonde,Bankmaster / Bankfusion UB,Equation,Financial Messaging,Fontis,Global Cash Pooling,Loan IQ,Midas,Misys Portal Suite,Misys Sophis,Opics,Other,Private Banking Solution,Risk,Summit,Third Party Products,Trade Innovation,FusionBanking (Lending),Digital Channels,Kondor"},{"column":"Case.Reporting_Product__c","isRunPageEditable":false,"operator":"notEqual","value":"X"},{"column":"CREATED_DATEONLY","isRunPageEditable":false,"operator":"greaterOrEqual","value":"N_MONTHS_AGO:12"},{"column":"ACCOUNT.SITE","isRunPageEditable":false,"operator":"notEqual","value":""},{"column":"Case.System_Status__c","isRunPageEditable":false,"operator":"notEqual","value":""},{"column":"Case.Case_Owner_User_lookup__c","isRunPageEditable":true,"operator":"equals","value":""}]}
+                                            }
+                                        },
+                                        {
+                                            title: 'Closed Cases by Case Category',
+                                            id: '00Og0000000UZA7EAO',
+                                            domId: '#chart-00Og0000000UZA7EAO',
+                                            renderChart: chartEngine.renderers.Column
+                                        },
+                                        {
+                                          title: 'Backlog by Status and Severity',
+                                          id: '00Og0000000UZACEA4',
+                                          domId: '#chart-00Og0000000UZACEA4',
+                                          renderChart: chartEngine.renderers.Column,
+                                          postData: {
+                                            "reportMetadata": {
+                                              "groupingsAcross": [{
+                                                "dateGranularity": "None",
+                                                "name": "STATUS",
+                                                "sortOrder": "Asc"
+                                              },{
+                                                "dateGranularity": "None",
+                                                "name": "RECORDTYPE",
+                                                "sortOrder": "Asc"
+                                              }],
+                                              "groupingsDown": [{
+                                                "dateGranularity": "None",
+                                                "name": "Case.Severity__c",
+                                                "sortOrder": "Asc"
+                                              }],
+                                              "reportFilters":[{"column":"ACCOUNT.TYPE","isRunPageEditable":false,"operator":"equals","value":"Customer,Support Location Only"},{"column":"RECORDTYPE","isRunPageEditable":false,"operator":"equals","value":"Almonde,Bankmaster / Bankfusion UB,Equation,Financial Messaging,Fontis,Global Cash Pooling,Loan IQ,Midas,Misys Portal Suite,Misys Sophis,Opics,Other,Private Banking Solution,Risk,Summit,Third Party Products,Trade Innovation,Digital Channels,FusionBanking (Lending),Kondor"},{"column":"OPEN","isRunPageEditable":false,"operator":"equals","value":"True"},{"column":"Case.Reporting_Product__c","isRunPageEditable":false,"operator":"notEqual","value":"X"},{"column":"OWNER","isRunPageEditable":true,"operator":"notEqual","value":""},{"column":"Case.System_Status__c","isRunPageEditable":true,"operator":"notEqual","value":""},{"column":"ACCOUNT.SITE","isRunPageEditable":true,"operator":"notEqual","value":""}]}
+                                            }
+                                        },
+                                        {
+                                          title: 'Outstanding % Defect vs Non-Defect',
+                                          id: '00Og0000000UZAM',
+                                          domId: '#chart-00Og0000000UZAM',
+                                          renderChart: chartEngine.renderers.Line
+                                            //postData: null
+                                        },
+                                        {
+                                            title: 'Closed % Defect vs Non-Defect',
+                                            id: '00Og0000000UZAREA4',
+                                            domId: '#chart-00Og0000000UZAREA4',
+                                            renderChart: chartEngine.renderers.Line
+                                        },
+                                        {
+                                          title: 'Backlog by Case Category',
+                                          id: '00Og0000000UZAWEA4',
+                                          domId: '#chart-00Og0000000UZAWEA4',
+                                          renderChart: chartEngine.renderers.Donut
+                                          // postData: {},
+                                        },
+                                        {
+                                          title: 'Backlog by System Status',
+                                          id: '00Og0000000UZAbEAO',
+                                          domId: '#chart-00Og0000000UZAbEAO',
+                                          renderChart: chartEngine.renderers.Donut
+                                          // postData: {},
+                                        },
+                                        {
+                                          title: 'Backlog Cases - In Progress by Sub-Status',
+                                          id: '00Og0000000UZAgEAO',
+                                          domId: '#chart-00Og0000000UZAgEAO',
+                                          renderChart: chartEngine.renderers.Donut
+                                        },
+                                        {
+                                          title: '% Cases Logged via the Customer Portal',
+                                          id: '00Og0000000UZAlEAO',
+                                          domId: '#chart-00Og0000000UZAlEAO',
+                                          renderChart: chartEngine.renderers.Column
+                                        },
+                                        {
+                                          title: 'Old Case Closure Survey',
+                                          id: '00Og0000000UZAqEAO',
+                                          domId: '#chart-00Og0000000UZAqEAO',
+                                          renderChart: chartEngine.renderers.Column
+                                        },
+                                        {
+                                          title: 'NEW Case Closure Survey',
+                                          id: '00Og0000000Uda4EAC',
+                                          domId: '#chart-00Og0000000Uda4EAC',
+                                          renderChart: chartEngine.renderers.Column
+                                        }
+                                        
+                                      ]);
+                                    
+                                      $(document).on('misys:filter', function(e, args) {
+                                          dash.update(args);
+                                      });
+                                    
+                                      $('.filters select').on('change', function (evt) {
+                                        $(document).trigger('misys:filter', [{ column: evt.target.dataset.name, value: evt.target.value }]);
+                                      });
+                                    
+                                      $('button#clearFilter').on('click', function () {
+                                        $(document).trigger('misys:filter');
+                                        $('.filters select').each(function (i, el) {
+                                          $('option', el)[0].selected = true;
+                                        });
+                                      });
+                                        
+                                        
+                                    
+                                    });
+                                    </script>
+                                            
+                                <!--END CHARTS-->
+<!--                            </div>
+                            
+                        </div>
+                        
+
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    
+                    <div id="tab-2" class="tab-content">
+                        
+                        <div class="overviewHeaderDescription">
+                            Select the report you want to view from the list below.
+                        </div>
+                        
+                        <apex:pageBlock >
+                        <apex:pageBlockTable value="{!reports}" var="rep">
+                               <apex:column >
+                               <apex:facet name="header">Report Name</apex:facet>
+                                  <apex:outputLink target="_self" value="/{!rep.Id}">{!rep.Name}</apex:outputLink>
+                               </apex:column>
+                               <apex:column value="{!rep.LastViewedDate}"/>
+                               <apex:column value="{!rep.Description}"/>
+                        </apex:pageBlockTable>
+                        </apex:pageBlock>
+ 
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    
+    
+    
+
+    -->
+    
+
+     <c:community_GoogleTracking /> 
+</apex:page>

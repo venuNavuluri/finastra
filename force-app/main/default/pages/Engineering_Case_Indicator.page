@@ -1,0 +1,12 @@
+<apex:page standardController="Case">
+<font color="#CC3300"><strong>This is an Engineering Case!</strong></font>
+
+<br/>
+<font color="#CC3300"><strong>Please remember to click the Create/Update JIRA button to create an issue in JIRA.</strong></font>
+<br/>
+<font color="#CC3300"><strong>To communicate with development please add case comment & save. Then Click Create/Update JIRA button to send case comment to JIRA.</strong></font>
+<br/>
+<font color="#CC3300"><strong>Remember to use the Click Create/Update JIRA button to update Jira when amending the Engineering Case.</strong></font>
+<br/>
+<font color="#CC3300"><strong>Use the Link to JIRA button to attach an existing Jira issue to an Engineering Case.</strong></font>
+</apex:page>

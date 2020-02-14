@@ -1,0 +1,30 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+
+
+
+<table align="center" border="0" cellpadding="1" cellspacing="1" style="width: 80%;">
+            <tbody>
+                <tr>
+                    <td>
+                       <img src="/resource/1370942492000/Misys_Logo" width="188" height="74" alt="Misys" /></td>
+                </tr>
+                <tr>
+                    <td><p>
+            In April 2014, a vulnerability affecting specific versions of the OpenSSL cryptographic library was announced through a public security advisory and is referred to by its CVE number: CVE-2014-0160. For more information about this vulnerability, please link to <a href="http://heartbleed.com/">http://heartbleed.com/</a> (please note that this site is not affiliated with Misys).</p>
+        <p>
+            Your current Misys Risk solution, running on your Production system, is utilising a reported vulnerable version of the OpenSSL library. The Misys Global Security and Product development teams have investigated our products using OpenSSL cryptographic libraries and provided a security patch with instructions for products utilizing affected OpenSSL versions. &nbsp;Please contact your customer advocate or professional services project manager to coordinate the delivery of your security patch. We strongly advise that you install the update at your earliest convenience.</p>
+        <p>
+            In addition to applying the update for the Misys product(s), we strongly recommend that you review with your internal IT and security teams whether OpenSSL is used elsewhere within your business and take the necessary corrective actions to upgrade to the latest version of OpenSSL where appropriate.&nbsp;</p>
+        <p>
+            If you would like further information on this issue in relation to your Misys system, please contact the Misys Global Security Team at <a href="mailto:MGST@misys.com">MGST@misys.com</a>.</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        
+ <!-- End Default Content REMOVE THIS -->
+</apex:page>

@@ -1,0 +1,32 @@
+<apex:page standardController="NS_Subscriptions__c" extensions="BulkCreateCOs" recordSetVar="changeOrder">
+    <apex:form >
+        <apex:sectionHeader title="Bulk CO activity"/>
+        <apex:pageBlock mode="maindetail">
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="Goto List View" action="{!redirectListView}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection collapsible="true" title="Selected Subscription detail(s)" columns="1">
+                You have Selected <b>{!subcriptions.size}</b> NS Subscripitons<br /><br />
+             <!--  {!sub_contract_asset_count}-->
+                <apex:pageBlockTable value="{!subcriptions}" var="sub">
+                     <apex:column value="{!sub.SFDC_Billing_Group__c }"/>
+                    <apex:column headerValue="NS Subcription Name" style="{!IF(sub_contract_asset_count[sub.Id] == 0, 'color: red; font-weight: bold;', '')}">
+                        <a href="/{!sub.Id}">{!sub.Name}</a>
+                    </apex:column> 
+                    <apex:column value="{!sub.NS_Uplift_Start_Date__c }"/>
+                    <apex:column value="{!sub.Uplift_Year__c}"/>
+                    <apex:column headerValue="Contract Asset Count" value="{!sub_contract_asset_count[sub.Id]}"/>
+                     
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Please confirm to Create Change Order" columns="1" collapsible="false">
+                
+                <apex:outputText value="{!outputMsg}" style="font-weight: bold; font-size: 14px; color: midnightblue;" />
+               
+                <center>
+                    <apex:commandButton action="{!createChangeOrder}" value="Create Bulk CO"/>  
+                </center>
+            </apex:pageBlockSection>
+        </apex:pageBlock>        
+    </apex:form>
+</apex:page>

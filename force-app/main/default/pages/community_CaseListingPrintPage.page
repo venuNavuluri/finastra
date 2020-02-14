@@ -1,0 +1,185 @@
+<apex:page showHeader="false" sidebar="false" controller="community_CaseListingController">
+<apex:stylesheet value="{!URLFOR($Resource.community_jQueryDataTables, 'css/jquery.dataTables.css')}"/>
+    
+    <style type="text/css">
+        .sorting {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_both.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_asc {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_asc.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_desc {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_desc.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_asc_disabled {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_asc_disabled.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_desc_disabled {
+            background: #f2f3f3 url('{! URLFOR($Resource.community_jQueryDataTables, 'images/sort_desc_disabled.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        table.dataTable tr.odd { background-color: white; }
+        table.dataTable tr.even { background-color: white; }
+        table.dataTable tr.odd td.sorting_1 { background-color: white; }
+        table.dataTable tr.odd td.sorting_2 { background-color: white; }
+        table.dataTable tr.odd td.sorting_3 { background-color: white; }
+        table.dataTable tr.even td.sorting_1 { background-color: white; }
+        table.dataTable tr.even td.sorting_2 { background-color: white; }
+        table.dataTable tr.even td.sorting_3 { background-color: white; }
+        .dataTables_info, .dataTables_paginate {
+            padding: 3px;
+        }
+        .dataTables_length, .dataTables_filter {
+            display:none;
+        }
+
+        select {width:250px; margin-left:20px;margin-top:20px;margin-bottom:20px;}
+        
+        .search-wrap {
+            float:left;
+            display:inline-block;
+            margin-bottom:20px;
+           margin-top: 20px;
+            }
+            
+        .actions {
+            float:right;
+            margin-right:20px;
+            }
+            
+         .actions ul {
+             list-style-type:none;
+             margin-left:0;
+             padding-left:0;
+             margin-top: 20px;
+         }
+         .actions ul li {
+             display:inline-block;
+         }
+        .print a {
+            background-image: url(/SupportCommunity/resource/1447340980000/printIcon);
+            background-repeat: no-repeat;
+            padding-left: 32px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-position: 0;
+        }        
+        .print a:hover {
+            background-image: url(/SupportCommunity/resource/1537436463000/printIconHover);
+        }
+        .close a {
+            background-image: url(/SupportCommunity/resource/1447349871000/closeIcon);
+            background-repeat: no-repeat;
+            padding-left: 32px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-position: 0;
+        }
+        .close a:hover {
+            background-image: url(/SupportCommunity/resource/1537436503000/closeIconHover);
+        }
+        .close a, .print a, .close a:hover, .print a:hover {
+            text-decoration:none;
+        }
+        .close a:hover, .print a:hover {
+            color:#694ed6;
+        }
+        body .secondaryPalette.bPageBlock {
+            border-radius:0;
+            border-top:1px solid #222;
+        }
+        
+
+        
+        
+    </style>
+
+    <script type="text/javascript" >
+
+
+
+$(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#caseTable tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
+ 
+    // DataTable
+    var table = $('#caseTable').DataTable();
+ 
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+ 
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+    </script>
+    
+    
+<div class="actions">
+    <ul>
+        <li class="print"><a href="javascript:window.print%28%29%3B">Print This Page</a></li>
+        <li class="close"><apex:outputLink value="javascript:window.close%28%29%3B">Close Window</apex:outputLink></li>
+    </ul>
+</div>
+
+<apex:form >
+    <apex:selectList size="1" value="{!selectedCaseOption}">
+        <apex:selectOption itemLabel="Community Portal - My Open Cases" itemValue="MyOpen" ></apex:selectOption>
+        <apex:selectOption itemLabel="Community Portal - All Open Cases" itemValue="AllOpen"></apex:selectOption> 
+        <apex:selectOption itemLabel="Community Portal - My Closed Cases" itemValue="MyClosed" ></apex:selectOption>
+        <apex:selectOption itemLabel="Community Portal - All Closed Cases" itemValue="AllClosed"></apex:selectOption>     
+</apex:selectList>&nbsp; <apex:commandButton value="GO" action="{!Filter}"></apex:commandButton>
+
+
+    <apex:pageBlock title="Your Cases">
+
+        <apex:outputPanel id="listView">
+            <apex:outputPanel layout="block" >
+                <apex:pageBlockTable value="{!Cases}" var="case" styleClass="dataTable" id="caseTable">
+                    <apex:column headerValue="Case Number" value="{!case.CaseNumber}"></apex:column>                            
+                    <apex:column headerValue="Your Account Name" value="{!case.Account_Name__c}"></apex:column>
+                    <apex:column headerValue="Your Account Site" value="{!case.Your_Account_Site__c}" />
+                    <apex:column headerValue="Your Contact Name" value="{!case.Your_Contact_Name__c}" />
+                    <apex:column headerValue="Your Reference" value="{!case.Client_Reference__c}" />
+                    <apex:column headerValue="Case Product" value="{!case.RecordTypeName__c}" />
+                    <apex:column headerValue="Subject" value="{!case.subject}"></apex:column>
+                    <apex:column headerValue="Severity" value="{!case.Severity__c}" />
+                    <apex:column headerValue="Status" value="{!case.Status}" />
+                    
+                    <apex:column headerValue="Sub-Status" value="{!case.Sub_Status__c}" />
+                    <apex:column headerValue="System Status" value="{!case.System_Status__c}" />
+                    <apex:column headerValue="Date/Time Opened" >
+                      <c:FormatLocalDatetime date_Timevalue="{!case.createdDate}"/>                   
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:pageBlock>
+
+    <script type="text/javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'js/jquery.js')}"/>
+    <script type="text/javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'js/jquery.dataTables.js')}"/>
+    <script type="text/javascript">
+        
+        j$ = jQuery.noConflict();
+        j$('table.dataTable').dataTable({
+            sPaginationType: "full_numbers",
+            "iDisplayLength" : 20,    
+        });
+
+    </script>
+</apex:form>
+</apex:page>

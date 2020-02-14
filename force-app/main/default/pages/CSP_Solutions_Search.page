@@ -1,0 +1,722 @@
+<apex:page id="solutions_search" showHeader="false" sidebar="false" standardStylesheets="false" controller="CSP_Solutions_Search_Controller">
+
+<c:KnowledgeSearchScript ></c:KnowledgeSearchScript>
+
+<style>
+
+    body,
+    iframe,
+    .outer td.oRight 
+     { 
+        background-color:#fff !important;
+    }
+    
+      .home-search{
+        padding: 0 1.5em;
+        font-size: .85em;
+      }
+    body { 
+        margin:0 !important;
+        font-family:'Avenir LT W01 55 Roman';
+        font-weight: normal;
+      }
+
+      
+      h2, h3 {
+        font-family:'Avenir LT W01 35 Light';
+        font-weight:normal;
+      }
+      h2 {
+        font-size:2.25em;
+        margin-bottom:0;
+      }
+      h3 {
+          color:#02a3ca;
+          
+      }
+      .filter {
+      margin-bottom: .25em;
+            margin-top: 0;
+      }
+
+      
+
+      strong { 
+          font-weight:normal
+      }
+      a {
+      color: #02a3ca;
+        text-decoration:underline;
+      }
+      a:hover {
+         color: #1d3c79;
+        }
+        
+        input[type="submit"] {
+        background-image: none;
+        cursor: pointer;
+        font-size: 1em;
+        padding: .5em .75em;
+        margin-top:10px;
+       }
+       
+       input[type="submit"]:hover {
+           background-color: #02a3ca;
+       }
+       
+       .big-search {
+        width: 64%;
+        padding: .5em 1em;
+        margin-top: 0em;
+        margin-bottom: 1em;
+       }
+       
+
+      .infowrap {
+          display:block;
+          float:left;
+          width:95%;
+          padding:2em;
+        margin-bottom:0;
+        padding-bottom:0;
+      }
+
+      
+      .info-left, 
+      .info-right {
+          background: #f18881;
+background: -moz-linear-gradient(-45deg, #f18881 0%, #f59289 9%, #f18881 15%, #f58d6e 39%, #f5887d 50%, #f5887d 75%, #f7a296 100%);
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#f18881), color-stop(9%,#f59289), color-stop(15%,#f18881), color-stop(39%,#f58d6e), color-stop(50%,#f5887d), color-stop(75%,#f5887d), color-stop(100%,#f7a296));
+background: -webkit-linear-gradient(-45deg, #f18881 0%,#f59289 9%,#f18881 15%,#f58d6e 39%,#f5887d 50%,#f5887d 75%,#f7a296 100%);
+background: -o-linear-gradient(-45deg, #f18881 0%,#f59289 9%,#f18881 15%,#f58d6e 39%,#f5887d 50%,#f5887d 75%,#f7a296 100%);
+background: -ms-linear-gradient(-45deg, #f18881 0%,#f59289 9%,#f18881 15%,#f58d6e 39%,#f5887d 50%,#f5887d 75%,#f7a296 100%);
+background: linear-gradient(135deg, #f18881 0%,#f59289 9%,#f18881 15%,#f58d6e 39%,#f5887d 50%,#f5887d 75%,#f7a296 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f18881', endColorstr='#f7a296',GradientType=1 );
+          padding:1% 3%;
+          min-height:400px;
+      }
+    
+    .infowrap h3, 
+    .infowrap p,
+    .infowrap a {
+        color:#fff;
+    }
+    .infowrap h3 {
+        font-family: 'Avenir LT W01 85 Heavy';
+        font-size:1.45em;
+    }
+    .infowrap a {
+        font-family: 'Avenir LT W01 85 Heavy';
+    }
+    .infowrap a:hover {
+        color:#2a3a39;
+    }   
+      .infowrap p {
+        font-size:1em;
+        line-height:1.25em;
+        
+      }
+      
+      .infowrap a {
+          text-decoration:none;
+          background: url(/resource/infoArrowWhite) right no-repeat;
+          padding-right: 20px;
+      }
+      
+      .infowrap a:hover {
+          text-decoration:none;
+          background: url(/resource/infoArrowBlack) right no-repeat;
+      }
+      
+      .info-left {          
+          display:block;
+          width:48%;
+          float:left;
+          margin-right:1em;
+      }
+      
+      .info-right {
+          display:block;
+          float:right;
+          width:48%;
+      }
+      
+
+      
+      .banner {
+          display:block;
+          float:left;
+          width:100%;
+          margin:0;
+      }
+      
+    .banner img { 
+        min-width:100%;
+        max-width:1240px;
+    }
+
+
+    
+    .indicates { font-weight:bold; color:#02a3ca; display:inline-block}
+    
+    select {font-size: .85em; padding: .5em 0em;}
+    
+    
+    
+    
+ /* Base styles for this pen */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  box-sizing:         border-box;
+}
+
+
+  form fieldset {
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 60px;
+    font-size: 14px;
+    border: 0;
+    border-bottom: 1px solid #eee;
+  }
+  .big-search {
+    width: 64%;
+    padding: .5em 1em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+  }
+
+  .knowledge-search a, input[type="submit"] {
+    -o-transition:; .25s ease-out;
+    -ms-transition:; .25s ease-out;
+    -moz-transition:; .25s ease-out;
+    -webkit-transition:; .25s ease-out;
+    transition: .25s ease-out;
+  }
+
+
+  input[type="submit"] {
+    color: #f18881;
+    font-size: 1.45em;
+    font-family:'Avenir LT W01 85 Heavy';
+    background: #fff;
+    border: dotted 2px #f18881;
+    padding:.5em 1.5em;
+    cursor: pointer;    
+
+  }
+  input[type="submit"]:hover {
+    color: #444;
+    border: dotted 2px #444;   
+    background-color:#fff;
+  }
+  .knowledge-search a, .knowledge-search h3 {
+    display: inline-block;
+    padding: 10px 10px 10px 60px;
+    color: #444;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-family:'Avenir LT W01 85 Heavy';
+    font-weight: normal;
+  }
+  .arrowdwn, .knowledge-search h3, .step4 {
+    background-image: url('/resource/IconSprite') ;
+    background-repeat: no-repeat;
+  }
+  .arrowdwn {
+    background-position: 0 -480px ;
+    position: relative;
+  }  
+  .arrowdwn:hover {
+    color: #f18881;
+  }
+  .arrowdwn:after {
+    position: absolute;
+    content: "";
+    top:0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    padding: 10px 10px 10px 60px;
+    color: #444;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-family:'Avenir LT W01 85 Heavy';
+    font-weight: normal;
+    background: url('/resource/IconSprite') 0 0 no-repeat;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -o-transition:      opacity 1s;
+  }
+    
+
+  .knowledge-search {
+    margin-left:10px;
+  }    
+  .knowledge-search h3.step1,
+  .knowledge-search h3.step2,
+  .knowledge-search h3.step3,
+  .knowledge-search h3.step4 {
+      margin-bottom:0;
+  }
+  .knowledge-search .step1:after {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  .knowledge-search h3.step1 {
+    background-position: 10px 0;
+  }
+  .knowledge-search h3.step2 {
+    background-position: 10px -115px;
+  }
+
+  .knowledge-search h3.step3 {
+    background-position: 10px -235px;
+  }
+
+  .knowledge-search h3.step4, .knowledge-search .step4 {
+    background-position: 10px -354px;
+  }
+
+  .knowledge-search h4 {
+    font-size: 1.2em;
+    font-family: 'Avenir LT W01 35 Light';
+    font-weight: normal;
+    padding: 0;
+    margin:0;
+  }
+
+/*=====================================================================
+  Close button
+======================================================================*/
+
+  .close {
+    float: right;
+    position: relative;
+    color: #bbb;
+    background: url('/resource/IconSprite') no-repeat 20px -575px;
+  }
+
+  .close:after {    
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    padding: 40px;
+    background: url('/resource/IconSprite') no-repeat 20px -674px;    
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -o-transition:      opacity 1s;
+  }
+
+   .close:hover:after {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+
+  .close:hover {
+    color: #2ab5b2;
+  }
+
+
+
+
+/*=====================================================================
+  Sticky nav/icons
+======================================================================*/
+
+ul.nav {
+  float: right; 
+  position: fixed; 
+  z-index: 100;
+  right: 40px; 
+  width: 47px;
+  z-index: 1000;
+}
+ul.nav li a {
+  display: block; 
+  position: relative;
+  z-index: 1000;
+  text-decoration: none; 
+  color: #333; 
+  padding: 0; 
+  height: 42px;
+  width: 47px;
+  background-color: #2eb6b3;
+  border-top: 1px solid #6dd1ce;
+  border-bottom: 1px solid #2aa7a3;
+}
+ul.nav > li:hover {
+  background: #2ea2a0; 
+
+}
+ul.nav li a:hover {
+  background: #2ea2a0; 
+}
+ul.nav > li {
+  display: block; 
+  position: relative; 
+}
+ul.nav > li ul {
+  z-index: 10;
+  position: absolute; 
+  z-index: 0;
+  top:0; 
+  right: -100px;
+  background-color: #2ea2a0;  
+  border-top: 1px solid #6dd1ce;
+  border-bottom: 1px solid #2aa7a3;
+  text-align: left;
+  width: 250px;
+  height: 32px;
+  padding: 5px 5px 5px 10px;   
+  opacity: 0;
+  filter: alpha(opacity=0);
+  color: #fff;
+  font-size: .85em;
+}
+ul.nav > li:hover ul {
+  display: block;
+  right: 47px; 
+  opacity: 1;
+  filter: alpha(opacity=1);
+  -webkit-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+ul.nav > li ul li {
+  display: inline-block;
+}
+
+ul.nav > li:hover > a {
+  background-color: #2ea2a0; 
+}
+
+ul.nav img {
+  border: 0;
+}
+
+/*=====================================================================
+  tooltip icon - 'select article type'
+======================================================================*/
+a.tooltip[data-tooltip]:link, a.tooltip[data-tooltip]:visited {
+position: relative;
+text-decoration: none;
+border-bottom: solid 1px;
+}
+
+.tooltipicon a {
+background-color: #fff;
+color: #3e3e3e;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+border: 1px solid #3e3e3e;
+width: 25px;
+height: 25px;
+display: inline-block;
+text-align: center;
+padding: 2px 5px;
+}
+.tooltipicon a:hover {
+  color: #f18881;
+  border-color: #f18881;
+}
+
+a.tooltip[data-tooltip]:before {
+content: "";
+position: absolute;
+border-top: 20px solid #02a3ca;
+border-left: 30px solid transparent;
+border-right: 30px solid transparent;
+visibility: hidden;
+bottom: 30px;
+left: -10px;
+}
+
+a.tooltip[data-tooltip]:after {
+content: attr(data-tooltip);
+position: absolute;
+color: white;
+bottom: 35px;
+left: -25px;
+width: 300px;
+font-size: 12px;
+text-align: left;
+background: #02a3ca;
+padding: 5px 15px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+visibility: hidden;
+}
+
+
+/*=====================================================================
+  Selectric
+======================================================================*/
+
+.selectricWrapper {
+  position: relative;
+  margin: 0 0 10px;
+  width: 300px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.selectricResponsive {
+  width: 100%;
+}
+
+.selectric {
+  border: 1px solid #8a8a8a;
+  background: #fff;
+  position: relative;
+  border-radius: 2px;
+}
+
+.selectric .label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 30px 0 0;
+  padding: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #444;
+  min-height: 18px;
+}
+
+.selectric .button {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  color: #BBB;
+  text-align: center;
+  font: 0/0 a;
+  *font: 20px/30px Lucida Sans Unicode,Arial Unicode MS,Arial;
+}
+
+.selectric .button:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top-color: #BBB;
+  border-bottom: none;
+  background: url('/resource/IconSprite');
+}
+
+.selectricHover .selectric {
+  border-color: #CCC;
+}
+
+.selectricHover .selectric .button {
+  color: #888;
+}
+
+.selectricHover .selectric .button:after {
+  border-top-color: #888;
+}
+
+.selectricOpen {
+  z-index: 9999;
+}
+
+.selectricOpen .selectric {
+  border-color: #CCC;
+  background: #F0F0F0;
+  z-index: 9999;
+}
+
+.selectricOpen .selectricItems {
+  display: block;
+}
+
+.selectricDisabled {
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  cursor: default;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.selectricHideSelect {
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+}
+
+.selectricHideSelect select {
+  position: absolute;
+  left: -100%;
+  display: none;
+}
+
+.selectricInput {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  outline: none !important;
+  border: none !important;
+  *font: 0/0 a !important;
+  background: none !important;
+}
+
+.selectricTempShow {
+  position: absolute !important;
+  visibility: hidden !important;
+  display: block !important;
+}
+
+.selectricItems {
+  display: none;
+  position: absolute;
+  overflow: auto;
+  top: 100%;
+  left: 0;
+  background: #F9F9F9;
+  border: 1px solid #CCC;
+  z-index: 9998;
+  box-shadow: 0 0 10px -6px;
+}
+
+.selectricItems ul,.selectricItems li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  min-height: 20px;
+}
+
+.selectricItems li {
+  display: block;
+  padding: 5px;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #EEE;
+  color: #666;
+  cursor: pointer;
+}
+
+.selectricItems li.selected {
+  background: #EFEFEF;
+  color: #444;
+  border-top-color: #E0E0E0;
+}
+
+.selectricItems li:hover {
+  background: #f18881;
+  color: #fff;
+}
+
+.selectricItems li.disabled {
+  background: #F5F5F5;
+  color: #BBB;
+  border-top-color: #FAFAFA;
+  cursor: default;
+}
+
+.mandField {
+    color:#f18881;
+    padding:10px  60px;
+    display:block;
+}
+
+
+.banner a img {
+    background-color:#fff !important;
+    border:0 !important;
+    color:#fff;
+}
+    
+  </style>
+
+
+<apex:form id="searchform" onsubmit="javascript:executeSearch();">
+
+
+
+
+
+
+<div class="knowledge-search">
+
+
+<!--BEGIN SEARCH-->
+<h3 class="step1">Search the Knowledge Base</h3>
+<form>
+  <div class="step">
+    <fieldset>
+        <input class="big-search" id="search" placeholder="Specify Search Criteria" type="text" />
+    </fieldset>
+  </div>
+  <div class="step">
+    <h3 class="step2">Fine tune your search...</h3>
+    <c:KnowledgeSearchProductFilters ></c:KnowledgeSearchProductFilters>
+  </div>
+  <div class="step">
+    <h3 class="step3">What kind of info are you looking for?</h3>  
+    <fieldset id="articleGroup">
+      <table style="display:block">
+                <tbody>
+                <tr>
+                <td colspan="2"><h4 class="filter">Select Article Type *</h4></td>
+                    
+                </tr>
+                <tr>                    
+                    <td align="left" style="padding-right:20px"><input checked="true" id="chkbxTrouble" name="chkbxDown" type="checkbox" value="Troubleshooting__kav" /> Troubleshooting</td>
+                    <td style="padding-right:20px"><span class="tooltipicon"><a class="hint--right  hint--bounce" data-hint="find answers to Customers frequently asked questions" href="#">?</a></span></td>
+                    <td align="left" style="padding-right:20px"><input id="chkbxDoc" name="chkbxDoc" type="checkbox" value="Documentation__kav" /> Documentation</td>
+                    <td><span class="tooltipicon"><a class="hint--right  hint--bounce" data-hint="find answers in our reference manuals" href="#">?</a></span></td>
+                </tr>
+            </tbody></table>
+    </fieldset>
+  </div>
+ <div class="step"><span class="mandField">* indicates mandatory field...</span></div>
+  <div class="step">
+    <fieldset class="form-actions step4">
+      <input type="submit" value="Search" />
+    </fieldset>
+  </div>
+</form>
+<!--END SEARCH-->
+
+
+
+
+
+
+</div>
+
+</apex:form>
+
+<c:CSPHomepage ></c:CSPHomepage>
+    
+</apex:page>

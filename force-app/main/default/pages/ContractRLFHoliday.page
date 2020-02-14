@@ -1,0 +1,18 @@
+<apex:page controller="ContractRLFHolidayController" standardStylesheets="false" >
+
+    
+    <apex:slds />
+    <apex:includeLightning /> 
+        <div id="lightning"/>
+    
+    <script>
+    $Lightning.use("c:RLFHolidayLightningApp", function () {
+    $Lightning.createComponent("c:RLFHolidayLightning", 
+                                {contractId :'{!$CurrentPage.parameters.id}',
+                                contractNum: '{!$CurrentPage.parameters.contractNum}'},
+                                "lightning");
+        
+    });
+    </script>
+
+</apex:page>

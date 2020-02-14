@@ -1,0 +1,66 @@
+<apex:page controller="EscalateCaseCtrl" tabStyle="Case">
+    <apex:pagemessages id="errMsg"/>
+    <apex:sectionHeader title="Case Escalation" subtitle="New Engineering Case" rendered="{!cm.TheCase.EscalateTo__c == 'Engineering'}"/>
+    <apex:sectionHeader title="Case Escalation" subtitle="New MSDC request" rendered="{!cm.TheCase.EscalateTo__c == 'MSDC'}"/>
+    <apex:sectionHeader title="Case Escalation" subtitle="New Product Management request" rendered="{!cm.TheCase.EscalateTo__c == 'Product Management'}"/>
+    <apex:form >
+        <apex:commandLink action="{!BackToCase}" value="Back to case {!cm.TheCase.CaseNumber}" rendered="{!!cm.isEscalateable}" />
+        <apex:pageBlock id="pbEngineering" rendered="{!cm.isEscalateable}">
+            <apex:pageblockSection columns="2" title="Case Information">
+                <apex:outputField value="{!cm.TheCase.CaseNumber}"/>
+                <apex:outputField value="{!cm.TheCase.Support_Entitlement__c}"/>
+                <apex:outputField value="{!cm.TheCase.Type}"/>
+                <apex:outputField value="{!cm.TheCase.Product_Set__c}" />
+                <apex:outputField value="{!cm.TheCase.Status}"/>
+                <apex:outputField value="{!cm.TheCase.System__c}"/>
+                <apex:outputField value="{!cm.TheCase.Priority}"/>
+                <apex:outputField value="{!cm.TheCase.Client_Asset__c}"/>
+                <apex:pageblockSectionItem />
+                <apex:outputField value="{!cm.TheCase.Product_Set_Version__c}"/>
+                <apex:pageblockSectionItem />
+                <apex:outputField value="{!cm.TheCase.Product_Set_Module__c}"/>
+                <apex:pageblockSectionItem />
+                <apex:outputField value="{!cm.TheCase.Product_Set_Module_Version__c}"/>
+                <apex:pageblockSectionItem />
+            </apex:pageblockSection>
+            
+            <apex:pageBlockSection columns="1" title="Escalated Case Information" collapsible="false">
+                <apex:outputField value="{!cm.TheCase.Subject}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Additional Notes" />
+                    <apex:inputTextArea value="{!AdditionalEscalatedCaseNotes}" style="width:85%" />
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!cm.TheCase.Description}" />
+                <apex:outputField value="{!cm.TheCase.Steps_to_Reproduce__c}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Time Tracking" columns="2" id="timetracking" >
+                <apex:pageblockSectionItem >
+                    <apex:pageblockSection columns="1" showHeader="false">
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel value="Time spent on Case (minutes)"/>
+                            <apex:outputPanel >
+                                <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                    <apex:inputText value="{!TimeSpentOnIssue}" required="true" />
+                                </div>
+                            </apex:outputPanel>
+                        </apex:pageblockSectionItem>
+                    </apex:pageblockSection>
+                </apex:pageblockSectionItem>
+                <apex:pageblockSectionItem >.</apex:pageblockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" 
+                    action="{!CreateEscalatedCase}"
+                    reRender="pbEngineering, errMsg"
+                    onclick="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                    oncomplete="animateButton(this, false, null);" />
+                <apex:commandButton value="Cancel" action="{!BackToCase}" immediate="true"/>
+            </apex:pageBlockButtons>
+              
+        </apex:pageBlock>
+    </apex:form>
+    <apex:includeScript value="{!$Resource.SharedJavaScript}"/>
+</apex:page>

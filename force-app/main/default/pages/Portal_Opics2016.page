@@ -1,0 +1,38 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+
+
+
+<table align="center" border="0" cellpadding="1" cellspacing="1" style="width: 80%;">
+            <tbody>
+                <tr>
+                    <td>
+                       <img src="/resource/1370942492000/Misys_Logo" width="188" height="74" alt="Misys" /></td>
+                </tr>
+                <tr>
+                    <td STYLE="font-size: 14pt;">
+                        <p>In July 2016, a suspected vulnerability affecting specific versions of FusionCapital Opics 3.1 was reported and announced through a publically available web site called <a href="http://www.cert.org" target="_blank">www.cert.org</a>.  Please note that this site and the person who reported the issue are not affiliated with Misys. </p>
+
+<p>The Misys Global Security and Product development teams have investigated the three issues reported and determined that all are considered to be low in risk.  Details of the issues are listed below for your information.</p>
+
+<p><b>SQL Injection in two parameters: "ID", and "Branch" </b>- The reporter identified SQL injection with two parameters, viz. “ID” field on PWMT screen and “Branch” field on CREX screen in Fusion Capital Opics.  Our research concludes that evidence of SQL Injection exists, however enumeration of the database is not possible. This issue will be fixed in the next available service pack which is now available for download <a href="https://esd.misys.com/" target="_blank">here</a>.</p>
+
+<p><b>Elevation of Privileges</b> –It was reported that in some instances it is possible to capture sign on activities of a user and grant access the “PWMT screen” where it was not previously available. After thorough testing, we conclude that this scenario cannot occur where the user privileges are set correctly - where screen level access and action permissions are both revoked. We recommend that you review these settings and update where appropriate.</p>
+
+<p><b>Lack of certificate inspection</b> – This issue occurred because the reporter accepted a self-signed certificate from burp-suite.</p>  
+<p>This issue is deemed low risk as all servers will be protected within the client’s network. However, we recommend you review and implement the end to end message encryption which can be used to secure the communication even on your intermediate servers.</p>
+
+<p>Please contact your customer advocate to coordinate the delivery of your security patch. We strongly advise that you install the update at your earliest convenience. In addition to applying the update for the Misys product(s), we strongly recommend that you review with your internal IT and security procedures where appropriate.  
+If you would like further information on this issue in relation to your Misys system, please contact your Misys Customer Advocate.</p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        
+ <!-- End Default Content REMOVE THIS -->
+</apex:page>

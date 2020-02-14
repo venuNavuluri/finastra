@@ -1,0 +1,168 @@
+<apex:page controller="Community_CaseRecTypeSearchController" standardStylesheets="true" sidebar="True" showHeader="True" tabStyle="Case" id="CaseController">
+    <style type="text/css">
+        .bPageBlock .detailList tr td {
+            border-bottom-style:none;
+        }
+    </style>
+    <apex:form id="form1">
+        <apex:pageMessages />
+        <apex:pageBlock id="page1">
+            <h2 class="case-recordtype"><apex:outputLabel value="Search Cases by Record Type" /></h2>
+            <br></br>
+            <br></br> 
+            <table border="0">
+                <tr>       
+                    <td>
+                        <h3 class="case-recordtype"><apex:outputLabel value="Case Record Type : " /></h3>
+                        <br/><br/> 
+                        <apex:selectList value="{!valueSel}" multiselect="false" size="1" >
+                            <apex:selectOptions value="{!RecValues}"/>
+                        </apex:selectList>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br/><br/>      
+                        <apex:commandButton id="SearchButton" value="Search" action="{!find1}" />
+                    </td> 
+                    <td> 
+                        <h3 class="case-recordtype"><apex:outputLabel value="Cases Status Filter :" /></h3>
+                        <br></br> 
+                        <apex:selectRadio value="{!cStatus}" onselect="" title="Case Status" layout="pageDirection">
+                            <apex:selectOptions value="{!Items}"/>
+                        </apex:selectRadio>
+                    </td>
+                </tr>
+            </table>    
+ 
+            <apex:outputPanel id="TablePanel">
+                <apex:pageBlockSection id="SearchTable"  columns="1"  rendered="{!CheckSection}">
+                    <apex:pageBlockTable id="Data_Table" value="{!searchRecords}" var="rec"> 
+
+                        <!-- Case Number -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Case Number{!IF(sortField=='CaseNumber',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="CaseNumber" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputLink value="/{!rec.id}">{!rec.casenumber}</apex:outputLink>
+                        </apex:column>
+
+                        <!-- Client Reference -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Client Reference{!IF(sortField=='Client_Reference__c',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="Client_Reference__c" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!rec.Client_Reference__c}"/>
+                        </apex:column>                        
+                        
+                        <!-- Product -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Product{!IF(sortField=='Self_Service_Product__c',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="Self_Service_Product__c" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!rec.Self_Service_Product__c}"/>
+                        </apex:column>
+                                                
+                        <!-- Subject -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Subject{!IF(sortField=='Subject',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="Subject" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputLink value="/{!rec.id}">{!rec.subject}</apex:outputLink>
+                        </apex:column>                        
+                        
+                        <!-- Status -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Status{!IF(sortField=='Status',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="Status" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!rec.status}"/>
+                        </apex:column>
+                        
+                        <!-- System ID -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="System ID{!IF(sortField=='System_ID__c',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="System_ID__c" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!rec.System_ID__c}"/>
+                        </apex:column>
+                        
+                        <!-- Priority -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Severity{!IF(sortField=='Severity',IF(sortDir='desc','▼','▲'),'')}" 
+                                        action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="Severity__c" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!rec.Severity__c}"/>
+                        </apex:column>
+                        
+                        <!-- Contact Name -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Contact Name{!IF(sortField=='Contact.Name',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="Contact.Name" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!rec.contact.name}"/>
+                        </apex:column>
+                        
+                        <!-- Date Opened -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Date Opened{!IF(sortField=='CreatedDate',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="CreatedDate" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!rec.createddate}"/>
+                        </apex:column>
+                                                
+                        <!-- Account Name -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Account Name{!IF(sortField=='Account.Name',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="Account.Name" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!rec.Account.Name}"/>
+                        </apex:column>
+                        
+                        <!-- Account Site -->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:commandLink value="Account Site{!IF(sortField=='Account.Site',IF(sortDir='desc','▼','▲'),'')}" 
+                                    action="{!toggleSort}" rerender="SearchTable">
+                                    <apex:param name="sortField" value="Account.Site" assignTo="{!sortField}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!rec.account.site}"/>
+                        </apex:column>                      
+                    </apex:pageBlockTable>
+                    <center>
+                       <c:Paginator reRenderComponent="TablePanel" pageManager="{!objPageManager}" statusComponent="myStatus" id="bottom_paginator" />
+                       <apex:actionStatus startText=" Changing Records..." id="myStatus" />
+                    </center>              
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

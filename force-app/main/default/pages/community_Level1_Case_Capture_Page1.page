@@ -1,0 +1,336 @@
+<apex:page controller="Community_Level1CaseCaptPage2Controller" tabStyle="cases__tab" id="newCasePage" cache="true" action="{!redirect}" >
+<apex:includeScript value="{!URLFOR($Resource.JQuery, '/js/jquery-1.4.2.min.js')}"  />
+<apex:includeScript value="{!URLFOR($Resource.JQuery, '/js/jquery-ui-1.8.6.custom.min.js')}"  />
+
+  <script>
+      $j = jQuery.noConflict();
+
+      
+
+        window.onload = function() {
+          if(document.getElementById("newCasePage:caseForm:pbCase:caseDesc2:subjectSection:subject").value != '') {
+            fetchResults();
+          }       
+        };
+        // This script assists the recommended article search functionality
+        // It will execute a search after the user has stopped typing
+        
+       var waitTime = 1;
+    
+        var countDown = waitTime+1;
+        var started = false;
+        
+        function resetTimer(){
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown();
+           }
+        }
+           
+        function runCountDown(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                fetchResults();
+                //setCookie();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown,500);          
+            }
+        }
+
+      /*
+        function setCookie()
+        {
+
+          var c_name = 'apex__search_cookie';
+          var exdate=new Date();
+          exdate.setDate(exdate.getDate() +1);
+          var c_value=escape(document.getElementById("newCasePage:caseForm:pbCase:caseDesc2:subjectSection:subject").value) );
+          document.cookie=c_name + c_value;
+        }
+   
+        */
+
+  </script>
+  
+  <style>
+  
+  .tableRows { 
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-right: 5px !important;
+    border-bottom: 1px dotted #8d8d8d !important;
+    }
+
+  </style>
+
+  <apex:sectionHeader title="New Case" subtitle="New Case" rendered="{!CurrentSessionInfo.InPortal}"/>
+  <apex:sectionHeader title="Edit Case" subtitle="Edit Case" rendered="{!!CurrentSessionInfo.InPortal}"/>
+  <apex:outputPanel id="errorMsgTop">
+    <apex:pageMessages />
+    <apex:pageMessage summary="Please correct the following validation errors" severity="error" strength="3" escape="false" detail="{!validationMessage}" rendered="{!displayValidationMessage}" />
+    <apex:pageMessage summary="Support Alert!" severity="warning" strength="2" escape="false" detail="{!supportAlert}" rendered="{!hasSupportAlert && !CurrentSessionInfo.InPortal}" /> 
+    <apex:pageMessage summary="{!criticalMessage}" severity="error" strength="3" rendered="{!isCriticalCase}"/>
+  </apex:outputPanel>
+    
+  <apex:form id="caseForm" >
+    <apex:pageBlock id="pbCase" mode="edit" >
+       <!--
+       <apex:pageBlockButtons location="bottom">
+           
+       </apex:pageBlockButtons>
+       -->
+       <!-- **************** CASE TYPE  ********************** -->
+       <apex:pageblockSection columns="1" title="Case Type" collapsible="false" showHeader="true" rendered="{!!CurrentSessionInfo.InPortal}">
+       
+         <apex:pageblockSectionItem >
+             <apex:outputLabel value="Case Type"/>
+             <apex:selectList value="{!caseTypeChosen}" size="1">
+               <apex:selectOptions value="{!caseTypeDDV}" />
+               <apex:actionSupport event="onchange" 
+                 rerender="pbCase, errorMsgTop, errorMsgBottom" 
+                 onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                 oncomplete="animateButton(this, false, null);">
+               </apex:actionSupport>  
+             </apex:selectList>
+           </apex:pageblockSectionItem>
+           
+       </apex:pageblockSection>
+       
+       <!-- **************** CASE INFORMATION  ********************** -->
+       <apex:actionRegion >
+        <apex:pageblockSection id="caseInfo" columns="2" title="Case Information" collapsible="false" showHeader="true">
+         <apex:pageblockSectionItem >
+           <apex:outputLabel value="Account"/>
+           <apex:outputField value="{!chosenAccount.Name}" />
+         </apex:pageblockSectionItem>
+           <apex:pageblockSectionItem />         
+           <apex:pageblockSectionItem />       
+           <apex:pageblockSectionItem />  
+         <apex:pageblockSectionItem >
+           <apex:outputLabel value="Contact"/>
+           <apex:outputField value="{!chosenContact.Name}" />
+         </apex:pageblockSectionItem>   
+                   
+                   
+          <apex:pageblockSectionItem >
+           <apex:outputLabel value="Contact Email"/>
+           <apex:outputText value="{!chosenContact.Email}" />
+          </apex:pageblockSectionItem>
+          
+          
+          <apex:pageblockSectionItem >
+           <apex:outputLabel value="Contact Telephone"/>
+           <apex:outputField value="{!chosenContact.Phone}" />
+          </apex:pageblockSectionItem>
+          
+          <apex:pageblockSectionItem >
+           <apex:outputLabel value="Contact Mobile"/>
+           <apex:outputField value="{!chosenContact.MobilePhone}" />
+          </apex:pageblockSectionItem>
+                    
+          <apex:pageblockSectionItem />
+          <apex:pageblockSectionItem />
+             
+          <apex:pageblockSectionItem >
+             <apex:outputLabel value="Case Origin"/>
+             <apex:inputField value="{!newCase.Origin}"/>
+          </apex:pageblockSectionItem>
+            
+          <apex:inputField value="{!newCase.Client_Reference__c}" rendered="{!CurrentSessionInfo.InPortal}"/>
+          
+          <apex:pageblockSectionItem />
+          <apex:pageblockSectionItem />
+          
+            
+       </apex:pageblockSection>
+       </apex:actionRegion>
+       
+  
+       
+       <!-- **************** DESCRIPTION INFORMATION ********************** -->
+       <!-- Page block below visible on the portal -->
+       <!-- Additions/changes to facilitate Recommended Articles - oe:gen - 27/07/15 -->
+       
+       <apex:actionRegion renderRegionOnly="false" immediate="true">
+       <apex:actionFunction name="fetchResults" action="{!returnSearchResults}" reRender="searchResults" status="searchStatus"/>
+       
+       <apex:pageblockSection columns="1" title="Description Information" id="caseDesc2" collapsible="false" showHeader="true" rendered="{!CurrentSessionInfo.InPortal}">
+            
+          <apex:pageMessage id="genMess" summary="{!generalMessage}" severity="error" strength="3" rendered="{!displayGeneralMessage}"/>
+           
+          <apex:pageblockSectionItem id="subjectSection" helpText="{!$ObjectType.Case.Fields.Subject.inlineHelpText}">
+            
+             <apex:outputLabel value="Subject"/>
+             <apex:outputPanel layout="none" id="subjectPanel">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 
+                 <apex:inputField id="subject" value="{!newCase.Subject}" style="width:80%" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer();}"/>
+               </div>
+               <i>
+                   <apex:actionStatus id="searchStatus" startText="searching..." stopText=" "/>
+               </i>
+             </apex:outputPanel>
+
+           </apex:pageblockSectionItem>
+
+       
+        <apex:pageblockSectionItem helpText="{!$ObjectType.Case.Fields.Description.inlineHelpText}" >
+          <apex:outputLabel value="Description"/>
+          <apex:outputPanel layout="none">
+            <div class="requiredInput">
+              <div class="requiredBlock"></div> 
+              <apex:inputTextArea value="{!newCase.Description}" style="width:80%" rows="4" />
+           </div>
+          </apex:outputPanel>
+        </apex:pageblockSectionItem> 
+        <apex:outputPanel id="caseBtns">
+
+            <apex:commandButton id="nextBtn" rendered="{!!IsCriticalCase && !isSoftwareOrder}" style="float:right" value="Continue" action="{!ContinueNextPage}">
+                <apex:actionSupport reRender="errorMsgTop, errorMsgBottom" />
+            </apex:commandButton>
+           
+            <apex:commandButton id="saveBtn" rendered="{!IsCriticalCase || isSoftwareOrder}" style="float:right" value="Save" 
+                action="{!SaveOnly}" onclick="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                oncomplete="animateButton(this, false, null);" reRender="pbCase, pbCase2, errorMsgTop, errorMsgBottom">
+            </apex:commandButton>
+            <apex:commandButton id="cancelBtn" action="{!Cancel}" value="Cancel" style="float:right"></apex:commandButton>
+        </apex:outputPanel>
+                
+    </apex:pageblockSection>
+    </apex:actionRegion>
+    
+    <apex:actionRegion immediate="true">
+    <!-- Additions/changes to faciliate Recommended Articles - oe:gen - 27/07/15 -->
+    <apex:pageBlockSection id="searchResults" columns="1" title="Recommended Articles" collapsible="false" showHeader="true" rendered="true">
+            <apex:outputPanel >
+                <apex:outputText styleClass="errorText" id="firstLoad" value="Please enter a case subject to see recommended articles" rendered="{!AND(showResults=false, firstLoad=true)}" />
+                <apex:outputText styleClass="errorText" id="noArticles" value="No recommended articles found" rendered="{!AND(showResults=false, firstLoad=false)}"/> 
+
+                <apex:dataTable headerClass="tableRows" columns="3" width="100%" value="{!KnowledgeArticles}" var="Kobj"  id="knwtbl"  rendered="{!showResults}">
+                    <apex:column styleClass="tableRows" width="53%" headerValue="Article Title" headerClass="labelCol vfLabelColTextWrap  firsthelpButton" value="{!Kobj.Title}"/>
+                    <apex:column styleClass="tableRows" width="35%" headerValue="Summary" headerClass="labelCol vfLabelColTextWrap  firsthelpButton" value="{!Kobj.Summary}"/>
+                    <apex:column styleClass="tableRows" width="15%" headerClass="labelCol vfLabelColTextWrap  firsthelpButton">
+                      <span class="stats">
+                        <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_none.png')}" rendered="{!IF(MIN(5, round(Kobj.ArticleRating,0)) == 0, true, false)}" width="54" height="8"/>
+                        <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_one.png')}" rendered="{!IF(MIN(5, round(Kobj.ArticleRating,0)) == 1, true, false)}" width="54" height="8"/>
+                        <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_two.png')}" rendered="{!IF(MIN(5, round(Kobj.ArticleRating,0)) == 2, true, false)}" width="54" height="8"/>
+                        <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_three.png')}" rendered="{!IF(MIN(5, round(Kobj.ArticleRating,0)) == 3, true, false)}" width="54" height="8"/>
+                        <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_four.png')}" rendered="{!IF(MIN(5, round(Kobj.ArticleRating,0)) == 4, true, false)}" width="54" height="8"/>
+                        <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_five.png')}" rendered="{!IF(MIN(5, round(Kobj.ArticleRating,0)) == 5, true, false)}" width="54" height="8"/>
+                    </span>
+                    </apex:column>
+                    <apex:column styleClass="tableRows" width="12%" headerClass="labelCol vfLabelColTextWrap  firsthelpButton">
+                        <apex:facet name="header">Link</apex:facet>
+                        <apex:outputLink value="{!Kobj.ArticleURL}" rendered="true">View Article</apex:outputLink>
+                       
+                        
+                    </apex:column>
+                </apex:dataTable>
+
+            </apex:outputPanel>
+       </apex:pageBlockSection>
+       
+       </apex:actionRegion>
+       
+       <!-- Page block below visible internally -->
+       <apex:pageblockSection columns="2" title="Description Information" id="caseDesc" collapsible="false" showHeader="true" rendered="{!!CurrentSessionInfo.InPortal}" >
+         <apex:pageblocksectionItem >
+           <apex:pageblockSection columns="1" showHeader="false">
+           
+             <apex:pageblockSectionItem helpText="{!$ObjectType.Case.Fields.Subject.inlineHelpText}">
+               <apex:outputLabel value="Subject"/>
+               <apex:outputPanel layout="none">
+                 <div class="requiredInput">
+                   <div class="requiredBlock"></div>
+                   <apex:inputField value="{!newCase.Subject}" style="width:80%" />
+                 </div>
+               </apex:outputPanel>
+             </apex:pageblockSectionItem>
+             
+             <apex:pageblockSectionItem helpText="{!$ObjectType.Case.Fields.Description.inlineHelpText}" >
+               <apex:outputLabel value="Description"/>
+               <apex:outputPanel layout="none">
+                 <div class="requiredInput">
+                   <div class="requiredBlock"></div>
+                   <apex:inputTextArea value="{!newCase.Description}" style="width:80%" rows="4" />
+                 </div>
+               </apex:outputPanel>
+             </apex:pageblockSectionItem>
+             
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+         <apex:pageblocksectionItem >
+           <apex:pageblockSection columns="1" showHeader="false">
+           
+                   
+             <apex:pageblockSectionItem >
+               <apex:outputLabel value="Internal Case Comments" rendered="{!!CurrentSessionInfo.InPortal}"/>
+               <apex:inputField value="{!CaseComment.CommentBody}" style="width:80%" id="CommentBody" rendered="{!!CurrentSessionInfo.InPortal}"/>
+             </apex:pageblockSectionItem>
+             
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+         
+         <apex:pageblocksectionItem rendered="{!isCaseTypeProject}">
+           <apex:pageblockSection columns="1" showHeader="false">
+             <apex:inputField value="{!newCase.Priority_Rationale__c}" style="width:80%" rendered="{!!CurrentSessionInfo.InPortal}" />
+             <apex:inputField value="{!newCase.Impact__c}" style="width:80%" />
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+                
+         <apex:pageblocksectionItem rendered="{!isCaseTypeProject}">
+           <apex:pageblockSection columns="1" showHeader="false">
+             <apex:inputField value="{!newCase.Benefit_To_Resolve__c}" style="width:80%" />
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+         
+       </apex:pageblockSection>
+       
+       <!-- **************** TIME TRACKING ********************** -->
+       <apex:pageblockSection columns="2" title="Time Tracking" id="tt" collapsible="false" showHeader="true" rendered="{!!CurrentSessionInfo.InPortal && !isCaseTypeProject}">
+       
+         <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal}" helpText="{!$ObjectType.Case.Fields.Time_spent_on_issue__c.inlineHelpText}" >
+           <apex:outputLabel value="Time Spent on issue (minutes)"/>
+           <apex:outputPanel layout="none">
+             <div class="requiredInput">
+               <div class="requiredBlock"></div>
+               <apex:inputField value="{!newCase.Time_spent_on_issue__c}"/>
+             </div>
+           </apex:outputPanel>
+         </apex:pageblockSectionItem>
+         
+       </apex:pageblockSection>
+       
+       <apex:pageBlockSection title="Optional" rendered="{!!CurrentSessionInfo.InPortal}" columns="1" showHeader="true">
+       
+         <apex:pageblockSectionItem >
+           <apex:outputPanel >
+             <apex:inputCheckBox value="{!useDefaultAssignmentRules}" /> <apex:outputText value="Assign using active assignment rules" />
+           </apex:outputPanel>
+         </apex:pageblockSectionItem>
+         
+         <apex:pageblockSectionItem >
+           <apex:outputPanel >
+             <apex:inputCheckBox value="{!sendEmailToContact}" /> <apex:outputText value="Send notification email to contact" />
+           </apex:outputPanel>
+         </apex:pageblockSectionItem>   
+                      
+       </apex:pageBlockSection>
+       
+    <apex:outputPanel id="errorMsgBottom">    
+        <apex:pageMessages />
+        <apex:pageMessage summary="Please correct the following validation errors" severity="error" strength="3" escape="false" detail="{!validationMessage}" rendered="{!displayValidationMessage}" />
+        <apex:pageMessage summary="Support Alert!" severity="warning" strength="2" escape="false" detail="{!supportAlert}" rendered="{!hasSupportAlert && !CurrentSessionInfo.InPortal}" /> 
+    </apex:outputPanel> 
+       
+     </apex:pageBlock>
+   </apex:form>
+   <apex:includeScript value="{!$Resource.SharedJavaScript}"/>
+</apex:page>

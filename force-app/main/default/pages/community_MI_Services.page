@@ -1,0 +1,142 @@
+<apex:page showHeader="true" sidebar="true" controller="community_MI_ServicesController" >
+    <script type="text/javascript">
+            (function() {
+                $(function() {
+                    var byRow = $('body').hasClass('sfdcBody');
+                    $('.grid').each(function() {
+                        $(this).children('.match-height').matchHeight(byRow);
+                    });
+                });
+            })();
+        </script>
+        
+<!--Subnav-->
+        <div class="grid   sub-nav-grid">
+            <div class="col-1-1">
+                <div class="content-pad  sub-nav">
+                    <a  href="{!CTA_URL}" ><i class="fa fa-user"></i><apex:outputText value=" {!CTA_Title}"></apex:outputText></a>
+                </div>
+            </div>
+        </div>
+<apex:form >
+<!--Topic of the month-->
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageMessage summary="You have been added to the group" rendered="{!displayMessage}" severity="info"></apex:pageMessage>
+        <div class="grid">
+            <div class="col-1-1">
+                <div class="content-pad content  editable-content  group">
+                    <h3><apex:outputText value="{!LeadContentTitle}"></apex:outputText></h3>
+                    <span class="title-sub-link">
+                      <!--  <apex:commandLink value="Join Group" action="{!addMemberToGroup}" rendered="{!!ISBLANK(LeadChatterGroupId)}">
+                            <apex:param value="{!LeadChatterGroupId}" assignTo="{!chatterGroupId}"/>
+                        </apex:commandLink> -->
+                        <apex:outputPanel rendered="{!!ISBLANK(LeadChatterGroupId)}">
+                        <a href="#" class="join"><i class="{!JoinLeaveGroupCssClass}"><input type="hidden" value="{!LeadChatterGroupId}" id='h_v'/></i><span>{!JoinLeaveGroupName}</span></a>
+                        </apex:outputPanel>
+                       <!-- <a href="#" class="join"><i class="fa fa-check"></i> <span>Join</span></a> -->
+                        
+                    </span>
+                    <h4></h4>
+                    <apex:image url="/servlet/servlet.FileDownload?file={!LeadContentImage}" height="268" width="313" rendered="{!showLeadImage}"/>
+                   <p><apex:outputText value="{!LeadContentBody}" escape="false"></apex:outputText></p>
+                     <apex:repeat value="{!LeadContentLinks}" var="LeadLinks">
+                       <apex:outputLink target="_blank" value="{!LeadLinks.URL__c}" onclick="ga('send', 'event','Topic', 'Clicked on Topic of the Month', 'Viewed the Topic','{!GAUserId}');">{!LeadLinks.Hyperlink_Text__c}  <i class="fa fa-angle-double-right "></i></apex:outputLink>
+                    </apex:repeat>
+                </div>
+            </div>
+        </div>
+    
+    
+<!--Other services-->
+        <div class="grid">
+            <apex:repeat var="contentItems" value="{!contentWrapper}">
+            <div class="col-6-12  match-height">
+                <div class="content-pad content   editable-content  group">
+                    <h3><apex:outputText value="{!contentItems.LeadContentTitle}"></apex:outputText></h3>                    
+                    <span class="title-sub-link">
+                        <apex:outputPanel rendered="{!!ISBLANK(contentItems.LeadChatterGroupId)}">
+                        <a href="#" class="join"><i class="{!contentItems.JoinLeaveGroupCssClass}"><input type="hidden" value="{!contentItems.LeadChatterGroupId}" id='h_v'/></i><span>{!contentItems.JoinLeaveGroupName}</span></a>
+                        </apex:outputPanel>
+                    </span>
+                    <h4></h4><p><apex:outputText value="{!contentItems.LeadContentBody}" escape="false"></apex:outputText></p>
+                    <apex:repeat var="l" value="{!contentItems.LeadContentLinks}">
+                      <apex:outputLink target="_blank" styleClass="info-block-link" value="{!l.URL__c}">{!l.Hyperlink_Text__c}  <i class="fa fa-angle-double-right "></i></apex:outputLink>
+                    </apex:repeat>
+                </div>
+            </div>    
+            </apex:repeat>
+        </div>
+    </apex:form>
+   <!-- <apex:repeat value="{!chatterGroups}" var="groups">
+        <div>
+            <apex:repeat value="{!groups.groups}" var="details">
+                <div>
+                    {!details.name}<br/>
+                    {!details.Id}
+                </div>
+            </apex:repeat>
+            
+        </div>
+    </apex:repeat>-->
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+       // $(document).ready(function() {
+       //     $('.join').each(function(){
+       //         $(this).click(function(){
+       //             $(this).toggleClass('active');
+       //             $(this).find('i').toggleClass('fa-close fa-check');
+       //             $(this).find('span').text(function(i,text){
+       //                 return text === "Join" ? "Leave" : "Join";
+       //             });
+       //         });
+       //     });
+
+            
+       // });
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            $('.join').each(function(){
+                $(this).click(function(){
+                    $(this).toggleClass('active');
+                    $(this).find('i').toggleClass('fa-close fa-check');
+                    //var abc = $('#test').val();
+                    var groupID = $(this).find('#h_v').val();
+                    console.log(groupID);
+                    $(this).find('span').text(function(i,text){
+                    GroupStatus = text;
+                                                                console.log(text);
+
+                    community_MI_ServicesController.joinLeaveGroup(groupID,text,function(result,event){
+                                                              console.log(result);
+
+
+                    });                 
+                        return text === "Join Group" ? "Leave Group" : "Join Group";
+                        
+                    });
+                    
+                });
+            });
+
+            
+        });
+        
+        
+                     
+    </script>
+    
+    
+     <c:community_GoogleTracking />
+    
+    
+
+</apex:page>

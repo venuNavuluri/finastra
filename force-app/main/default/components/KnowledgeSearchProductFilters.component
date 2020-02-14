@@ -1,0 +1,50 @@
+<apex:component controller="CSP_Solutions_Search_Controller">    
+    <fieldset id="filterGroup">
+        <div class="dropdown-wrap">
+        <select class="hint--top  hint--bounce" data-hint="Product Family" data-filter="Product_Family">
+            <apex:repeat value="{!ProductFamilies}" var="x">
+                <option value="{!x.value}">
+                    <apex:outputText escape="false" value="{!x.label}"/>
+                </option>
+            </apex:repeat>
+        </select>
+        <select class="hint--top  hint--bounce" data-hint="Product" data-filter="Product">
+            <apex:repeat value="{!Products}" var="x">
+                <option value="{!x.value}">
+                    <apex:outputText escape="false" value="{!x.label}"/>
+                </option>
+            </apex:repeat>
+        </select>
+        <select class="hint--top  hint--bounce" data-hint="Issue Type" data-filter="Issue_Type">
+            <apex:repeat value="{!IssueTypes}" var="x">
+                <option value="{!x.value}">
+                    <apex:outputText escape="false" value="{!x.label}"/>
+                </option>
+            </apex:repeat>
+        </select>
+        </div>
+        <div class="dropdown-wrap">
+        <select class="hint--top  hint--bounce" data-hint="Core Banking Modules" data-filter="Module">
+            <apex:repeat value="{!CoreBankingModules}" var="x">
+                <option value="{!x.value}">
+                    <apex:outputText escape="false" value="{!x.label}"/>
+                </option>
+            </apex:repeat>
+        </select>
+        <select class="hint--top  hint--bounce" data-hint="Lending Modules" data-filter="Lending_Modules">
+            <apex:repeat value="{!LendingModules}" var="x">
+                <option value="{!x.value}">
+                    <apex:outputText escape="false" value="{!x.label}"/>
+                </option>
+            </apex:repeat>
+        </select>
+        <select class="hint--top  hint--bounce" data-hint="Treasury & Capital Markets Modules" data-filter="Treasury_and_Capital_Markets_Modules">
+            <apex:repeat value="{!TreasuryCapitalMarkets}" var="x">
+                <option value="{!x.value}">
+                    <apex:outputText escape="false" value="{!x.label}"/>
+                </option>
+            </apex:repeat>
+        </select>
+        </div>
+    </fieldset>
+</apex:component>

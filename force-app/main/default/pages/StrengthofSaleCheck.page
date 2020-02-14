@@ -1,0 +1,269 @@
+<apex:page standardController="Opportunity" sidebar="false">
+  <apex:sectionHeader title="Update assessment values and Save or Cancel to return to the Opportunity. The Strength of Sale Check Total is reflected on the Opportunity." 
+                      subtitle="Opportunity Strength of Sale Check List for {!opportunity.name}."/>
+  <apex:form >
+    <apex:pageBlock title="Edit Opportunity" id="thePageBlock" 
+                    mode="edit">
+      <apex:pageMessages />
+      <apex:pageBlockButtons >
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:commandButton value="Cancel" action="{!cancel}"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="PAIN SCALE" columns="2" collapsible="false" >
+               <table width="519" border="3" cellspacing="0" cellpadding="2">
+                  <tr>
+                    <td><div align="center">0</div></td>
+                    <td><div align="left">No identification of need or pain by customer</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">1</div></td>
+                    <td><div align="left">Salesperson assumes Sponsor's needs</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">2</div></td>
+                    <td><div align="left">Sponsor admits needs</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">3</div></td>
+                    <td><div align="left">Sponsor admits reasons / symptoms for pain</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">4</div></td>
+                    <td><div align="left">Sponsor admits pain</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">5</div></td>
+                    <td><div align="left">Salesperson documents pain, Sponsor agrees</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">6</div></td>
+                    <td><div align="left">Salesperson assumes Power Sponsor's needs</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">7</div></td>
+                    <td><div align="left">Power Sponsor admits need</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">8</div></td>
+                    <td><div align="left">Power Sponsor admits reasons/symptoms for pain</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">9</div></td>
+                    <td><div align="left">Power Sponsor admits pain</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">10</div></td>
+                    <td><div align="left">Salesperson documents pain, Power agrees</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Pain_Scale__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="POWER SCALE" columns="2" collapsible="false" >
+               <table width="519" border="3" cellspacing="0" cellpadding="2">
+                  <tr>
+                    <td><div align="center">0</div></td>
+                    <td><div align="left">Power Sponsor identified</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">1</div></td>
+                    <td><div align="left">Salesperson assumes Sponsor's needs</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">2</div></td>
+                    <td><div align="left">Sponsor admits needs</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">3</div></td>
+                    <td><div align="left">Sponsor admits reasons / symptoms for pain</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">4</div></td>
+                    <td><div align="left">Sponsor admits pain</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">5</div></td>
+                    <td><div align="left">Salesperson documents pain, Sponsor agrees</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">6</div></td>
+                    <td><div align="left">Power Sponsor agreed to explore further</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">7</div></td>
+                    <td><div align="left">Power Sponsor agreed to Evaluation Plan</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">8</div></td>
+                    <td><div align="left">Power Sponsor agreed to proposal content</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">9</div></td>
+                    <td><div align="left">Power Sponsor provided verbal approval</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">10</div></td>
+                    <td><div align="left">Power Sponsor approved/provided contract signature</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Power_Scale__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="VISION SCALE" columns="2" collapsible="false" >
+               <table width="519" border="3" cellspacing="0" cellpadding="2">
+                  <tr>
+                    <td><div align="center">0</div></td>
+                    <td><div align="left">No vision or competitive vision established</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">1</div></td>
+                    <td><div align="left">Vision of Sponsor created in product terms</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">2</div></td>
+                    <td><div align="left">Vision of Sponsor created in situational terms</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">3</div></td>
+                    <td><div align="left">Differentiated vision created with Sponsor</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">4</div></td>
+                    <td><div align="left">Differentiated vision documented to Sponsor</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">5</div></td>
+                    <td><div align="left">Documentation agreed to by Sponsor</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">6</div></td>
+                    <td><div align="left">Vision for Power created in product terms</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">7</div></td>
+                    <td><div align="left">Vision for Power created in situational terms</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">8</div></td>
+                    <td><div align="left">Differentiated vision created with Power</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">9</div></td>
+                    <td><div align="left">Differentiated vision documented to Power</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">10</div></td>
+                    <td><div align="left">Documentation agreed to by Power</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Vision_Scale__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="VALUE SCALE" columns="2" collapsible="false" >
+               <table width="519" border="3" cellspacing="0" cellpadding="2">
+                  <tr>
+                    <td><div align="center">0</div></td>
+                    <td><div align="left">Customer explores solution, value not identified</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">1</div></td>
+                    <td><div align="left">Salesperson identifies customer value proposition</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">2</div></td>
+                    <td><div align="left">Customer agrees to explore the value proposition</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">3</div></td>
+                    <td><div align="left">Value discovered associated with Pain</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">4</div></td>
+                    <td><div align="left">Value discovered associated with Vision</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">5</div></td>
+                    <td><div align="left">Customer confirms or modifies potential value</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">6</div></td>
+                    <td><div align="left">Additional beneficiaries included in value potential</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">7</div></td>
+                    <td><div align="left">Value analysis conducted - driven by salesperson</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">8</div></td>
+                    <td><div align="left">Value analysis conducted - driven by customer</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">9</div></td>
+                    <td><div align="left">Value analysis conducted - jointly produced</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">10</div></td>
+                    <td><div align="left">Value of solution meets decision criteria</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Value_Scale__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="CONTROL SCALE" columns="2" collapsible="false" >
+               <table width="519" border="3" cellspacing="0" cellpadding="2">
+                  <tr>
+                    <td><div align="center">0</div></td>
+                    <td><div align="left">No follow-up documentation of client conversations</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">1</div></td>
+                    <td><div align="left">Lead Letter (email) sent</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">2</div></td>
+                    <td><div align="left">Lead Letter (email) agreed upon or modified</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">3</div></td>
+                    <td><div align="left">Sponsor Letter (email) send</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">4</div></td>
+                    <td><div align="left">Sponsor Letter (email)agreed upon or modified</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">5</div></td>
+                    <td><div align="left">Seller gained agreement to pre-proposal review</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">6</div></td>
+                    <td><div align="left">Power Sponsor Letter (email) and Evaluation Plan sent</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">7</div></td>
+                    <td><div align="left">Letter and Evaluation Plan agreed upon or modified</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">8</div></td>
+                    <td><div align="left">First Go-No Go Step completed</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">9</div></td>
+                    <td><div align="left">Pre-proposal review conducted</div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="center">10</div></td>
+                    <td><div align="left">Evaluation Plan completed</div></td>
+                  </tr>
+                </table> 
+            <apex:outputLabel >
+               <apex:inputField value="{!opportunity.Control_Scale__c}"/> 
+            </apex:outputLabel>   
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

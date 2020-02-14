@@ -1,0 +1,1005 @@
+<apex:page controller="Community_Level1CaseCaptPage2Controller" tabStyle="cases__tab" id="newCasePage" action="{!redirect}" >
+ <c:community_GoogleTracking />
+  <script type='text/javascript'>
+    
+        // This script assists the recommended article search functionality
+        // It will execute a search after the user has stopped typing
+        /*
+        var waitTime = 1;
+    
+        var countDown = waitTime+1;
+        var started = false;
+        
+        function resetTimer(){
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown();
+            }
+        }
+        
+        function runCountDown(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                fetchResults();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown,500);
+            }
+        }
+    */
+  </script>
+    
+  <script>
+  
+  $(document).ready(function(){ 
+  	modalToggle();
+  });
+    
+  function modalToggle() {
+      
+      /// mpu = matrix pop-up
+      /// ipu = impact pop-up
+      /// upu = urgency pop-up
+      
+      $('span.pu').click(function() {
+          
+          var PopupRef = $(this).attr('class').split(' ')[1];			// 2nd class as string
+          
+          $('div.ol2').css("display","flex");							// show transparent backdrop
+          $('body').addClass("no-scroll");								// disable scrolling
+          
+          if ($('.pu2'+'.'+PopupRef).length > 0) {
+              $('.pu2'+'.'+PopupRef).css("display","block");			// show "mpu" inner pop-up
+          }
+          else {
+              alert("there is no pop-up associated to your trigger!");	// error!
+          }
+          
+      });
+      
+      $('a.close-ico').click(function(){	
+          $('div.ol2 .pu2').hide();					// hide (all) inner pop-up
+          $('div.ol2').hide();						// show transparent backdrop
+          $('body').removeClass("no-scroll");		// re-enable scrolling
+      });
+      
+  }
+  </script>
+  
+  <style>
+  
+  .tableRows { 
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-right: 5px !important;
+    border-bottom: 1px dotted #8d8d8d !important;
+    }
+
+    
+    .labelCol .vfLabelColTextWrap {
+      width:25% !important;
+      border:1px solid red;
+    }
+    .labelCol .empty{
+      width:1% !important;
+    }
+
+    .bPageBlock .detailList .labelCol {
+      width: 25% !important;
+    }
+   
+  </style>
+    
+  <style>
+
+   body.no-scroll{overflow:hidden;}
+      
+   .ol2 {
+	height:100%;
+	width:100%;
+	display:none;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	background:rgba(0,0,0,0.75);
+	position:fixed;
+	top:0px;
+	left:0px;
+	z-index:1001;
+   }
+
+   .pu2 {
+    width:600px;
+	height: auto;
+    border-radius:5px;
+	padding:20px;
+	box-sizing:border-box;
+	margin:0 auto;
+    background:#fff;
+	display:none;
+   }
+   
+   .pu2 table {width:100%;border-collapse:collapse;}
+   .pu2 table td {font-weight:bold!important;padding:10px;border:1px solid #000;text-align:center;font-size:14px;}
+   .pu2 table td.heading {font-size:20px;}
+   .pu2 table .nb {border:none;}
+   .pu2 table p.rotate {
+    font-weight: bold!important;
+    margin-top:35px;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+    -moz-transform: rotate(-90deg);    /* Firefox */
+    -o-transform: rotate(-90deg);      /* Opera */
+    -ms-transform: rotate(-90deg);     /* IE 9 */
+   }
+   
+   .critical{background:#ff1500}
+   .high{background:#dc9693;}
+   .medium{background:#ffc100;}
+   .low{background:#c9fed3;}
+   .low2{background:#cbecff;}
+   
+   .pu2.ipu,
+   .pu2.upu {max-width:964px;width:auto;}
+   
+   .pu2.ipu table tr:nth-child(odd),
+   .pu2.upu table tr:nth-child(odd) {background:#edcee3;}
+   
+   .pu2.ipu table tr:nth-child(even),
+   .pu2.upu table tr:nth-child(even) {background:#f6e8f1;}
+   
+   .pu2.ipu table tr td:first-of-type,
+   .pu2.upu table tr td:first-of-type {width:10%;text-transform:uppercase;font-weight:bold;}
+   
+   .pu2.ipu table tr td:not(:first-of-type),
+   .pu2.upu table tr td:not(:first-of-type) {width:30%;}
+   
+   .pu2.ipu table tr:not(:first-of-type) td,
+   .pu2.upu table tr:not(:first-of-type) td {
+      text-align:left;
+      font-size:13px;
+   }
+   
+   .pu2.ipu table tr:not(:first-of-type) td:not(:first-of-type),
+   .pu2.upu table tr:not(:first-of-type) td:not(:first-of-type) {font-weight:normal!important;}
+      
+   .pu2.ipu table tr:first-of-type,
+   .pu2.upu table tr:first-of-type {background:#cd3cad;}
+      
+   .pu2.ipu table tr:first-of-type td,
+   .pu2.upu table tr:first-of-type td {color:#fff;font-weight:bold;text-transform:uppercase;}
+   
+   .pu2.ipu ol,
+   .pu2.upu ol{margin:0;padding:0 0 7px;}
+   
+   .pu2.ipu ul,
+   .pu2.upu ul{margin:0;padding:0;}
+   
+   .pu2.ipu li,
+   .pu2.upu li{padding-bottom:7px;}
+      
+   .pu2.ipu ul li:last-of-type,
+   .pu2.upu ul li:last-of-type{padding-bottom:0;}
+      
+   .close-ico {
+	position:absolute;
+	top:1.25em;
+	right:1.25em;
+	color:#fff;
+	font-size:1.2em;
+	cursor:pointer;
+	width:21px;
+	height:21px;
+	flex:none;
+   }
+
+   .close-ico:before,
+   .close-ico:after {
+	position: absolute;
+    cursor: pointer;
+    border-radius: 1px;
+    width: 25px;
+    content: "";
+    top: 10px;
+    right: -2px;
+	height: 3px;
+    background: #fff;
+   }
+
+   .close-ico:before {transform:rotate(45deg);}
+   .close-ico:after {transform:rotate(-45deg);}
+  
+   th.labelCol a.helpButton{text-decoration:none!important;}
+   
+   th.labelCol a.helpButton,
+   th.labelCol a.helpButton label {text-decoration:none!important;}
+   
+   th.labelCol a.helpButton:hover,
+   th.labelCol a.helpButton:hover label
+   th.labelCol a:hover,
+   th.labelCol a:hover label {text-decoration:none!important;}
+      
+   th.labelCol a.helpButtonOn:hover{color:#fff!important;}
+   th.labelCol a:hover img {border:1px solid #fff!important;}
+
+   td.dataCol a.helpButton{text-decoration:none!important;}      
+   td.dataCol a.helpButton,
+   td.dataCol a.helpButton label {text-decoration:none!important;}
+   
+   td.dataCol a.helpButton:hover,
+   td.dataCol a.helpButton:hover label
+   td.dataCol a:hover,
+   td.dataCol a:hover label {text-decoration:none!important;}
+ 
+  </style>
+
+  <apex:sectionHeader title="New Case" subtitle="New Case" rendered="{!CurrentSessionInfo.InPortal}"/>
+  <apex:sectionHeader title="Edit Case" subtitle="Edit Case" rendered="{!!CurrentSessionInfo.InPortal}"/>
+  <apex:outputPanel id="errorMsgTop">
+    <apex:pageMessages />
+    <apex:pageMessage summary="Please correct the following validation errors" severity="error" strength="3" escape="false" detail="{!validationMessage}" rendered="{!displayValidationMessage}" />
+    <apex:pageMessage summary="Support Alert!" severity="warning" strength="2" escape="false" detail="{!supportAlert}" rendered="{!hasSupportAlert && !CurrentSessionInfo.InPortal}" /> 
+    <apex:pageMessage summary="{!criticalMessage}" severity="error" strength="3" rendered="{!isCriticalCase}"/>
+  </apex:outputPanel>
+    
+  <apex:form id="caseForm" >
+    <apex:pageBlock id="pbCase" mode="edit" >
+    
+    <!-- **************** CASE TYPE  ********************** -->
+       <apex:pageblockSection columns="1" title="Case Type" collapsible="false" showHeader="true" rendered="{!!CurrentSessionInfo.InPortal}">
+       
+         <apex:pageblockSectionItem >
+             <apex:outputLabel value="Case Type"/>
+
+                   <apex:selectList value="{!caseTypeChosen}" size="1">
+                     <apex:selectOptions value="{!caseTypeDDV}" />
+                     <apex:actionSupport event="onchange" 
+                       rerender="pbCase, errorMsgTop, errorMsgBottom" 
+                       onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                       oncomplete="animateButton(this, false, null);">
+                     </apex:actionSupport>  
+                   </apex:selectList>
+      
+           </apex:pageblockSectionItem>
+           
+       </apex:pageblockSection>
+       
+        <!-- **************** CASE INFORMATION  ********************** -->
+        <apex:actionRegion >
+      
+         <apex:pageblockSection id="caseInfo" columns="2" title="Case Product and System Information" collapsible="false" showHeader="true" >
+         <apex:pageblockSectionItem rendered="false">
+           <apex:outputLabel value="Account"/>
+           <apex:outputField value="{!chosenAccount.Name}" />
+         </apex:pageblockSectionItem>
+
+        <apex:pageblockSectionItem rendered="false">
+           <apex:outputLabel value="Contact"/>
+           <apex:outputField value="{!chosenContact.Name}" />
+         </apex:pageblockSectionItem>   
+            
+         <apex:pageblockSectionItem >
+             <apex:outputLabel value="Product Set"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:selectList value="{!productSetChosen}" size="1" > 
+                   <apex:selectOptions value="{!productSetsDDV}" />
+                   <apex:actionSupport event="onchange"
+                     action="{!productSetSelected}" 
+                     rerender="caseInfo, errorMsgTop, errorMsgBottom,genMess,field1,field2,field3,system, severityImpact, severityUrgency" 
+                     onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                     oncomplete="animateButton(this, false, null); modalToggle()" />
+                   
+                 </apex:selectList>
+               </div>
+             </apex:outputPanel>
+         </apex:pageblockSectionItem>
+
+          <!--  <apex:pageBlockSectionItem /> -->
+         
+         <!--Sku Group-->
+    <!--       <apex:pageBlockSectionItem >
+              <apex:outputLabel value="SKU Group"/>
+              <apex:outputPanel >
+                <apex:selectList value="{!skuGroupSelected}" size="1"> 
+                   <apex:selectOptions value="{!skugroupOptions}" />
+                </apex:selectList>
+              </apex:outputPanel>
+           </apex:pageBlockSectionItem> -->
+           <!--apex:outputField value="{!newCase.SKU_Group__c}" rendered="{!!isCaseTypeProject  && !CurrentSessionInfo.InPortal}"/-->
+            
+           <apex:pageBlockSectionItem rendered="{!!showProductFields}"/>
+         <apex:pageBlockSectionItem rendered="{!!showProductFields}"/>
+         <apex:pageBlockSectionItem rendered="{!!showProductFields}"/>
+
+         <apex:pageBlockSectionItem />
+
+         <apex:pageblockSectionItem id="field1" >
+             <apex:outputLabel value="Product" rendered="{!showProductFields}"/>
+             <apex:outputPanel layout="none" rendered="{!showProductFields}">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Self_Service_Product__c}">
+                   <apex:actionSupport event="onchange" rerender="errorMsgTop, errorMsgBottom"/>
+                 </apex:inputField>
+               </div>
+             </apex:outputPanel>
+         </apex:pageblockSectionItem>   
+        
+        <apex:pageBlockSectionItem />
+
+        
+         
+        <apex:pageblockSectionItem id="field3"  rendered="{!showProductFields}" >
+             <apex:outputLabel value="Product Version"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Product_Version__c}">
+                   <apex:actionSupport event="onchange" rerender="errorMsgTop, errorMsgBottom"/>
+                 </apex:inputField>
+               </div>
+             </apex:outputPanel>
+          </apex:pageblockSectionItem>
+          
+          <apex:pageblockSectionItem rendered="false">
+           <apex:outputLabel value="Contact Email"/>
+           <apex:outputText value="{!chosenContact.Email}" />
+          </apex:pageblockSectionItem>
+          
+          <apex:pageBlockSectionItem />
+            
+         <apex:pageBlockSectionItem helpText="{!$ObjectType.case.fields.PS_Project__c.inlineHelpText}">
+          <apex:outputLabel value="PS Project"/>
+          <apex:inputcheckbox value="{!testBool}">
+           <!-- <apex:actionSupport event="onclick" reRender="projectId"/> -->
+          </apex:inputcheckbox>
+          </apex:pageBlockSectionItem>
+
+          <apex:pageBlockSectionItem rendered="false" />
+
+          <apex:pageBlockSectionItem rendered="false">
+              <apex:outputLabel value="Project ID from Portal"/>
+              <apex:outputPanel id="projectId" layout="none">
+              
+              </apex:outputPanel>
+          </apex:pageBlockSectionItem>
+
+          <apex:pageBlockSectionItem />
+            
+             <apex:pageblockSectionItem rendered="{!!isCaseTypeProject}">
+             <apex:outputLabel value="Support Entitlement"/>
+             <apex:outputText value="{!entitlementName}" >
+               <apex:actionSupport event="onchange" rerender="errorMsgTop, errorMsgBottom"/>
+             </apex:outputText>
+           </apex:pageblockSectionItem>
+
+           <apex:pageBlockSectionItem />
+
+          <apex:pageblockSectionItem id="system" rendered="{!!isCaseTypeProject && !isGeneralSystem}">
+             <apex:outputLabel value="System"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:selectList value="{!newCase.System__c}" size="1">
+                   <apex:selectOptions value="{!systemsDDV}" />
+                   <apex:actionSupport event="onchange"
+                     action="{!systemSelected}" 
+                     rerender="caseInfo, errorMsgTop, errorMsgBottom, genMess" 
+                     onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                     oncomplete="animateButton(this, false, null);"/>
+                 </apex:selectList>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+                      
+           <apex:pageBlockSectionitem rendered="{!!isCaseTypeProject && isGeneralSystem}" >
+             <apex:outputLabel value="System" />
+             <apex:outputText value="{!systemname}" >
+                 <apex:actionSupport event="onchange" rerender="errorMsgTop, errorMsgBottom"/>
+             </apex:outputText>
+           </apex:pageBlockSectionitem>
+            
+             <apex:pageblockSectionItem rendered="false">
+           <apex:outputLabel value="Contact Telephone"/>
+           <apex:outputField value="{!chosenContact.Phone}" />
+          </apex:pageblockSectionItem>
+          
+          <apex:pageblockSectionItem rendered="false">
+           <apex:outputLabel value="Contact Mobile"/>
+           <apex:outputField value="{!chosenContact.MobilePhone}" />
+          </apex:pageblockSectionItem>
+            
+           <apex:pageblockSectionItem rendered="false">
+             <apex:outputLabel value="Case Origin"/>
+             <apex:inputField value="{!newCase.Origin}"/>
+          </apex:pageblockSectionItem>
+
+          <apex:pageBlockSectionItem />
+
+      <apex:pageblockSectionItem id="field2" rendered="{!!isCaseTypeProject && !isGeneralSystem}">
+             <apex:outputLabel value="System Status"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.System_Status__c}" >
+                   <apex:actionSupport event="onchange" rerender="errorMsgTop, errorMsgBottom"/>
+                 </apex:inputField>
+               </div>
+             </apex:outputPanel>
+          </apex:pageblockSectionItem>
+
+          <apex:pageBlockSectionItem rendered="{!!isCaseTypeProject && !isGeneralSystem}"/>
+          
+          <apex:pageblockSectionItem id="genfield2" rendered="{!isCaseTypeProject || isGeneralSystem}">
+             <apex:outputLabel value="System Status"/>
+                 <apex:inputField value="{!newCase.System_Status__c}" >
+                   <apex:actionSupport event="onchange" rerender="errorMsgTop, errorMsgBottom, severityImpact, severityUrgency"/>
+                 </apex:inputField>
+          </apex:pageblockSectionItem>
+ <!--
+          <apex:pageBlockSectionItem rendered="{!!isCaseTypeProject && isGeneralSystem}"/>
+<apex:pageBlockSectionItem />
+             <apex:pageBlockSectionItem />
+          <apex:pageblockSectionItem >
+             <apex:outputLabel value="System Down"/>
+                 <apex:inputCheckbox id="chkSystemDown" value="{!checkSystemDown}">
+                   <apex:actionSupport event="onchange" action="{!systemDownChecked}" rerender="errorMsgTop, errorMsgBottom, sevList, severityUrgency, severityImpact"/>
+                 </apex:inputCheckbox>
+          </apex:pageblockSectionItem>
+             
+             <apex:pageBlockSectionItem />
+             
+        
+             
+          <apex:pageblockSectionItem >
+            <apex:outputPanel id="severityUrgency">
+               <span class="pu upu">
+                 <a href="#" class="ol-lnk helpButton"><apex:outputLabel value="Business Urgency" /><img src="/SupportCommunity/img/s.gif" class="helpOrb"/></a>
+               </span>
+          </apex:outputPanel>
+            
+                <apex:selectList id="businessUrgency" size="1" value="{!businessUrgency}">
+                   <apex:selectOptions value="{!SeverityOptions}" />
+                   
+                </apex:selectList>
+                   
+			
+                      
+          </apex:pageblockSectionItem>
+
+             <apex:pageBlockSectionItem /> 
+
+          <apex:pageblockSectionItem >
+           
+          <apex:outputPanel id="severityImpact">
+             <span class="pu ipu">
+             <a href="#" class="ol-lnk helpButton"><apex:outputLabel value="Business Impact"/><img src="/SupportCommunity/img/s.gif" class="helpOrb" /></a>
+             </span>
+          </apex:outputPanel>
+                 <apex:selectList id="businessImpact" size="1" value="{!businessImpact}">
+                   <apex:selectOptions value="{!SeverityOptions}" />
+                    <apex:actionSupport event="onchange" action="{!severyityMatrixChoice}" rerender="errorMsgTop, errorMsgBottom, sevList"/>
+                </apex:selectList>
+          </apex:pageblockSectionItem>
+        
+        <apex:pageBlockSectionItem >
+            <apex:outputPanel >
+             <span class="pu mpu" >
+                 <a href="#" class="ol-lnk helpButton"><apex:outputLabel value="View Severity Matrix" /></a>
+               </span>
+                </apex:outputPanel>
+        </apex:pageBlockSectionItem>
+        -->
+         <apex:pageBlockSectionItem /> 
+         <apex:pageBlockSectionItem /> 
+            
+          <apex:pageblockSectionItem id="sevList" >
+             <apex:outputLabel value="Severity"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Severity__c}" onChange="severityCheck(this.value)"/>
+                 <apex:actionFunction name="severityCheck" action="{!severityUpdated}" reRender="errorMsgTop, errorMsgBottom, caseBtns, nextBtn, saveBtn">
+                     <apex:param name="severityParam" id="severityParam" value=""/>
+                 </apex:actionFunction>
+               </div>
+             </apex:outputPanel>
+          </apex:pageblockSectionItem>
+            
+    <apex:pageBlockSectionItem />
+            
+         <apex:pageblockSectionItem id="Type" >
+             <apex:outputLabel value="Type"/>
+             <apex:outputPanel layout="none">
+             <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Type}" onChange="typeCheck(this.value)">
+                     <apex:actionFunction name="typeCheck" action="{!typeUpdated}" reRender="caseBtns">
+                         <apex:param name="typeParam" id="typeParam" value=""/>
+                     </apex:actionFunction>
+                 </apex:inputField>
+                </div>
+              </apex:outputPanel>
+         </apex:pageblockSectionItem>
+            
+     <apex:pageBlockSectionItem />
+            
+          <apex:pageblockSectionItem >
+             <apex:outputLabel value="Number of users affected"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Number_of_users_affected__c}" >
+                     <apex:actionSupport event="onchange" rerender="errorMsgTop, errorMsgBottom"/>
+                 </apex:inputField>
+               </div>
+             </apex:outputPanel>
+          </apex:pageblockSectionItem>
+
+          <apex:pageblockSectionItem rendered="{!showSophisFields}"/>
+                 
+          
+          <apex:inputField value="{!newCase.Client_Reference__c}" rendered="false"/>
+            
+       <apex:pageblockSectionItem rendered="{!!showSophisFields}"/>
+          
+          <apex:pageblockSectionItem id="fieldSophisCategory"  rendered="{!showSophisFields}" >
+             <apex:outputLabel value="Sophis Category"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Misys_Sophis_Category__c}">
+                     <apex:actionSupport event="onchange" rerender="errorMsgTop, errorMsgBottom"/>
+                 </apex:inputField>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+          
+          <apex:inputField value="{!newCase.Product_Module__c}" rendered="{!showProductFields && !showSophisFields}"  />
+          
+          <apex:pageblockSectionItem rendered="{!showSophisFields}"/>
+          <apex:pageblockSectionItem rendered="{!!showSophisFields}" />
+          
+            <apex:pageblockSectionItem id="fieldSophisSubCategory"  rendered="{!showSophisFields}" >
+             <apex:outputLabel value="Sophis Sub Category"/>
+             <apex:outputPanel layout="none">
+             <apex:inputField value="{!newCase.Misys_Sophis_Sub_Category__c}"/>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+
+           <apex:pageblockSectionItem rendered="{!showSophisFields}"/>
+
+          
+          <apex:inputField value="{!newCase.Product_Component__c}" rendered="{!showProductFields}" />
+
+           <apex:pageblockSectionItem rendered="{!showSophisFields}"/>
+            
+           <apex:pageblockSectionItem id="fieldSophisCustomer"  rendered="{!showSophisFields}" >
+             <apex:outputLabel value="Customer Field"/>
+             <apex:outputPanel layout="none">
+             <apex:inputField value="{!newCase.Field_4__c}"/>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+
+          
+          
+          <apex:pageblockSectionItem />
+          <apex:pageblockSectionItem rendered="{!showSophisFields}"/>
+          <apex:pageblockSectionItem rendered="{!showSophisFields}"/>
+            
+          <apex:inputField value="{!newCase.Operating_System_Version__c}" rendered="{!showProductFields}" />
+          
+          <apex:pageblockSectionItem rendered="{!showProductFields}" />
+          
+          <apex:inputField value="{!newCase.Database__c}" rendered="{!showProductFields}" />  
+            
+       </apex:pageblockSection>
+       </apex:actionRegion>
+       
+       
+       <!-- 
+       <apex:pageblockSection columns="1" showHeader="true">
+         <apex:pageMessage summary="First choose either System or Product Set, and then choose from a reduced set of values, in the other field" severity="info" strength="1"/>
+       </apex:pageblockSection>
+        -->
+       
+       
+       <!-- pageMessage moved to Description Information pageblockSection - 28/07/15
+       <apex:pageblockSection columns="1" showHeader="true"  id="genMess">
+             <apex:pageMessage summary="{!generalMessage}" severity="error" strength="3" rendered="{!displayGeneralMessage}"/>
+       </apex:pageblockSection>
+       -->
+           
+        <!-- Fields hidden due to not being included in New Case Logging Process requirements - 28/07/15
+         <apex:actionRegion >
+           <apex:pageBlockSection>
+           
+           <apex:inputField value="{!newCase.Status}" rendered="{!!CurrentSessionInfo.InPortal}" />
+            
+           <apex:pageBlockSectionItem rendered="{!isCaseTypeProject}" >
+           </apex:pageBlockSectionItem>
+           
+           <apex:inputField value="{!newCase.Sub_Status__c}" rendered="{!!CurrentSessionInfo.InPortal}" />
+         --> 
+           
+          <!-- 
+
+           <apex:pageblockSectionItem rendered="{!!isCaseTypeProject}" >
+             <apex:outputLabel value="Component"/>
+             <apex:selectList value="{!newCase.Component_Text__c}" size="1"> 
+               <apex:selectOptions value="{!componentDDV}" />
+             </apex:selectList>
+           </apex:pageblockSectionItem>
+           <apex:outputText value=" " escape="false" rendered="{!!CurrentSessionInfo.InPortal}" />
+             -->
+           
+        <!-- Fields hidden due to not being included in New Case Logging Process requirements - 28/07/15
+           <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal}">
+             <apex:outputLabel value="Projects"/>
+             <apex:selectList value="{!newCase.Project__c}" size="1">
+               <apex:selectOptions value="{!projectDDV}" />
+             </apex:selectList>
+           </apex:pageblockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!CurrentSessionInfo.InPortal}">
+           </apex:pageBlockSectionItem> 
+           
+      
+           <apex:inputField value="{!newCase.Internal_Severity__c}" required="true" rendered="{!!CurrentSessionInfo.InPortal}" />
+         -->
+           <!-- <apex:outputText value=" " escape="false" rendered="{!!CurrentSessionInfo.InPortal}" /> -->
+           
+         <!-- Fields hidden due to not being included in New Case Logging Process requirements - 28/07/15  
+           <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal}" helpText="{!$ObjectType.Case.Fields.Urgency__c.inlineHelpText}" >
+             <apex:outputLabel value="Urgency"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Urgency__c}"/>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+           
+           <apex:inputField value="{!newCase.Issue_Type__c}" rendered="{!isCaseTypeProject && !CurrentSessionInfo.InPortal}"/>
+           
+           <apex:pageBlockSectionItem rendered="{!CurrentSessionInfo.InPortal && isCaseTypeProject}" >
+           </apex:pageBlockSectionItem>
+        
+        
+
+
+        --> 
+
+                                
+           <!-- <apex:inputField id="field1" value="{!newCase.Self_Service_Product__c}" required="true" /> -->
+           <!-- <apex:inputField id="field3" value="{!newCase.System_Status__c}" required="true" /> -->
+           <!-- <apex:inputField id="field2" value="{!newCase.Product_Version__c}" required="true" /> -->
+       <!--    
+       </apex:pageblockSection>
+       </apex:actionRegion>
+     -->
+       
+       <!-- **************** DESCRIPTION INFORMATION ********************** -->
+       <!-- Page block below visible on the portal -->
+       <!-- Additions/changes to facilitate Recommended Articles - oe:gen - 27/07/15 -->
+       
+       <apex:actionRegion renderRegionOnly="false" immediate="true">
+       <apex:actionFunction name="fetchResults" action="{!returnSearchResults}" reRender="searchResults" status="searchStatus"/>
+       
+       <apex:pageblockSection columns="1" title="Description Information" id="caseDesc2" collapsible="false" showHeader="true" rendered="{!CurrentSessionInfo.InPortal}">
+            
+          <apex:pageMessage id="genMess" summary="{!generalMessage}" severity="error" strength="3" rendered="{!displayGeneralMessage}"/>
+           
+          <apex:pageblockSectionItem id="subjectSection" >
+            
+             <apex:outputLabel value="Subject"/>
+             <apex:outputPanel layout="none" id="subjectPanel">
+               <div class="requiredInput">
+                                
+                 <apex:outputText id="subject" value="{!newCase.Subject}" />
+               </div>
+               
+             </apex:outputPanel>
+
+           </apex:pageblockSectionItem>
+
+        
+        <apex:pageblockSectionItem >
+          <apex:outputLabel value="Description"/>
+          <apex:outputPanel layout="none">
+            <div class="requiredInput">     
+              <apex:outputText value="{!newCase.Description}" />
+           </div>
+          </apex:outputPanel>
+        </apex:pageblockSectionItem> 
+        <apex:outputPanel id="caseBtns">
+            <apex:commandButton id="backBtn" value="Back" action="{!startPage}"></apex:commandButton>
+            <apex:commandButton id="nextBtn" rendered="{!!IsCriticalCase && !isSoftwareOrder}" style="float:right" value="Continue" action="{!NextPage}">
+                <apex:actionSupport reRender="errorMsgTop, errorMsgBottom" />
+            </apex:commandButton>
+           
+            <apex:commandButton id="saveBtn" rendered="{!IsCriticalCase || isSoftwareOrder}" style="float:right" value="Save" 
+                action="{!SaveOnly}" onclick="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                oncomplete="animateButton(this, false, null);" reRender="pbCase, pbCase2, errorMsgTop, errorMsgBottom">
+            </apex:commandButton>
+        </apex:outputPanel>
+                
+    </apex:pageblockSection>
+    </apex:actionRegion>
+           
+       <!-- Page block below visible internally -->
+       <apex:pageblockSection columns="2" title="Description Information" id="caseDesc" collapsible="false" showHeader="true" rendered="{!!CurrentSessionInfo.InPortal}" >
+         <apex:pageblocksectionItem >
+           <apex:pageblockSection columns="1" showHeader="false">
+           
+             <apex:pageblockSectionItem helpText="{!$ObjectType.Case.Fields.Subject.inlineHelpText}">
+               <apex:outputLabel value="Subject"/>
+               <apex:outputPanel layout="none">
+                 <div class="requiredInput">
+                   <div class="requiredBlock"></div>
+                   <apex:inputField value="{!newCase.Subject}" style="width:80%" />
+                 </div>
+               </apex:outputPanel>
+             </apex:pageblockSectionItem>
+             
+             <apex:pageblockSectionItem helpText="{!$ObjectType.Case.Fields.Description.inlineHelpText}" >
+               <apex:outputLabel value="Description"/>
+               <apex:outputPanel layout="none">
+                 <div class="requiredInput">
+                   <div class="requiredBlock"></div>
+                   <apex:inputTextArea value="{!newCase.Description}" style="width:80%" rows="4" />
+                 </div>
+               </apex:outputPanel>
+             </apex:pageblockSectionItem>
+             
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+         <apex:pageblocksectionItem >
+           <apex:pageblockSection columns="1" showHeader="false">
+           
+             <!-- <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal && !isCaseTypeProject}" helpText="{!$ObjectType.Case.Fields.Replication_Steps__c.inlineHelpText}" > -->
+               <!--  <apex:outputLabel value="Steps to Reproduce"/> -->
+               <!-- <apex:inputTextArea value="{!newCase.Replication_Steps__c}" style="width:80%" rows="5"/> -->
+             <!-- </apex:pageblockSectionItem> -->
+           <!-- <apex:pageBlockSectionItem rendered="{!!CurrentSessionInfo.InPortal && !isCaseTypeProject}" > -->
+           <!-- </apex:pageBlockSectionItem> -->
+             
+             <apex:pageblockSectionItem >
+               <apex:outputLabel value="Internal Case Comments" rendered="{!!CurrentSessionInfo.InPortal}"/>
+               <apex:inputField value="{!CaseComment.CommentBody}" style="width:80%" id="CommentBody" rendered="{!!CurrentSessionInfo.InPortal}"/>
+             </apex:pageblockSectionItem>
+             
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+         
+         <apex:pageblocksectionItem rendered="{!isCaseTypeProject}">
+           <apex:pageblockSection columns="1" showHeader="false">
+             <apex:inputField value="{!newCase.Priority_Rationale__c}" style="width:80%" rendered="{!!CurrentSessionInfo.InPortal}" />
+             <apex:inputField value="{!newCase.Impact__c}" style="width:80%" />
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+                
+         <apex:pageblocksectionItem rendered="{!isCaseTypeProject}">
+           <apex:pageblockSection columns="1" showHeader="false">
+             <apex:inputField value="{!newCase.Benefit_To_Resolve__c}" style="width:80%" />
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+         
+       </apex:pageblockSection>
+       
+       <!-- **************** TIME TRACKING ********************** -->
+       <apex:pageblockSection columns="2" title="Time Tracking" id="tt" collapsible="false" showHeader="true" rendered="{!!CurrentSessionInfo.InPortal && !isCaseTypeProject}">
+       
+         <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal}" helpText="{!$ObjectType.Case.Fields.Time_spent_on_issue__c.inlineHelpText}" >
+           <apex:outputLabel value="Time Spent on issue (minutes)"/>
+           <apex:outputPanel layout="none">
+             <div class="requiredInput">
+               <div class="requiredBlock"></div>
+               <apex:inputField value="{!newCase.Time_spent_on_issue__c}"/>
+             </div>
+           </apex:outputPanel>
+         </apex:pageblockSectionItem>
+         
+       </apex:pageblockSection>
+       
+       <apex:pageBlockSection title="Optional" rendered="{!!CurrentSessionInfo.InPortal}" columns="1" showHeader="true">
+       
+         <apex:pageblockSectionItem >
+           <apex:outputPanel >
+             <apex:inputCheckBox value="{!useDefaultAssignmentRules}" /> <apex:outputText value="Assign using active assignment rules" />
+           </apex:outputPanel>
+         </apex:pageblockSectionItem>
+         
+         <apex:pageblockSectionItem >
+           <apex:outputPanel >
+             <apex:inputCheckBox value="{!sendEmailToContact}" /> <apex:outputText value="Send notification email to contact" />
+           </apex:outputPanel>
+         </apex:pageblockSectionItem>   
+                      
+       </apex:pageBlockSection>
+       
+    <apex:outputPanel id="errorMsgBottom">    
+        <apex:pageMessages />
+        <apex:pageMessage summary="Please correct the following validation errors" severity="error" strength="3" escape="false" detail="{!validationMessage}" rendered="{!displayValidationMessage}" />
+        <apex:pageMessage summary="Support Alert!" severity="warning" strength="2" escape="false" detail="{!supportAlert}" rendered="{!hasSupportAlert && !CurrentSessionInfo.InPortal}" /> 
+    </apex:outputPanel> 
+            
+  	
+	<div class="ol2">
+        
+        <a class="close-ico"></a>	
+        
+        <!-- Severity Matrix Pop-Up -->
+        <div class="pu2 mpu">
+           <table cellspacing="0">
+            <tr>
+                <td colspan="2" class="nb"></td>
+                <td colspan="3" class="heading">Impact</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="nb"></td>
+                <td>High</td>
+                <td>Medium</td>
+                <td>Low</td>
+            </tr>
+            <tr>
+                <td rowspan="3" vertical-align="middle" class="heading">
+                    <p class="rotate">Urgency</p>
+                </td>
+                <td>High</td>
+                <td class="critical">Critical</td>
+                <td class="high">High</td>
+                <td class="medium">Medium</td>
+            </tr>
+            <tr>
+                
+                <td>Medium</td>
+                <td class="high">High</td>
+                <td class="medium">Medium</td>
+                <td class="low">Low</td>
+            </tr>
+             <tr>
+                
+                <td>Low</td>
+                <td class="medium">Medium</td>
+                <td class="low">Low</td>
+                <td class="low2">Low</td>
+            </tr>
+           </table>
+        </div>
+        
+        <!-- Impact Pop-Up -->
+        <div class="pu2 ipu">
+           <table cellspacing="0" style="font-size:13px;text-align:left;">
+            <tr>
+                <td>System</td>
+                <td>High</td>
+                <td>Medium</td>
+                <td>Low</td>
+            </tr>
+            <tr>
+                <td>
+                    Production
+                </td>
+                <td>
+                    <ol>
+                		<li>Reputational and/or financial damage is likely to be high</li>
+                    	<li>There is a direct impact on your customers</li>
+                    	<li>Unable to carry out work, or access very vital service or function where no workaround is available</li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>
+                    	<li>There's risk of financial/reputational impact if not addressed</li>
+                    	<li>Unable to carry out work, or access very vital service or function but a workaround is available</li>
+                    	<li>System performance is affected/degraded</li>
+                    	<li>There is a regulatory impact</li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>
+                    	<li>Unable to access a non-critical service / function</li>
+                    	<li>No reputational or financial impact</li>
+                    	<li>Cosmetic in nature</li>
+                    	<li>Only single user is affected</li>
+                    	<li>It is a one-off issue and non-reproducable</li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Non-Production
+                </td>
+                <td>
+                    <ol>    
+                    	<li>Situation halting the implementation and prevents testing of a large number of test cases</li>
+                    	<li>Situation preventing the operation of very vital process or function within the system</li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>
+                    	<li>Situation may halt the implementation if the issue is not addressed in due time</li>
+                    	<li>Situation preventing the operation however it’s not very vital within the system</li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>
+                    	<li>Situation has no major impact on halting the implementation</li>
+                    	<li>Minimal impact on the operation of the process/function</li>
+                    </ol>
+                </td>
+            </tr>
+           </table>
+        </div>
+        
+        <!-- Urgency Pop-Up -->
+        <div class="pu2 upu">
+           <table cellspacing="0" style="font-size:13px;text-align:left;">
+            <tr>
+                <td>System</td>
+                <td>High</td>
+                <td>Medium</td>
+                <td>Low</td>
+            </tr>
+            <tr>
+                <td>
+                    Production
+                </td>
+                <td>
+                    <ol>
+                    	<li>The damage caused by the incident is increasing rapidly by the minute / hour</li>
+                    	<li>There is no workaround available and work that cannot be completed is highly time sensitive, for e.g. close of business run has halted or highly impacting profitability of the customer (e.g. position keeping)</li>
+                    </ol>
+ 					<ul>
+                    	<li><strong>High priority 4-5* accounts – INTERNAL ONLY</strong></li>
+                        <li><strong>The fault if not resolved could impact other customers – INTERNAL ONLY</strong></li>
+                    </ul>
+                </td>
+                <td>
+                    <ol>
+                    	<li>The damage caused by the incident increases considerably over time</li>
+                    	<li>There is no workaround but business operation can continue working</li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>
+                    	<li>The damage caused by the incident increases marginally over time</li>
+                    	<li>A temporary workaround is in place while a permanent solution is identified</li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Non-Production
+                </td>
+                <td>
+                	<ol>    
+                    	<li>Issue is preventing completion of a key delivery item which will have effect on other parts of project delivery AND/OR Project is time constrained and issue needs to be resolved soon</li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>    
+                    	<li>Project can continue in the meantime but full solution or viable workaround is required within the next few months</li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>    
+                    	<li>Project can continue and full solution or viable workaround can wait more than few months</li>
+                    </ol>
+                </td>
+            </tr>
+           </table>
+        </div>
+        
+    </div>
+        
+    </apex:pageBlock>
+   </apex:form>
+   <apex:includeScript value="{!$Resource.SharedJavaScript}"/>
+</apex:page>

@@ -1,0 +1,14 @@
+<apex:page showHeader="true" sidebar="false" controller="community_groupListingController">
+<table width="500px">
+	<tr>
+		<th>Group Id</th>
+		<th>Group Name</th>
+	</tr>
+	<apex:repeat value="{!lstCollabGroups}" var="s" id="lstGrp1">
+	<tr>
+		<td><apex:outputText value="{!s.Id}"></apex:outputText></td>
+		<td><apex:outputText value="{!s.name}"></apex:outputText></td>
+	</tr>
+	</apex:repeat>
+</table>
+</apex:page>

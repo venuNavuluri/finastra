@@ -1,0 +1,14 @@
+<apex:page standardController="MyProject__c">
+
+	<apex:includeScript value="{!URLFOR($Resource.MyProject_Charts, 'jquery-1.4.4.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.MyProject_Charts, 'date.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.MyProject_Charts, 'jquery-ui-1.8.7.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.MyProject_Charts, 'jquery.ganttView.js')}"/>
+
+	<apex:stylesheet value="{!URLFOR($Resource.MyProject_Charts, 'jquery-ui-1.8.4.css')}"/>
+	<apex:stylesheet value="{!URLFOR($Resource.MyProject_Charts, 'reset.css')}"/>
+	<apex:stylesheet value="{!URLFOR($Resource.MyProject_Charts, 'jquery.ganttView.css')}"/>
+
+  	<c:MyProject_Charts_GanttComponent target="{!Id}" />
+
+</apex:page>

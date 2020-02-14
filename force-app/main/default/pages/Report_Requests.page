@@ -1,0 +1,4 @@
+<apex:page >
+<p style="font-size:14px; font-weight:bolder;">Report Request</p>
+<flow:interview name="Report_Request" finishLocation="{!URLFOR('/home/home.jsp')}"/>
+</apex:page>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>34.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>AG_Account;AG_Acct_By_Sub__c;AG_Bill_To_Ship_To__c;AG_Opportunity;AG_Lead;AG_Campaign;AG_Contact;AG_User;AG_At_Risk__c</description>
+    <label>SOSS</label>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>65</minorNumber>
+        <namespace>CRMC_PP</namespace>
+    </packageVersions>
+</ApexPage>

@@ -1,0 +1,21 @@
+<apex:page standardController="Case" extensions="InlineCaseAttributesController" showHeader="false" sidebar="false" standardStylesheets="true">
+
+<table style="width: 100%; height:30px; border-spacing: ; border-style: none; border-collapse: collapse;"><tr><td>
+        <table><tr>
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/Customer_Active.jpg')}" title="Active Customer" rendered="{!ShowActiveCustomer}"/></td>
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/Customer_Ex.jpg')}" title="Ex-Customer" rendered="{!ShowExCustomer}"/></td>
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/Customer_Obsolete.jpg')}" title="Obsolete Customer" rendered="{!ShowObsoleteCustomer}"/></td>
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/icon_AccountWatch.gif')}" title="Account at Risk" rendered="{!ShowAccountAtRisk}"/></td>
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/icon_SupportHold.gif')}" title="1 or more products on Support Hold. Please refer to the Service Hold record on the account for details" rendered="{!ShowSupporthold}"/></td>
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/globe_icon.gif')}" title="Strategic Account" rendered="{!ShowStrategicAccount}"/></td>
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/endoflife.jpg')}" title="Customer has sun-downed product, refer to Special Support Details for information" rendered="{!ShowEndofLife}"/></td>  
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/JIRAicon.jpg')}" title="JIRA Parent Case" rendered="{!ShowJIRAcase}"/></td>              
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/AuthorisedForLive.jpg')}" title="Authorised to Access Live Systems" rendered="{!AuthorisedtoAccessLiveSystems}"/></td>
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/ExtendedSupportInPlace.gif')}" title="ExtendedSupportInPlace" rendered="{!ShowExtendedSupportInPlace}"/></td>
+            <td><apex:image value="{!URLFOR($Resource.IconImages, 'IconImages/ProductonTechnicalSupport.gif')}" title="ProductonTechnicalSupport" rendered="{!ShowProductonTechnicalSupport}"/></td>
+
+            </tr></table>
+     </td></tr></table>
+    
+    
+</apex:page>

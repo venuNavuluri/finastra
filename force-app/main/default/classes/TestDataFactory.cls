@@ -1,1006 +1,556 @@
 /**
  * @File Name          : TestDataFactory.cls
- * @Description        :
- * @Author             : venu.navuluri@finastra.com
- * @Group              :
- * @Last Modified By   : Aakanksha Sharma
- * @Last Modified On   : 30/01/2020, 16:59:24
- **/
+ * @Description        : 
+ * @Author             : Peter Sabry
+ * @Group              : 
+ * @Last Modified By   : Peter Sabry
+ * @Last Modified On   : 31/07/2019, 11:02:28
+ * @Modification Log   : 
+ *==============================================================================
+ * Ver         Date                     Author      		      Modification
+ *==============================================================================
+ * 1.0    31/07/2019, 11:00:41   Peter Sabry     Initial Version
+**/
 @isTest
 public class TestDataFactory {
-  public static final string EMPTY_STRING = '';
-  public static final String BLANK_SPACE = ' ';
-  public static final String OPP_NAME = 'Test - Opp';
-  public static final String ACCOUNT_NAME = 'TestAccount';
-  public static final String USER_LASTNAME = 'TestUser';
-  public static final String TEAM_MEMBER_ROLE = 'Inside Sales';
-  public static String BYPASS_VALIDATION_ERROR_MSG = 'A validation error was raised when it was expected to be bypassed';
-  public static String DML_VALIDATION_ERROR_MSG = 'DMLException should contain validation error message';
-  public static String NO_DML_VALIDATION_ERROR_MSG = 'DMLException should NOT contain validation error message';
-  public static final Integer BULK_TEST_RECORD_COUNT = 200;
-
-  //Set of all the profiles required to run tests
-  public static Set<String> profiles = new Set<String>{
-    Constants.SYS_ADMIN_PROFILE,
-    Constants.SOSS_USR_PROFILE,
-    Constants.STD_USR_PROFILE,
-    Constants.SALES_USR_PROFILE,
-    Constants.BDR_USR_PROFILE,
-    Constants.SUPPORT_REP
-  };
-
-  //Query to retrieve test users
-  public static List<Profile> profileList = [
-    SELECT Id, Name
-    FROM Profile
-    WHERE Name IN :profiles
-    ORDER BY Name ASC
-  ];
-
-  /**
-   * @description RUBX-466 : Test data method for single Account
-   * @author Justin Baidoo-Hackman | 05/12/2019
-   * @param accName - Account Name
-   * @return Contact
-   **/
-  public static Account createAccount() {
-    return createAccount(ACCOUNT_NAME);
-  }
-
-  /**
-   * @description RUBX-466 : Test data method for single Account
-   * @author Justin Baidoo-Hackman | 05/12/2019
-   * @param accName - Account Name
-   * @return Contact
-   **/
-  public static Account createAccount(String accName) {
-    return new Account(
-      Name = accName,
-      Status__c = 'Active',
-      Country__c = Constants.UNITED_KINGDOM_COUNTRY,
-      CurrencyIsoCode = Constants.GBP_Currency
-    );
-  }
-
-  public static List<Account> createAccounts(
-    Integer numAccts,
-    Boolean doInsert
-  ) {
-    List<Account> accts = new List<Account>();
-    Account acct;
-    for (Integer i = 1; i <= numAccts; i++) {
-      acct = createAccount(ACCOUNT_NAME + '-' + i);
-      accts.add(acct);
+    
+    private static final String accNAME = 'Test Account';
+    private static final String NS_INTERNAL_ID = '12345';
+    //G.B - 05.06.2019
+    public static User getRunningUser(String profileName){
+        Profile userRunningProfile = [SELECT Id FROM Profile WHERE Name=:profileName];
+        User runningUser = new User(Alias = 'testuser', 
+                                Email='runningUser@lebill.com', 
+                                EmailEncodingKey='UTF-8', 
+                                LastName='Testing', 
+                                LanguageLocaleKey='en_US', 
+                                LocaleSidKey='en_GB', 
+                                ProfileId = userRunningProfile.Id, 
+                                TimeZoneSidKey='Europe/London', 
+                                UserName='runningUser@lebill.com');
+         return runningUser;
     }
-    if (doInsert) {
-      insert accts;
+    //G.B - 05.06.2019
+    public static void bypassCPQValidation(){
+        CPQValidations__c bypassVR = CPQValidations__c.getOrgDefaults();
+        bypassVR.Bypass__c = true;
+        insert bypassVR;
     }
-    return accts;
-  }
-  /**
-   * @description RUBX-498 : Test data method for Leads
-   * @author Prity Sangwan | 04/12/2019
-   * @param numLeads
-   * @return List
-   **/
-   
-  public static List<Lead> createLeads(
-    Integer numLeads,
-    Boolean doInsert
-  ) {
-    List<Lead> Leads = new List<Lead>();
-
-    for (Integer i = 0; i < numLeads; i++) {
-      Lead newLead = new Lead(
-        FirstName = 'test',
-        LastName = 'TestContact' + i,
-        Company = 'TestCompany' + i
-      );
-      Leads.add(newLead);
+    public static Account createAccount(String accNAME){
+        Account acc = new Account(Name = accNAME);
+        insert acc;        
+        return acc;
     }
-    // Insert all leads.
-    if (doInsert) {
-      insert Leads;
-    }
-    return Leads;
-  }
-
-  /**
-   * @description RUBX-466 : Test data method for createContact
-   * @author Justin Baidoo-Hackman | 05/12/2019
-   * @return Contact
-   **/
-  public static Contact createContact(
-    Id accountId,
-    String fName,
-    String lName,
-    Boolean doInsert
-  ) {
-    Contact aContact = new Contact(
-      AccountId = accountId,
-      FirstName = fName,
-      LastName = lName
-    );
-    if (doInsert) {
-      Database.insert(aContact);
-    }
-    return aContact;
-  }
-
-  public static List<Contact> createContacts(
-    Id accountId,
-    Integer numContacts,
-    Boolean doInsert
-  ) {
-    List<Contact> contacts = new List<Contact>();
-
-    for (Integer i = 1; i <= numContacts; i++) {
-      Contact c = createContact(accountId, 'test', 'TestContact-' + i, false);
-      contacts.add(c);
-    }
-    if (doInsert) {
-      insert contacts;
-    }
-    return contacts;
-  }
-
-  /**
-   * @description RUBX-466 : Test data method for createContact
-   * @author Justin Baidoo-Hackman | 05/12/2019
-   * @param opporId
-   * @param contactId
-   * @param numOcr
-   * @param
-   * @return Contact
-   **/
-  public static List<Contact> createContacts(
-    List<Account> accounts,
-    Integer numContacts,
-    Boolean doInsert
-  ) {
-    List<Contact> contacts = new List<Contact>();
-    // For each account create contacts
-    for (Account acct : accounts) {
-      contacts.addAll(createContacts(acct.Id, numContacts, false));
-    }
-    if (doInsert) {
-      insert contacts;
-    }
-    return contacts;
-  }
-  public static List<Opportunity> createOpportunities(
-    Integer numAccts,
-    Integer numOppsPerAcct,
-    Boolean doInsert
-  ) {
-    List<Account> accounts = createAccounts(numAccts, true);
-    // create a contact for each Account
-    final Integer NUM_OF_CONTACTS = 1;
-    List<Contact> accountContacts = createContacts(
-      accounts,
-      NUM_OF_CONTACTS,
-      true
-    );
-    final String OPP_MAIN_COMPETITOR = 'Manual';
-
-    // make a map of contact by Account Id
-    Map<Id, List<Contact>> contactsByAcctId = new Map<Id, List<Contact>>();
-    for (Contact acctContact : accountContacts) {
-      List<Contact> contactList = contactsByAcctId.get(acctContact.AccountId);
-      if (contactsByAcctId.get(acctContact.AccountId) == null) {
-        contactList = new List<Contact>{acctContact};
-        contactsByAcctId.put(acctContact.AccountId, contactList);
-      }
-      contactList.add(acctContact);
-    }
-    List<Opportunity> opps = new List<Opportunity>();
-    for (Account acct : accounts) {
-      // For each account just inserted, add opportunities
-      for (Integer k = 0; k < numOppsPerAcct; k++) {
-        opps.add(
-          new Opportunity(
-            Name = acct.Name + OPP_NAME + k,
-            StageName = Constants.OPPORTUNITY_STAGE_NAME_PROSPECT,
-            CAT_Logging_Stage__c = Constants.AWAITING_CAT_REVIEW,
-            CloseDate = System.today().addMonths(1),
-            Main_Competitor__c = OPP_MAIN_COMPETITOR,
-            Power_Sponsor__c = contactsByAcctId.get(acct.Id)[0].Id,
-            AccountId = acct.Id
-          )
-        );
-      }
-    }
-    // Insert all opportunities for all accounts.
-    if (doInsert) {
-      insert opps;
-      // Insert Opportunity Contact Roles for each Opportunity
-      createOpportunityContactRoles(opps, contactsByAcctId, true);
-    }
-    return opps;
-  }
-  /**
-   * @description RUBX-466 : Test data method for creating OpportunityContactRoles for a list of accounts
-   * @author Sujith Maruthingal | 29/11/2019
-   * @param opporId
-   * @param contactId
-   * @param numOcr
-   * @param
-   * @return List<OpportunityContactRole>
-   **/
-  public static List<OpportunityContactRole> createOpportunityContactRoles(
-    List<Opportunity> oppList,
-    Map<Id, List<Contact>> contactsByAccount,
-    Boolean doInsert
-  ) {
-    List<OpportunityContactRole> ocrList = new List<OpportunityContactRole>();
-    OpportunityContactRole oppContactRole;
-    for (Opportunity opp : oppList) {
-      for (Contact acctContact : contactsByAccount.get(opp.AccountId)) {
-        oppContactRole = createOpportunityContactRole(
-          opp.Id,
-          acctContact.Id,
-          false
-        );
-        ocrList.add(oppContactRole);
-      }
-    }
-    if (doInsert) {
-      insert ocrList;
-    }
-    return ocrList;
-  }
-
-  /**
-   * @description RUBX-466 : Test data method for a single OpportunityContactRole
-   * @author Justin Baidoo-Hackman | 05/12/2019
-   * @param oppId - Opportunity Id
-   * @param contactId - Contact Id
-   * @param doInsert - whether DML insert should be called or not
-   * @return List<OpportunityContactRole>
-   **/
-  public static OpportunityContactRole createOpportunityContactRole(
-    Id oppId,
-    Id contactId,
-    Boolean doInsert
-  ) {
-    OpportunityContactRole oppContactRole = new OpportunityContactRole();
-    oppContactRole.Role = Constants.OPPORTUNITY_CONTACT_ROLE;
-    oppContactRole.OpportunityId = oppId;
-    oppContactRole.ContactId = contactId;
-    if (doInsert) {
-      Database.insert(oppContactRole);
-    }
-    return oppContactRole;
-  }
-
-  public static Case createLCACase(Id accountId, Id assetId, Boolean doInsert) {
-    Map<String, Id> recordTypesMap = CommonUtils.getRecordTypesByObjectName(
-      'Case'
-    );
-
-    Case newCase = new Case(
-      Status = Constants.CASE_STATUS_NEW,
-      Priority = Constants.CASE_PRIORITY_MED,
-      LCA_Account__c = accountId,
-      AccountId = accountId,
-      AssetId = assetId,
-      RecordTypeId = recordTypesMap.get(Constants.CASE_LCA_RECORD_TYPE_DEV_NAME)
-    );
-
-    if (doInsert) {
-      insert newCase;
-    }
-
-    return newCase;
-  }
-  public static List<Case> createCases(
-    Integer numAccts,
-    Integer numCasesPerAcct,
-    Boolean doInsert
-  ) {
-    List<Account> accounts = createAccounts(numAccts, doInsert);
-
-    List<Case> cases = new List<Case>();
-    for (Account acct : accounts) {
-      // For each account just inserted, add opportunities
-      for (Integer k = 0; k < numCasesPerAcct; k++) {
-        cases.add(
-          new Case(
-            Status = Constants.CASE_STATUS_NEW,
-            Priority = Constants.CASE_PRIORITY_MED,
-            LCA_Account__c = acct.Id,
-            AccountId = acct.Id
-          )
-        );
-      }
-    }
-    // Insert all opportunities for all accounts.
-    if (doInsert) {
-      insert cases;
-    }
-
-    return cases;
-  }
-  public static Product2 createProduct(string productName, Boolean doInsert) {
-    Product2 p = new Product2(Name = productName, IsActive = true);
-    if (doInsert) {
-      insert p;
-    }
-    return p;
-  }
-  public static Contract createContract(
-    Id accountId,
-    date startDate,
-    Boolean doInsert
-  ) {
-    Contract c = new Contract(
-      accountId = accountId,
-      startDate = startDate,
-      ContractTerm = 12
-    );
-    if (doInsert) {
-      insert c;
-
-      //Activate Contract
-      c.Status = Constants.CONTRACT_STATUS_ACTIVATED;
-      update c;
-    }
-    return c;
-  }
-  public static SBQQ__Subscription__c createSubscription(
-    Id accountId,
-    Id contractId,
-    Id productId,
-    Boolean doInsert
-  ) {
-    SBQQ__Subscription__c subscription = new SBQQ__Subscription__c(
-      SBQQ__Account__c = accountId,
-      SBQQ__Contract__c = contractId,
-      SBQQ__Product__c = productId,
-      SBQQ__Quantity__c = 1
-    );
-
-    if (doInsert) {
-      insert subscription;
-    }
-    return subscription;
-  }
-
-  public static List<Asset> createAssets(
-    Id accountId,
-    Id contactId,
-    Id productId,
-    Id subscriptionId,
-    Integer numAssets,
-    Boolean doInsert
-  ) {
-    List<Asset> assets = new List<Asset>();
-
-    for (Integer k = 0; k < numAssets; k++) {
-      assets.add(
-        new Asset(
-          Name = 'Test Asset' + k,
-          Status = Constants.ASSET_STATUS_PURCHASED,
-          AccountId = accountId,
-          contactId = contactId,
-          Product2Id = productId,
-          SBQQ__CurrentSubscription__c = subscriptionId
-        )
-      );
-    }
-    if (doInsert) {
-      insert assets;
-    }
-
-    return assets;
-  }
-
-  /**
-   * @description :  Build profiles as map
-   * @autho : Ramesh Thulasi
-   * @param : None
-   * @return : Profile Name, Profile map
-   **/
-
-  public static Map<String, Profile> getProfileMap() {
-    map<String, Profile> profileMap = new Map<String, Profile>();
-    for (Profile p : profileList) {
-      profileMap.put(p.Name, p);
-    }
-    return profileMap;
-  }
-
-  /**
-   * @description :  Builds unique string used as username for user
-   * @autho : Ramesh Thulasi
-   * @param : None
-   * @return : Unique string
-   **/
-  public static String getUniqueUsername() {
-    String orgId = UserInfo.getOrganizationId();
-    String dateString = String.valueof(Datetime.now())
-      .replace(BLANK_SPACE, EMPTY_STRING)
-      .replace(':', EMPTY_STRING)
-      .replace('-', EMPTY_STRING);
-    Integer randomInt = Integer.valueOf(math.rint(math.random() * 1000000));
-    String uniqueName = orgId + dateString + randomInt;
-
-    return (uniqueName + '@dummy' + orgId + '.com');
-  }
-  /**
-   * @description :  Create users for profiles in profile map
-   * @autho : Ramesh Thulasi
-   * @param : None
-   * @return : User List
-   **/
-
-  public static List<User> createUserList(Boolean doInsert) {
-    List<User> newUserList = new List<User>();
-    for (Profile p : profileList) {
-      String uniqueUserEMailId = getUniqueUsername();
-      User u = new User(
-        Alias = 'tstUsr',
-        Country = 'United Kingdom',
-        Email = uniqueUserEMailId,
-        EmailEncodingKey = 'UTF-8',
-        LastName = USER_LASTNAME,
-        LanguageLocaleKey = 'en_US',
-        LocaleSidKey = '   en_GB',
-        ProfileId = p.Id,
-        TimeZoneSidKey = 'Europe/London',
-        UserName = uniqueUserEMailId
-      );
-      newUserList.add(u);
-    }
-    if (doInsert) {
-      insert newUserList;
-    }
-
-    return newUserList;
-  }
-
-  /**
-   * @description :  Updates the given sObject list and returns error map. If there are no errors it returns empty map.
-   * @autho : Ramesh Thulasi
-   * @param : None
-   * @return : Error map
-   **/
-  public static Map<Integer, String> getErrorMap(List<sObject> listToUpdate) {
-    Map<Integer, String> errorMap = new Map<Integer, String>();
-    List<Database.SaveResult> results = Database.update(listToUpdate, false);
-    for (Database.SaveResult result : results) {
-      if (!result.isSuccess()) {
-        integer errorSlNumber = 0;
-        for (Database.Error err : result.getErrors()) {
-          errorSlNumber++;
-          errorMap.put(errorSlNumber, err.getMessage());
+    public static Account createAccount( Boolean dbInsert, String accNAME ){
+        Account acc = new Account(Name = accNAME);
+        if(dbInsert){
+            insert acc;
         }
-      }
+        return acc;
+    } 
+    
+    public static Opportunity createOpportunity(Account acc){
+        Opportunity opp = new Opportunity(Name = 'Test Opportunity', AccountId = acc.Id);
+        opp.StageName = 'Open';
+        opp.Service_Type__c = 'Academy Training';
+        opp.Service_Sub_Type__c  = 'Client';
+        opp.CloseDate = system.today() + 30;
+        opp.RecordTypeID='01220000000UYLr';
+        //opp.Finastra_Led_Cloud_Deal__c='No';
+        
+        insert opp;        
+        return opp;
+    }    
+    public static Opportunity createOpportunity(Account acc,Boolean dbInsert ){
+        Opportunity opp = new Opportunity(Name = 'Opp1', AccountId = acc.Id);
+        opp.StageName = 'Open';
+        opp.CloseDate = system.today() + 30;
+        if(dbInsert){
+            insert opp;
+        }
+        return opp;
     }
-    return errorMap;
-  }
-
-  public static CollaborationGroup createCollaborationGroup(string groupName) {
-    CollaborationGroup chatterGroup = new CollaborationGroup(
-      Name = groupName,
-      CollaborationType = 'Private',
-      CanHaveGuests = false,
-      IsArchived = false,
-      IsAutoArchiveDisabled = true
-    );
-    insert chatterGroup;
-    return chatterGroup;
-  }
-
-  /**
-   * @description :  Creates SBQQ__Quote and assigns it as primary if desired
-   * @author : Justin Baidoo-Hackman
-   * @param : opp - the opportunity to associate with the quote
-   * @param : primary - boolean to say whether it should be primary or not
-   * @param : doInsert - boolean to perform DML or not
-   * @return : Single SBQQ__Quote__c
-   **/
-  public static SBQQ__Quote__c createSBQQuote(
-    Opportunity opp,
-    Boolean primary,
-    Boolean doInsert
-  ) {
-    SBQQ__Quote__c newQuote = new SBQQ__Quote__c(
-      SBQQ__Account__c = opp.AccountId,
-      SBQQ__Opportunity2__c = opp.Id,
-      SBQQ__Primary__c = primary,
-      SBQQ__StartDate__c = Date.today(),
-      SBQQ__SubscriptionTerm__c = 12,
-      RecordTypeId =
-        Schema.SObjectType.SBQQ__Quote__c.getRecordTypeInfosByName()
-          .get('Draft')
-          .getRecordTypeId()
-    );
-    if (doInsert) {
-      insert newQuote;
+    
+    public static Contract createContract(Account acc, Opportunity opp){
+        Contract con = new Contract();
+        Billing_Entity__c be = createBillingEntity();
+        con.Name = 'Test Con';
+        con.AccountId = acc.Id;
+        con.Misys_Entity__c = be.Id;
+        con.CurrencyIsoCode = 'USD';
+        con.Misys_Opportunity__c = opp.Id;
+        con.Recurring_Fees_Start_Planned__c = system.today()+10;    
+        con.StartDate = System.today();
+        insert con;           
+        return con;
     }
-    return newQuote;
-  }
-  /**
-   * @description :  Creates list SBQQ__QuoteLine__c record
-   * @author : Venu Navuluri
-   * @param : quoteId - the billing schedule to create quote for
-   * @param : doInsert - boolean to perform DML or not
-   * @return : List<SBQQ__QuoteLine__c>
-   **/
-
-  public static List<SBQQ__QuoteLine__c> createSBQQuoteLines(
-    Integer numqLines,
-    Id quoteId,
-    Id prodId,
-    String prodType,
-    Boolean doInsert
-  ) {
-    List<SBQQ__QuoteLine__c> quoteLines = new List<SBQQ__QuoteLine__c>();
-
-    for (Integer k = 0; k < numqLines; k++) {
-      quoteLines.add(
-        new SBQQ__QuoteLine__c(
-          ProdType__c = prodType,
-          SBQQ__Product__c = prodId,
-          SBQQ__Quote__c = quoteId,
-          SBQQ__StartDate__c = Date.today()
-        )
-      );
+    
+    public static Billing_Entity__c createBillingEntity(){
+        Billing_Entity__c be = new Billing_Entity__c();
+        be.name = 'Test Entity';
+        be.BE_Active__c = true;
+        insert be;
+        return be;       
     }
-    if (doInsert) {
-      insert quoteLines;
+    public static Billing_Entity__c createBillingEntity(Boolean dbInsert){
+        Billing_Entity__c be = new Billing_Entity__c();
+        be.name = 'Test Entity';
+        if(dbInsert){
+            insert be;
+        }
+        return be;       
     }
-    return quoteLines;
-  }
-  /**
-   * @description :  Creates a list of SBBQ__Quotes and assigns it as primary if desired
-   * @author : Justin Baidoo-Hackman
-   * @param : opps - the opportunities to create quotes for
-   * @param : primary - boolean to say whether it should be primary or not
-   * @param : doInsert - boolean to perform DML or not
-   * @return : List of SBQQ__Quote__c
-   **/
-  public static List<SBQQ__Quote__c> createSBQQuotes(
-    List<Opportunity> opps,
-    Boolean primary,
-    Boolean doInsert
-  ) {
-    List<SBQQ__Quote__c> quotes = new List<SBQQ__Quote__c>();
-    for (Opportunity anOpp : opps) {
-      quotes.add(createSBQQuote(anOpp, primary, false));
-    }
-    if (doInsert) {
-      insert quotes;
-    }
-    return quotes;
-  }
-
-  /**
-   * @description : Retrieves one user with given profile id
-   * @author : Ramesh Thulasi
-   * @param : profileId - user pofile id
-   * @return : Retrieved User
-   **/
-  public static User getProfileUser(ID profileId) {
-    return [
-      SELECT Id, Profile.Name
-      FROM User
-      WHERE ProfileId = :profileId AND LastName = :USER_LASTNAME
-      LIMIT 1
-    ];
-  }
-  /**
-   * @description :  Updates opportunity with given stageName
-   * @author : Ramesh Thulasi
-   * @param : opp - the opportunity to be udpated
-   * @param : stageName - opportunity stagename to be set
-   * @return :Updated opportunity
-   **/
-  public static Opportunity updateOpportunityStage(
-    Opportunity opp,
-    String stageName
-  ) {
-    if (null != stageName) {
-      opp.StageName = stageName;
-      update opp;
-    }
-    return opp;
-  }
-  /**
-   * @description :  Creates opportunity with given stageName
-   * @author : Ramesh Thulasi
-   * @param : stageName - opportunity stagename to be set
-   * @return : Created opportunity
-   **/
-  public static Opportunity createOpportunityWithStage(String stageName) {
-    // Please make a note that on insert CPQ process/trigger defaults the oportunity stageName to '1. Prospect'.
-    // So we have to create and update the stageName in order to set the stageName with required value.
-    return updateOpportunityStage(
-      createOpportunities(1, 1, true)[0],
-      stageName
-    );
-  }
-  /**
-   * @description :  Checks for the validation error message for any object record on update
-   * @author : Ramesh Thulasi
-   * @param : recordToUpdate - Any object record to be udpated
-   * @param : errorMessage - Error message to check
-   * @return : Check result as Boolean
-   **/
-  public static Boolean checkValidationErrorMessage(
-    sObject recordToUpdate,
-    String errorMessage
-  ) {
-    Boolean containsValidationMsg = false;
-    Map<Integer, String> errorMap = getErrorMap(
-      new List<sObject>{recordToUpdate}
-    );
-    for (String val : errorMap.values()) {
-      containsValidationMsg = val.startswith(errorMessage);
-      if (containsValidationMsg) {
-        break;
-      }
-    }
-    return containsValidationMsg;
-  }
-  /**
-   * @description :  Sets the bypass validation custom setting for a given user
-   * @author : Ramesh Thulasi
-   * @param : usr - User on which the flag to be set
-   * @return : None
-   **/
-  public static void setBypassValidationForUser(User usr) {
-    // set the custom property flag to 'true'
-    Bypass_Validations__c cusSetting = [
-      SELECT id
-      FROM Bypass_Validations__c
-      WHERE SetupOwnerId = :usr.id
-    ];
-    cusSetting.Disable__c = true;
-    update cusSetting;
-  }
-  /**
-   * @description Creates a task
-   * @author Peter Sabry | 18/12/2019
-   * @param whatId
-   * @param owner
-   * @param status
-   * @param subject
-   * @param doInsert
-   * @return void
-   **/
-  public static Task createTask(
-    Id whatId,
-    Id ownerId,
-    String status,
-    String subject,
-    Boolean doInsert
-  ) {
-    Task newTask = new Task(
-      WhatId = whatId,
-      OwnerId = ownerId,
-      status = status,
-      Subject = subject
-    );
-    if (doInsert) {
-      insert newTask;
-    }
-    return newTask;
-  }
-
-  /**
-   * @description RUBX-505 : Test data method for single AccountTeamMember
-   * @author Sujith Maruthingal | 20/12/2019
-   * @param  accId
-   * @param userId
-   * @param accountAccessLevel
-   * @param opportunityAccessLevel
-   * @param doInsert
-   * @return AccountTeamMember
-   **/
-  public static AccountTeamMember createAccountTeamMember(
-    Id accId,
-    Id userId,
-    String accountAccessLevel,
-    String opportunityAccessLevel,
-    Boolean doInsert
-  ) {
-    AccountTeamMember accTeamMember = new AccountTeamMember(
-      AccountId = accId,
-      TeamMemberRole = TEAM_MEMBER_ROLE,
-      UserId = userId,
-      AccountAccessLevel = accountAccessLevel,
-      OpportunityAccessLevel = opportunityAccessLevel,
-      CaseAccessLevel = Constants.EDIT_ONLY,
-      ContactAccessLevel = Constants.EDIT_ONLY
-    );
-    if (doInsert) {
-      insert accTeamMember;
-    }
-    return accTeamMember;
-  }
-
-  /**
-   * @description RUBX-505 : Test data method for single AccountShare
-   * @author Sujith Maruthingal | 20/12/2019
-   * @param accId
-   * @param userId
-   * @param accountAccessLevel
-   * @param opportunityAccessLevel
-   * @param doInsert
-   * @return AccountTeamMember
-   **/
-
-  public static AccountShare createAccountShare(
-    Id accId,
-    Id userId,
-    String accountAccessLevel,
-    String opportunityAccessLevel,
-    Boolean doInsert
-  ) {
-    AccountShare accShare = new AccountShare(
-      AccountId = accId,
-      UserOrGroupId = userId,
-      AccountAccessLevel = accountAccessLevel,
-      OpportunityAccessLevel = opportunityAccessLevel,
-      CaseAccessLevel = Constants.EDIT_ONLY,
-      ContactAccessLevel = Constants.EDIT_ONLY
-    );
-
-    if (doInsert) {
-      insert accShare;
-    }
-    return accShare;
-  }
-
-  /**
-   * @description Create OpportunityTeamMember record
-   * @author Peter Sabry | 18/12/2019
-   * @param opportunityId
-   * @param userId
-   * @param oppAccess
-   * @param teamMemberRole
-   * @param doInsert
-   * @return OpportunityTeamMember
-   **/
-  public static OpportunityTeamMember createOppTeamMember(
-    Id opportunityId,
-    Id userId,
-    String oppAccess,
-    String teamMemberRole,
-    Boolean doInsert
-  ) {
-    OpportunityTeamMember teamMember = new OpportunityTeamMember(
-      UserId = userId,
-      OpportunityId = opportunityId,
-      TeamMemberRole = teamMemberRole,
-      OpportunityAccessLevel = oppAccess
-    );
-
-    if (doInsert) {
-      insert teamMember;
-    }
-    return teamMember;
-  }
-  /**
-   * @description :  Returns day of week in number. Sun = 0, Sat = 6
-   * @author : Ramesh Thulasi
-   * @param : aDate - Date to get the number of week
-   * @return : day of week as Integer
-   **/
-  public static Integer dayOfWeekNumber(Date aDate) {
-    return Math.mod(Date.newInstance(1900, 1, 7).daysBetween(aDate), 7);
-  }
-  /**
-   * @description :  Returns new Monday for a given date
-   * @author : Ramesh Thulasi
-   * @param : aDate - Date to get new Monday
-   * @return : Monday as date
-   **/
-  public static Date getNextMonday(Date aDate) {
-    Integer dayOfWeek = dayOfWeekNumber(aDate);
-    Integer daysToAdvance = 0;
-    if (dayOfWeek == Constants.SUNDAY) {
-      daysToAdvance = 1;
-    } else if (dayOfWeek == Constants.MONDAY) {
-      daysToAdvance = 0;
-    } else if (dayOfWeek == Constants.TUESDAY) {
-      daysToAdvance = 6;
-    } else if (dayOfWeek == Constants.WEDNESDAY) {
-      daysToAdvance = 5;
-    } else if (dayOfWeek == Constants.THURSDAY) {
-      daysToAdvance = 4;
-    } else if (dayOfWeek == Constants.FRIDAY) {
-      daysToAdvance = 3;
-    } else if (dayOfWeek == Constants.SATURDAY) {
-      daysToAdvance = 2;
-    }
-    return aDate.addDays(daysToAdvance);
-  }
-  /**
-   * @description :  Returns new Friday for a given date
-   * @author : Ramesh Thulasi
-   * @param : aDate - date for next monday
-   * @return : Friday as day
-   **/
-  public static Date getNextFriday(Date aDate) {
-    Integer dayOfWeek = dayOfWeekNumber(aDate);
-    Integer daysToAdvance = 0;
-    if (dayOfWeek == Constants.SUNDAY) {
-      daysToAdvance = 5;
-    } else if (dayOfWeek == Constants.MONDAY) {
-      daysToAdvance = 4;
-    } else if (dayOfWeek == Constants.TUESDAY) {
-      daysToAdvance = 3;
-    } else if (dayOfWeek == Constants.WEDNESDAY) {
-      daysToAdvance = 2;
-    } else if (dayOfWeek == Constants.THURSDAY) {
-      daysToAdvance = 1;
-    } else if (dayOfWeek == Constants.FRIDAY) {
-      daysToAdvance = 0;
-    } else if (dayOfWeek == Constants.SATURDAY) {
-      daysToAdvance = 6;
-    }
-    return aDate.addDays(daysToAdvance);
-  }
-
-  /**
-   * @description: Method to generate a single address associated either with a contact or an account
-   * @author Aakanksha Sharma | 27/01/2020
-   * @param accountId
-   * @param contactId
-   * @param doInsert
-   * @return Address__c
-   **/
-  public static Address__c createAddress(
-    Id accountId,
-    Id contactId,
-    Boolean doInsert
-  ) {
-    Integer randomInt = Integer.valueOf(math.rint(math.random() * 1000000));
-    Address__c addr = new Address__c(
-      Name = 'Seattle' + ' - ' + 'WA' + randomInt,
-      Account__c = accountId,
-      Contact__c = contactId,
-      City__c = 'Seattle',
-      Country__c = Constants.USA_COUNTRY,
-      State_Province__c = 'Washington',
-      Zip_Postal_Code__c = 'WA' + randomInt
-    );
-    if (doInsert) {
-      Database.insert(addr);
-    }
-    return addr;
-  }
-  /**
-   * @description : Method to create addresses for an Account
-   * @author Aakanksha Sharma | 27/01/2020
-   * @param accountId
-   * @param numAddresses
-   * @param doInsert
-   * @return List<Address__c>
-   **/
-  public static List<Address__c> createAccountAddresses(
-    Id accountId,
-    Integer numAddresses,
-    Boolean doInsert
-  ) {
-    List<Address__c> addr = new List<Address__c>();
-
-    for (Integer i = 1; i <= numAddresses; i++) {
-      Address__c a = createAddress(accountId, null, false);
-      addr.add(a);
-    }
-    if (doInsert) {
-      insert addr;
-    }
-    return addr;
-  }
-
-  /**
-   * @description:  Method to create addresses for a Contact
-   * @author Aakanksha Sharma | 27/01/2020
-   * @param contactId
-   * @param numAddresses
-   * @param doInsert
-   * @return List<Address__c>
-   **/
-  public static List<Address__c> createContactAddresses(
-    Id contactId,
-    Integer numAddresses,
-    Boolean doInsert
-  ) {
-    List<Address__c> addr = new List<Address__c>();
-
-    for (Integer i = 1; i <= numAddresses; i++) {
-      Address__c a = createAddress(null, contactId, false);
-      addr.add(a);
-    }
-    if (doInsert) {
-      insert addr;
-    }
-    return addr;
-  }
-  /**
-   * @description :  Creates a Billing_Schedule__c record
-   * @author : Venu Navuluri
-   * @param : quoteId - the billing schedule to create quote for
-   * @param : doInsert - boolean to perform DML or not
-   * @return : Billing_Schedule__c
-   **/
-
-  public static Billing_Schedule__c createBillingSchedule(
-    Boolean doInsert,
-    Id QuoteId,
-    String ProdType
-  ) {
-    Billing_Schedule__c billingSchedule = new Billing_Schedule__c(
-      ProdType__c = ProdType,
-      Quote__c = quoteId
-    );
-    if (doInsert) {
-      insert billingSchedule;
-    }
-    return billingSchedule;
-  }
-
-  /**
-   * @description :  Reusable method to insert/prepare CS Case
-   * @author : Irfan Khan
-   * @param : accountId
-   * @param : contactId
-   * @param : doInsert
-   * @return : Case Object
-   **/
-  public static Case createCSCase(
-    Id accountId,
-    Id contactId,
-    Boolean doInsert
-  ) {
-    //if account and contacts are null then insert a generic one
-    if (String.IsBlank(accountId)) {
-      List<Account> acc = createAccounts(1, true);
-      accountId = acc[0].Id;
-    }
-    if (String.IsBlank(contactId)) {
-      List<Contact> con = createContacts(accountId, 1, true);
-      contactId = con[0].Id;
+    
+    public static SBQQ__Subscription__c createILF_Subscription(Contract con){
+        SBQQ__Subscription__c sub = new SBQQ__Subscription__c();
+        sub.SBQQ__Contract__c = con.Id;
+        sub.SBQQ__Quantity__c = 1;
+        sub.Initial_Sales_Order_Type__c = 'ILF - ILF';
+        sub.Inital_NS_Item__c = createNsItem().Id;
+        sub.Sold_Value__c = 100.0;
+        sub.Initial_Price__c = 90.0;        
+        sub.Pro_Rata_Calculated__c = false;
+        insert sub;
+        return sub;
+    }    
+    public static SBQQ__Subscription__c createILF_Subscription(Contract con,Boolean dbInsert){
+        SBQQ__Subscription__c sub = new SBQQ__Subscription__c();
+        sub.SBQQ__Contract__c = con.Id;
+        sub.SBQQ__Quantity__c = 1;
+        sub.Initial_Sales_Order_Type__c = 'ILF - ILF';
+        sub.Inital_NS_Item__c = createNsItem().Id;
+        sub.Sold_Value__c = 100.0;
+        sub.Initial_Price__c = 90.0;
+        if(dbInsert){
+            insert sub;
+        }
+        return sub;
     }
 
-    Case newCase = new Case(
-      Status = Constants.CASE_STATUS_NEW,
-      Priority = Constants.CASE_PRIORITY_MED,
-      LCA_Account__c = accountId,
-      AccountId = accountId,
-      contactId = contactId,
-      RecordTypeId =
-        CommonUtils.getRecordTypesByObjectName('Case')
-          .get(Constants.CASE_CUSTOMER_SERVICE_RECORD_TYPE_DEV_NAME)
-    );
-    if (doInsert) {
-      insert newCase;
+    public static SBQQ__Subscription__c createRLF_Subscription(Contract con,Boolean dbInsert){
+        SBQQ__Subscription__c sub = new SBQQ__Subscription__c();
+        sub.SBQQ__Contract__c = con.Id;
+        sub.SBQQ__Quantity__c = 1;
+        sub.Initial_Sales_Order_Type__c = 'On Premise RLF';
+        sub.Inital_NS_Item__c = createNsItem().Id;
+        //sub.Revenue_Type__c = 'RLF';
+        sub.Sold_Value__c = 100.0;
+        sub.Initial_Price__c = 90.0;
+        if(dbInsert){
+            insert sub;
+        }
+        return sub;
     }
-    return newCase;
-  }
-
-  /**
-   * @description :  Reusable method to insert custom settings which bypasses validation rule for given user
-   * @author : Irfan Khan
-   * @param : User object
-   * @return : nothing
-   **/
-
-  public static void createByPassValidationRecord(User byPassingUser) {
-    // init Bypass validation custom property
-    List<Bypass_Validations__c> valCusSettings = new List<Bypass_Validations__c>();
-    // set custom property for admin user
-    valCusSettings.add(
-      new Bypass_Validations__c(
-        SetupOwnerId = byPassingUser.id,
-        Disable__c = true
-      )
-    );
-    insert valCusSettings;
-  }
+    
+    public static void createPS_Subscription(Contract con, Id bScheduleId, Id bgId){
+        
+        List<SBQQ__Subscription__c> psSUbs = new List<SBQQ__Subscription__c>();
+        SBQQ__Subscription__c tempSub;
+        for (Integer i = 0; i < 5; i++) {
+            tempSub = new SBQQ__Subscription__c();
+            tempSub.Billing_Group__c = bgId;
+            tempSub.SBQQ__Contract__c = con.Id;
+            tempSub.SBQQ__Quantity__c = 1;
+            tempSub.Initial_Sales_Order_Type__c = 'PS - PS';
+            tempSub.Inital_NS_Item__c = createNsItem().Id;
+            tempSub.Sold_Value__c = 100.0;
+            tempSub.LineItem_Process_Type__c = 'SVTM'; 
+            tempSub.Initial_Price__c = 90.0;
+            if(Math.mod(i, 2) == 1)
+                tempSub.Opportunity_Billing_Schedule__c = bScheduleId;
+            psSUbs.add(tempSub);
+        }   
+        
+        insert psSUbs;        
+    }    
+    public static SBQQ__Subscription__c createPS_Subscription(Contract con,Boolean dbInsert){
+        SBQQ__Subscription__c sub = new SBQQ__Subscription__c();        
+        sub.SBQQ__Contract__c = con.Id;
+        sub.SBQQ__Quantity__c = 1;
+        sub.Initial_Sales_Order_Type__c = 'PS - PSS';
+        Sub.LineItem_Process_Type__c = 'SVFP';
+        sub.Inital_NS_Item__c = createNsItem().Id;
+        sub.Sold_Value__c = 100.0;
+        sub.Initial_Price__c = 90.0;
+        if(dbInsert){
+            insert sub;
+        }
+        return sub;
+    }
+    
+    public static void createRLF_Subscription(Contract con, Id bgId){
+        
+        List <String> billingFrequency = new List<String>{ 'Annual', 'Quarterly', 'Semiannual', 'Biennial', 'Monthly', 'Triennial', 'Quinquennial' };
+           
+            List<Product2> prods = new List<Product2>();
+        Product2 prod1 = new Product2(  Name = 'testProd'
+                                      , NS_Internal_ID__c = NS_INTERNAL_ID
+                                      , ProductCode='RLF'
+                                      , Family = 'RLF (CM)'
+                                      , SO_Grouping__c = 'RLF-RLF'
+                                      , CY_Billing_Current_Amount__c = 10.00
+                                      , CY_Billing_Previous_Amount__c = 12.00
+                                      , UPID__c = '1234561'
+                                      , CanUseRevenueSchedule = true
+                                      , Product_Set__c = 'Almonde'
+                                      , Licence_Group_GMS__c = true
+                                      , Sku_group__c = 'test SKU 1');
+        
+        insert prod1;
+            
+            List<SBQQ__Subscription__c> rlfSubs = new List<SBQQ__Subscription__c>();
+        SBQQ__Subscription__c tempSub;
+        for (Integer i = 0; i < 7; i++) {
+            tempSub = new SBQQ__Subscription__c();
+            tempSub.SBQQ__Contract__c = con.Id;
+            tempSub.SBQQ__Quantity__c = 1;
+            tempSub.SBQQ__Product__c = prod1.id;
+            tempSub.Recurring_Sales_Order_Type__c = 'RLF - RLF';
+            tempSub.Billing_Group__c = bgId;
+            tempSub.Billing_Day__c = 1;
+            tempSub.Billing_Month__c = 'January';
+            tempSub.SBQQ__BillingFrequency__c = billingFrequency[i];
+            tempSub.Recurring_NS_Item__c = createNsItem().Id;
+            tempSub.SBQQ__NetPrice__c = 100;
+            tempSub.RF_Start_Planned_Date__c = system.today();
+            tempSub.Prorata_Days__c = 5;
+            tempSub.Next_Billing_Date__c = system.today().addDays(10);
+            rlfSubs.add(tempSub);
+        }   
+        rlfSubs[0].SBQQ__BillingType__c = 'Advance';
+        
+        insert rlfSubs;      
+    }
+    
+    public static NS_Item__c createNsItem(){
+        NS_Item__c item = new NS_Item__c();
+        item.Name = 'NS Item1';
+        item.NS_Product_Dimension_ID__c = '100';
+        item.Payaway__c = true;
+        insert item;
+        return item;
+    }    
+    public static NS_Item__c createNsItem(Boolean dbInsert ){
+        NS_Item__c item = new NS_Item__c();
+        item.Name = 'NS Item1';
+        item.NS_Product_Dimension_ID__c = '100';
+        if(dbInsert) {
+            insert item;
+        }
+        return item;
+    }
+    
+    public static void add_NsCostCenterList(){
+        NS_Cost_Centre__c cc = new NS_Cost_Centre__c();
+        cc.NS_Cost_Centre_Internal_Id__c = '61';
+        insert cc;
+        
+        cc = new NS_Cost_Centre__c();
+        cc.NS_Cost_Centre_Internal_Id__c = '82';
+        insert cc;
+        
+        system.assertEquals(2, [SELECT COUNT() FROM NS_Cost_Centre__c where NS_Cost_Centre_Internal_Id__c='61' or NS_Cost_Centre_Internal_Id__c='82'], 'inserted NS Cost Center with 61, 82 values');
+        
+    }
+    
+    public static void add_NsProdList(){
+        NS_Product__c prod = new NS_Product__c();
+        prod.NS_Product_Internal_Id__c = '100';
+        insert prod;        
+    }
+    
+    public static void add_NsAccountList(){
+        NS_Account__c nsAcc = new NS_Account__c();
+        nsAcc.NS_Account_Internal_Id__c = 'test1';
+        insert nsAcc;
+        
+        nsAcc = new NS_Account__c();
+        nsAcc.NS_Account_Internal_Id__c = 'test2';
+        insert nsAcc;        
+    }
+    
+    public static Id add_OppBillingSchedule(Opportunity opp){
+        // insert billing schedule
+        Opportunity_Billing_Schedule__c bs = new Opportunity_Billing_Schedule__c();
+        bs.Opportunity__c = opp.Id;
+        bs.Processing_Type__c = 'SVTM';
+        insert bs;
+        
+        // inserting billing scheule items
+        Opportunity_Billing_Schedule_Item__c items = new Opportunity_Billing_Schedule_Item__c();
+        items.Opportunity_Billing_Schedule__c = bs.Id;
+        items.Line__c = 20;
+        insert items;
+        return bs.Id;
+    }
+    
+    public static void add_NsCurrencyMap(){
+        NS_Currency__c curr = new NS_Currency__c();
+        curr.Name = 'USD';
+        insert curr;
+    }
+    
+    public static Billing_Group__c createBillingGroup(Contract con){
+        Billing_Group__c bg = new Billing_Group__c();
+        bg.Original_Contract__c = con.Id;
+        bg.BG_Client_Contracting_Name__c = con.AccountId;
+        bg.Account_by_Sub__c = con.Billing_Group_Entity__c;
+        bg.Original_Opportunity__c = con.SBQQ__Opportunity__c;
+        bg.CurrencyIsoCode = con.Opportunity_Currency_Code__c;
+        bg.Current_Sales_Order_Start_Date__c = con.StartDate;
+        bg.NS_Subscription_Memo__c = con.Memo__c;
+        bg.BG_Misys_Billing_Entity__c = con.Misys_Entity__c;
+        bg.BG_Client_Bill_To__c = con.Bill_To__c;
+        bg.BG_Client_Ship_To__c = con.Ship_To__c;
+        bg.BG_Billing_Group_Active__c = true;
+        bg.BG_Data_Status__c = 'BGWiz Created';        
+        bg.Original_Contract_Expiry_Date__c = con.Contract_Expiry_Date__c;
+        insert bg;
+        return bg;
+    }  
+    public static Billing_Group__c createBillingGroup1(Contract con){
+        Billing_Group__c bg = new Billing_Group__c();
+        bg.Original_Contract__c = con.Id;
+        bg.BG_Client_Contracting_Name__c = con.AccountId;
+        bg.Original_Opportunity__c = con.SBQQ__Opportunity__c;
+        bg.CurrencyIsoCode = con.Opportunity_Currency_Code__c;
+        bg.Current_Sales_Order_Start_Date__c = con.StartDate;
+        bg.BG_Misys_Billing_Entity__c = con.Misys_Entity__c;
+        bg.BG_Billing_Group_Active__c = true;
+        bg.BG_Data_Status__c = 'BGWiz Created';        
+        bg.Original_Contract_Expiry_Date__c = con.Contract_Expiry_Date__c;
+        insert bg;
+        return bg;
+    }  
+    
+    public static Billing_Group__c createBillingGroup(Contract con,Boolean dbInsert){
+        Billing_Group__c bg = new Billing_Group__c();
+        bg.Original_Contract__c = con.Id;
+        bg.BG_Client_Contracting_Name__c = con.AccountId;
+        bg.Account_by_Sub__c = con.Billing_Group_Entity__c;
+        bg.Original_Opportunity__c = con.SBQQ__Opportunity__c;
+        bg.CurrencyIsoCode = con.Opportunity_Currency_Code__c;
+        bg.Current_Sales_Order_Start_Date__c = con.StartDate;
+        bg.NS_Subscription_Memo__c = con.Memo__c;
+        bg.BG_Misys_Billing_Entity__c = con.Misys_Entity__c;
+        bg.BG_Client_Bill_To__c = con.Bill_To__c;
+        bg.BG_Client_Ship_To__c = con.Ship_To__c;
+        bg.BG_Billing_Group_Active__c = true;
+        bg.BG_Data_Status__c = 'BGWiz Created';
+        bg.Original_Contract_Expiry_Date__c = con.Contract_Expiry_Date__c;
+        if(dbInsert) {
+            insert bg;
+        }
+        return bg;
+    } 
+    
+    public static void addRevRecoginationTemplate(){
+        NS_Revenue_Recognition_Template__c temp = new NS_Revenue_Recognition_Template__c();
+        temp.Name = 'POC';
+        insert temp;
+    }
+    
+    public static void setUpTransfromBatchData() {
+        List<Product2> prods = new List<Product2>();
+        Product2 prod1 = new Product2(  Name = 'testProd'
+                                      , NS_Internal_ID__c = NS_INTERNAL_ID
+                                      , ProductCode='RLF'
+                                      , Family = 'RLF (CM)'
+                                      , SO_Grouping__c = 'RLF-RLF'
+                                      , CY_Billing_Current_Amount__c = 10.00
+                                      , CY_Billing_Previous_Amount__c = 12.00
+                                      , UPID__c = '1234561'
+                                      , CanUseRevenueSchedule = true
+                                      , Product_Set__c = 'Almonde'
+                                      , Licence_Group_GMS__c = true
+                                      , Sku_group__c = 'test SKU 1');
+        prods.add(prod1);
+        insert prods;
+        
+        NS_Item__c nsItm = new NS_Item__c();
+        nsItm.NS_Internal_ID__c=NS_INTERNAL_ID;
+        insert nsItm;
+        Account acc = TestUtility.createAccount('Test Account');
+        System__c sys = TestUtility.createSystem(acc);
+        Contract con = TestUtility.sampleContract(acc.id);
+        insert con;
+        Product_Set__c ps = TestUtility.sampleProductSet(acc.Id);
+        insert ps;
+        Client_Asset__c cta = TestUtility.sampleClientAsset(ps.id);
+        cta.Account__c = acc.id;
+        insert cta;
+        List<NS_Billing_Frequency__c> bgFreqs = new List<NS_Billing_Frequency__c>();
+        NS_Billing_Frequency__c bgFreq1 = new NS_Billing_Frequency__c();
+        bgFreq1.Name='Yearly';
+        bgFreqs.add(bgFreq1);
+        insert bgFreqs;
+        
+        NS_Subscriptions__c nsSub = new NS_Subscriptions__c();
+        nsSub.Next_Billing_Date__c=System.today(); 
+        insert nsSub; 
+        List<Billing_Group__c> bgs = new List<Billing_Group__c>();
+        Billing_Group__c bg1 = TestAssetUtils.createBillingGroup();
+        bg1.Fixed_Billing_Date__c=System.today();
+        bg1.NS_Billing_Frequency__c=bgFreq1.id;
+        bg1.BG_Client_Contracting_Name__c=acc.id;
+        bg1.NS_Subscription_Billing_Method__c='Advance';
+        bg1.Original_Contract__c = con.id;
+        bgs.add(bg1);
+        update bgs;
+        
+        RF_Index__c rfIndex = new RF_Index__c();
+        rfIndex.RF_Index_Active__c = true;
+        rfIndex.Name = 'Misys Standard Rate';
+        insert rfIndex;
+        
+        List<Contract_Asset__c> cnts =new List<Contract_Asset__c>();
+        Contract_Asset__c cnt1 = TestUtility.sampleContractAsset(cta.id, sys.id, acc.id);
+        cnt1.CA_Recurring_Fees_Index_Type__c='CAP';
+        cnt1.CA_Recurring_Fees_Index__c= rfIndex.Id;
+        cnt1.CA_Billing_Group__c=bg1.id;
+        cnt1.CA_Recurring_Fees_percent__c=10;
+        cnt1.CA_Recurring_Fees_Rate_Increase_Max__c=20;
+        cnt1.CA_Recurring_Fees_Rate_Increase_Min__c=10;
+        cnt1.CA_Billing_Status__c='Active billing';
+        cnt1.Licence_Band__c='VBP8';
+        cnt1.License_Metric__c='Concurrent User';
+        cnt1.License_Status__c='Superceded';
+        cnt1.NS_Subscription__c=nsSub.id;
+        cnt1.Annual_Maintenance__c=10;
+        cnt1.Current_Fair_Value__c=10;
+        cnt1.Product__c=prod1.id;
+        cnts.add(cnt1);
+        insert cnts;
+    } 
+    
+    public static void setUpLinkBGBatchData() {
+        List<Product2> prods = new List<Product2>();
+        Product2 prod1 = new Product2(  Name = 'testProd'
+                                      , NS_Internal_ID__c = NS_INTERNAL_ID
+                                      , ProductCode='RLF'
+                                      , Family = 'RLF (CM)'
+                                      , SO_Grouping__c = 'RLF-RLF'
+                                      , CY_Billing_Current_Amount__c = 10.00
+                                      , CY_Billing_Previous_Amount__c = 12.00
+                                      , UPID__c = '1234561'
+                                      , CanUseRevenueSchedule = true
+                                      , Product_Set__c = 'Almonde'
+                                      , Licence_Group_GMS__c = true
+                                      , Sku_group__c = 'test SKU 1');
+        prods.add(prod1);
+        insert prods;
+        
+        NS_Item__c nsItm = new NS_Item__c();
+        nsItm.NS_Internal_ID__c=NS_INTERNAL_ID;
+        insert nsItm;
+        Account acc = TestUtility.createAccount('Test Account');
+        System__c sys = TestUtility.createSystem(acc);
+        Product_Set__c ps = TestUtility.sampleProductSet(acc.Id);
+        insert ps;
+        Client_Asset__c cta = TestUtility.sampleClientAsset(ps.id);
+        cta.Account__c = acc.id;
+        insert cta;
+        List<NS_Billing_Frequency__c> bgFreqs = new List<NS_Billing_Frequency__c>();
+        NS_Billing_Frequency__c bgFreq1 = new NS_Billing_Frequency__c();
+        bgFreq1.Name='Yearly';
+        bgFreqs.add(bgFreq1);
+        insert bgFreqs;
+        
+        NS_Subscriptions__c nsSub = new NS_Subscriptions__c();
+        nsSub.Next_Billing_Date__c=System.today(); 
+        insert nsSub; 
+        List<Billing_Group__c> bgs = new List<Billing_Group__c>();
+        Billing_Group__c bg1 = TestAssetUtils.createBillingGroup();
+        bg1.Fixed_Billing_Date__c=System.today();
+        bg1.NS_Billing_Frequency__c=bgFreq1.id;
+        bg1.BG_Client_Contracting_Name__c=acc.id;
+        bg1.NS_Subscription_Billing_Method__c='Advance';
+        bgs.add(bg1);
+        update bgs;
+        
+        RF_Index__c rfIndex = new RF_Index__c();
+        insert rfIndex;
+        
+        List<Contract_Asset__c> cnts =new List<Contract_Asset__c>();
+        Contract_Asset__c cnt1 = TestUtility.sampleContractAsset(cta.id, sys.id, acc.id);
+        cnt1.CA_Recurring_Fees_Index_Type__c='CAP';
+        cnt1.CA_Recurring_Fees_Index__c= rfIndex.Id;
+        cnt1.CA_Billing_Group__c=bg1.id;
+        cnt1.CA_Recurring_Fees_percent__c=10;
+        cnt1.CA_Recurring_Fees_Rate_Increase_Max__c=10;
+        cnt1.CA_Recurring_Fees_Rate_Increase_Min__c=10;
+        cnt1.CA_Billing_Status__c='Active billing';
+        cnt1.Licence_Band__c='VBP8';
+        cnt1.License_Metric__c='Concurrent User';
+        cnt1.License_Status__c='Superceded';
+        cnt1.NS_Subscription__c=nsSub.id;
+        cnt1.Annual_Maintenance__c=10;
+        cnt1.Current_Fair_Value__c=10;
+        cnt1.Product__c=prod1.id;
+        cnts.add(cnt1);
+        insert cnts;
+    } 
+    
+    public static Sovos_Tax_Determination__c createSovosTaxDetermination( Boolean dbInert ) {
+        Sovos_Tax_Determination__c sovosTax = new Sovos_Tax_Determination__c();
+        sovosTax.Software_Delivery_Type__c = 'Electronic';
+        sovosTax.Delivery_Type__c = 'Electronic';
+        sovosTax.Tax_Type__c = 'Maintenance';
+        sovosTax.Sub_Type__c = 'Custom';
+        sovosTax.TWE_Sovos_Code__c = '1357924';
+        if(dbInert) {
+            insert sovosTax;
+        }
+        return  sovosTax;
+    }
+    
+    public static NS_Project__c createNSProject( Boolean dbInert ) {
+        NS_Product__c product = new NS_Product__c(name = 'test_prod');
+        insert product;
+        NS_Project__c project = new NS_Project__c(  Project_Product__c = product.id,
+                                                  Project_Name__c = 'Test Proj',
+                                                  Deferred_Account_Type__c ='PS', 
+                                                  OpenAir_Project_Stage__c = 'Pipeline',
+                                                  SFDC_Opportunity_Category__c = 'Omitted', 
+                                                  OA_Project_Template__c = 'TEMPLATE - Pre-Sales Project',
+                                                  Project_Category__c = 'Training' );
+        if(dbInert) {
+            insert project;
+        }
+        return project;
+    }
+    
+    public static void createMileStones(Id projId, Id sitemId){
+        
+        NS_Project_Milestone__c[] tList = new List<NS_Project_Milestone__c>();
+        for(Integer i = 0; i < 2; i++){
+            tList.add(new NS_Project_Milestone__c(NS_Project__c = projId, Opportunity_Billing_Schedule_Item__c = sitemId));
+        }
+        insert tList;
+    }
+    
+    public static void createVBSList(Id projId){
+        NS_Vendor_Billing_Schedule__c[] vbList = new List<NS_Vendor_Billing_Schedule__c>();
+        for(Integer i = 0; i < 2; i++){
+            vbList.add(new NS_Vendor_Billing_Schedule__c(NS_Project__c = projId, CurrencyIsoCode = 'USD', SOI_Amount__c = 100));
+        }
+        insert vbList;
+    }
+    
+    public static Integration_Log__c createILog(){
+        Integration_Log__c log = new Integration_Log__c();
+        log.RecordTypeId = Label.Integration_RecTypeId_PPOPPLINE;
+        system.debug(Label.Integration_RecTypeId_PPOPPLINE);
+        return log; 
+    }
+    
+    public static void init_NS_maps(){
+        TestDataFactory.add_NsCostCenterList();        
+        TestDataFactory.add_NsProdList();         
+        TestDataFactory.add_NsAccountList();        
+        TestDataFactory.add_NsCurrencyMap();         
+        TestDataFactory.addRevRecoginationTemplate(); 
+    }
+    
+    
 }

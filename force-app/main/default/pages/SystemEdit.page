@@ -1,0 +1,28 @@
+<apex:page standardController="System__c" extensions="SystemEditCtrl">
+	<apex:sectionHeader title="System Edit" subtitle="{!TheSystem.Name}"/>
+	<apex:form >
+		<apex:pageBlock title="System Edit" mode="edit">
+			<apex:pageMessage summary="{!PageMessage}" severity="error" strength="3" rendered="{!PageMessage != null}"/>
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!Save}"/>
+				<apex:commandButton value="Cancel" action="{!Cancel}"/>
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Information">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Environment"/>
+					<apex:selectList value="{!TheSystem.Environment2__c}" size="1">
+						<apex:selectOptions value="{!Environments}"/>
+					</apex:selectList> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Environment Description"/>
+					<apex:inputText value="{!SystemPostfix}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem />
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="(Enter any text here to distinguish between two systems of the same environment. The text will be appended to the end of the System Name.)" />
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

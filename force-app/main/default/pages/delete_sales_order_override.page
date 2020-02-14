@@ -1,0 +1,7 @@
+<apex:page standardController="Sales_Order__c">
+ 
+  <h1>You must delete Sales Orders using the <span style="color:red;font-weight:bold;">'Deleted Sales Orders'</span> button at the top of the 'Contract' page layout.</h1>
+  
+  <p><a href="/{!Sales_Order__c.Contract__r.Id}">Back</a></p>
+ 
+</apex:page>

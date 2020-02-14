@@ -1,0 +1,10 @@
+<apex:page standardController="roi__Reference_Request__c" recordSetVar="requests" extensions="ReferenceView_Extension" action="{!redirectRaiseRequest}">
+  <apex:pageBlock title="RO Innovation">
+    <apex:pageBlockSection columns="1">
+      <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Redirect" for="redirectField"/>
+        <apex:outputLink value="{!redirectPage}" id="redirectField">Raise a Reference Request</apex:outputLink>
+      </apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,59 @@
+<apex:page id="showTroubleshooting" tabStyle="Knowledge__tab" controller="ShowArticleController">     
+    <c:KnowledgeSearch />
+    <h2 class="page-title">{!TroubleshootingItem.Title}</h2>
+ 
+    <div class="bSubBlock brandSecondaryBrd secondaryPalette">
+        <h3 class="lbHeader">Product Environment</h3>
+        <div class="lbBody">
+            <span id="articlePage:articleList:artLst"></span>
+            <table class="knowledgeBrowser">
+                <tbody>
+                    <tr style="{!IF(TroubleshootingItem.Product__c == '', 'display:none', '')}">
+                        <td>Product</td> <td><apex:outputField value="{!TroubleshootingItem.Product__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(TroubleshootingItem.Product_Version__c == '', 'display:none', '')}">
+                        <td>Product Version</td> <td><apex:outputField value="{!TroubleshootingItem.Product_Version__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(TroubleshootingItem.Rolled_In_At__c == '', 'display:none', '')}">
+                        <td>Rolled In At</td> <td><apex:outputField value="{!TroubleshootingItem.Rolled_In_At__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(TroubleshootingItem.Product_Component__c == '', 'display:none', '')}">
+                        <td>Product Component</td> <td><apex:outputField value="{!TroubleshootingItem.Product_Component__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(TroubleshootingItem.Additional_Product_Component__c == '', 'display:none', '')}">
+                        <td>Additional Product Component</td> <td><apex:outputField value="{!TroubleshootingItem.Additional_Product_Component__c}"/></td>
+                    </tr>
+                </tbody>
+            </table>        
+        </div>
+    </div>
+
+    <div class="bSubBlock brandSecondaryBrd secondaryPalette">
+        <h3 class="lbHeader">Article Details</h3>
+        <div class="lbBody">
+            <span id="articlePage:articleList:artLst"></span>
+            <table class="knowledgeBrowser">
+                <tbody>
+                    <tr style="{!IF(TroubleshootingItem.Symptom__c == '', 'display:none', '')}">
+                        <td>Symptom</td> <td><apex:outputField value="{!TroubleshootingItem.Symptom__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(TroubleshootingItem.Description__c == '', 'display:none', '')}">
+                        <td>Description</td> <td><apex:outputField value="{!TroubleshootingItem.Description__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(TroubleshootingItem.Resolution__c == '', 'display:none', '')}">
+                        <td>Resolution</td> <td><apex:outputField value="{!TroubleshootingItem.Resolution__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(TroubleshootingItem.Attachment1__Name__s == '', 'display:none', '')}">
+                        <td>Attachment1</td> <td> <a href="/servlet/fileField?entityId={!TroubleshootingItem.Id}&field=Attachment1__Body__s">{!TroubleshootingItem.Attachment1__Name__s}</a> </td>
+                    </tr>
+                    <tr style="{!IF(TroubleshootingItem.Attachment2__Name__s == '', 'display:none', '')}">
+                        <td>Attachment2</td> <td> <a href="/servlet/fileField?entityId={!TroubleshootingItem.Id}&field=Attachment2__Body__s">{!TroubleshootingItem.Attachment2__Name__s}</a> </td>
+                    </tr>
+                    <tr style="{!IF(TroubleshootingItem.Attachment3__Name__s == '', 'display:none', '')}">
+                        <td>Attachment3</td> <td> <a href="/servlet/fileField?entityId={!TroubleshootingItem.Id}&field=Attachment3__Body__s">{!TroubleshootingItem.Attachment3__Name__s}</a> </td>
+                    </tr>
+                </tbody>
+            </table>        
+        </div>
+    </div>    
+</apex:page>

@@ -1,0 +1,12 @@
+.THIS .filterOpt{
+    font-weight: bold;
+}
+.THIS .newRLFDate{
+    font-weight: bold;
+}
+
+.THIS .filterOpt .slds-form-element__label {
+ 	font-size: 13px;
+}
+
+.THIS .cols lightning-primitive-header-actions { display: none; }

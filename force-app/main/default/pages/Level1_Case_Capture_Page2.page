@@ -1,0 +1,402 @@
+<apex:page tabStyle="Case"  controller="Level1CaseCapturePage2Controller">
+  <apex:sectionHeader title="Case Edit" subtitle="New Case"/>
+  <apex:outputPanel id="errorMsgTop">
+    <apex:pageMessages />
+    <apex:pageMessage summary="Please correct the following validation errors" severity="error" strength="3" escape="false" detail="{!validationMessage}" rendered="{!displayValidationMessage}" />
+    <apex:pageMessage summary="Support Alert!" severity="warning" strength="2" escape="false" detail="{!supportAlert}" rendered="{!hasSupportAlert && !CurrentSessionInfo.InPortal}" /> 
+  </apex:outputPanel>
+    
+  <apex:form >
+    <apex:pageBlock id="pbCase" mode="edit" >
+      <apex:pageBlockButtons location="bottom">
+      
+        <apex:commandButton value="Save" 
+          action="{!SaveOnly}" 
+          reRender="pbCase, errorMsgTop, errorMsgBottom"
+          onclick="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+          oncomplete="animateButton(this, false, null);"
+          />
+           
+        <apex:commandButton value="Save & Attach" 
+           action="{!SaveAndAttach}" 
+           reRender="pbCase, errorMsgTop, errorMsgBottom"
+           onclick="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+           oncomplete="animateButton(this, false, null);"
+           />
+           
+         <apex:commandButton value="Cancel" action="{!cancel}" />
+          
+       </apex:pageBlockButtons>
+       
+       <!-- **************** CASE TYPE  ********************** -->
+       <apex:pageblockSection columns="1" title="Case Type" collapsible="false" showHeader="true" rendered="{!!CurrentSessionInfo.InPortal}">
+       
+         <apex:pageblockSectionItem >
+             <apex:outputLabel value="Case Type"/>
+             <apex:selectList value="{!caseTypeChosen}" size="1">
+               <apex:selectOptions value="{!caseTypeDDV}" />
+               <apex:actionSupport event="onchange" 
+                 rerender="pbCase, errorMsgTop, errorMsgBottom" 
+                 onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                 oncomplete="animateButton(this, false, null);">
+               </apex:actionSupport>  
+             </apex:selectList>
+           </apex:pageblockSectionItem>
+           
+       </apex:pageblockSection>
+       
+       <!-- **************** CASE INFORMATION  ********************** -->
+       <apex:pageblockSection columns="2" title="Case Information" collapsible="false" showHeader="true">
+         <apex:pageblockSectionItem >
+           <apex:outputLabel value="Account"/>
+           <apex:outputField value="{!chosenAccount.Name}" />
+         </apex:pageblockSectionItem>
+         
+         <apex:pageblockSectionItem >
+           <apex:outputLabel value="Contact"/>
+           <apex:outputField value="{!chosenContact.Name}" />
+         </apex:pageblockSectionItem>
+         
+         <apex:pageBlockSectionItem >
+         </apex:pageBlockSectionItem>
+         
+         <apex:pageBlockSectionItem >
+         </apex:pageBlockSectionItem>
+       
+       </apex:pageblockSection>
+       <!-- 
+       <apex:pageblockSection columns="1" showHeader="true">
+         <apex:pageMessage summary="First choose either System or Product Set, and then choose from a reduced set of values, in the other field" severity="info" strength="1"/>
+       </apex:pageblockSection>
+        -->
+       
+       <apex:actionRegion >
+       
+       <apex:pageblockSection columns="1" showHeader="true"  id="genMess">
+             <apex:pageMessage summary="{!generalMessage}" severity="error" strength="3" rendered="{!displayGeneralMessage}"/>
+       </apex:pageblockSection>
+       
+       <apex:pageblockSection columns="2" showHeader="false" id="caseInfo">
+           
+           <apex:pageblockSectionItem >
+             <apex:outputLabel value="Product Set"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:selectList value="{!productSetChosen}" size="1"> 
+                   <apex:selectOptions value="{!productSetsDDV}" />
+                   <apex:actionSupport event="onchange"
+                     action="{!productSetSelected}" 
+                     rerender="caseInfo, errorMsgTop, errorMsgBottom,genMess,field1,field2,field3" 
+                     onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                     oncomplete="animateButton(this, false, null);" />
+                   <!-- <apex:actionSupport event="onchange"
+                     action="{!systemOrProductSetSelected}" 
+                     rerender="caseInfo, errorMsgTop, errorMsgBottom" 
+                     onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                     oncomplete="animateButton(this, false, null);">
+                       <apex:param value="productSet" assignTo="{!callingPicklist}"/>
+                   </apex:actionSupport> --> 
+                 </apex:selectList>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+           
+           <apex:pageblockSectionItem rendered="{!!isCaseTypeProject && !isGeneralEntitlement && !CurrentSessionInfo.InPortal}">
+             <apex:outputLabel value="Entitlement"/>
+             <apex:outputField value="{!newCase.Support_Entitlement__c}" />
+           </apex:pageblockSectionItem>
+           <apex:pageblockSectionItem rendered="{!!isCaseTypeProject && isGeneralEntitlement && !CurrentSessionInfo.InPortal}">
+             <apex:outputLabel value="Entitlement"/>
+             <apex:outputText value="{!entitlementName}" /> 
+           </apex:pageblockSectionItem>
+           <apex:pageblockSectionItem rendered="{!CurrentSessionInfo.InPortal}" >
+           </apex:pageblockSectionItem>
+           
+           <apex:pageblockSectionItem rendered="{!!isCaseTypeProject && !isGeneralSystem}">
+             <apex:outputLabel value="System"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:selectList value="{!newCase.System__c}" size="1">
+                   <apex:selectOptions value="{!systemsDDV}" />
+                   <apex:actionSupport event="onchange"
+                     action="{!systemSelected}" 
+                     rerender="caseInfo, errorMsgTop, errorMsgBottom, genMess" 
+                     onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                     oncomplete="animateButton(this, false, null);"/>
+                   <!-- <apex:actionSupport event="onchange"
+                     action="{!systemOrProductSetSelected}" 
+                     rerender="caseInfo, errorMsgTop, errorMsgBottom" 
+                     onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                     oncomplete="animateButton(this, false, null);">
+                       <apex:param value="system" assignTo="{!callingPicklist}"/>
+                     </apex:actionSupport>   -->
+                 </apex:selectList>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+           <apex:pageBlockSectionitem rendered="{!!isCaseTypeProject && isGeneralSystem}" >
+             <apex:outputLabel value="System" />
+             <apex:outputText value="{!systemName}" />
+           </apex:pageBlockSectionitem>
+           
+           <apex:inputField value="{!newCase.Status}" rendered="{!!CurrentSessionInfo.InPortal}" />
+            
+           <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal && !isCaseTypeProject}">
+             <apex:outputLabel value="Asset Name"/>
+            <apex:selectList value="{!newCase.Client_Asset__c}" size="1">
+               <apex:selectOptions value="{!assetsDDV}" />
+                <!-- 
+                <apex:actionSupport event="onchange"
+                     action="{!assetSelected}" 
+                     rerender="caseInfo, errorMsgTop, errorMsgBottom" 
+                     onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+                     oncomplete="animateButton(this, false, null);"/>
+                 -->     
+             </apex:selectList>
+           </apex:pageblockSectionItem>
+           
+           <apex:pageBlockSectionItem rendered="{!isCaseTypeProject}" >
+           </apex:pageBlockSectionItem>
+           
+           <apex:inputField value="{!newCase.Sub_Status__c}" rendered="{!!CurrentSessionInfo.InPortal}" />
+           
+           <!-- 
+           <apex:pageblockSectionItem rendered="{!!isCaseTypeProject}" >
+             <apex:outputLabel value="Component"/>
+             <apex:selectList value="{!newCase.Component_Text__c}" size="1"> 
+               <apex:selectOptions value="{!componentDDV}" />
+             </apex:selectList>
+           </apex:pageblockSectionItem>
+            
+           <apex:outputText value="&nbsp;" escape="false" rendered="{!!CurrentSessionInfo.InPortal}" />
+             -->
+           <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal}">
+             <apex:outputLabel value="Projects"/>
+             <apex:selectList value="{!newCase.Project__c}" size="1">
+               <apex:selectOptions value="{!projectDDV}" />
+             </apex:selectList>
+           </apex:pageblockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!CurrentSessionInfo.InPortal}">
+           </apex:pageBlockSectionItem>
+           
+           
+           <apex:pageblockSectionItem id="field2"  rendered="{!showSystemStatusField}" >
+             <apex:outputLabel value="System Status"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.System_Status__c}"/>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+           
+           <apex:inputField value="{!newCase.Severity__c}" required="true" />
+           
+           <apex:inputField value="{!newCase.Client_Reference__c}" rendered="{!CurrentSessionInfo.InPortal}"/>
+           
+           <apex:inputField value="{!newCase.PS_Project__c}" rendered="{!CurrentSessionInfo.InPortal && IsINDCase}"/>
+
+           <apex:inputField value="{!newCase.Origin}" rendered="{!!CurrentSessionInfo.InPortal}" />
+           
+           <apex:inputField value="{!newCase.Internal_Severity__c}" required="true" rendered="{!!CurrentSessionInfo.InPortal}" />
+           
+           <!-- <apex:outputText value="&nbsp;" escape="false" rendered="{!!CurrentSessionInfo.InPortal}" /> -->
+           <apex:inputField value="{!newCase.Type}" rendered="{!showTypeField}" />
+           
+           <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal}" helpText="{!$ObjectType.Case.Fields.Urgency__c.inlineHelpText}" >
+             <apex:outputLabel value="Urgency"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Urgency__c}"/>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+           
+           <apex:inputField value="{!newCase.Issue_Type__c}" rendered="{!isCaseTypeProject && !CurrentSessionInfo.InPortal}"/>
+           
+           <apex:pageBlockSectionItem rendered="{!CurrentSessionInfo.InPortal && isCaseTypeProject}" >
+           </apex:pageBlockSectionItem>
+        
+           <apex:pageblockSectionItem id="field1" >
+             <apex:outputLabel value="Product" rendered="{!showProductFields}"/>
+             <apex:outputPanel layout="none" rendered="{!showProductFields}">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Self_Service_Product__c}"/>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+
+           
+           <apex:pageblockSectionItem id="field3"  rendered="{!showProductFields}" >
+             <apex:outputLabel value="Product Version"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Product_Version__c}"/>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+           
+           <apex:pageblockSectionItem id="fieldSophisCategory"  rendered="{!showSophisFields}" >
+             <apex:outputLabel value="Misys Sophis Category"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Misys_Sophis_Category__c}"/>
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+           
+           <apex:pageblockSectionItem id="spacer1" rendered="{!showSophisFields}" >
+           </apex:pageblockSectionItem>
+           
+           <apex:pageblockSectionItem id="fieldSophisSubCategory"  rendered="{!showSophisFields}" >
+             <apex:outputLabel value="Misys Sophis Sub Category"/>
+             <apex:outputPanel layout="none">
+             <apex:inputField value="{!newCase.Misys_Sophis_Sub_Category__c}"/>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+                                
+           <!-- <apex:inputField id="field1" value="{!newCase.Self_Service_Product__c}" required="true" /> -->
+           <!-- <apex:inputField id="field3" value="{!newCase.System_Status__c}" required="true" /> -->
+           <!-- <apex:inputField id="field2" value="{!newCase.Product_Version__c}" required="true" /> -->
+           
+       </apex:pageblockSection>
+       </apex:actionRegion>
+       
+       <!-- **************** DESCRIPTION INFORMATION ********************** -->
+       <!-- Page block below visible on the portal -->
+       <apex:pageblockSection columns="1" title="Description Information" id="caseDesc2" collapsible="false" showHeader="true" rendered="{!CurrentSessionInfo.InPortal}">
+           
+          <apex:pageblockSectionItem helpText="{!$ObjectType.Case.Fields.Subject.inlineHelpText}">
+             <apex:outputLabel value="Subject"/>
+             <apex:outputPanel layout="none">
+               <div class="requiredInput">
+                 <div class="requiredBlock"></div>
+                 <apex:inputField value="{!newCase.Subject}" style="width:80%" />
+               </div>
+             </apex:outputPanel>
+           </apex:pageblockSectionItem>
+               
+              <!-- <apex:inputField value="{!newCase.Subject}" style="width:80%" required="true" /> -->
+
+        
+        <apex:pageblockSectionItem helpText="{!$ObjectType.Case.Fields.Description.inlineHelpText}" >
+          <apex:outputLabel value="Description"/>
+          <apex:outputPanel layout="none">
+            <div class="requiredInput">
+              <div class="requiredBlock"></div> 
+              <apex:inputTextArea value="{!newCase.Description}" style="width:80%" rows="4" />
+           </div>
+          </apex:outputPanel>
+        </apex:pageblockSectionItem> 
+        
+    </apex:pageblockSection>
+       
+       
+       
+       <!-- Page block below visible internally -->
+       <apex:pageblockSection columns="2" title="Description Information" id="caseDesc" collapsible="false" showHeader="true" rendered="{!!CurrentSessionInfo.InPortal}" >
+         <apex:pageblocksectionItem >
+           <apex:pageblockSection columns="1" showHeader="false">
+           
+             <apex:pageblockSectionItem helpText="{!$ObjectType.Case.Fields.Subject.inlineHelpText}">
+               <apex:outputLabel value="Subject"/>
+               <apex:outputPanel layout="none">
+                 <div class="requiredInput">
+                   <div class="requiredBlock"></div>
+                   <apex:inputField value="{!newCase.Subject}" style="width:80%" />
+                 </div>
+               </apex:outputPanel>
+             </apex:pageblockSectionItem>
+             
+             <apex:pageblockSectionItem helpText="{!$ObjectType.Case.Fields.Description.inlineHelpText}" >
+               <apex:outputLabel value="Description"/>
+               <apex:outputPanel layout="none">
+                 <div class="requiredInput">
+                   <div class="requiredBlock"></div>
+                   <apex:inputTextArea value="{!newCase.Description}" style="width:80%" rows="4" />
+                 </div>
+               </apex:outputPanel>
+             </apex:pageblockSectionItem>
+             
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+         <apex:pageblocksectionItem >
+           <apex:pageblockSection columns="1" showHeader="false">
+           
+             <!-- <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal && !isCaseTypeProject}" helpText="{!$ObjectType.Case.Fields.Replication_Steps__c.inlineHelpText}" > -->
+               <!--  <apex:outputLabel value="Steps to Reproduce"/> -->
+               <!-- <apex:inputTextArea value="{!newCase.Replication_Steps__c}" style="width:80%" rows="5"/> -->
+             <!-- </apex:pageblockSectionItem> -->
+           <!-- <apex:pageBlockSectionItem rendered="{!!CurrentSessionInfo.InPortal && !isCaseTypeProject}" > -->
+           <!-- </apex:pageBlockSectionItem> -->
+             
+             <apex:pageblockSectionItem >
+               <apex:outputLabel value="Internal Case Comments" rendered="{!!CurrentSessionInfo.InPortal}"/>
+               <apex:inputField value="{!CaseComment.CommentBody}" style="width:80%" id="CommentBody" rendered="{!!CurrentSessionInfo.InPortal}"/>
+             </apex:pageblockSectionItem>
+             
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+         
+         <apex:pageblocksectionItem rendered="{!isCaseTypeProject}">
+           <apex:pageblockSection columns="1" showHeader="false">
+             <apex:inputField value="{!newCase.Priority_Rationale__c}" style="width:80%" rendered="{!!CurrentSessionInfo.InPortal}" />
+             <apex:inputField value="{!newCase.Impact__c}" style="width:80%" />
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+                
+         <apex:pageblocksectionItem rendered="{!isCaseTypeProject}">
+           <apex:pageblockSection columns="1" showHeader="false">
+             <apex:inputField value="{!newCase.Benefit_To_Resolve__c}" style="width:80%" />
+           </apex:pageblockSection>
+         </apex:pageblocksectionItem>
+         
+       </apex:pageblockSection>
+       
+       <!-- **************** TIME TRACKING ********************** -->
+       <apex:pageblockSection columns="2" title="Time Tracking" id="tt" collapsible="false" showHeader="true" rendered="{!!CurrentSessionInfo.InPortal && !isCaseTypeProject}">
+       
+         <apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal}" helpText="{!$ObjectType.Case.Fields.Time_spent_on_issue__c.inlineHelpText}" >
+           <apex:outputLabel value="Time Spent on issue (minutes)"/>
+           <apex:outputPanel layout="none">
+             <div class="requiredInput">
+               <div class="requiredBlock"></div>
+               <apex:inputField value="{!newCase.Time_spent_on_issue__c}"/>
+             </div>
+           </apex:outputPanel>
+         </apex:pageblockSectionItem>
+         
+       </apex:pageblockSection>
+       
+       <apex:pageBlockSection title="Optional" rendered="{!!CurrentSessionInfo.InPortal}" columns="1" showHeader="true">
+       
+         <apex:pageblockSectionItem >
+           <apex:outputPanel >
+             <apex:inputCheckBox value="{!useDefaultAssignmentRules}" /> <apex:outputText value="Assign using active assignment rules" />
+           </apex:outputPanel>
+         </apex:pageblockSectionItem>
+         
+         <apex:pageblockSectionItem >
+           <apex:outputPanel >
+             <apex:inputCheckBox value="{!sendEmailToContact}" /> <apex:outputText value="Send notification email to contact" />
+           </apex:outputPanel>
+         </apex:pageblockSectionItem>   
+                      
+       </apex:pageBlockSection>
+       
+    <apex:outputPanel id="errorMsgBottom">    
+        <apex:pageMessages />
+        <apex:pageMessage summary="Please correct the following validation errors" severity="error" strength="3" escape="false" detail="{!validationMessage}" rendered="{!displayValidationMessage}" />
+        <apex:pageMessage summary="Support Alert!" severity="warning" strength="2" escape="false" detail="{!supportAlert}" rendered="{!hasSupportAlert && !CurrentSessionInfo.InPortal}" /> 
+    </apex:outputPanel> 
+       
+     </apex:pageBlock>
+   </apex:form>
+   <apex:includeScript value="{!$Resource.SharedJavaScript}"/>
+</apex:page>

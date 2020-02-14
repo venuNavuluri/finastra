@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>37.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>To display the CAPi Acct information for current year, next year and year on year for few fields</description>
+    <label>CAPI_Acct_Profile_Details_page</label>
+</ApexPage>

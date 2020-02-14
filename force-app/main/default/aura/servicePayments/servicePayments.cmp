@@ -1,0 +1,228 @@
+<aura:component controller="paymentTerms_controller">
+    
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="tableCols" type="List" />
+    <aura:attribute name="productTypes" type="Map" />
+    
+    <aura:attribute name="hasRows_SVFP" type="string" default="slds-hide" />
+    <aura:attribute name="obsItems_SVFP" type="Opportunity_Billing_Schedule_Item__c[]" />
+    <aura:attribute name="selected_SVFP" type="Opportunity_Billing_Schedule_Item__c[]" default="[]" />
+    <aura:attribute name="errors_SVFP" type="string" />
+    
+    <aura:attribute name="hasRows_SVPT" type="string" default="slds-hide" />
+    <aura:attribute name="obsItems_SVPT" type="Opportunity_Billing_Schedule_Item__c[]" />
+    <aura:attribute name="selected_SVPT" type="Opportunity_Billing_Schedule_Item__c[]" default="[]" />
+    <aura:attribute name="errors_SVPT" type="string" />
+    
+    <aura:attribute name="hasRows_SVTT" type="string" default="slds-hide" />
+    <aura:attribute name="obsItems_SVTT" type="Opportunity_Billing_Schedule_Item__c[]" />
+    <aura:attribute name="selected_SVTT" type="Opportunity_Billing_Schedule_Item__c[]" default="[]" />
+    <aura:attribute name="errors_SVTT" type="string" />
+    
+    <aura:attribute name="isNonStandard" type="boolean" default="false" />
+    <aura:attribute name="quote" type="SBQQ__Quote__c" />
+    <aura:attribute name="errors" type="string" />
+    <aura:attribute name="selectedValue" type="String" default="Standard"/>
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <div id="service-payment">
+        <lightning:card >
+            <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container" title="Quote">
+                                    <lightning:icon iconName="custom:custom17" alternativeText="quotes" />
+                                    <span class="slds-assistive-text"><b>Service Payments</b></span>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-truncate" title="Quote Name"><b>Service Payments</b></span>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <p class="slds-page-header__name-meta">{!v.quote.Name}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slds-grid slds-gutters">
+                <!-- <div class="slds-col slds-size_2-of-12" /> -->
+                <div class="slds-col slds-size_2-of-2">
+                    <div class="slds-p-around_medium ">
+                        <lightning:select aura:id="service-terms" name="payment-terms" label="Service Payment Terms?" class = 'select' required="false" onchange="{!c.handleServiceTerms}" value="{!v.selectedValue}">
+                            <option value="">choose one...</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Non - Standard">Non - Standard</option>
+                        </lightning:select>
+                    </div>
+                    <lightning:spinner aura:id="spinner" alternativeText="Loading" size="medium" />
+                    <article class="slds-card">
+                        <aura:if isTrue="{! v.obsItems_SVFP.length > 0}">
+                            <div class="slds-card__header slds-grid">
+                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                    <div class="slds-media__figure">
+                                        <span class="slds-icon_container slds-icon-standard-account" title="account">
+                                            <lightning:icon iconName="standard:poll" alternativeText="quotes" />
+                                            <span class="slds-assistive-text"><b>SVFP</b></span>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-card__header-title">
+                                            <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Accounts">
+                                                <span><b>GS Tailored FP (O) - SVFP</b></span>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </header>
+                            </div>
+                            <div class="slds-card__body slds-card__body_inner">
+                                <aura:if isTrue="{!v.errors_SVFP != null}">
+                                    <div class="slds-notify_container slds-is-relative">
+                                        <div class="slds-notify slds-notify_toast slds-theme_error" role="status">
+                                            <span class="slds-assistive-text">error</span>
+                                            <div class="slds-notify__content">
+                                                <h2 class="slds-text-heading_small ">
+                                                    {!v.errors_SVFP}
+                                                </h2>
+                                            </div>
+                                            <div class="slds-notify__close">
+                                                <button class="slds-button slds-button_icon slds-button_icon-inverse" title="Close">
+                                                    <span class="slds-assistive-text">Close</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aura:if>
+                                
+                                <lightning:datatable aura:id="sp-svfp" keyField="Id" data="{! v.obsItems_SVFP}" class = "cols" columns="{! v.tableCols }" showRowNumberColumn="false" hideCheckboxColumn="{!!v.isNonStandard}" onrowselection="{! c.handleRowSelection }" onsave="{!c.handleSaveEdition }"/>
+                                <br />
+                                <lightning:layout horizontalAlign="left">
+                                    <lightning:layoutItem class="slds-button">
+                                        <lightning:button aura:id="sp-svfp-add-btn" label="Add Row" title="Add Row" onclick="{! c.addRow }" class="{!v.isNonStandard ? '' : 'slds-hide'}"/>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem class="{!v.isNonStandard ? '' : 'slds-hide'}"  >
+                                        <lightning:button aura:id="sp-svfp-del-btn" class="{!v.hasRows_SVFP}" variant="destructive" label="Delete" title="Delete" onclick="{! c.handleRowsDeletion }"/>
+                                    </lightning:layoutItem>
+                                </lightning:layout> 
+                                
+                            </div>
+                        </aura:if>
+                    </article>
+                    <article class="slds-card">
+                        <aura:if isTrue="{! v.obsItems_SVPT.length > 0}">
+                            <div class="slds-card__header slds-grid">
+                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                    <div class="slds-media__figure">
+                                        <span class="slds-icon_container slds-icon-standard-account" title="account">
+                                            <lightning:icon iconName="standard:poll" alternativeText="quotes" />
+                                            <span class="slds-assistive-text"><b>SVPT</b></span>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-card__header-title">
+                                            <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Accounts">
+                                                <span><b>GS Pretemplated FP (O) - SVPT</b></span>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </header>
+                            </div>
+                            <div class="slds-card__body slds-card__body_inner">
+                                <aura:if isTrue="{!v.errors_SVPT != null}">
+                                    <div class="slds-notify_container slds-is-relative">
+                                        <div class="slds-notify slds-notify_toast slds-theme_error" role="status">
+                                            <span class="slds-assistive-text">error</span>
+                                            <div class="slds-notify__content">
+                                                <h2 class="slds-text-heading_small ">
+                                                    {!v.errors_SVPT}
+                                                </h2>
+                                            </div>
+                                            <div class="slds-notify__close">
+                                                <button class="slds-button slds-button_icon slds-button_icon-inverse" title="Close">
+                                                    <span class="slds-assistive-text">Close</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aura:if>
+                                
+                                <lightning:datatable aura:id="sp-svpt" keyField="Id" data="{! v.obsItems_SVPT}" class = "cols" columns="{! v.tableCols }" showRowNumberColumn="false" hideCheckboxColumn="{!!v.isNonStandard}" onrowselection="{! c.handleRowSelection }" onsave="{!c.handleSaveEdition }"/>
+                                <br />
+                                <lightning:layout horizontalAlign="left">
+                                    <lightning:layoutItem class="slds-button">
+                                        <lightning:button aura:id="sp-svpt-add-btn" label="Add Row" title="Add Row" onclick="{! c.addRow }" class="{!v.isNonStandard ? '' : 'slds-hide'}"/>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem class="{!v.isNonStandard ? '' : 'slds-hide'}" >
+                                        <lightning:button aura:id="sp-svpt-del-btn" class="{!v.hasRows_SVPT}" variant="destructive" label="Delete" title="Delete" onclick="{! c.handleRowsDeletion }"/>
+                                    </lightning:layoutItem>
+                                </lightning:layout> 
+                                
+                            </div>
+                        </aura:if>
+                    </article>
+                    <article class="slds-card">
+                        <aura:if isTrue="{! v.obsItems_SVTT.length > 0}">
+                            <div class="slds-card__header slds-grid">
+                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                    <div class="slds-media__figure">
+                                        <span class="slds-icon_container slds-icon-standard-account" title="account">
+                                            <lightning:icon iconName="standard:poll" alternativeText="quotes" />
+                                            <span class="slds-assistive-text"><b>SVTT</b></span>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-card__header-title">
+                                            <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Accounts">
+                                                <span><b>GS Training (O) - SVTT</b></span>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </header>
+                            </div>
+                            <div class="slds-card__body slds-card__body_inner">
+                                <aura:if isTrue="{!v.errors_SVTT != null}">
+                                    <div class="slds-notify_container slds-is-relative">
+                                        <div class="slds-notify slds-notify_toast slds-theme_error" role="status">
+                                            <span class="slds-assistive-text">error</span>
+                                            <div class="slds-notify__content">
+                                                <h2 class="slds-text-heading_small ">
+                                                    {!v.errors_SVTT}
+                                                </h2>
+                                            </div>
+                                            <div class="slds-notify__close">
+                                                <button class="slds-button slds-button_icon slds-button_icon-inverse" title="Close">
+                                                    <span class="slds-assistive-text">Close</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aura:if>
+                                
+                                <lightning:datatable aura:id="sp-svtt" keyField="Id" data="{! v.obsItems_SVTT}" class = "cols" columns="{! v.tableCols }" showRowNumberColumn="false" hideCheckboxColumn="{!!v.isNonStandard}" onrowselection="{! c.handleRowSelection }" onsave="{!c.handleSaveEdition }"/>
+                                <br />
+                                <lightning:layout horizontalAlign="left">
+                                    <lightning:layoutItem class="slds-button">
+                                        <lightning:button aura:id="sp-svtt-add-btn" label="Add Row" title="Add Row" onclick="{! c.addRow }" class="{!v.isNonStandard ? '' : 'slds-hide'}"/>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem class="{!v.isNonStandard ? '' : 'slds-hide'}" >
+                                        <lightning:button aura:id="sp-svtt-del-btn" class="{!v.hasRows_SVTT}" variant="destructive" label="Delete" title="Delete" onclick="{! c.handleRowsDeletion }"/>
+                                    </lightning:layoutItem>
+                                </lightning:layout> 
+                                
+                            </div>
+                        </aura:if>
+                    </article>
+                </div>
+                <!--  <div class="slds-col slds-size_2-of-12" /> -->
+            </div>  
+        </lightning:card>
+    </div>
+    
+</aura:component>

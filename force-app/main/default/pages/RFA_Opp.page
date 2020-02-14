@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity">
+<font color="#CC3300"><strong>Please change the stage to "7. Committed" after discussion with customer.</strong></font>
+<br/>
+
+
+</apex:page>

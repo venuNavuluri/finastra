@@ -1,0 +1,98 @@
+<aura:component controller ="ContractRLFHolidayController" implements="force:appHostable,flexipage:availableForRecordHome,force:hasRecordId">
+<aura:dependency resource="markup://force:*" type="EVENT"/>
+<aura:attribute name="subscriptions" type="SBQQ__Subscription__c[]"/>
+<aura:attribute name="subscriptionsSearchList" type="SBQQ__Subscription__c[]"/>
+<aura:attribute name="columns" type="List"/>
+<aura:attribute name="contractId" type="String"/>
+<aura:attribute name="contractNum" type="String"/>
+<aura:attribute name="newRLFDate" type="Date"/>
+<aura:attribute name="newCPIUpliftDate" type="Date"/>
+<aura:attribute name="errorMessage" type="String"  default=""/>
+<aura:attribute name="showSuccess" type="Boolean" default="false"/>
+<aura:attribute type="Boolean" name="isLoading" default="fase"/>
+<aura:attribute name="draftValues" type="SBQQ__Subscription__c[]"/>
+<aura:attribute name="selectedRows" type="SBQQ__Subscription__c[]"/>
+<aura:attribute name="rSelectedRows" type="SBQQ__Subscription__c[]"/>
+<aura:attribute name="rLFoptions" type="String[]"/>
+<aura:attribute name="filterRLFtypes" type="String" />
+<aura:attribute name="errors" type="String"/>
+
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+<lightning:layout multipleRows="true" class ="slds-box slds-theme_shade slds-theme_alert-texture" >
+<lightning:layoutItem padding = "around-small" size="12">
+    <lightning:layout>
+        <lightning:layoutItem flexibility="auto"  padding = "around-small" size="3">
+            <lightning:icon iconName="standard:contract" alternativeText=""/>
+            <span class="slds-text-heading_small">
+                Contract :{!v.contractNum}
+            </span> 
+        </lightning:layoutItem >        
+        <lightning:layoutItem flexibility="auto"  padding="around-small" size ="3">    
+            <lightning:button variant="success" iconPosition ="right" label="{!$Label.c.Go_Back_Contract_Save_Button_Label}"  title="{!$Label.c.Go_Back_Contract_Save_Button_Label}" onclick="{!c.returnToContract}"/>
+        </lightning:layoutItem>
+    </lightning:layout>     
+</lightning:layoutItem>
+<lightning:layoutItem flexibility="auto"  padding="around-small" size ="12">    
+    <lightning:layout>
+        <lightning:layoutItem flexibility="auto"  padding="around-small" size ="3"> 
+            <lightning:select name="selectItem" class = "filterOpt" label="{!$Label.c.Select_Product_Set}" onchange="{!c.handleSearchRLFtypes}" value="{!v.filterRLFtypes}">
+                <option value="">All</option>
+                <aura:iteration items="{!v.rLFoptions}" var="opt">
+                    <option text= "{!opt}" value="{!opt}"/>
+                </aura:iteration>
+            </lightning:select>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" size ="3">    
+            <lightning:input type="date" class="newRLFDate" label="{!$Label.c.Enter_RF_Start_Planned_Date}" value="{!v.newRLFDate}" />
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" size ="3">    
+            <lightning:input type="date" class="newRLFDate" label="{!$Label.c.Enter_CPI_Uplift_Review_Date}" value="{!v.newCPIUpliftDate}" />
+        </lightning:layoutItem>
+    </lightning:layout>
+</lightning:layoutItem>
+<lightning:layoutItem flexibility="auto" padding = "around-small" size="12">
+    <lightning:layout horizontalAlign="center" > 
+        <lightning:button variant="success" disabled = "{!v.isLoading}" iconPosition ="left" label="{!$Label.c.Save_Button_Label}"  title="{!$Label.c.Save_Button_Label}" onclick="{!c.handleSubSaveEdition}"/>
+    </lightning:layout>
+</lightning:layoutItem>
+<lightning:layoutItem padding = "around-small" size="12">
+    <aura:if isTrue="{!v.errorMessage != ''}">
+        <div class="slds-notify_container slds-is-relative">
+            <div class="slds-notify slds-notify_toast slds-theme_error" role="status">
+                <div class="slds-notify__content">
+                    {!v.errorMessage}
+                </div>
+            </div>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.showSuccess}">
+        <div class="slds-notify_container slds-is-relative">
+            <div class="slds-notify slds-notify_toast slds-theme_success" role="status">
+                <div class="slds-notify__content">
+                    {!$Label.c.Subscription_Save_Success_Message}
+                </div>
+                
+            </div>
+        </div>
+    </aura:if>
+    <lightning:datatable
+                        keyField="Id"
+                        data="{!v.subscriptionsSearchList}"
+                        columns="{!v.columns}"
+                        class="cols"
+                        editable="true"
+                        showRowNumberColumn="false"
+                        onrowselection = "{!c.retainSelectedRows}"
+                        hideCheckboxColumn="false"
+                        selectedRows="{!v.selectedRows}"
+                        draftValues="{!v.draftValues}"
+                        onsave="{!c.handleSaveEdition}"/>                        
+</lightning:layoutItem>
+<lightning:layoutItem padding = "around-small" size="12">
+    <lightning:layout horizontalAlign="center" > 
+        <lightning:button variant="success" disabled = "{!v.isLoading}" iconPosition ="left" label="{!$Label.c.Save_Button_Label}"  title="{!$Label.c.Save_Button_Label}" onclick="{!c.handleSubSaveEdition}"/>
+    </lightning:layout>
+</lightning:layoutItem>    
+</lightning:layout>
+</aura:component>

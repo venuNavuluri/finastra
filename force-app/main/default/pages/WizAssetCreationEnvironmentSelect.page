@@ -1,0 +1,30 @@
+<apex:page controller="WizAssetCreationController" tabStyle="Contract">
+	<c:ImportJQuery />
+	<c:JQueryConfirmCancel />
+	<apex:sectionHeader title="Asset Creation" subtitle="Select Environments"/>
+	<apex:form >
+		<apex:actionFunction name="cancel" action="{!Cancel}"/>
+		<apex:pageBlock >
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!AccountSelect}" value="Previous"/>
+				<apex:commandButton action="{!EnvironmentSelectFinished}" value="Next"/>
+				<apex:commandButton value="Cancel" onclick="return showConfirmCancelDialog()"/>
+			</apex:pageBlockButtons>
+			<apex:outputPanel id="pageMsg">
+				<apex:pageMessage summary="{!ThePageMessage}" severity="error" strength="3" rendered="{!ThePageMessage != null}"/>
+			</apex:outputPanel>
+			<c:WizAssetCrtContractSection attrContract="{!contract}" />
+			<c:WizAssetCrtProductSetSection attrProductSets="{!WrappedProductSets}" attrEditable="false"/>
+			<c:WizAssetCrtAccounts attrAccounts="{!AccountListWrapper}" attrCcrts="{!CcrtListWrapper}" />
+			<apex:pageBlockSection columns="2" title="Environments">
+				<apex:repeat value="{!Environments}" var="environment">
+					<apex:panelGrid columns="3">
+						<apex:inputText value="{!environment.SystemPostfix}"/>
+						<apex:inputCheckBox value="{!environment.Selected}" id="cb" />
+						<apex:outputLabel value="{!environment.DisplayName}" for="cb" />
+					</apex:panelGrid>
+				</apex:repeat>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

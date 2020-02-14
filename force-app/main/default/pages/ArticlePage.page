@@ -1,0 +1,48 @@
+<apex:page id="articlePage" tabStyle="Knowledge__tab" controller="ArticleController" extensions="CSP_Solutions_Search_Controller">          
+
+        <c:KnowledgeSearch id="cKnowledge"/>
+        
+    <apex:form id="searcharticles">
+        <div class="bSubBlock brandSecondaryBrd secondaryPalette">
+            <h3 class="lbHeader">Browse Knowledge Articles</h3>
+            <span style="{!IF($CurrentPage.parameters.search!='', 'display:block', 'display:none')}">Filtering results on: {!$CurrentPage.parameters.search}</span>
+            <div class="lbBody">
+                <table class="knowledgeBrowser">
+                    <tr>
+                        <th>Article</th>                        
+                        <th>Last Modified</th>
+                        <th>Summary</th>
+                        <th>Type</th>
+                    </tr>
+                    <knowledge:articleList id="artLst" hasMoreVar="hasMoreValues" articleVar="article" pageNumber="{!PageNumber}" categories="{!CategoryFilter}" Keyword="{!SearchString}" articleTypes="{!ArticleTypeFilter}" pageSize="{!PageSize}">                        
+                        <tr>
+                            <td width="35%">
+                                <a href='Show{!article.articleTypeLabel}?sfdc.tabName=01r110000008hp6&type={!article.articleTypeLabel}&id={!article.Id}'>{!article.title}</a>
+                            </td>                            
+                            <td width="10%">
+                                <apex:outputText value="{0, date, d'/'MM'/'yy}" >
+                                    <apex:param value="{!article.LastModifiedDate}"/>
+                                </apex:outputText>
+                            </td>
+                            <td width="32%" style="padding-right:3%">
+                                <apex:outputText >
+                                    {!article.abstract}
+                                </apex:outputText>
+                            </td>
+                            <td width="10%">
+                                <apex:outputText >
+                                    {!article.articleTypeLabel}
+                                </apex:outputText>
+                            </td>
+                        </tr>    
+                    </knowledge:articleList>
+                </table>
+                
+                <div class="paging">
+                    <div class="prev"><apex:commandLink rendered="{!RenderPreviousButton}" action="{!Previous}" value="Previous"/></div>          
+                    <div class="next"><apex:commandLink style="{!IF(hasMoreValues, 'display:block', 'display:none')}" action="{!Next}" value="Next"/></div>
+                </div>        
+            </div>
+        </div>
+    </apex:form>
+</apex:page>

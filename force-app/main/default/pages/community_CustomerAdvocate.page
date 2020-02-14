@@ -1,0 +1,65 @@
+<apex:page showHeader="false" sidebar="false" controller="community_AdvocateController">
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/7786472/695626/css/fonts.css" />
+
+<style>
+
+body {    font-family: "Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,Verdana,Helvetica,sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    font-size:12px;
+}
+
+.left {width:250px; float:left; font-weight:normal; padding-bottom: 5px; color:#2ab5b2; }
+.right {width:300px; float:right; padding-bottom: 5px;}
+h2 {font-size: 2em !important;  float: left}
+.spacer {padding-top: 15px; width:560px; clear:both;}
+
+.table {width:100%; float:left; padding-top: 20px}
+.table span { border-bottom:0px solid #E6E6E6;display: block;float: left;padding: 10px 0 20px 0;margin-bottom: 10px;}
+.table span span { margin:0; padding:0; float:none; border:0}
+
+.left, .right {padding:5px 0; border-bottom:1px dashed #E6E6E6; width:50%;}
+.left {width:30%} 
+.right {width:70%}
+
+</style>
+
+            <div class="table">
+                <apex:repeat value="{!lstProductSetVersion}" var="psvList">
+                    <apex:outputPanel >
+                        <div class="left">Customer Advocate Name</div>
+                        <div class="right"><apex:outputText value="{!psvList.customerAdvocate.firstname}  {!psvList.customerAdvocate.lastname}  "/></div>
+                        <div class="left">Product Name</div>
+                        <div class="right"><apex:outputText value="{!psvList.productVersionMaster.Product_Name__c}" /></div>
+                        <div class="left">Product Version</div>
+                        <div class="right"><apex:outputText value="{!psvList.productVersionMaster.Product_Version__c}" /></div>
+                        <div class="left">GA Date</div>
+                        <div class="right">
+                            <apex:outputText value="{0,date,MMMM'-'yy}">
+                                <apex:param value="{!psvList.productVersionMaster.GA_Date__c}" /> 
+                            </apex:outputText>
+                        </div>
+                        <div class="left">Standard Support Date</div>
+                        <div class="right"><b>Expires</b>:&nbsp;                        
+                            <apex:outputText value="{0,date,MMMM'-'yy}">
+                                <apex:param value="{!psvList.productVersionMaster.Standard_Support_Date__c}" /> 
+                            </apex:outputText>
+                        </div>
+                        <div class="left">Sustaining Support</div>
+                        <div class="right"><apex:outputText value="{!psvList.productVersionMaster.Sustaining_Support__c}" />&nbsp;</div>
+                        <div class="left">Technical Support</div>
+                        <div class="right"><apex:outputText value="{!psvList.productVersionMaster.Technical_Support__c}" />&nbsp;</div>
+                        <div class="left">Support Type</div>
+                        <div class="right">
+                            <apex:outputText value="{!productTypeColorCode}"  escape="false"></apex:outputText>
+                                <apex:outputText value="{!psvList.productVersionMaster.Support_Type__c}" />
+                            <apex:outputText value="</span>" escape="false" />
+                        </div>
+
+                    </apex:outputPanel>
+                </apex:repeat>
+            </div>
+    
+
+
+</apex:page>

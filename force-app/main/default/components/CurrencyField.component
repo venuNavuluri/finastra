@@ -1,0 +1,8 @@
+<apex:component >
+	<apex:attribute name="attrAmount" type="Decimal" required="true" description="The amount"/>
+	<apex:attribute name="attrCurrencyCode" type="string" required="false" description="The currency code"/>
+	<apex:attribute name="attrColor" type="String" required="true" description="The color"/>
+	<apex:outputText value="{!attrCurrencyCode} {0, number, ##,###,###,##0.00}" style="color:{!attrColor};">
+		<apex:param value="{!attrAmount}" />
+	</apex:outputText>
+</apex:component>

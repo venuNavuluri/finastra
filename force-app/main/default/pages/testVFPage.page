@@ -1,0 +1,47 @@
+<apex:page tabStyle="Opportunity"
+	controller="testVFController">
+
+
+	<apex:form >
+	
+		<apex:pageBlock title="My Deal Approvals">
+			<apex:pageBlockSection columns="1" >
+			
+					<apex:pageBlockTable value="{!lstDA}" var="item"  >
+						 
+						<apex:column headerValue="Action">
+							<apex:commandLink value="Reassign" action="{!reassign}">
+								 <apex:param name="daId" value="{!item.id}" />
+							</apex:commandLink>
+							&nbsp;|&nbsp;
+							<apex:commandLink value="Approve / Reject" action="{!approveReject}" >
+								 <apex:param name="daId" value="{!item.id}" />
+							</apex:commandLink>
+						</apex:column>
+						
+						<apex:column headerValue="Opp Name">
+							<a href="/{!item.Opportunity__c}">{!item.Opportunity__r.Name}</a>
+						</apex:column>
+						
+						<apex:column headerValue="Opp Close Date">
+							<apex:outputText >{!item.Opportunity__r.CloseDate}</apex:outputText>
+						</apex:column>
+
+						<apex:column headerValue="Approval Ref">
+							<a href="/{!item.Id}">{!item.Approval_Ref__c}</a>
+						</apex:column>
+
+						<apex:column headerValue="Approval Reasons">
+							<apex:outputText >{!item.Approval_Reasons__c}</apex:outputText>
+						</apex:column>
+					
+					</apex:pageBlockTable>	
+					
+			</apex:pageBlockSection>
+		</apex:pageBlock>	
+	
+	</apex:form>
+
+
+
+</apex:page>

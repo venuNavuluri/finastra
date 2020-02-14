@@ -1,0 +1,77 @@
+<apex:component >
+	<script>
+		$j = jQuery.noConflict();
+
+			/*   ----------------------------
+			*	Method to create the Slider
+			*	----------------------------
+			*	PARAMETERS : "destinationIntegers" = The Id of the div/span where the integers-slider needs to be created
+			*				 "destinationDecimals" = The Id of the div/span where the decimals-slider needs to be created
+			*				 "dispCurrentOutput" = The Id of the div where the momentary slider value needs to be displayed
+			*				 "startVal" = initial position of slider
+			*				 "minVal", "maxVal" = minimum and maximum value of slider
+			*				 "inputHiddenId" = The ID of the "apex:inputHidden" component where the slider value
+			*					should be saved when the slider is released
+			**/
+			function createSliderTwinSliders(
+				destinationIntegers,
+				destinationDecimals,
+				dispCurrentIntegers,
+				dispCurrentDecimals,
+				startValInt, startValDec,
+				minVal,
+				maxValInt, maxValDec,
+				inputHiddenId)
+			{
+				var intSliderMaxVal, decSliderMaxVal;
+				if (maxValDec < startValDec) { intSliderMaxVal = maxValInt - 1; }
+				else { intSliderMaxVal = maxValInt; }
+
+				if (startValInt < maxValInt) { decSliderMaxVal = 99; }
+				else {
+					decSliderMaxVal = max(maxValDec, startValDec);
+				}
+				
+				$j("[id='" + destinationIntegers + "']").slider({
+					animate: true, 
+					range: false, 
+					min: minVal,
+					max: intSliderMaxVal,
+					values: [startValInt],
+					stop: function(event, ui) {
+						$j("[id='" + inputHiddenId + "']").val(parseInt(ui.values[0]) + startValDec/100);
+						sliderStopped();
+					},
+					slide: function(event, ui) {
+						$j("[id='"+dispCurrentIntegers+"']").html(ui.values[0]);
+					}
+				});
+				
+				$j("[id='" + destinationDecimals + "']").slider({
+					animate: true, 
+					range: false, 
+					min: minVal,
+					max: decSliderMaxVal,
+					values: [startValDec],
+					stop: function(event, ui) {
+						$j("[id='" + inputHiddenId + "']").val(startValInt + parseInt(ui.values[0])/100);
+						sliderStopped();
+					},
+					slide: function(event, ui) {
+						$j("[id='" + dispCurrentDecimals + "']").html(padTwoZeros(ui.values[0]));
+					}
+				});
+				$j("[id='"+dispCurrentIntegers+"']").html(startValInt);
+				$j("[id='"+dispCurrentDecimals+"']").html(padTwoZeros(startValDec));
+			}
+			
+			function padTwoZeros(n) { // pad to 2 leading zeros
+				return String('00' + n).slice(-2);
+			}
+			
+			function max(a, b) {
+				if (a < b) return b;
+				else return a;
+			}
+	</script> 
+</apex:component>

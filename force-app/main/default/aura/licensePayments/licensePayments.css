@@ -1,0 +1,19 @@
+.THIS .slds-button_icon-bare{
+    display: none;
+}
+.THIS .cols thead th span {
+font-weight: bold; 
+}
+.THIS .lightning-formatted-number  {
+    text-align: left ;
+}
+.THIS .select {
+    font-weight: bold;
+}
+.THIS .slds-page-header{
+    background-color: #E47DE8;
+    color: black;
+}
+.THIS .slds-button{
+    margin-right :5px 
+}

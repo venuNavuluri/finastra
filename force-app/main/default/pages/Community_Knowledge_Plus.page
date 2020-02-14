@@ -1,0 +1,137 @@
+<apex:page controller="documentPortalController" sidebar="true">
+
+
+
+    
+  <div class="knowledgePlus">
+
+        <div class="row">
+
+                <div class="bPageTitle">
+        <div class="ptBody">
+            <h1 class="pageType">Useful information and links</h1>
+        </div>
+    </div>
+
+            <ul class="infonav">
+                <li>
+                    <a href="http://www.misys.com/contact-us/" target="_blank" class="hint--left  hint--bounce" data-hint="List of Support Email Addresses."><apex:image url="{!URLFOR($Resource.KnowNavIconEmail)}"  /></a>
+                </li>
+                <li>
+                    <a href="http://www.misys.com/contact-us/" target="_blank" class="hint--left  hint--bounce" data-hint="List of Telephone Numbers."><apex:image url="{!URLFOR($Resource.KnowNavIconTel)}" /></a>
+                </li>
+                <li>
+                    <a href="#" class="hint--left  hint--bounce" data-hint="For Case Escalations please contact your Customer Advocate."><apex:image url="{!URLFOR($Resource.KnowNavIconWarning)}" /></a>
+                </li>        
+                <li>
+                    <a href="mailto:csoperations@misys.com" class="hint--left  hint--bounce" data-hint="Case details incorrect."><apex:image url="{!URLFOR($Resource.KnowNavIconFile)}" /></a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="row">
+          <div class="topFive  topRated">
+            <h2>Top 5 most rated articles</h2>
+            <ol>
+                <apex:repeat value="{!KnowledgeArticleRatings}" var="knowledgeArticleRating">
+              <li>
+              <div class="articleText">
+                <p class="title"><apex:outputLink value="{!knowledgeArticleRating.ArticleUrl}" >{!knowledgeArticleRating.Title}</apex:outputLink></p>
+                <ul>
+                  <li id="ArticleNumber" class="displayFieldName" title="Article Number"><apex:outputText value="{!knowledgeArticleRating.ArticleNumber}"></apex:outputText></li>
+                  <li id="Type" class="displayFieldName" title="Documentation"><apex:outputText value="{!knowledgeArticleRating.ArticleType}"></apex:outputText></li>
+                  <li id="LastPublishedDate" class="displayFieldName" title="Last Published Date">Last Published <apex:outputText value="{0, date, dd/MM/yyyy}"><apex:param value="{!knowledgeArticleRating.LastPublishedDate}" /></apex:outputText></li>
+                  <!--<li><apex:outputText value="{!knowledgeArticleRating.ArticleRating}"></apex:outputText></li>-->
+                </ul>
+              </div>
+              <span class="stats">
+                  <span class="stats">
+                  <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_none.png')}" rendered="{!IF(MIN(5, round(knowledgeArticleRating.ArticleRating,0)) == 0, true, false)}" width="54" height="8"/>
+                  <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_one.png')}" rendered="{!IF(MIN(5, round(knowledgeArticleRating.ArticleRating,0)) == 1, true, false)}" width="54" height="8"/>
+                  <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_two.png')}" rendered="{!IF(MIN(5, round(knowledgeArticleRating.ArticleRating,0)) == 2, true, false)}" width="54" height="8"/>
+                  <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_three.png')}" rendered="{!IF(MIN(5, round(knowledgeArticleRating.ArticleRating,0)) == 3, true, false)}" width="54" height="8"/>
+                  <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_four.png')}" rendered="{!IF(MIN(5, round(knowledgeArticleRating.ArticleRating,0)) == 4, true, false)}" width="54" height="8"/>
+                  <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/star_five.png')}" rendered="{!IF(MIN(5, round(knowledgeArticleRating.ArticleRating,0)) == 5, true, false)}" width="54" height="8"/>
+              </span>
+              </span>
+              </li>
+                </apex:repeat>
+            </ol>
+          </div>
+          <div class="topFive  topViewed">
+            <h2>Top 5 most viewed articles</h2>
+            <ol>
+                <apex:repeat value="{!KnowledgeArticles}" var="knowledgeArticle">
+                    <li>
+                      <div class="articleText">
+                        <p class="title"><apex:outputLink value="{!knowledgeArticle.ArticleUrl}" >{!knowledgeArticle.Title}</apex:outputLink></p>
+                        <ul>
+                          <li class="displayFieldName" title="Article Number"><apex:outputText value="{!knowledgeArticle.ArticleNumber}"></apex:outputText></li>
+                          <li class="displayFieldName" title="ArticleType"><apex:outputText value="{!knowledgeArticle.ArticleType}"></apex:outputText></li>
+                          <li class="displayFieldName" title="Last Published">Last Published <apex:outputText value="{0, date, dd/MM/yyyy}"><apex:param value="{!knowledgeArticle.LastPublishedDate}" /></apex:outputText></li>
+                          <!--<li><apex:outputText value="{!knowledgeArticle.ArticleViews}"></apex:outputText></li>-->
+                        </ul>
+                      </div>
+                      <span class="stats">
+                          <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/rating_none.png')}" rendered="{!IF(AND(round(knowledgeArticle.ArticleViews,0) >= 0,round(knowledgeArticle.ArticleViews,0)<10), true, false)}" width="54" height="8"/>
+                          <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/rating_one.png')}" rendered="{!IF(AND(MIN(100, round(knowledgeArticle.ArticleViews,0)) >= 10,MIN(100, round(knowledgeArticle.ArticleViews,0)) <20), true, false)}" width="54" height="8"/>
+                          <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/rating_two.png')}" rendered="{!IF(AND(MIN(100, round(knowledgeArticle.ArticleViews,0)) >= 20,MIN(100, round(knowledgeArticle.ArticleViews,0)) < 40), true, false)}" width="54" height="8"/>
+                          <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/rating_three.png')}" rendered="{!IF(AND(MIN(100, round(knowledgeArticle.ArticleViews,0)) >= 40,MIN(100, round(knowledgeArticle.ArticleViews,0)) <= 60), true, false)}" width="54" height="8"/>
+                          <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/rating_four.png')}" rendered="{!IF(AND(MIN(100, round(knowledgeArticle.ArticleViews,0)) > 60,MIN(100, round(knowledgeArticle.ArticleViews,0)) < 80), true, false)}" width="54" height="8"/>
+                          <apex:image url="{!URLFOR($Resource.Ratings,'/Ratings/rating_five.png')}" rendered="{!IF(AND(MIN(100, round(knowledgeArticle.ArticleViews,0)) > 80,MIN(100, round(knowledgeArticle.ArticleViews,0)) <= 100), true, false)}" width="54" height="8"/>
+                      </span>
+                    </li>
+                </apex:repeat>
+              
+            </ol>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="row">
+        <div class="item  item-full">
+
+              <div class="info-block">
+                  <h3><apex:outputText value="{!LeadContentTitle}"></apex:outputText></h3>
+                  <p><apex:outputText value="{!LeadContentBody}" escape="false"></apex:outputText></p>
+                   <apex:repeat value="{!LeadContentLinks}" var="LeadLinks">
+                      <apex:outputLink target="_blank" value="{!LeadLinks.URL__c}">{!LeadLinks.Hyperlink_Text__c}  &gt;</apex:outputLink>
+                  </apex:repeat>
+                  
+              </div>
+
+        </div>
+      </div>
+
+      <div class="items-container  row">
+          <div class="item  item-third">
+            <div class="info-block">
+                <h3>Product Documentation</h3>
+                <p>Access the Misys Documentation Portal. Whether you are new to Misys or an advanced user, you can find useful information about our products and solutions, ranging from release notes to online Help and technical guides.</p>
+                <apex:outputLink value="{!QueryString}" target="_blank" styleClass="info-block-link">Click here for our Document Portal &gt;</apex:outputLink>
+            </div>
+        </div>
+
+        <apex:repeat var="contentItems" value="{!KnowledgeCMSContent}">
+          <div class="item  item-third">
+            <div class="info-block">
+                <h3><apex:outputText value="{!contentItems.Title__c}"></apex:outputText></h3>
+                <p><apex:outputText value="{!contentItems.Body_Copy__c}" escape="false"></apex:outputText></p>
+                <apex:repeat var="l" value="{!contentItems.Community_Feature_Hyperlinks__r}">
+                  <apex:outputLink target="_blank" styleClass="info-block-link" value="{!l.URL__c}">{!l.Hyperlink_Text__c}  &gt;</apex:outputLink>
+                </apex:repeat>
+            </div>
+        </div>
+       
+        </apex:repeat>
+              
+      </div>
+
+    
+
+  
+</apex:page>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>46.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Clone of VF Page:
+_Label: SalesCoachLauncher
+_Name: RLF_Holiday
+REQ-2872</description>
+    <label>ContractRLFHoliday</label>
+</ApexPage>

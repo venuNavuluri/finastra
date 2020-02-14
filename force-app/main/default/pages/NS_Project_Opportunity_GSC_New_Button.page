@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity" extensions="OpportunityController_Extension" action="/a3D/e?00N0J00000A5xbG=1&CF00N0J00000A5xbL={!theOpp.Name}&CF00N0J00000A5xbL_lkid={!theOpp.Id}&00N20000007GMU4=GSC&&cancelURL={!$CurrentPage.parameters.retURL}&nooverride=1">
+
+
+
+
+</apex:page>

@@ -1,0 +1,53 @@
+<apex:page id="showDocumentation" tabStyle="Knowledge__tab" controller="ShowArticleController"> 
+    <c:KnowledgeSearch />
+    <h2 class="page-title">{!DocumentationItem.Title}</h2>
+ 
+    <div class="bSubBlock brandSecondaryBrd secondaryPalette">
+        <h3 class="lbHeader">Product Environment</h3>
+        <div class="lbBody">
+            <span id="articlePage:articleList:artLst"></span>
+            <table class="knowledgeBrowser">
+                <tbody>
+                    <tr style="{!IF(DocumentationItem.Product__c == '', 'display:none', '')}">
+                        <td>Product</td> <td><apex:outputField value="{!DocumentationItem.Product__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(DocumentationItem.Product_Version__c == '', 'display:none', '')}">
+                        <td>Product Version</td> <td><apex:outputField value="{!DocumentationItem.Product_Version__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(DocumentationItem.Rolled_In_At__c == '', 'display:none', '')}">
+                        <td>Rolled In At</td> <td><apex:outputField value="{!DocumentationItem.Rolled_In_At__c}"/></td>
+                    </tr>
+                </tbody>
+            </table>        
+        </div>
+    </div>
+
+    <div class="bSubBlock brandSecondaryBrd secondaryPalette">
+        <h3 class="lbHeader">Documentation Details</h3>
+        <div class="lbBody">
+            <span id="articlePage:articleList:artLst"></span>
+            <table class="knowledgeBrowser">
+                <tbody>
+                    <tr style="{!IF(DocumentationItem.Document_Type__c == '', 'display:none', '')}">
+                        <td>Document Type</td> <td><apex:outputField value="{!DocumentationItem.Document_Type__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(DocumentationItem.Documentation_Name__c == '', 'display:none', '')}">
+                        <td>Documentation Name</td> <td><apex:outputField value="{!DocumentationItem.Documentation_Name__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(DocumentationItem.Description__c == '', 'display:none', '')}">
+                        <td>Description</td> <td><apex:outputField value="{!DocumentationItem.Description__c}"/></td>
+                    </tr>
+                    <tr style="{!IF(DocumentationItem.Attachment1__Name__s == '', 'display:none', '')}">
+                        <td>Attachment1</td> <td> <a href="/servlet/fileField?entityId={!DocumentationItem.Id}&field=Attachment1__Body__s">{!DocumentationItem.Attachment1__Name__s}</a> </td>
+                    </tr>
+                    <tr style="{!IF(DocumentationItem.Attachment2__Name__s == '', 'display:none', '')}">
+                        <td>Attachment2</td> <td> <a href="/servlet/fileField?entityId={!DocumentationItem.Id}&field=Attachment2__Body__s">{!DocumentationItem.Attachment2__Name__s}</a> </td>
+                    </tr>
+                    <tr style="{!IF(DocumentationItem.Attachment3__Name__s == '', 'display:none', '')}">
+                        <td>Attachment3</td> <td> <a href="/servlet/fileField?entityId={!DocumentationItem.Id}&field=Attachment3__Body__s">{!DocumentationItem.Attachment3__Name__s}</a> </td>
+                    </tr>
+                </tbody>
+            </table>        
+        </div>
+    </div>
+</apex:page>

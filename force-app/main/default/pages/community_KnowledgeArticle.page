@@ -1,0 +1,234 @@
+<apex:page showHeader="true" sidebar="true" controller="community_KnowledgeArticleController">
+    
+	<script>
+		$(document).ready(function(){
+			
+			$('.rating label').append(function() {
+				return $(this).siblings('.rating input');
+			});
+            
+			$('.rating input').change(function () {
+				var $radio = $(this);
+                $('.rating td').removeClass('selected');
+				$radio.closest('td').addClass('selected');
+				$radio.closest('td').prevAll().addClass('selected');
+			});
+		});
+	</script>
+    <style>
+        .box {border: 0; font-size:0px}
+    </style>
+	
+    <apex:form styleClass="kArticle">
+        <apex:outputPanel rendered="{!initialised}">
+		<p>&lt;&lt; <a href="javascript:history.back()">Back to listing</a><input type="text" autofocus="" class="box" /></p>
+		<div class="follow-title-lnk">
+        <!--	<chatter:follow entityId="{!articleid}"/> -->
+        </div>
+        <div class="bPageTitle">
+			<div class="ptBody secondaryPalette brandSecondaryBrd">
+				
+                    <img src="/img/s.gif" class="pageTitleIcon" />
+					<h1 class="pageType noSecondHeader"><apex:outputText value="{!articleDetails.Title}" /></h1>
+					<div class="blank"></div>
+				
+			</div>
+		</div>
+        
+        <div class="kDetails">
+            <div>
+                <span class="lbl">Article Number:</span>
+                <span><apex:outputText value="{!articleDetails.ArticleNumber}" /></span>
+            </div>
+            <div>
+                <span class="lbl">Version:</span>
+                <span><apex:outputText value="{!articleDetails.versionNumber}" /></span>
+            </div>
+            <div>
+                <span class="lbl">Last Modified:</span>
+                <span><apex:outputText value="{!articleDetails.LastModifiedDate}" /></span>
+            </div>
+            <div>
+                <span class="lbl">Fusion Product:</span>
+                <span><apex:outputText value="{!articleDetails.Product}" /></span>
+            </div>
+            <div>
+                <span class="lbl">Product Version:</span>
+				<span><apex:outputText value="{!articleDetails.ProductVersion}" /></span>
+            </div>
+            <div>
+            	<apex:outputPanel rendered="{!showAdditionalProductVersion}" >
+                	<span class="lbl">Additional Product Version:</span>
+					<span><apex:outputText value="{!articleDetails.AdditionProductVersion}" /></span>
+				</apex:outputPanel>
+            </div>
+            <div>        	
+                <span class="lbl">Product Component:</span>
+				<span><apex:outputText value="{!articleDetails.AdditionProductComponent}" /></span>		
+            </div>
+            <div>
+            	<apex:outputPanel rendered="{!showAdditionalProductVersion}" >
+                	<span class="lbl">Additional Product Component:</span>
+					<span><apex:outputText value="{!articleDetails.AdditionProductComponent}" /></span>
+				</apex:outputPanel>
+            </div>
+        </div>
+        
+		<div>
+			<div class="kArticleBody">
+				<apex:outputPanel rendered="{!showSymptom}">
+					<span class="lbl">Symptom</span>
+					<p><apex:outputText value="{!articleDetails.Symptom}" escape="false" /></p>
+				</apex:outputPanel>
+				<span class="lbl">Description</span>
+                
+				<p><apex:outputText value="{!articleDetails.description}" escape="false"  /></p>
+
+				<apex:outputPanel rendered="{!showResolution}">
+					<span class="lbl">Resolution</span>
+					<p><apex:outputText value="{!articleDetails.Resolution}" escape="false" /></p>
+				</apex:outputPanel>
+				
+                <img class="dl-ico" src="/SupportCommunity/resource/DownloadIcon" />
+                
+				<apex:outputPanel rendered="{!showDocumentationDownloads}">
+					<div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload1}">
+                            <apex:outputLink value="{!URLFOR($Action.Documentation__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Documentation__kav.fields.Attachment1__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName1}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+	            	</div>
+                    <div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload2}">
+                            <apex:outputLink value="{!URLFOR($Action.Documentation__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Documentation__kav.fields.Attachment2__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName2}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload3}">
+                            <apex:outputLink value="{!URLFOR($Action.Documentation__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Documentation__kav.fields.Attachment3__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName3}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload4}">
+                            <apex:outputLink value="{!URLFOR($Action.Documentation__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Documentation__kav.fields.Attachment4__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName4}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload5}">
+                            <apex:outputLink value="{!URLFOR($Action.Documentation__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Documentation__kav.fields.Attachment5__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName5}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                    </div>
+				</apex:outputPanel>
+
+				<apex:outputPanel rendered="{!showTroubleDownloads}">
+					<div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload1}">
+                            <apex:outputLink value="{!URLFOR($Action.Troubleshooting__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Troubleshooting__kav.fields.Attachment1__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName1}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload2}">
+                            <apex:outputLink value="{!URLFOR($Action.Troubleshooting__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Troubleshooting__kav.fields.Attachment2__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName2}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload3}">
+                            <apex:outputLink value="{!URLFOR($Action.Troubleshooting__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Troubleshooting__kav.fields.Attachment3__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName3}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload4}">
+                            <apex:outputLink value="{!URLFOR($Action.Troubleshooting__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Troubleshooting__kav.fields.Attachment4__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName4}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="download-links">
+                        <apex:outputPanel rendered="{!showDownload5}">
+                            <apex:outputLink value="{!URLFOR($Action.Troubleshooting__kav.FileFieldDownload,articleDetails.Id, ['field'=$ObjectType.Troubleshooting__kav.fields.Attachment5__Body__s.name])}" styleClass="attachData" target="_blank">
+                                Download:&nbsp;<apex:outputText value="{!articleDetails.AttachmentName5}" />
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                    </div>
+				</apex:outputPanel>
+				 
+			</div>
+
+			<div class="yn">
+				<span>Did this resolve your issue?</span>
+				<div>
+					<apex:selectRadio value="{!strIssues}">
+					    <apex:selectOptions value="{!Items}"/>
+					</apex:selectRadio>
+					
+				</div>
+				<!--<div>
+					<input type="radio" name="resolution" value="yes" checked="checked" id="r1" /><label for="r1">yes</label>
+					<input type="radio" name="resolution" value="no" id="r2" /><label for="r2">no</label>
+				</div>-->
+			</div>
+			
+			<span class="lbl ratelbl">How would you rate the quality of this article?</span>
+			
+			
+            <div class="rating">
+				
+				<apex:selectRadio value="{!strRating}">
+					    <apex:selectOptions value="{!Ratings}"/>
+					</apex:selectRadio>
+				
+				<!--<label>
+					<input type="radio" name="rating" value="4" title="4 stars"/> 4
+				</label>
+				<label>
+					<input type="radio" name="rating" value="3" title="3 stars"/> 3
+				</label>
+				<label>
+					<input type="radio" name="rating" value="2" title="2 stars"/> 2
+				</label>
+				<label>
+					<input type="radio" name="rating" value="1" title="1 star"/> 1
+				</label>-->
+                
+			</div>
+            
+			<div class="ta">
+				<label>Comment</label>
+				<apex:inputTextarea value="{!Comments}"  />
+			</div>
+		
+			<div class="btn-c">
+				<apex:commandButton action="{!submit}" value="Submit" styleClass="btn"/>
+				
+			</div>
+            
+		</div>
+	</apex:outputPanel>
+        <apex:actionFunction name="doInit" action="{!SaveUserViews}" />
+        <apex:outputPanel rendered="{!NOT(initialised)}">
+        <p align="center" style='{font-family:"Arial", Helvetica, sans-serif; font-size:20px;}'><apex:image styleclass="waitingImage" value="/img/loading.gif" title="Please Wait..." /></p>
+        <script>
+           window.onload=function()
+           {
+             doInit();
+           };
+        </script>
+    </apex:outputPanel> 
+	</apex:form>
+	
+</apex:page>

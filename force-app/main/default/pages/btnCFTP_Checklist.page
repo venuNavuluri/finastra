@@ -1,0 +1,25 @@
+<apex:page standardController="Partner_Approvals_Renewals__c" extensions="CFTP_Checklist_CE" standardStylesheets="true">
+<style type="text/css">
+.commandButton
+{
+	text-align:center;
+	height:20px;
+}
+</style>
+	<apex:form id="frmChecklistButton" >
+		<apex:pageBlock mode="maindetail">
+			<apex:pageBlockSection columns="1" >				
+				<apex:pageBlockSectionItem >
+				<apex:commandButton value="CommOps Checklist >>" title="{!ButtonTip}" id="btnChecklistForm" onclick="window.parent.location.href='/apex/CFTP_Checklist?id={!Partner_Approvals_Renewals__c.Id}';" styleClass="commandButton" disabled="{!!FormAllowed}" />
+				</apex:pageBlockSectionItem>
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.CommOps_checklist_completed__c}" id="hiddenChecklistComplete" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Completed_Date__c}" id="hiddenChecklistCompleteDate" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.External_Agent_Letter_Signed__c}" id="hiddenExternalAgentLetter" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.External_Agency_Letter_Uploaded_Date__c}" id="hiddenExternalAgentLetterDate" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Internal_Sales_Agency_Form_completed__c}" id="hiddenInternalSalesAgencyFormCompleted" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Risk_Assessment_Completed_Date__c}" id="hiddenRiskAssessmentCompletedDate" rendered="false" />
+				<apex:outputText value="{!Partner_Approvals_Renewals__c.Level_of_Risk__c}" id="hiddenLevelOfRisk" rendered="false" />
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form> 
+</apex:page>

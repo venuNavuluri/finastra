@@ -1,0 +1,14 @@
+<apex:page id="SyncSubscriptions">
+    <apex:includeLightning /> 
+    <div id="lightning"/>
+    <script>
+      $Lightning.use("c:SyncSubscriptionsApp", function () {
+            $Lightning.createComponent("c:SyncSubscriptions",
+                    {
+                        recordId : '{!$CurrentPage.parameters.id}',
+                        objectType : '{!$CurrentPage.parameters.objecttype}'
+                    },
+                    "lightning");
+        });
+    </script>
+</apex:page>

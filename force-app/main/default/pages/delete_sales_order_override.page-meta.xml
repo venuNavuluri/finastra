@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>31.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>To over-ride the delete function on Sales Orders - instructional page informing the user to use the button at the top of the associated contract record</description>
+    <label>delete sales order override</label>
+</ApexPage>

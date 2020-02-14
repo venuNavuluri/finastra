@@ -1,0 +1,5 @@
+<apex:page standardcontroller="Opportunity">
+  <br></br><br></br>
+  <h1>Sorry - You can only create a Change Request opportunity against a Closed/Won Parent Opportunity</h1>
+ 
+</apex:page>

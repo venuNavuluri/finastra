@@ -1,0 +1,44 @@
+<apex:page standardController="MyProject__c">
+
+    <apex:pageBlock title="SDO - {!MyProject__c.Name}">
+        <apex:pageBlockSection columns="2">
+            <apex:outputField value="{!MyProject__c.Name}"/>
+            <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+            <apex:outputField value="{!MyProject__c.Owner.Name}"/>
+            <apex:outputField value="{!MyProject__c.ProjectNumber__c}"/>
+            <apex:outputField value="{!MyProject__c.Preferred_Start_Date__c}"/>
+            <apex:outputField value="{!MyProject__c.Preferred_End_Date__c}"/>
+            <apex:outputField value="{!MyProject__c.SDO_Author__c}"/>
+            <apex:outputField value="{!MyProject__c.SDO_Date__c}"/>
+            <apex:outputField value="{!MyProject__c.SDO_Version__c}"/>
+            <apex:outputField value="{!MyProject__c.Requested_Priority__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:pageBlock >
+        <apex:pageBlockSection columns="1">
+            <apex:outputField value="{!MyProject__c.Opportunity_or_Problem_Statement__c}"/>
+            <apex:outputField value="{!MyProject__c.Impact_Summary__c}"/>
+            <apex:outputField value="{!MyProject__c.Functional_Design__c}"/>
+            <apex:outputField value="{!MyProject__c.Cost_Benefit_Analysis__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="2">
+            <apex:outputField value="{!MyProject__c.Type_of_work__c}"/>
+            <apex:outputField value="{!MyProject__c.Additional_Technologies__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection >
+            <apex:outputField value="{!MyProject__c.Key_Skills_Resources__c}"/>
+            <apex:outputField value="{!MyProject__c.Project_Phasing__c}"/>
+            <apex:outputField value="{!MyProject__c.Assumptions__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>        
+    <apex:pageBlock >
+        <apex:pageBlockSection columns="2">
+            <apex:outputField value="{!MyProject__c.Est_Effort_Days__c}"/>
+            <apex:outputField value="{!MyProject__c.Total_Effort_Man_days__c}"/>
+            <apex:outputField value="{!MyProject__c.Change_Management_Man_days__c}"/>
+            <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+            <apex:outputField value="{!MyProject__c.Training_Man_days__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:relatedList list="NotesAndAttachments"/>
+</apex:page>

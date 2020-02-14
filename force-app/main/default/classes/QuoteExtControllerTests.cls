@@ -1,11 +1,8 @@
-//Updated by Robert Howell 12/6/2019. Updated test methods to support validation rule from RUBX-91
 @isTest
 private class QuoteExtControllerTests {
     
     testMethod static void testSubmit() {
-        Opportunity[] opps = TestDataFactory.createOpportunities(1, 1, true);
         SBQQ__Quote__c quote = new SBQQ__Quote__c();
-        quote.SBQQ__Opportunity2__c = opps[0].Id;
         insert quote;
         
         Test.startTest();
@@ -18,9 +15,7 @@ private class QuoteExtControllerTests {
     }
     
     testMethod static void testRecall() {
-        Opportunity[] opps = TestDataFactory.createOpportunities(1, 1, true);
         SBQQ__Quote__c quote = new SBQQ__Quote__c();
-        quote.SBQQ__Opportunity2__c = opps[0].Id;
         insert quote;
         
         Test.startTest();

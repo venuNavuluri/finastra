@@ -1,0 +1,33 @@
+<apex:page controller="community_ViewAttachmentController" tabStyle="Cases__tab">
+	<apex:sectionHeader title="Attached File"  />
+	<apex:pageBlock title="Attachment Detail">
+		
+		<apex:pageBlockSection columns="1">
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Attachment Owner" />
+				<apex:outputText value="{!ownerName}" />
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="File Name" />
+				<apex:outputText value="{!att.Name}" />
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Description" />
+				<apex:outputText value="{!att.description}" />
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Size" />
+				<apex:outputText value="{!attachmentSize} Kb" />
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="View File" />
+				<apex:outputLink value="servlet/servlet.FileDownload?file={!att.Id}" target="_blank">Download</apex:outputLink>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Created By" />
+				<apex:outputText value="{!ownerName}" />
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:page>

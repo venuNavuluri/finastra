@@ -1,0 +1,6 @@
+<apex:page standardStylesheets="true"  standardController="SFDC_Two_Factor_Authentication_Method__c">
+  <!-- Begin Default Content REMOVE THIS -->
+  <BR/>
+  <h3>Salesforce two factor authentication registration is now closed. Last date for the registration was 03/02/2017.</h3>
+   <!-- End Default Content REMOVE THIS -->
+</apex:page>

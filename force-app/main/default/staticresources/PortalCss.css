@@ -1,0 +1,2278 @@
+html {
+    min-height: 100%;
+}
+.bodyDiv {
+    padding-top:0;
+    border-bottom:0;
+}
+
+
+/* -------Web Fonts------- */
+
+.body, 
+p, 
+h2,
+.sidebarModule .btn,
+body .currentTab, 
+body .currentTab a,
+body .tab, 
+body .tab a,
+h2,
+h3,
+h4,
+h5,
+A.categoryNode,
+.btn,
+.miniTab,
+.sidebarModuleHeader h1, 
+.sidebarModuleHeader h2, 
+.sidebarModuleHeader h3, 
+.sidebarModuleHeader h4, 
+.sidebarModuleHeader h5, 
+.sidebarModuleHeader h6,
+.bPageBlock .labelCol, 
+.bPageBlock .labelCol a,
+body .primaryPalette, 
+body .primaryPalette a, 
+body .bPageTitle .secondaryPalette, 
+body .bPageTitle .secondaryPalette a, 
+body .secondaryPalette .lbHeader, 
+body .secondaryPalette .lbHeader a, 
+body .pbSubheader, 
+body .pbSubheader a,
+.list .headerRow th,
+.list .headerRow th a,
+.sfdc_richtext {
+    font-family:'Avenir LT W01 55 Roman';
+    font-weight: normal;
+}
+
+select {
+    font-family: Sans-Serif;
+}
+
+h1,
+.bSubBlock.brandSecondaryBrd.secondaryPalette h3,
+.bSubBlock.brandSecondaryBrd.secondaryPalette h3.lbHeader.brandTertiaryFgr,
+.pbHeader .pbTitle h2, 
+.pbHeader .pbTitle h2 a, 
+.pbHeader .pbTitle h3, 
+.pbHeader .pbTitle h3 a, 
+.pbSubheader h3, 
+.pbSubheader h3 a {
+    font-family:'Avenir LT W01 35 Light';
+    font-weight:normal;
+}
+
+
+h1 {
+    font-size:3.25em;
+}
+
+.sidebarModuleHeader h1, 
+.sidebarModuleHeader h2, 
+.sidebarModuleHeader h3, 
+.sidebarModuleHeader h4, 
+.sidebarModuleHeader h5, 
+.sidebarModuleHeader h6 {
+    display: block;
+    font-size: 1.75em;
+    padding-top: .5em;
+}
+
+.page-title {
+    padding:1em 0 0 1em;
+    font-size:2em;
+    display:block;
+    color:#f18881;
+    font-family: 'Avenir LT W01 85 Heavy';
+    float:left;
+}
+
+
+/* -------Colors------- */
+
+
+/* --Dark Blue-- */
+
+
+.bPageFooter,
+.sidebarModule input[type="submit"], 
+.sidebarModule .btn,
+.secondaryPalette,
+.bRelatedList .bPageBlock .pbButton .btn,
+.oRight .btn,
+#report .btn,
+.reportTab .reportTable tr.headerRow,
+.tab .currentTab div a, .tab td.currentTab a {
+    background-color: #2ab5b2;
+}
+
+.sidebarModuleHeader h1, 
+.sidebarModuleHeader h2, 
+.sidebarModuleHeader h3, 
+.sidebarModuleHeader h4, 
+.sidebarModuleHeader h5, 
+.sidebarModuleHeader h6,
+.list .headerRow th,
+.reportTab .pbBody .reportEntry .entryActions a {
+    color: #2a3a39; 
+}
+
+
+/* --Light Blue-- */
+
+.sidebarModule input[type="submit"]:hover, 
+.sidebarModule .btn:hover,
+.tab .currentTab div:hover, 
+.tab td.currentTab:hover,
+.bRelatedList .bPageBlock .pbButton .btn:hover,
+.oRight .btn:hover,
+#report .btn:hover,
+.reportTab .reportHeader,
+.reportTab .csvSetup .pbSubheader,
+.reportTab .csvSetup .bPageBlock .pbSubheader,
+.reportTab .bGeneratedReport .bPageBlock .pbSubheader,
+.caseTab .rich-table-thead,
+.bPageBlock .pbTitle{
+    background-color: #f18881;
+}
+
+.bSubBlock.brandSecondaryBrd.secondaryPalette h3.lbHeader.brandTertiaryFgr,
+.bPageTitle .ptBody .links a:hover,
+.folderName h3,
+.bPageTitle .ptBreadcrumb:hover,
+.bPageTitle .ptBreadcrumb a:hover,
+.case-recordtype  {
+    color:#2ab5b2;
+}
+
+/* --Dark Grey-- */
+
+
+/* --Light Grey-- */
+
+
+.bOverviewSearch .btn:hover,
+.bFilter .btn:hover,
+.paging {
+    background-color: #b8bbbe;
+}
+
+
+/* --Lighter Grey-- */
+
+.reportTab .reportList .folderName,
+.bDetailBlock {
+    background-color: #dfe1e2;
+}
+
+
+/* --White-- */
+body .bPageTitle .secondaryPalette,
+.bPageTitle,
+.outer td.oRight,
+html,
+.intro,
+#sidebarCell,
+.bSubBlock.brandSecondaryBrd.secondaryPalette,
+.hotListElement,
+.tabsNewBar,
+.bPageBlock .pbTitle,
+.bOverviewSearch,
+.miniTab.secondaryPalette,
+.oRight.noTableBody{
+    background-color: white;
+}
+
+
+/* --Dark Grey Color-- */
+
+body .bPageTitle .secondaryPalette,
+.overviewHeaderDescription,
+.pbHeader .pbTitle h3,
+body .pbSubheader h3,
+.bOverviewSearch{
+    color:#414141;
+}
+
+.tab td div,
+.tabNavigation,
+.sidebarModule input[type="submit"]:hover, 
+.sidebarModule .btn:hover,
+.bFilter .btn:hover,
+.bRelatedList .bPageBlock .pbButton .btn:hover,
+.oRight .btn:hover{
+    background-color:#414141;
+}
+
+a:hover,
+.pbBody a:hover, .lbBody a:hover,
+.pbHeader .pbTitle h2, 
+.pbHeader .pbTitle h2 a, 
+.pbHeader .pbTitle h3, 
+.pbHeader .pbTitle h3 a, 
+.pbSubheader h3, 
+.pbSubheader h3 a,
+.pbHeader .pbTitle h2{
+    color:#414141;
+}
+
+/* --Blue/Green Color-- */
+.tab .currentTab div a, 
+.tab td.currentTab a,
+.bFilter .btn,
+.bOverviewSearch .btn{
+    background-color:#2ab5b2;
+}
+
+a{
+    color:#2ab5b2;
+}
+
+.tab td div:hover,
+body .tab a:hover,
+.paging a:hover {
+    color:#7bd1cf;
+}
+
+/* --Orange Color-- */
+
+.pbBody a, 
+.lbBody a,
+.pbHeader .pbTitle h3, 
+.pbHeader .pbTitle h3,
+.pbHeader .pbTitle h2,
+.caseTab .ptBody .pageDescription,
+body .pbSubheader h3,
+.noStandardTab .bPageBlock .list b{
+    color:#f18881;
+}
+
+
+
+.tab .currentTab div a, 
+.tab td.currentTab a,
+.bOverviewSearch .btn:hover {
+    color:#fff;
+}
+
+body .tab {
+    margin-left:-10px;
+}
+
+
+
+/* -------Header tab navigation------- */
+
+.bPageHeader {
+    background-image: none;
+    margin-left: 235px;
+}
+.tabsNewBar {
+    padding: 4em 0 0;
+    margin-top: -130px;
+}
+
+.tabNavigation {
+    background-image: none;
+    padding: 1em;
+    width:99%;
+}
+
+.tab .currentTab div,
+.tab td div, .tab .last div, .tab .currentTab, .tab td {
+    background-image:none;
+    border:0;
+    padding:0;
+}
+
+.tab td,
+.tab .currentTab div{
+    border-right:1px dotted #b9b9b9;
+}
+
+.tab td div, .tab .last div, .tab .currentTab div, .tab td.currentTab {
+    padding:0;
+}
+
+body .tab, body .tab a {
+    color:#fff;
+    font-size:1.15em;
+}
+
+body .tab a {
+    padding:0;
+    display:block;
+    margin:0;
+}
+
+body .tab a:hover {
+    text-decoration:none;
+    margin:0;
+}
+
+
+.tab .currentTab div, .tab td.currentTab {
+    background-color:transparent;
+}
+
+.tab .currentTab div:hover, .tab td.currentTab:hover {
+    background-color:transparent;
+}
+
+body .tab a,
+body .tab a:hover{
+    margin:0 16px;
+    padding:10px 25px;
+}
+
+.pbSearch input.searchTextBox {
+	margin-right: 3px;
+	padding: 5px;
+}
+
+/* -------Sidebar------- */
+
+
+#sidebarCell {
+    padding-right: 10px;
+}
+
+.outer td.oRight {
+    padding-left:0;
+}
+
+#sidebarDiv {
+    margin-top: 23px;
+}
+
+.sidebarModule {
+    background-color: #fff;
+    border: 1px dotted #414141;
+    margin-bottom:20px;
+}
+
+.sidebarModuleHeader, .nestedModule .sidebarModuleHeader {
+    background-color: #fff;
+}
+
+.sidebarModule input[type="submit"], 
+.sidebarModule .btn {
+    background-image: none;
+    border:0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    padding:10px;
+}
+
+.sidebarModuleBody select {
+    font-size: 120%; 
+}
+
+#sbsearch .sidebarModuleBody {
+    padding-top: 0;
+    padding-left: 4px;
+}
+
+#sbsearch .sidebarModuleBody input,
+	.sidebarModuleBody select {
+    margin-bottom: 6px;
+}
+
+.sidebarModuleBody select,
+#sbsearch .sidebarModuleBody input.searchTextBox {
+    width:100%;
+    padding:.25em;
+}
+
+
+.outer td.oRight {
+    padding:0;
+}
+
+.bPageBlock, .individualPalette .bPageBlock, .bPageBlock .pbHeader {
+    background-color: #fff;
+    border:0;
+}
+
+.bPageFooter {
+    border-top: 0;
+    
+}
+
+.bPageFooter, .bPageFooter a {
+    color:#fff;
+}
+
+.noTableFooter {
+     margin-left:0;
+}
+
+
+#sidebarCell .mruIcon {
+    background-image: url(/resource/iconFileDBlack);
+	width: 16px;
+	height: 16px;
+}
+
+
+
+
+/* -------Home page------- */
+
+.intro {
+    display:block;
+    width:100%;
+    float:left;
+    padding-bottom:2em;
+}
+
+.inner {
+    padding: 2em;
+    width:80%;
+}
+
+.intro h1, 
+.intro p,
+.intro a {
+    padding:0 ;
+    float:left;
+    display:block;
+    width:100%;
+    color:#414141;
+}
+
+.intro p {
+    font-size: 1.45em;
+    line-height: 1.25em;
+    margin: 8px 0;
+}
+
+.intro a {
+    text-transform:uppercase;
+    text-decoration:none;
+    border:3px solid #fff;
+    width:auto;
+    padding:10px;
+    background: url('/resource/arrowlink') right no-repeat;
+}
+
+
+
+
+/* -------Search page------- */
+
+        a.tooltip[data-tooltip]:link, a.tooltip[data-tooltip]:visited {
+            position: relative;
+            text-decoration: none;
+            border-bottom: solid 0px;
+        }
+        
+        a.tooltip[data-tooltip]:before {
+          content: "";
+          position: absolute;
+          border-top: 20px solid #02a3ca;
+          border-left: 30px solid transparent;
+          border-right: 30px solid transparent;
+          visibility: hidden;
+          bottom: 30px;
+          left: -10px;
+        }
+        
+        a.tooltip[data-tooltip]:after {
+          content: attr(data-tooltip);
+          position: absolute;
+          color: white;
+          bottom:35px;
+          left: -25px;
+          width:300px;
+          font-size:12px;
+          text-align:left;
+          background: #02a3ca;
+          padding: 5px 15px;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          visibility: hidden;
+        }
+        
+        a.tooltip[data-tooltip]:hover:before, a[data-tooltip]:hover:after {
+          visibility: visible;
+          -webkit-transition: visibility 0s linear .3s;
+          -moz-transition: visibility 0s linear .3s;
+          -o-transition: visibility 0s linear .3s;
+          transition: visibility 0s linear .3s;
+        }
+        
+         .tooltipicon a {
+          background-color:#a2a6aa;
+          color:#fff;
+          -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        width: 25px;
+        height: 20px;
+        display: inline-block;
+        text-align: center;
+        padding-top: 5px;
+      }
+      
+      .tooltipicon a:hover {
+          background-color:#02a3ca;
+      }
+.Custom55Tab .big-search {
+    width: 64%;
+    padding: .5em 1em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+}
+
+.bRelatedList {
+    padding: 0 2em 2em 2em;
+}
+
+.bMiniTab .bRelatedList {
+    padding:0;
+}
+
+
+
+/* -------Solutions page------- */
+
+.requiredMark {
+    color:#f18881;
+}
+
+.bSubBlock.brandSecondaryBrd.secondaryPalette span {
+    font-size:14px; 
+    display:block;
+}
+
+.bPageTitle .ptBody .pageType {
+    font-size: 3.25em;
+}
+
+
+
+.bPageTitle .ptBody .content {
+    padding-left: 2em;
+}
+
+.bPageTitle,
+.bOverviewSearch {
+    margin:0;
+}
+
+.bPageTitle { 
+    padding-top:1.5em;
+    padding-bottom:1.5em;
+}
+
+.bOverviewSearch #searchForm {
+    padding:1em 13px 0 13px;
+    color:#fff;
+    font-size:1em;
+}
+
+.bOverviewSearch {
+    padding:0 0 0 1.5em;
+    font-size:1.45em;
+}
+
+.bOverviewSearch strong {
+    text-transform:uppercase;
+    font-weight:normal;
+}
+
+.bOverviewSearch .btn,
+.bFilter .btn {
+    background-image: none;
+    border:0;
+    color: #fff;
+    cursor: pointer;
+    font-size: .75em;
+    padding: .5em .75em;
+    font-weight:normal;
+    text-transform:uppercase;
+}
+
+
+
+.bSubBlock.brandSecondaryBrd.secondaryPalette,
+.brandSecondaryBrd {
+    background-color: white;
+    margin:2em 2.5% 0 2.5%;
+    float:left;
+    width:95%;
+}
+
+
+
+
+/* ----------------------------------------------------------------------
+	---------------------Cases page---------------------
+	----------------------------------------------------------------------*/
+
+.caseTab .hotListElement {
+    border-top:0;
+}
+
+.caseTab .list .headerRow th.zen-deemphasize {
+    background-color:#fad6d4;
+    color:#414141;
+    padding-bottom:1em;
+    margin-top:80px;
+}
+
+.caseTab.detailPage .bRelatedList {
+    padding:0;
+}
+
+.clearingBox {
+    display:none;
+}
+
+.overviewHeaderDescription, 
+.filterOverview {
+    color:#414141;
+    font-size: 1.45em;
+    line-height: 1.65em;
+    padding-left:1.5em;
+}
+
+.overviewHeaderDescription {
+    width: 98%;
+    display: block;
+    padding: 0 0 2% 2%;
+    margin: 0;
+    margin-bottom: -20px;
+}
+
+.filterOverview {
+    font-weight:normal !important;
+    text-transform:uppercase;
+}
+
+.list .headerRow th {
+    border-bottom:1px solid #ddd;
+    text-transform:uppercase;
+}
+
+.bPageBlock .pbTitle {
+    width:100%;
+    background-color:#f18881;
+}
+.bSubBlock .lbBody {
+    padding: 10px 0 0;
+    line-height: 1.6em;
+    height: 100%;
+}
+.bSubBlock,
+.hotListElement {
+    border:0;
+    border-top:0px dotted #a7a7a7;
+}
+
+
+
+table.solutionBrowser td.solutionBrowserHeader h3 {
+    width:100%;
+    display:block;
+}
+
+.lbBody .tertiaryPalette.brandTertiaryBgr,
+.bSubBlock .lbHeader {
+    background-color:transparent;
+}
+
+
+.bSubBlock.brandSecondaryBrd.secondaryPalette h3 {
+    background-color: #f18881;
+    color:#fff;
+    margin-top: 30px;
+    margin-top: 0;
+    padding:10px !important;
+
+}
+
+.bSubBlock.brandSecondaryBrd.secondaryPalette h3.lbHeader.brandTertiaryFgr,
+body .pbSubheader h3 {
+    background-color:transparent;
+    font-size:1.85em;
+    padding-top:0em;
+    padding-bottom:.5em;
+}
+
+body .pbSubheader.tertiaryPalette {
+    background-color: #fad6d4;
+    color:#414141;
+    font-size:.75em;
+    margin: 0;
+	padding-bottom: 1em;
+	padding-top: 1em;
+    padding-left:10px;
+    border-top:0px dotted #ccc;
+    border-bottom:0px dotted #ccc;
+}
+body .pbSubheader h3 {
+    color:#414141;
+}
+.pbSubsection {
+    margin-bottom:60px;
+}
+
+.secondaryPalette h3.lbHeader {
+    font-size:2em !important;
+    padding-top:.75em;
+    padding-bottom:.75em;
+}
+
+.pbHeader .pbTitle h3,
+.pbHeader .pbTitle h2 {
+    font-size:2em !important;
+    padding: 0 13px .5em 13px;
+    padding-top: .75em;
+    padding-bottom: .75em;
+    border-top:0px dotted #ccc;
+    background-color:#f18881;
+    color:#fff;
+    margin-left:0;
+}
+
+
+
+A.categoryNode,
+.bFilter select,
+.bFilterView label{
+    font-size: 12px;
+    padding:5px;
+}
+
+.bFilterView label {
+    font-weight:normal !important;
+}
+
+.fBody .btn {
+    font-size:1em;
+}
+
+.filterOverview .fBody .btn,
+.pbSearch .btn {
+    font-size:.85em
+}
+
+.btn {
+    text-transform:uppercase;
+}
+
+select,
+.list .noRows, .bRelatedList .list .noRowsHeader,
+.filterOverview .bFilter select,
+.filterOverview .bFilterView label { 
+    font-size:14px; 
+}
+
+.bPageBlock .pbHeader select {
+     font-size:1.25em ;
+}
+
+
+.bDetailBlock .pbBody {
+    background-color:#fff;
+}
+
+
+.noStandardTab .bPageBlock .list {
+    font-size:1.25em;
+}
+
+.noStandardTab .bPageBlock .list b {
+    font-weight:normal;
+    font-size:1.35em;
+    padding:.75em 0;
+	display: inline-block;
+}
+
+.noStandardTab .bPageBlock .list th {
+    padding-bottom:2em;
+}
+
+.bPageBlock .detailList .labelCol,
+.bPageBlock .detailList .dataCol,
+.bPageBlock .detailList .data2Col {
+    padding-top:.75em;
+    padding-bottom:.75em;
+}
+
+.bPageBlock .detailList tr td,
+.apexp .detailList .list td, 
+.apexp .detailList .list th, 
+.apexp .editPage .bPageBlock .detailList .list tr td, 
+.apexp .editPage .bPageBlock .detailList .list tr th{
+    border-color:#ddd;
+}
+
+
+
+.bRelatedList .bPageBlock .pbButton {
+ 
+    margin-top: 10px;
+    
+}
+
+.bRelatedList .bPageBlock .pbButton,
+.bPageBlock .pbHeader .pbHelp {
+    background-color:#f18881;
+  
+}
+
+.helpOrb {
+    background-image: url(/resource/IconHelpBlack);
+	background-position: top center;
+    background-repeat:no-repeat;
+	width: 20px;
+	height: 20px;
+    margin:5px;
+	cursor:pointer;
+}
+
+.helpOrb:hover {
+    background-image: url(/resource/IconHelpOrange);
+}
+
+.helpButton, 
+.helpButtonOn {
+    margin-right:15px;
+    padding-right:10px;
+}
+
+.detailList .helpOrb {
+    position: absolute;
+	right: -30px;
+	top: -6px;
+}
+
+
+.bRelatedList .bPageBlock .pbButton .btn,
+.oRight .btn,
+#report .btn,
+.reportTab .rolodex .listItemSelected,
+.documentTab .rolodex .listItemSelected {
+    background-image:none;
+    border:0;
+    display:inline-block;
+    width:auto;
+    margin:2px;
+    padding:8px 12px;
+    font-size:12px;
+
+}
+
+.bRelatedList .bPageBlock .pbButton .btn{
+    position: relative;
+	right: 0;
+    background-color:#414141;
+}
+.bRelatedList .bPageBlock .pbButton .btn:hover {
+    background-color:#000;
+    color:#f18881;
+}
+
+.caseTab .apexp .detailList .list .headerRow th {
+    border-bottom: 1px solid #ccc;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+
+/* ---------------------Cases Attach File page---------------------*/
+
+#editPage,
+#editPage_1{
+    padding:2em;
+    font-size:1.25em;
+}
+
+#editPage .brandSecondaryBrd,
+#editPage_1 .brandSecondaryBrd {
+	margin: 0;
+}
+
+/* ---------------------Cases Search page---------------------*/
+
+
+.bPageTitle .ptBreadcrumb,
+.bPageTitle .ptBreadcrumb a {
+    color:#2ab5b2;
+    text-decoration:none;
+    font-size:1.15em;
+}
+
+.bPageTitle .ptBreadcrumb a {
+    margin-left:5px;
+}
+
+.bPageTitle .ptBreadcrumb:hover,
+.bPageTitle .ptBreadcrumb a:hover {
+    color:#414141
+}
+
+/* --.bPageTitle .ptBreadcrumb {
+    margin-left:2em;
+    padding-bottom:2em;
+}--*/
+
+
+
+/* ---------------------Cases Log a Case page---------------------*/
+
+.caseTab.sfdcBody .detailList {
+    font-size:14px;
+}
+
+.caseTab.sfdcBody .oRight .pbHeader form {
+    margin:0;
+}
+
+.caseTab .bPageBlock .detailList .data2Col {
+    padding:0;
+}
+
+/* ---------------------Cases View dropdown - 'fixing' the space between intro and dropdown---------------------*/
+
+.caseTab .filterOverview {
+    margin-top: -30px;
+}
+
+.caseTab .filterOverview .bFilter {
+    padding:0;
+}
+
+.caseTab .oRight .filterOverview form {
+    margin:2em 0 0;
+}
+
+
+/* ---------------------Cases - Search Cases by Record Type---------------------*/
+
+.caseTab .case-recordtype {
+    font-weight:normal
+}
+
+.caseTab h2.case-recordtype {
+    font-size:2em;
+    padding-top:.5em;
+    display:block;
+    
+}
+
+.caseTab table.detailList .apexp .detailList .list .headerRow th {
+    border:0;
+}
+
+.caseTab .list .headerRow th a {
+    color:#fff;
+    text-decoration:none;
+    text-transform:uppercase;
+    padding:.5em 0;
+    display:inline-block;
+    font-size:10px;
+}
+
+.apexp .bPageBlock .detailList .list {
+	width: 100%;
+	font-size: 14px;
+    
+}
+
+.apexp .bPageBlock .detailList {
+    width: 100%;
+    border: 1px solid #ccc;margin-top:30px;
+}
+
+.apexp .bPageBlock .detailList td {
+    padding:10px;
+}
+
+.caseTab .caseBlock .list .headerRow th {
+    background-color:#f18881;
+    color:#414141;
+}
+
+.caseTab .data2Col {
+    
+}
+
+.caseTab .bPageTitle .secondaryPalette a {
+    color:#2ab5b2
+}
+.caseTab .bPageTitle .secondaryPalette a:hover {
+    color:#414141
+}
+
+.caseTab .bPageTitle .ptBody .links {
+    
+}
+
+
+.case-recordtype {
+	color: #414141;
+}
+
+/* ---------------------Cases Edit---------------------*/
+
+
+
+.caseTab.editPage .detailList {
+    font-size:1em;
+
+}
+
+.caseTab.editPage .bPageBlock th.vfLabelColTextWrap {
+    white-space:nowrap;
+}
+
+.caseTab.editPage .bPageBlock .labelCol {
+    text-align:left;
+    font-size: .75em;
+}
+
+.caseTab.editPage .bPageBlock .labelCol .helpButton, 
+.caseTab.editPage .bPageBlock .labelCol .helpButtonOn {
+    margin-right:5px;
+        display: inline-block;
+}
+
+.caseTab.editPage .detailList .helpOrb {
+	right: -16px;
+}
+
+.caseTab.editPage .bEditBlock select,
+.caseTab.editPage .bEditBlock .dateFormat {
+    font-size:.75em;
+}
+
+.caseTab.editPage .bPageBlock .labelCol script {
+    font-size:1em;
+}
+
+.bPageBlock .requiredMark {
+    display:none
+}
+
+
+
+/* ---------------------Cases Detail---------------------*/
+
+
+.caseTab .ptBody .pageDescription {
+    font-size:1.45em;
+    font-weight:normal;
+}
+
+.caseTab.detailPage .ptBody .pageDescription {
+    display:inline-block;
+}
+
+
+.caseTab.detailPage .bPageTitle .ptBreadcrumb{
+    display:inline-block;
+}
+
+.ptBody .pageDescription,
+.bPageTitle .ptBreadcrumb{
+    display:none;
+}
+
+.caseTab .bFilter {
+    margin-left:0;
+}
+
+
+
+/* ---------------------Cases Paging---------------------*/
+
+.caseTab .bNext .withFilter,
+.caseTab .bNext .withFilter .filter {
+    width: 100%;
+    float: left;
+    height: 1%;
+    margin-top:-10px;
+}
+
+.caseTab .bNext .next {
+    padding-top: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-align: center;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.caseTab .rolodex {
+    text-align:center;
+}
+
+.caseTab .bPageTitle .ptBody .links {
+    padding: 0; 
+    font-size: 1.25em;
+    float: left;
+    text-align: left;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.caseTab .bPageTitle .ptBody .links a {
+    padding:10px 0;
+    display:block;
+}
+
+.caseTab .bRelatedList {
+    padding:0;
+}
+
+
+/* ----------------------------------------------------------------------
+	---------------------Reports page---------------------
+	----------------------------------------------------------------------*/
+
+.noTableSidebar {
+    width: 200px;
+    float: left;
+    padding-right: 10px;
+    background-color:#fff;
+}
+
+.bMiniTab {
+    margin:2.5%;
+    width:95%;
+    float:left;
+}
+
+.reportTab .bodyDiv {
+    background-color:#fff;
+}
+
+.miniTab { 
+    padding-top:0em
+}
+
+.miniTab .links {
+    margin-bottom:0;
+    font-size: 10px;
+	margin-top: 10px;
+}
+
+.miniTab .links a {
+    font-size:1.45em;
+    padding:0 5px;
+    text-decoration:none;
+}
+
+.bMiniTab .bPageBlock .pbHeader {
+    padding-top: 0;
+}
+
+.bMiniTab .bPageBlock .pbTitle {
+    background-color:transparent
+}
+
+.miniTab ul.miniTabList li {
+    display: inline-block;
+    border-style: solid;
+    border-width: 0;
+    padding: 10px 10px 10px 10px;
+    margin-left: 0;
+    margin-right: 5px;
+    background-image: none;
+    white-space: nowrap;
+    color: #fff;
+    font-size:1.25em;
+    background-color:#5dc4dd;
+}
+
+.miniTab ul li.currentTab {
+    background-color:#fff;
+    
+}
+
+.miniTab ul.miniTabList li a {
+    color:#fff;
+    padding:10px;
+}
+
+.miniTab .currentTab a {
+	color:#02a3ca !important;    
+}
+
+.reportTab .reportList .folderName {
+    padding:10px;
+    font-size:1.25em;
+}
+
+.reportTab .reportList .reportEntry,
+.list td, .list th, body.oldForecast .list .last td, body.oldForecast .list .last th{
+    padding:10px;
+    border-bottom:1px dotted #ccc;
+}
+
+.list td, .list th, 
+body.oldForecast .list .last td, 
+body.oldForecast .list .last th {
+    font-size:.95em
+}
+
+.reportTab .reportList .reportEntry:last-child {
+    border:0;
+}
+
+.bPageBlock .pbBody {
+    padding:0 0 4px 0;
+    font-size:14px;
+}
+
+#rptminitabsbody .brandSecondaryBrd,
+.bGeneratedReport .brandSecondaryBrd {
+    margin:0;
+}
+
+.bGeneratedReport .bPageBlock .pbSubbody {
+    padding:0;
+}
+ 
+.reportTab .progressIndicator {
+    padding-top:2em;
+    overflow: visible;
+	height: 30px;
+}
+
+.reportTab .progressIndicator h2,
+.reportTab .progressIndicator #status,
+.reportTab .bFilterReport h2 {
+    font-size:2em;
+    display:block;
+}
+
+.reportTab .bFilterReport h2 {
+    font-size:1.15em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.reportTab .progressIndicator #status {
+    color:#00AFD8
+}
+
+body.reportTab .pbSubheader h3,
+.reportTab .reportHeader .filterField,
+.reportTab .reportHeader .filteredBy,
+.reportTab .reportHeader .filterOp,
+.reportTab .reportHeader .filterValue {
+    color:#414141;
+    padding-left:0px;
+    padding-top:10px;
+    display:inline-block;
+}
+
+.reportTab .reportHeader .filterField {
+    margin-left:-10px;
+}
+
+body.reportTab .pbSubheader h3 {
+    padding-left:20px;
+    padding-top:10px;
+}
+
+.reportTab .reportHeader .filteredBy {
+    padding-left:25px;
+}
+
+.reportTab .filteredBy, 
+.reportTab .filterField,
+.reportTab .filterOp,
+.reportTab .filterValue {
+    font-size:1.25em;
+    display:inline-block;
+}
+
+
+.reportTab .reportTable tr.headerRow,
+.reportTab .reportTable tr.headerRow a {
+    color:#fff;
+}
+
+.reportTab .reportOutput table {
+    margin-right: 0;
+    width:100%;
+}
+
+.reportTab .hotListElement table {
+    font-size:14px;
+}
+
+
+.reportTab .bNext,
+.documentTab .bNext {
+	margin-left:0;
+    margin-right:55px;
+}
+
+.reportTab .bFilterView,
+.documentTab .bFilterView {
+    margin-top:15px;
+    margin-left:0;
+}
+
+.reportTab.listPage .bPageBlock .list,
+.documentTab.listPage .bPageBlock .list {
+    font-size:14px;
+}
+
+.reportTab .bFilterView,
+.reportTab .bSubBlock .lbBody{
+    padding-top:0;
+	margin-top:0;    
+}
+.reportTab .bSubBlock.brandSecondaryBrd.secondaryPalette h3 {
+    padding-left:0;
+}
+
+.reportTab .miniTab ul,
+.reportTab .miniTab{
+    float:left;
+}
+
+.reportTab .miniTab {
+    background-color:#f18881;
+    width:100%;
+    padding-top:10px;
+}
+
+.reportTab .miniTab ul {
+    padding-bottom:0;
+}
+
+.reportTab .miniTab ul.miniTabList li {
+    background-color:#414141 ;
+}
+.reportTab .miniTab  ul.miniTabList li.currentTab {
+    background-color:#fff !important;
+    
+}
+
+.reportTab .miniTab  ul.miniTabList li.currentTab a {
+    color:#f18881 !important;
+}
+
+.reportTab #rptminitabsbody .brandSecondaryBrd {
+    width:100%;
+}
+
+.reportTab .folderName h3 {
+    color:#414141;
+}
+a.caseMru .mruIcon {
+    background-image: url(/resource/iconFileDBlack);
+    width: 16px;
+    height: 16px;
+}
+
+.reportTab .rolodex a.listItem {
+    font-size:11px;
+}
+
+.reportTab .rolodex a.listItem:last-child {
+    border-right:0;
+}
+
+.sortDesc {
+    background-image: url(/resource/sortDesc);
+}
+
+.sortAsc {
+    background-image: url(/resource/sortAsc);
+}
+
+.caseBlock .sortAsc {
+    background-image: url(/resource/sortAscWhite);
+}
+
+.caseBlock .sortDesc {
+    background-image: url(/resource/sortDescWhite);
+}
+
+.reportTab .sortDesc {
+    background-image: url(/resource/sortDescWhite);
+}
+
+.reportTab .sortAsc {
+    background-image: url(/resource/sortAscWhite);
+}
+
+
+.reportTab .progressIndicator #status {
+    color:#f18881
+}
+
+.reportTab .bPageBlock .reportOutput .even {
+    background-color:#fff;
+}
+
+.reportTab #report .btn:hover {
+    background-color:#414141;
+}
+
+.reportTab .confidential {
+    float:left;
+}
+
+body.reportTab {
+    color:#fff
+}
+
+.reportTab .progressIndicator {
+    color:#414141
+}
+
+.reportTab .reportOutput table tr.headerRow {
+    background-color:#f18881 !important;
+    padding:10px 0;
+}
+.reportTab .reportOutput table tr.headerRow th {
+    padding:10px 5px;
+    font-size:12px;
+    text-transform:uppercase;
+}
+.reportTab .reportOutput table tr.headerRow th a {
+    text-decoration:none;
+}
+.reportTab .reportOutput table tr.headerRow th strong {
+    font-weight:normal;
+}
+
+.reportTab .reportOutput table tr.breakRowClass0Top,
+.reportTab .reportOutput table tr.breakRowClass0Top td{
+    background-color:#fad6d4 !important;
+    padding: 10px 0;
+    padding-left:16px;
+}
+
+
+.reportTab .reportOutput table tr td {
+    background-color:#fdefee !important;
+    padding: 0;
+}
+.reportTab .reportOutput table tr.breakRowClass1Top td{
+    padding-top:10px !important;
+}
+.reportTab .reportOutput table tr.breakRowClass2Top td{
+    padding-top:0 !important;
+    padding-bottom:20px !important;
+}
+
+
+.reportTab .reportOutput table tr.breakRowClassBottom,
+.reportTab .reportOutput table tr.breakRowClassBottom td{
+    display:none;
+}
+
+.reportTab .bPageBlock .reportOutput table tr.even td {
+    background-color:#fff !important;
+    border-bottom:1px dotted #ccc !important;
+    padding:10px;
+}
+
+.reportTab .bPageBlock .reportOutput table tr.breakRowClass2Top td strong {
+    margin-left:-16px;
+    padding-top:20px;
+    display:inline-block;
+}
+
+.reportTab .bPageBlock .reportOutput table tr.breakRowClass2Top td span.recordcount {
+    margin-left:16px;
+}
+
+.reportTab .bPageBlock .reportOutput table tr.breakRowClassBottom td{
+    height:1px;
+    padding:0;
+}
+.reportTab .bPageBlock .reportHeader {
+	padding-bottom: 0;
+}
+
+.reportTab .filterHeader {
+    border-top:1px solid #ccc;
+    padding-bottom:10px;
+}
+
+.reportTab .bGeneratedReport .bPageBlock .pbSubheader,
+.reportTab .reportHeader,
+.reportTab .csvSetup .pbSubheader, 
+.reportTab .csvSetup .bPageBlock .pbSubheader, 
+.reportTab .bGeneratedReport .bPageBlock .pbSubheader {
+    background-color:#fff;
+    color:#414141;
+    padding-left:0;
+}
+
+body.reportTab .pbSubheader h3,
+.reportTab .reportHeader .filteredBy,
+.reportTab .reportHeader .filterOp{
+    color:#414141;
+    padding-left:0;
+}
+
+body.reportTab .bFilter {
+    color:#414141;
+    
+}
+.reportTab .bFilterView label {
+    font-size:14px;
+} 
+
+.reportTab .bSubBlock.brandSecondaryBrd.secondaryPalette span.fBody,
+.reportTab .bSubBlock.brandSecondaryBrd.secondaryPalette span.requiredMark{
+    display:inline-block;
+}
+.reportTab .bSubBlock.brandSecondaryBrd.secondaryPalette span.requiredMark {
+    margin-right:10px;
+}
+
+.reportTab .lbBody .bFilterView {
+    padding:20px 0;
+}
+
+.reportTab .list .headerRow th {
+    background-color:#f18881;
+}
+
+.reportTab .bPageBlock.brandSecondaryBrd .pbSubheader {
+    border-top:2px dotted #ccc;
+}
+
+/* ----------------------------------------------------------------------
+	---------------------KNOWLEDGE page---------------------
+	----------------------------------------------------------------------*/
+
+
+.knowledgeBrowser {
+    padding:0;
+    font-size:1.25em;
+    width:100%;
+    border-top: 0;
+}
+
+
+
+.knowledgeBrowser tr td {
+    padding:20px
+}
+
+.paging {
+    padding:5px 10px;
+    margin-bottom:20px;
+    margin-bottom:0;
+    background-color:#fad6d4;
+}
+
+.paging a {
+    color:#444;
+    font-size:1em;
+    text-transform:uppercase;
+    padding:10px;
+    display:inline-block;
+    text-decoration:none;
+}
+
+.paging a:hover {
+    text-decoration:underline;
+    color:#444;
+}
+.paging .prev,
+.paging .next {
+    display:inline-block;
+}
+.paging .next a {
+    background: url(/resource/iconPagingNextBlack) right no-repeat;
+}
+.paging .prev a {
+    background: url(/resource/iconPagingPrevBlack) left no-repeat;
+}
+
+
+
+.Custom55Tab .bSubBlock .lbBody td, 
+.Custom55Tab .bSubBlock .lbBody th  {
+    padding:10px;
+    border-bottom:1px dotted #ccc;
+}
+
+.Custom55Tab .bSubBlock .lbBody tr:last-child td, 
+.Custom55Tab .bSubBlock .lbBody tr:last-child th{
+    border-bottom:0;
+}
+
+.Custom55Tab .bSubBlock .lbBody td table td, 
+.Custom55Tab .bSubBlock .lbBody th table th {
+    border-bottom:0;
+}
+
+.Custom55Tab .pbSearch input[type="text"] {
+    margin-right:10px;
+    padding:3px;
+}
+
+.Custom55Tab .oRight select {
+    font-size: .85em;
+	padding: .5em 0em;
+}
+
+.Custom55Tab h3.lbHeader {
+  font-family:'Avenir LT W01 35 Light';
+  font-weight: 300;
+    padding-left:0;
+}
+
+.Custom55Tab .searchForm {
+    border-bottom:0px dotted #ccc;
+    width:95%;
+}
+
+.Custom55Tab #filterGroup,
+.Custom55Tab #articleGroup,
+.Custom55Tab .form-actions{
+    float:left;
+    width:100%;
+    display:block;
+}
+
+
+/*=====================================================================
+  REDESIGN STYLES
+======================================================================*/
+
+
+ /* Base styles for this pen */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  box-sizing:         border-box;
+}
+
+.banner a img, .banner img {border:0 !important; color:transparent}
+
+ .searchForm {
+    display: none;
+    float:left;
+    margin-left:20px;
+  }
+  .searchForm fieldset {
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 60px;
+    font-size: 14px;
+    border: 0;
+    border-bottom: 1px solid #eee;
+  }
+  .big-search {
+    width: 64%;
+    padding: .5em 1em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+  }
+
+  a, input[type="submit"] {
+    -o-transition:; .25s ease-out;
+    -ms-transition:; .25s ease-out;
+    -moz-transition:; .25s ease-out;
+    -webkit-transition:; .25s ease-out;
+    transition: .25s ease-out;
+  }
+
+
+  .knowledge-search input[type="submit"] {
+    color: #f18881;
+    font-size: 1.45em;
+    font-family:'Avenir LT W01 85 Heavy';
+    background: #fff;
+    border: dotted 2px #f18881;
+    padding:.5em 1.5em;
+    cursor: pointer;    
+
+  }
+  .knowledge-search input[type="submit"]:hover {
+    color: #444;
+    border: dotted 2px #444;   
+
+  }
+  a.arrowdwn, .knowledge-search h3 {
+    display: inline-block;
+    padding: 10px 10px 10px 60px;
+    color: #444;
+    text-decoration: none;
+    font-size: 1.85em;
+    font-family:'Avenir LT W01 85 Heavy';
+    font-weight: normal;
+    float:left;
+    width:95%;
+  }
+  .arrowdwn, .knowledge-search h3, .knowledge-search .step4 {
+    background-image: url('/resource/IconSprite') ;
+    background-repeat: no-repeat;
+  }
+  .arrowdwn {
+    background-position: 0 -480px ;
+    position: relative;
+    margin-left:20px;
+  }  
+  .arrowdwn:hover {
+    color: #f18881;
+  }
+  .arrowdwn:after {
+    position: absolute;
+    content: "";
+    top:0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    padding: 10px 10px 10px 60px;
+    color: #444;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-family:'Avenir LT W01 85 Heavy';
+    font-weight: normal;
+    background: url('/resource/IconSprite') 0 0 no-repeat;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -o-transition:      opacity 1s;
+  }
+  .step1:after {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+
+  .knowledge-search h3.step2 {
+    background-position: 0 -115px;
+  }
+
+  .knowledge-search h3.step3 {
+    background-position: 0 -235px;
+  }
+
+  .knowledge-search h3.step4, .knowledge-search .step4 {
+    background-position: 0 -354px;
+  }
+
+  .knowledge-search h4 {
+    font-size: 1.2em;
+    font-family: 'Avenir LT W01 35 Light';
+    font-weight: normal;
+    padding: 0;
+    margin:0;
+  }
+
+/*=====================================================================
+  Close button
+======================================================================*/
+
+  .close {
+    float: right;
+    position: relative;
+    color: #bbb;
+    background: url('/resource/IconSprite') no-repeat -3px -576px;
+    font-family: 'Avenir LT W01 85 Heavy';
+    font-size:1.65em;
+    text-decoration:none;
+    display:inline-block;
+    padding:10px 30px 20px 30px;
+  }
+
+  .close:after {    
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    padding: 40px;
+   
+    background: url('/resource/IconSprite') no-repeat -3px -675px;    
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -o-transition:      opacity 1s;
+  }
+
+   .close:hover:after {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+
+  .close:hover {
+    color: #2ab5b2;
+    text-decoration:none;
+  }
+
+
+
+
+/*=====================================================================
+  Sticky nav/icons
+======================================================================*/
+
+ul.nav {
+  float: right; 
+  position: fixed; 
+  z-index: 100;
+  right: 55px; 
+  width: 47px;
+  z-index: 1000;
+  top: 80px;
+}
+ul.nav li a {
+  display: block; 
+  position: relative;
+  z-index: 1000;
+  text-decoration: none; 
+  color: #333; 
+  padding: 0; 
+  height: 42px;
+  width: 47px;
+  background-color: #2eb6b3;
+  border-top: 1px solid #6dd1ce;
+  border-bottom: 1px solid #2aa7a3;
+}
+ul.nav > li:hover {
+  background: #2ea2a0; 
+
+}
+ul.nav li a:hover {
+  background: #2ea2a0; 
+}
+ul.nav > li {
+  display: block; 
+  position: relative; 
+}
+ul.nav > li ul {
+  z-index: 10;
+  position: absolute; 
+  z-index: 0;
+  top:0; 
+  right: -100px;
+  background-color: #2ea2a0;  
+  border-top: 1px solid #6dd1ce;
+  border-bottom: 1px solid #2aa7a3;
+  text-align: left;
+  width: 250px;
+  height: 32px;
+  padding: 5px 5px 5px 10px;   
+  opacity: 0;
+  filter: alpha(opacity=0);
+  color: #fff;
+  font-size: .85em;
+}
+ul.nav > li:hover ul {
+  display: block;
+  right: 47px; 
+  opacity: 1;
+  filter: alpha(opacity=1);
+  -webkit-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+ul.nav > li ul li {
+  display: inline-block;
+}
+
+ul.nav > li:hover > a {
+  background-color: #2ea2a0; 
+}
+
+ul.nav img {
+  border: 0;
+}
+
+/*=====================================================================
+  tooltip icon - 'select article type'
+======================================================================*/
+a.tooltip[data-tooltip]:link, a.tooltip[data-tooltip]:visited {
+position: relative;
+text-decoration: none;
+border-bottom: solid 1px;
+}
+
+.tooltipicon a {
+    background-color: #fff;
+    color: #3e3e3e;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 1px solid #3e3e3e;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    text-align: center;
+    padding: 2px 5px;
+    font-family: 'Avenir LT W01 85 Heavy';
+    font-size:1.25em;
+    text-decoration:none;
+}
+.tooltipicon a:hover {
+  color: #f18881;
+  border-color: #f18881;
+    background-color:transparent
+}
+
+a.tooltip[data-tooltip]:before {
+content: "";
+position: absolute;
+border-top: 20px solid #02a3ca;
+border-left: 30px solid transparent;
+border-right: 30px solid transparent;
+visibility: hidden;
+bottom: 30px;
+left: -10px;
+}
+
+a.tooltip[data-tooltip]:after {
+content: attr(data-tooltip);
+position: absolute;
+color: white;
+bottom: 35px;
+left: -25px;
+width: 300px;
+font-size: 12px;
+text-align: left;
+background: #02a3ca;
+padding: 5px 15px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+visibility: hidden;
+}
+
+
+/*=====================================================================
+  Selectric
+======================================================================*/
+
+.selectricWrapper {
+  position: relative;
+  margin: 0 0 10px;
+  width: 300px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.selectricResponsive {
+  width: 100%;
+}
+
+.selectric {
+  border: 1px solid #8a8a8a;
+  background: #fff;
+  position: relative;
+  border-radius: 2px;
+}
+
+.selectric .label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 30px 0 0;
+  padding: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #444;
+  min-height: 18px;
+}
+
+.selectric .button {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  color: #BBB;
+  text-align: center;
+  font: 0/0 a;
+  *font: 20px/30px Lucida Sans Unicode,Arial Unicode MS,Arial;
+  background-image:none;
+  border-right: 0;
+    border-bottom: 0;
+}
+
+.selectric .button:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top-color: #BBB;
+  border-bottom: none;
+  background: url('/resource/IconSprite');
+}
+
+.selectricHover .selectric {
+  border-color: #CCC;
+}
+
+.selectricHover .selectric .button {
+  color: #888;
+}
+
+.selectricHover .selectric .button:after {
+  border-top-color: #888;
+}
+
+.selectricOpen {
+  z-index: 9999;
+}
+
+.selectricOpen .selectric {
+  border-color: #CCC;
+  background: #F0F0F0;
+  z-index: 9999;
+}
+
+.selectricOpen .selectricItems {
+  display: block;
+}
+
+.selectricDisabled {
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  cursor: default;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.selectricHideSelect {
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+}
+
+.selectricHideSelect select {
+  position: absolute;
+  left: -100%;
+  display: none;
+}
+
+.selectricInput {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  outline: none !important;
+  border: none !important;
+  *font: 0/0 a !important;
+  background: none !important;
+}
+
+.selectricTempShow {
+  position: absolute !important;
+  visibility: hidden !important;
+  display: block !important;
+}
+
+.selectricItems {
+  display: none;
+  position: absolute;
+  overflow: auto;
+  top: 100%;
+  left: 0;
+  background: #F9F9F9;
+  border: 1px solid #CCC;
+  z-index: 9998;
+  box-shadow: 0 0 10px -6px;
+}
+
+.selectricItems ul,.selectricItems li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  min-height: 20px;
+}
+
+.selectricItems li {
+  display: block;
+  padding: 5px;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #EEE;
+  color: #666;
+  cursor: pointer;
+}
+
+.selectricItems li.selected {
+  background: #EFEFEF;
+  color: #444;
+  border-top-color: #E0E0E0;
+}
+
+.selectricItems li:hover {
+  background: #f18881;
+  color: #fff;
+}
+
+.selectricItems li.disabled {
+  background: #F5F5F5;
+  color: #BBB;
+  border-top-color: #FAFAFA;
+  cursor: default;
+}
+
+.dropdown-wrap {
+    display:block;
+    width:100%;
+}
+
+.mandField {
+    color: #f18881;
+    padding: 15px 60px 20px 60px;
+    display: block;
+    font-size: 16px;
+}
+ 
+.sfdc_richtext {
+    font-size:14px;
+}
+
+
+
+.bSubBlock .lbBody {
+    padding-top:0;
+}
+
+.bSubBlock.brandSecondaryBrd.secondaryPalette h3.lbHeader + span {
+    margin:20px 0;
+    padding-left:14px;
+}
+
+.secondaryPalette.brandSecondaryBrd.bSubBlock, .brandSecondaryBrd {
+    width:95%;
+}
+
+/*=====================================================================
+  Documents
+======================================================================*/
+
+.documentTab  .bFilterView label {
+    font-size:14px;
+} 
+
+.documentTab  .bSubBlock.brandSecondaryBrd.secondaryPalette span.fBody,
+.documentTab  .bSubBlock.brandSecondaryBrd.secondaryPalette span.requiredMark{
+    display:inline-block;
+}
+.documentTab  .bSubBlock.brandSecondaryBrd.secondaryPalette span.requiredMark {
+    margin-right:10px;
+}
+
+.documentTab  .lbBody .bFilterView {
+    padding:10px 0;
+}
+
+
+.documentTab  .brandSecondaryBrd {
+    width:100%;
+    margin:0;
+	margin-bottom:30px;
+	display:block;    
+}
+
+.documentTab  .bRelatedList {
+    padding:0
+}
+
+.documentTab .hotListElement {
+    width: 95%;
+	margin: 30px 2.5% 0 2.5%;
+}
+
+
+.bSubBlock, .bPageBlock,
+.bMiniTab{
+	border: 1px solid #ccc;
+    float:left
+}
+
+.setupTab .pbHeader .pbTitle h2 {
+    padding-bottom:0;
+}
+
+.list td {
+    background: #fff;
+}
+
+.highlight td,
+.highlight th {
+    background: #f7f7f7;
+}
+
+.bPageBlock .pbHeader {
+    padding-bottom:0;
+}
+
+.bPageBlock .pbButton {
+    background-color:#f18881;
+}
+
+.oRight .btn {
+    background-color:#414141;
+}
+
+.oRight .btn:hover {
+    background-color:#000;
+    color:#f18881;
+}
+
+.reportTab .bRelatedList .bPageBlock .pbButton, 
+.reportTab .bPageBlock .pbHeader .pbHelp {
+	background-color: #fff;
+}
+
+.reportTab .list .headerRow th {
+background-color: #dfe1e2;
+}
+
+.documentTab .secondaryPalette.brandSecondaryBrd.bSubBlock, 
+.documentTab .brandSecondaryBrd {
+    margin-left: 2.5%;
+margin-right: 2.5%;
+width: 95%;
+}
+
+.documentTab .hotListElement .secondaryPalette.brandSecondaryBrd.bSubBlock, 
+.documentTab .hotListElement .brandSecondaryBrd {
+    margin-left: 0;
+margin-right: 0;
+    width:100%;
+margin-top:30px;
+}
+
+

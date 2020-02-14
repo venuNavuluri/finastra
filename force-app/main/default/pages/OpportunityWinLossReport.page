@@ -1,0 +1,36 @@
+<apex:page renderAs="pdf" standardController="Opportunity" extensions="OpportunityWinLossReport_CE">
+    <body>
+    	<center>
+        	<h1><u>
+	        <apex:outputText value="Win Process for {!Opportunity.Account.Name}" rendered="{!Opportunity.IsWon}" />
+    	    <apex:outputText value="Loss Process for {!Opportunity.Account.Name}" rendered="{!!Opportunity.IsWon}" />
+        	</u></h1>
+	    </center>
+    	<apex:outputText value="{!$Label.Opp_WinLossReport_Header}" escape="false"/><br/>
+		<br/>
+	    <apex:outputText value="This is subsequent to reviewing the opportunity or account plans specific to the won or lost opportunity;" /><br/>
+	    <ul>
+    		<li>Over &pound;500k (ILF value)</li>
+		    <li>Or All New Name Wins</li>
+		    <li>Or Lost Deals to existing Customers over &pound;250k (Lic. Extensions)</li>
+	    </ul>
+    	<apex:outputText value="Key questions to understand:" style="font-weight:bold"/><br/>
+		<p>
+    		<apex:outputText value="Opportunity Name:  {!Opportunity.Name}" /><br/>
+		    <apex:outputText value="Opportunity Number:  {!Opportunity.Order_Number__c}" /><br/>
+		    <apex:outputText value="Main Product:  {!Opportunity.MainProduct__c}" /><br/>
+		    <apex:outputText value="Team Members:  {!Opportunity.Owner.Name +TeamList}" />
+	    </p>
+		<apex:dataList value="{!$ObjectType.Opportunity.FieldSets.WinLoss_Report}" var="f" id="theList" style="list-style:decimal">
+			<apex:panelGrid columns="1" width="100%" style="page-break-inside:avoid">
+				<apex:outputText value="{!$ObjectType.Opportunity.Fields[f].label}" style="font-weight:bold"/>
+				<apex:panelGrid columns="1" width="100%" border="1" cellpadding="10px" style="page-break-inside:avoid">
+					<apex:outputText value="{!IF(Opportunity[f]==true,'Yes',IF(Opportunity[f]==false,'No',Opportunity[f]))}" />
+				</apex:panelGrid>
+			</apex:panelGrid>
+		</apex:dataList>	
+		<br/>
+		<apex:outputText value="Process:" style="font-weight:bold;text-decoration:underline;"/><br/><br/>
+		<apex:outputText value="{!$Label.Opp_WinLossReport_Footer}" escape="false"/>
+	</body>
+</apex:page>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>application/x-shockwave-flash</contentType>
+    <description>Adobe Flex Chart.  Cases where Status NOT equal to {&#39;Additional Information Required&#39;,&#39;Client Information Required&#39;,&#39;Client Testing&#39;,&#39;On Hold with Client&#39;,&#39;Solution Provided&#39;,&#39;With Client&#39;,&#39;Closed&#39;,&#39;Resolved&#39;}</description>
+</StaticResource>

@@ -1,0 +1,166 @@
+<apex:page standardStylesheets="false">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    $(document).ready( function () {
+  
+        var $sidebar = $("head");               
+        $sidebar.append($("<link/>",
+            { rel: "stylesheet", href: "//cloud.typography.com/7786472/695626/css/fonts.css", type: "text/css" }));
+              $("body").attr('id','sideBarSearch'); 
+    });
+   
+
+   function validateForm() {
+    var x = document.forms["sbsearch"]["sbstr"].value;
+    if (x == "") {
+        alert("Please enter value to search cases");
+        return false;
+        }
+    }
+
+</script>
+ 
+<style>
+h2,
+a,
+ html #sideBarSearch .sidebarModuleBody a,
+input {
+font-family: Arial, Verdana, Helvetica, sans-serif !important; 
+font-weight: 400 !important;
+font-style: normal !important;
+}
+
+.hasMotif {
+margin: 0 ;
+}
+
+ html #sideBarSearch .sidebarModuleBody a,
+ a {
+color:#2ab5b2 !important;
+text-decoration:none;
+border-bottom:1px dotted #353535;
+}
+
+a:hover {
+color:#F18881;
+border-bottom:1px dotted #F18881 !important;
+}
+
+html #sideBarSearch .sidebarModuleBody input.btn {
+
+padding: 9px 10px;
+border: 0;
+background: none;
+font-size: .85em;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+/*border: 1px solid #a9a9a9;*/
+cursor: pointer;
+/*background-color: #fff;*/
+background-color: #694ed6!important;    /* twigger new */
+/*color: #353535;*/
+color: #fff;                        	/* twigger new */
+/*border-radius: 0;*/
+border-radius: 1.5rem;              	/* twigger new */
+transition: background ease-out .25s;
+
+}
+
+html #sideBarSearch .sidebarModuleBody input.btn:hover {
+/*color: #F18881;*/
+/*border: 1px solid #F18881;*/
+border: 0;
+color:#fff;
+background-color:#C137A2!important;
+}
+
+
+#sideBarSearch {
+    background: #fff!important;
+}
+
+#sideBarSearch .sidebarModuleHeader h2 {
+    display: block;
+    background: #fff !important;
+	border-bottom: 1px solid #C137A2;
+	color:#000!important;
+	font-size:14px!important;
+	padding-bottom: 5px;
+}
+
+#sideBarSearch .sidebarModuleHeader {
+    margin-bottom:15px;
+}
+
+html #sideBarSearch .brandPrimaryBgr {
+    background-color: #fff!important;
+    padding: 15px 6%;
+}
+
+html #sideBarSearch .sidebarModuleBody {
+    padding-left:6%;
+    padding-right:6%;
+}
+
+.sidebarModuleBody select {
+    font-size: 100%;
+    width: 100%;
+    padding: 5px 0;
+    margin-bottom:10px;
+}
+
+html #sideBarSearch .sidebarModuleBody .searchTextBox {
+    width:55%;
+    padding:5px;
+}
+html #sideBarSearch .sidebarModuleBody input.btn {
+    /*padding: 8px 10px;*/
+    background-color:#fff;
+    font-size:11px !important;
+    /*text-transform:uppercase; */
+}
+
+html #sideBarSearch .sidebarModuleBody .searchFooter {
+    border:0;
+}
+
+
+/* ---Links--- */
+.LogACaseModule.sidebarModule a,
+html #sideBarSearch .sidebarModuleBody a {
+    color:#353535 !important;
+    font-size:11px;
+}
+
+.LogACaseModule.sidebarModule a:hover,
+html #sideBarSearch .sidebarModuleBody a:hover {
+    color:#F18881 !important
+}
+
+
+</style>
+
+    <div class="sidebarModuleHeader brandPrimaryBgr"><h2 class="brandPrimaryFgr">Search</h2></div>
+    <form id="sbsearch" name="sbsearch" action="{!$Site.CurrentSiteUrl}apex/community_SearchResults" method="get" target="_parent" onsubmit="return validateForm()">
+        <script language="JavaScript">
+          
+        </script>
+        <div class="sidebarModuleBody">
+            <div class="standardSearchElementBody">
+                <select id="sen" title="Object Type" onchange="this.form.searchType.value=theType[this.selectedIndex];" name="s">
+                    <option value="cases" selected="">Cases</option>
+                    <option value="comments">Case Comments</option>
+                    <option value="attachments">Attachments</option>
+                </select>
+                <input id="setLast" type="hidden" value="1" name="setLast"/>
+                <br/>
+                <input class="searchTextBox" id="sbstr" title="Search" maxlength="80" size="10" name="sbstr"/>
+                <input class="btn" title="search" type="submit" value="Search" name="search"/>
+                <input id="searchType" type="hidden" value="1" name="searchType"/>
+            </div>
+            <div class="searchFooter">
+             <!--   <a onclick="document.getElementById('sbsearch').action='{!$Site.CurrentSiteUrl}search/AdvancedSearch';document.getElementById('sbsearch').submit(); return false;" href="{!$Site.CurrentSiteUrl}search/AdvancedSearch">Advanced Search...</a> -->
+            </div>
+        </div>
+    </form> 
+</apex:page>

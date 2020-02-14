@@ -1,0 +1,27 @@
+<apex:page standardController="Billing_Group__c" extensions="CreateInvoiceRegisterController">
+	<apex:form >
+	<apex:pageBlock title="Search for Opportunity">
+		<apex:pageBlockSection title="Create Invoice Register" columns="2">
+			<apex:outputField value="{!Billing_Group__c.Name}"/>
+			<apex:outputField value="{!Billing_Group__c.BG_Client_Contracting_Name__c}"/>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Enter Opportunity Number"/>
+				<apex:inputText value="{!OpptyNumberToSearch}"/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem />
+            <apex:commandButton action="{!Search}" value="Search" rerender="opptyDetails"/>
+            <apex:commandButton action="{!CreateWithoutOppty}" value="Create Invoice Register without Opportunity"/>
+		</apex:pageBlockSection>
+		<apex:outputPanel id="opptyDetails">
+			<apex:pageBlockSection title="Opportunity Details" columns="2" rendered="{!TheOppty != null}">
+				<apex:outputField value="{!TheOppty.Order_Number__c}"/>
+				<apex:outputField value="{!TheOppty.Name}"/>
+	            <apex:commandButton action="{!Create}" value="Create Invoice Register"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Opportunity Details" columns="1" rendered="{!TheOppty = null}">
+				<apex:outputLabel value="No match found."/>
+			</apex:pageBlockSection>
+		</apex:outputPanel>
+	</apex:pageBlock>
+	</apex:form>
+</apex:page>

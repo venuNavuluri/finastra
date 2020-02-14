@@ -1,0 +1,9 @@
+<apex:page standardController="Case">
+<font color="#CC3300"><strong>This is an issue case!</strong></font>
+
+<br/>
+<font color="#CC3300"><strong>Please remember to click the Send Issue Case to L3 button to create parent and/or child artifacts in CTF.</strong></font>
+<br/>
+<font color="#CC3300"><strong>To communicate with L3 please use the SFDC-CSFE Commentary field.</strong></font>
+
+</apex:page>

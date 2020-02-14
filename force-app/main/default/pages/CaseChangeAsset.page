@@ -1,0 +1,176 @@
+<apex:page standardController="Case" extensions="CaseChangeAsset_CE">
+
+	<apex:sectionHeader title="Case {!Case.CaseNumber}" subtitle="Change Asset"/>
+
+	<apex:outputPanel id="errorMsgTop">
+    	<apex:pageMessages />
+    	<apex:pageMessage summary="Please correct the following validation errors" severity="error" strength="3" escape="false" detail="{!validationMessage}" rendered="{!displayValidationMessage}" />
+	    <apex:pageMessage summary="Support Alert!" severity="warning" strength="2" escape="false" detail="{!supportAlert}" rendered="{!hasSupportAlert && !CurrentSessionInfo.InPortal}" /> 
+	</apex:outputPanel>
+
+	<apex:form >	
+		<apex:pageBlock id="pbChangeAssets" mode="Edit">
+		
+	    	<apex:pageBlockButtons location="bottom">
+	        	<apex:commandButton value="Save" 
+		        	action="{!SaveChange}" 
+		          	reRender="errorMsgTop"
+		          	onclick="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+		          	oncomplete="animateButton(this, false, null);"
+		          	/>
+	           
+	         	<apex:commandButton value="Cancel" action="{!cancel}" />  
+	         	
+	      	</apex:pageBlockButtons>		
+		
+			<!-- General Message -->
+			<apex:pageblockSection columns="1" showHeader="true"  id="genMess">
+				<apex:pageMessage summary="{!generalMessage}" severity="error" strength="3" rendered="{!displayGeneralMessage}"/>
+			</apex:pageblockSection>
+		
+			<!-- Account and Contact -->
+			<apex:pageblockSection columns="1" title="Case Information" collapsible="false" showHeader="true">
+				<apex:pageblockSectionItem >
+					<apex:outputLabel value="Account"/>
+					<apex:outputField value="{!chosenAccount.Name}" />
+				</apex:pageblockSectionItem>
+	  
+				<apex:pageblockSectionItem >
+					<apex:outputLabel value="Contact"/>
+					<apex:outputField value="{!chosenContact.Name}" />
+				</apex:pageblockSectionItem>
+				
+				<apex:pageblockSectionItem >
+					<apex:outputLabel value="Subject"/>
+					<apex:outputField value="{!customerCase.Subject}" />
+				</apex:pageblockSectionItem>				
+			</apex:pageblockSection>
+		
+			<apex:actionRegion >
+
+				<apex:pageBlockSection columns="2" title="Asset Information" collapsible="false" showHeader="true" id="assetInfo" >
+					<apex:pageBlockSectionItem >
+						<p style="text-align:center;font-weight:bold;text-decoration:underline;">New Asset Information</p>
+					</apex:pageBlockSectionItem> 
+					<apex:pageBlockSectionItem >
+						<p style="text-align:center;font-weight:bold;text-decoration:underline;">Original Asset Information</p>
+					</apex:pageBlockSectionItem>
+					
+					<!-- Product Set -->
+					<apex:pageblockSectionItem >
+						<apex:outputLabel value="Product Set"/>
+						<apex:outputPanel layout="none">
+		     			<div class="requiredInput">
+		     				<div class="requiredBlock">	
+		     				</div>
+							<apex:selectList value="{!productSetChosen}" size="1"> 
+								<apex:selectOptions value="{!productSetsDDV}" />
+									<apex:actionSupport event="onchange"					
+										action="{!productSetSelected}" 
+										rerender="assetInfo, errorMsgTop, genMess" 
+										onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+										oncomplete="animateButton(this, false, null);" />
+		      				</apex:selectList>
+		    			</div>
+		  				</apex:outputPanel>
+					</apex:pageblockSectionItem>  				
+					
+					<!-- Original Product Set -->
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Product Set" />
+						<apex:outputText value="{!originalProductSet}" />
+					</apex:pageBlockSectionItem>
+	
+					<!-- System -->	
+					<apex:pageblockSectionItem rendered="{!!isCaseTypeProject && !isGeneralSystem}">
+						<apex:outputLabel value="System"/>
+						<apex:outputPanel layout="none">
+						<div class="requiredInput">
+							<div class="requiredBlock">
+							</div>
+							<!-- <apex:selectList value="{!customerCase.System__c}" size="1"> -->
+							<apex:selectList value="{!systemChosen}" size="1">
+								<apex:selectOptions value="{!systemsDDV}" />
+								<apex:actionSupport event="onchange"
+									action="{!systemSelected}" 
+									rerender="assetInfo, errorMsgTop, genMess" 
+									onsubmit="animateButton(this, true, 'url({!URLFOR($Resource.SharedImages,'ajax_loader.gif')})');"
+									oncomplete="animateButton(this, false, null);"/>
+							</apex:selectList>
+						</div>
+						</apex:outputPanel>
+					</apex:pageblockSectionItem>
+		           <apex:pageBlockSectionitem rendered="{!!isCaseTypeProject && isGeneralSystem}" >
+		             <apex:outputLabel value="System" />
+		             <apex:outputText value="{!systemName}" />
+		           </apex:pageBlockSectionitem>					
+	
+					<!-- Original System -->
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="System" />
+						<apex:outputText value="{!originalSystem}" />
+					</apex:pageBlockSectionItem>
+	
+					<!-- Entitlement -->
+					<apex:pageblockSectionItem rendered="{!!isCaseTypeProject && !isGeneralEntitlement && !CurrentSessionInfo.InPortal}">
+						<apex:outputLabel value="Entitlement"/>
+						<apex:outputField value="{!customerCase.Support_Entitlement__c}" />
+					</apex:pageblockSectionItem>
+					<apex:pageblockSectionItem rendered="{!!isCaseTypeProject && isGeneralEntitlement && !CurrentSessionInfo.InPortal}">
+						<apex:outputLabel value="Entitlement"/>
+						<apex:outputText value="{!entitlementName}" /> 
+					</apex:pageblockSectionItem>
+					<apex:pageblockSectionItem rendered="{!CurrentSessionInfo.InPortal}" >
+					</apex:pageblockSectionItem>
+	
+					<!-- Original Entitlement -->
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Entitlement" />
+						<apex:outputText value="{!originalEntitlement}" />
+					</apex:pageBlockSectionItem>
+	
+					<!-- Client Asset -->
+					<apex:pageblockSectionItem rendered="{!!CurrentSessionInfo.InPortal && !isCaseTypeProject}">
+						<apex:outputLabel value="Asset Name"/>
+						<apex:selectList value="{!customerCase.Client_Asset__c}" size="1">
+							<apex:selectOptions value="{!assetsDDV}" />    
+						</apex:selectList>
+					</apex:pageblockSectionItem>    
+				
+					<!-- Original Client Asset -->
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Asset Name" />
+						<apex:outputText value="{!originalClientAsset}" />
+					</apex:pageBlockSectionItem>			
+				
+					<!-- Product Set Version -->
+					<apex:pageBlockSectionItem rendered="{!showProductSetVersion}" >
+						<apex:outputLabel value="Product Set Version" />
+						<apex:inputField value="{!customerCase.Product_Set_Version__c}" />
+					</apex:pageBlockSectionItem>
+					
+				</apex:pageBlockSection>
+			</apex:actionRegion>
+
+			<!-- Hidden fields -->
+			<apex:outputField value="{!Case.Support_Entitlement__c}" rendered="false" />
+			<apex:outputField value="{!Case.Support_Entitlement__r.Name}" rendered="false" />
+			<apex:outputField value="{!Case.Product_Set__c}" rendered="false" />
+			<apex:outputField value="{!Case.Product_Set__r.Name}" rendered="false" />
+			<apex:outputField value="{!Case.Product_Set_Text__c}" rendered="false" />
+			<apex:outputField value="{!Case.System__c}" rendered="false" />
+			<apex:outputField value="{!Case.System__r.Name}" rendered="false" />
+			<apex:outputField value="{!Case.System_Text__c}" rendered="false" />
+			<apex:outputField value="{!Case.Client_Asset__c}" rendered="false" />
+			<apex:outputField value="{!Case.Client_Asset__r.Name}" rendered="false" />
+			<apex:outputField value="{!Case.Client_Asset_Text__c}" rendered="false" />
+			<apex:outputField value="{!Case.AccountId}" rendered="false" />
+			<apex:outputField value="{!Case.ContactId}" rendered="false" />
+			<apex:outputField value="{!Case.Subject}" rendered="false" />
+			<apex:outputField value="{!Case.Logged_without_Entitlement__c}" rendered="false" />
+			<!-- <apex:outputField value="{!customerCase.}" rendered="false" /> -->
+
+		</apex:pageBlock>	        
+    </apex:form>
+    <apex:includeScript value="{!$Resource.SharedJavaScript}"/>
+</apex:page>

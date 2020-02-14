@@ -1,0 +1,3 @@
+<apex:page standardController="NS_Subscriptions__c">
+  <ce4sf20_001:AeSalesGuides objectType="NS_Subscriptions__c" objectId="{!NS_Subscriptions__c.Id}" />
+</apex:page>

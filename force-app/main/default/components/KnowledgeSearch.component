@@ -1,0 +1,55 @@
+<apex:component id="Search" controller="CSP_Solutions_Search_Controller">
+
+    <c:KnowledgeSearchScript ></c:KnowledgeSearchScript>
+    
+    <div class="bPageTitle">
+        <div class="ptBody secondaryPalette">
+            <div class="content">
+                <h1 class="pageType">Search the Knowledge Base<span class="titleSeparatingColon">:</span></h1>
+            </div>
+        </div>
+    </div>
+    <apex:form id="searchform" onsubmit="return executeSearch();">
+        <!--BEGIN SEARCH-->
+        <a href="#" class="arrowdwn">Search the Knowledge Base</a>        
+        <div class="searchForm knowledge-search">
+            <div class="step">
+                <fieldset>
+                    <input class="big-search" id="search" placeholder="Specify Search Criteria" type="text" />
+                </fieldset>
+            </div>
+            <div class="step">
+                <h3 class="step2">Fine tune your search...</h3>             
+                <c:KnowledgeSearchProductFilters ></c:KnowledgeSearchProductFilters>
+            </div>
+            <div class="step">
+                <h3 class="step3">What kind of info are you looking for?</h3>
+                <fieldset id="articleGroup">
+                    <table style="display:block">
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <h4 class="filter">Select Article Type *</h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" style="padding-right:20px"><input checked="true" id="chkbxTrouble" name="chkbxDown" type="checkbox" value="Troubleshooting__kav" /> Troubleshooting</td>
+                                <td style="padding-right:20px"><span class="tooltipicon"><a class="hint--right  hint--bounce" data-hint="find answers to Customers frequently asked questions" href="#">?</a></span></td>
+                                <td align="left" style="padding-right:20px"><input id="chkbxDoc" name="chkbxDoc" type="checkbox" value="Documentation__kav" /> Documentation</td>
+                                <td><span class="tooltipicon"><a class="hint--right  hint--bounce" data-hint="find answers in our reference manuals" href="#">?</a></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </div>
+            <div class="step"><span class="mandField">* indicates mandatory field...</span></div>
+            <div class="step">
+                <fieldset class="form-actions step4">
+                    <input type="submit" value="Search" />
+                </fieldset>
+            </div>
+            <a href="#" class="close">close search</a>
+        </div>
+        <!--END SEARCH-->
+    </apex:form>
+</apex:component>

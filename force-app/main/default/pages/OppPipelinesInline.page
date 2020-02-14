@@ -1,0 +1,62 @@
+<apex:page standardController="Opportunity" extensions="OpportunityPipelinesExt" showHeader="false" showChat="false">
+    <style>
+        .bPageBlock {
+        border-color: #ffffff;
+        }
+        .individualPalette .opportunityBlock .secondaryPalette  {
+        border-color: #ffffff;
+        }
+    </style>
+    <apex:form >
+        <apex:pageblock id="NSProjButtons">
+            <apex:commandLink target="_top" 
+                              styleClass="btn" 
+                              style="text-decoration:none;padding:4px;" 
+                              action="{!createGSCProject}" 
+                              value="New GSC Project"/>
+            <apex:commandLink target="_top" 
+                              styleClass="btn" 
+                              style="text-decoration:none;padding:4px;" 
+                              action="{!createPSProject}" 
+                              value="New PS Project"  
+                              rendered="{! NOT(psDisable)}"/>
+            <apex:outputtext value="New PS Project" styleClass="btnDisabled" 
+                             style="text-decoration:none;padding:4px;" 
+                             rendered="{!psDisable}"/>
+            <apex:commandLink target="_top" 
+                              styleClass="btn" 
+                              style="text-decoration:none;padding:4px;" 
+                              action="{!createPLProject}" 
+                              value="New Pipeline Project" 
+                              rendered="{! NOT(plDisable)}" />
+            <apex:outputtext value="New Pipeline Project" styleClass="btnDisabled" 
+                             style="text-decoration:none;padding:4px;" 
+                             rendered="{!plDisable}"/>
+        </apex:pageblock>
+        <apex:pageblock id="NSProjList"> 
+            <apex:pageBlockTable value="{!nsProjs}" var="nsProj" rendered="{!hasNsProjs}">                 
+                <apex:column HeaderValue="Action" width="60"> 
+                    <apex:commandLink value="Edit" style="color:#015ba7;" action="{!editNSProject}" target="_parent" >
+                        <apex:param value="{!nsProj.id}" name="nsProjId"/> 
+                    </apex:commandLink> 
+                    
+                    &nbsp;|&nbsp; 
+                    
+                    <apex:commandLink value="Del" onclick="return confirm('Are you sure?')" style="color:#015ba7;" action="{!deleteNSProject}" target="_parent">
+                        <apex:param value="{!nsProj.id}" name="nsProjId"/> 
+                    </apex:commandLink> 
+                </apex:column> 
+                
+                <apex:column headerValue="NS Project Number">
+                    <apex:outputLink value="/{!nsProj.id}" target="_blank">
+                        {!nsProj.Name}
+                    </apex:outputLink> 
+                </apex:column>
+                
+            </apex:pageBlockTable>  
+            
+            <apex:outputLabel value="No records to display" rendered="{!NOT(hasNsProjs)}" styleClass="noRowsHeader"></apex:outputLabel> 
+        </apex:pageblock> 
+    </apex:form>
+    
+</apex:page>

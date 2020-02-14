@@ -1,0 +1,14 @@
+<apex:page id="AssetUpliftManual" standardController="Contract" >
+              <apex:includeLightning /> 
+    <div id="lightning"/>
+    <script>
+        $Lightning.use("c:AssetUpliftApp", function () {
+            $Lightning.createComponent("c:AssetUplift",
+                    {
+                        recordId : '{!$CurrentPage.parameters.id}',
+                        bManual : true
+                    },
+                    "lightning");
+        });
+    </script>
+</apex:page>

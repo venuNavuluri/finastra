@@ -1,0 +1,616 @@
+<apex:page standardController="Acct_Profile__c" Extensions="CAPI_Acct_Profile_Controller">
+
+<apex:form id="frm1">
+ <apex:pageBlock id="pb1" mode="maindetail" rendered="{!savebutton}">
+     <apex:pageblocksection id="pb1_pbs1"  title="General Information" columns="3">
+      <apex:pageBlockSectionItem id="pb1_pbs1_pbsi1" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:outputLabel style="font-weight:700;font-size:12px">Latest Ranking Year</apex:outputLabel>
+           </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi2" dataStyle="width:10%" labelStyle="width:23%" >
+           <apex:outputLabel style="font-weight:700;font-size:12px" >Year on Year</apex:outputLabel>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi3" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputLabel style="font-weight:700;font-size:12px">Previous Year</apex:outputLabel>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi4" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Global Rank by Assets</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Global_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi5" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Global_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi6" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Global_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi7" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Country Rank by Assets</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Country_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi8" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Country_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi9" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Country_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi19" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Number of employees</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Number_of_Employees__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi20" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Number_of_employees__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi21" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Number_of_employees__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi10" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Number of branches</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Number_of_Branches__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi11" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Number_of_branches__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi12" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Number_of_branches__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi13" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >No of companies in corporate group</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.No_of_companies_in_corporate_group__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi14" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_No_of_companies_in_corporate_grp__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi15" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_No_of_companies_in_corporate_grp__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi16" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Number of recorded subsidiaries</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Number_of_recorded_subsidiaries__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi17" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Number_of_recorded_subsidiaries__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_pbs1_pbsi18" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Number_of_recorded_subsidiaries__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+     </apex:pageblocksection>
+ </apex:pageBlock>
+ <apex:pageBlock id="pb1_detail" mode="maindetail" rendered="{!editbutton}">
+     <apex:pageblocksection id="pb1_detail_pbs1"  title="General Information" columns="3">
+      <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi1" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:outputLabel style="font-weight:700;font-size:12px">Latest Ranking Year</apex:outputLabel>
+           </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi2" dataStyle="width:10%" labelStyle="width:23%" >
+           <apex:outputLabel style="font-weight:700;font-size:12px" >Year on Year</apex:outputLabel>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi3" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputLabel style="font-weight:700;font-size:12px">Previous Year</apex:outputLabel>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi4" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Global Rank by Assets</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Global_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi5" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Global_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi6" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Global_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi7" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Country Rank by Assets</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Country_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi8" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Country_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi9" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Country_Rank_by_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi19" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Number of employees</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Number_of_Employees__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi20" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Number_of_employees__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi21" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Number_of_employees__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi10" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Number of branches</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Number_of_Branches__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi11" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Number_of_branches__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi12" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Number_of_branches__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi13" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >No of companies in corporate group</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.No_of_companies_in_corporate_group__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi14" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_No_of_companies_in_corporate_grp__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi15" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_No_of_companies_in_corporate_grp__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi16" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Number of recorded subsidiaries</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Number_of_recorded_subsidiaries__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi17" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Number_of_recorded_subsidiaries__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb1_detail_pbs1_pbsi18" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Number_of_recorded_subsidiaries__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+     </apex:pageblocksection>
+ </apex:pageBlock>
+  <apex:pageBlock id="pb2" mode="maindetail" rendered="{!savebutton}">
+     <apex:pageblocksection id="pb2_pbs1"  title="Metric" columns="3">
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi4" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Total Assets ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Total_Assets_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi5" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Total_Assets_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi6" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Total_Assets_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi7" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Operating Profit ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Operating_Profit_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi8" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Operating_Profit_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi9" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Operating_Profit_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi10" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Total Non-interest Exp ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Total_Non_Interest_Expenses_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi11" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Total_Noninterest_Exp_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi12" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Total_Noninterest_Exp_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi13" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Total Customer Deposits ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Total_Customer_Deposits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi14" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Total_Customer_Deposits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi15" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Total_Customer_Deposits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi16" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Deposits from Banks ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Deposits_from_Banks_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi17" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Deposits_from_Banks_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi18" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Deposits_from_Banks_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi19" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Total Deps, MM, S-T Funding ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Total_Deps_MM_S_T_Funding_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi20" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Total_Dep_MM_ST_Funding_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi21" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Total_Dep_MM_ST_Funding_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi22" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Other Deps, S-T Borrowings ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Other_Deps_S_T_Borrowings_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi23" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Other_Dep_ST_Borrowing_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi24" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Other_Dep_ST_Borrowing_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi25" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Repos and Cash Collateral ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Repos_and_Cash_Collateral_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi26" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Repos_and_Cash_Collateral_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi27" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Repos_and_Cash_Collateral_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb2_pbs1_pbsi28" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Held to Maturity Securities ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Held_to_Maturity_Securities_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi29" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Held_to_Maturity_Security_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi30" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Held_to_Maturity_Sec_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi31" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Available for Sale Securities ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Available_for_Sale_Securities_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi32" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Available_fr_Sale_Security_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi33" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Available_fr_Sale_Security_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb2_pbs1_pbsi34" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Trading Sec, at FV Income ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Trading_Sec_at_FV_Income_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi35" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Trading_Sec_at_FV_Income_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi36" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Trading_Sec_at_FV_Income_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb2_pbs1_pbsi37" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Derivatives ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Derivatives_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi38" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Derivatives_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi39" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Derivatives_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb2_pbs1_pbsi40" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Documentary Credits ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Documentary_Credits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi41" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Documentary_Credits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi42" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Documentary_Credits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi43" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Committed Credit Lines ('000 USD)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Committed_Credit_Lines_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi44" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Committed_Credit_Lines_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi45" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Committed_Credit_Lines_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi46" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Consumer Loans ('000) USD</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Consumer_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi47" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Consumer_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi48" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Consumer_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi49" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Commercial Loans ('000) USD</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Commercial_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi50" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Commercial_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_pbs1_pbsi51" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Commercial_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+     </apex:pageblocksection>
+ </apex:pageBlock>
+   <apex:pageBlock id="pb2_detail" mode="maindetail" rendered="{!editbutton}">
+     <apex:pageblocksection id="pb2_detail_pbs1"  title="Metric" columns="3">
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi4" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Total Assets ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Total_Assets_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi5" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Total_Assets_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi6" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Total_Assets_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi7" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Operating Profit ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Operating_Profit_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi8" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Operating_Profit_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi9" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Operating_Profit_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi10" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Total Non-interest Exp ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Total_Non_Interest_Expenses_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi11" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Total_Noninterest_Exp_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi12" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Total_Noninterest_Exp_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi13" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Total Customer Deposits ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Total_Customer_Deposits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi14" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Total_Customer_Deposits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi15" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Total_Customer_Deposits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi16" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Deposits from Banks ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Deposits_from_Banks_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi17" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Deposits_from_Banks_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi18" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Deposits_from_Banks_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi19" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Total Deps, MM, S-T Funding ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Total_Deps_MM_S_T_Funding_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi20" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Total_Dep_MM_ST_Funding_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi21" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Total_Dep_MM_ST_Funding_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi22" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Other Deps, S-T Borrowings ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Other_Deps_S_T_Borrowings_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi23" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Other_Dep_ST_Borrowing_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi24" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Other_Dep_ST_Borrowing_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi25" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Repos and Cash Collateral ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Repos_and_Cash_Collateral_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi26" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Repos_and_Cash_Collateral_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi27" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Repos_and_Cash_Collateral_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi28" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Held to Maturity Securities ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Held_to_Maturity_Securities_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi29" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Held_to_Maturity_Security_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi30" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Held_to_Maturity_Sec_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi31" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Available for Sale Securities ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Available_for_Sale_Securities_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi32" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Available_fr_Sale_Security_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi33" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Available_fr_Sale_Security_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi34" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Trading Sec, at FV Income ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Trading_Sec_at_FV_Income_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi35" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Trading_Sec_at_FV_Income_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi36" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Trading_Sec_at_FV_Income_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi37" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Derivatives ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Derivatives_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi38" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Derivatives_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi39" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Derivatives_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi40" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Documentary Credits ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Documentary_Credits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi41" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Documentary_Credits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi42" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Documentary_Credits_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi43" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Committed Credit Lines ('000 USD)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Committed_Credit_Lines_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi44" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Committed_Credit_Lines_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi45" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Committed_Credit_Lines_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi46" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Consumer Loans ('000) USD</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Consumer_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi47" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Consumer_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi48" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Consumer_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi49" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Commercial Loans ('000) USD</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Commercial_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi50" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Commercial_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb2_detail_pbs1_pbsi51" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Commercial_Loans_000_USD__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+     </apex:pageblocksection>
+ </apex:pageBlock>
+  <apex:pageBlock id="pb3" mode="maindetail" rendered="{!savebutton}">
+     <apex:pageblocksection id="pb3_pbs1"  title="Ratios" columns="3">
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi4" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Cost to Income Ratio</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Cost_to_Income_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi5" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Cost_to_Income_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi6" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Cost_to_Income_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi7" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Regulatory Tier I Capital Ratio</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Regulatory_Tier_I_Capital_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi8" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Regulatory_Tier_I_Capital_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi9" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Regulatory_Tier_I_Capital_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb3_pbs1_pbsi10" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Basel III Leverage Ratio</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Basel_III_Leverage_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi11" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Basel_III_Leverage_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi12" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Basel_III_Leverage_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb3_pbs1_pbsi13" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Commercial Loans to Total Loans</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Commercial_Loans_to_Total_Loans__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi14" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Commercial_Loans_to_Total_Loans__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi15" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Commercial_Loans_to_Total_Loans__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi16" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Commercial Loans to Total Assets</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Commercial_Loans_to_Total_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi17" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Commercial_Loans_to_Total_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi18" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Commercial_Loans_to_Total_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi19" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Loan Yield (TE) (Value)</apex:outputLabel>
+            <apex:inputField value="{!Acct_Profile__c.Loan_Yield_TE_Value__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi20" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.YoY_Loan_Yield_TE_Value__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_pbs1_pbsi21" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:inputField value="{!Acct_Profile__c.Yr_1_Loan_Yield_TE_Value__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+     </apex:pageblocksection>
+      </apex:pageBlock>
+       <apex:pageBlock id="pb3_detail" mode="maindetail" rendered="{!editbutton}">
+     <apex:pageblocksection id="pb3_detail_pbs1"  title="Ratios" columns="3">
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi4" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Cost to Income Ratio</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Cost_to_Income_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi5" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Cost_to_Income_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi6" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Cost_to_Income_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi7" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Regulatory Tier I Capital Ratio</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Regulatory_Tier_I_Capital_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi8" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Regulatory_Tier_I_Capital_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi9" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Regulatory_Tier_I_Capital_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi10" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Basel III Leverage Ratio</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Basel_III_Leverage_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi11" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Basel_III_Leverage_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi12" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Basel_III_Leverage_Ratio__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi13" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Commercial Loans to Total Loans</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Commercial_Loans_to_Total_Loans__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi14" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Commercial_Loans_to_Total_Loans__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi15" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Commercial_Loans_to_Total_Loans__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi16" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Commercial Loans to Total Assets</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Commercial_Loans_to_Total_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi17" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Commercial_Loans_to_Total_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi18" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Commercial_Loans_to_Total_Assets__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi19" dataStyle="width:7%" labelStyle="width:5%" >
+            <apex:outputLabel >Loan Yield (TE) (Value)</apex:outputLabel>
+            <apex:outputField value="{!Acct_Profile__c.Loan_Yield_TE_Value__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi20" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.YoY_Loan_Yield_TE_Value__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="pb3_detail_pbs1_pbsi21" dataStyle="width:10%" labelStyle="width:23%" >
+            <apex:outputField value="{!Acct_Profile__c.Yr_1_Loan_Yield_TE_Value__c}" style="width:120px"/>
+        </apex:pageBlockSectionItem>
+     </apex:pageblocksection>
+      </apex:pageBlock>
+   <apex:pageBlock id="pb4" mode="inlineEdit" >
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton id="saveBtn"  rendered="{!savebutton}" value="Save" action="{!save}" />
+        <apex:commandButton id="cancelBtn" rendered="{!savebutton}" value="Cancel" action="{!cancel}"/>
+        <apex:commandButton id="editBtn"  rendered="{!editbutton}" value="Edit" action="{!edit}"/>
+      </apex:pageBlockButtons>
+   </apex:pageBlock>
+</apex:form>
+</apex:page>

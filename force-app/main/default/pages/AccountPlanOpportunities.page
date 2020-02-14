@@ -1,0 +1,50 @@
+<apex:page standardController="Account_Plan__c" extensions="AccountPlanOpportunities_CE">
+<apex:sectionHeader title="Add Opportunities to WASP" subtitle="{!TheAccountPlan.Name}"/>
+	<apex:form >
+        <apex:pageMessages />
+		<apex:pageBlock >
+			<apex:pageBlockSection title="WASP" columns="2">
+				<apex:outputField value="{!TheAccountPlan.Name}" /> 
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Opportunities" columns="1">
+				<apex:outputLabel value="Select the opportunity records to add to this WASP:" />
+				<apex:pageBlockTable value="{!AcctPlanOpportunities}" var="oppty">
+					<apex:column >
+						<apex:facet name="header">Select</apex:facet>
+						<apex:inputCheckbox value="{!oppty.Selected}"/>
+					</apex:column>
+		 			<apex:column >
+						<apex:facet name="header">Opportunity Name</apex:facet>
+						<apex:outputLink value="/{!oppty.TheOpportunity.Id}">{!oppty.Name}</apex:outputLink>
+		 			</apex:column>
+					<apex:column >
+						<apex:facet name="header">Opportunity Number</apex:facet>
+						<apex:outputLabel value="{!oppty.TheOpportunity.Order_Number__c}"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header">Amount</apex:facet>
+						<apex:outputLabel value="{!oppty.TheOpportunity.CurrencyIsoCode} {!oppty.TheOpportunity.Amount}"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header">Stage</apex:facet>
+						<apex:outputLabel value="{!oppty.TheOpportunity.StageName}"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header">Close Date</apex:facet>
+						<apex:outputLabel value="{!oppty.TheOpportunity.CloseDate}"/>
+					</apex:column>
+					<!--
+					<apex:column >
+						<apex:facet name="header">WASP</apex:facet>
+						<apex:outputLabel value="{!oppty.TheOpportunity.AccountPlan__c}"/>
+					</apex:column>
+					-->
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!Save}" value="Save"/>
+				<apex:commandButton action="{!Cancel}" value="Cancel"/>
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

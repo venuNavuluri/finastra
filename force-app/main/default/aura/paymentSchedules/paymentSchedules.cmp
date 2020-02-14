@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId,lightning:actionOverride"
+                access="global"
+                >
+    <c:licensePayments />
+    <c:servicePayments />
+    <c:RecurringPaymentTerms/>
+</aura:component>

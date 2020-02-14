@@ -1,0 +1,144 @@
+<apex:page standardController="Contract" extensions="AssetSummaryController">
+	<style type="text/css">
+		.OLI {
+			margin-left:150px;
+			color:Orange;
+		}
+		.Account {
+			margin-left:0px;
+			color:green;
+		}
+		.ProductSet {
+			margin-left:50px;
+		}
+		.LocationOfUse {
+			margin-left:200px;
+		}
+		.ContractAsset {
+			margin-left:200px;
+		}
+		.ClientAsset {
+			margin-left:100px;
+			color:purple;
+		}
+		.ContractAsset {
+			margin-left:200px;
+			color:DarkGoldenRod;
+		}
+		.CurrencyValue {
+			color:Teal;
+		}
+		.LocationOfUse {
+			margin-left:250px;
+			color:RoyalBlue;
+		}
+		.Entitlement {
+			margin-left:100px;
+			color:red;
+		}
+		.StandardMargin {
+			margin-left:50px;
+		}
+	</style>
+	<c:ImportJQuery />
+	<script>
+	   $j = jQuery.noConflict();
+	   $j(document).ready(function() {
+	    $j("#confirmDeleteDialog").dialog({
+	    	autoOpen: false,
+	    	modal: true,
+	    	position: 'center',
+	    	    buttons: {
+				    "OK": function() {
+					    $j(this).dialog("close");
+					    deleteAll();
+				    },
+				    "Cancel": function() {
+					    $j(this).dialog("close");
+				    }
+				}
+	    });
+	   });
+	   
+	   function showConfirmDeleteDialog(){
+	      $j("#confirmDeleteDialog").dialog("open");
+	      $j('#confirmDeleteDialog').dialog("option" , "title" , "Contract Asset Wizard");
+	      $j('#confirmDeleteDialog').dialog('option', 'position', 'center');
+	      return false;
+	   }
+	</script>
+
+	<apex:form >
+		<apex:actionFunction name="deleteAll" action="{!DeleteAll}"/>
+		<apex:sectionHeader title="Contract Asset Summary"/>
+	
+	
+		<div style="color:green; font-weight:bold;"><span class="Account">Account Name</span><span class="StandardMargin">Account Site</span></div>
+		<div style="font-weight:bold;"><span class="ProductSet">Product Set Name</span></div>
+		<div style="font-weight:bold;"><span class="Entitlement">Entitlement Name</span><span class="StandardMargin" style="color:blue;">System Name</span></div>
+		<div style="font-weight:bold;"><span class="ClientAsset">Client Asset Name</span></div>
+		<div style="font-weight:bold;"><span class="OLI">Opportunity Product (Licence Group)</span></div>
+		<div style="font-weight:bold;">
+			<span class="ContractAsset">Contract Asset Name on ENVIRONMENT (Licence Group)</span>
+			<apex:outputLabel value=" - "/>
+			<span class="CurrencyValue">Value</span>
+		</div>
+		<div style="font-weight:bold;"><span class="LocationOfUse">Location Of Use CCRT</span></div>
+	
+		<hr/>
+
+		<apex:outputPanel id="display">
+			<apex:repeat value="{!DAssetLocations}" var="dAssetLocAcct">
+				<div>
+					<a class="Account" href="/{!dAssetLocAcct.TheAccount.Id}">{!dAssetLocAcct.TheAccount.Name}</a>
+					<a class="StandardMargin" style="color:green;" href="/{!dAssetLocAcct.TheAccount.Id}">{!dAssetLocAcct.TheAccount.Site}</a>
+				</div>
+				<apex:repeat value="{!dAssetLocAcct.ProductSets}" var="dProdSet">
+					<div><a class="ProductSet" href="/{!dProdSet.TheProductSet.Id}">{!dProdSet.TheProductSet.Name}</a></div>
+					<apex:repeat value="{!dProdSet.Entitlements}" var="dEntitlement">
+						<div>
+							<a class="Entitlement" href="/{!dEntitlement.TheEntitlement.Id}">{!dEntitlement.TheEntitlement.Name}</a>
+							<a class="StandardMargin" style="color:blue;" href="/{!dEntitlement.TheSystem.Id}">{!dEntitlement.TheSystem.Name}</a>
+						</div>
+					</apex:repeat>
+					<apex:repeat value="{!dProdSet.ClientAssets}" var="dClientAsset">
+						<div>
+							<a class="ClientAsset" href="/{!dClientAsset.TheClientAsset.Id}">{!dClientAsset.TheClientAsset.Name}</a>
+						</div>
+						<apex:repeat value="{!dClientAsset.OLIs}" var="dOli">
+							<div>
+								<a class="OLI" href="/{!dOli.TheOLI.Id}">{!dOli.TheOLI.PricebookEntry.Product2.Name} ({!dOli.ProductLicenceGroup}) @ {!dOli.TheOLI.Location__c}</a>
+							</div>
+							<apex:repeat value="{!dOli.ContractAssets}" var="dContractAsset">
+								<div>
+									<a class="ContractAsset" href="/{!dContractAsset.TheContractAsset.Id}">
+										{!dContractAsset.TheContractAsset.Name} on {!dContractAsset.TheContractAsset.Environment2__c}
+										{!dContractAsset.SystemInstanceName}
+										({!dContractAsset.SystemLicenceGroup})
+									</a>
+									<apex:outputLabel value=" - "/>
+									<c:CurrencyField attrAmount="{!dContractAsset.TheContractAsset.Contract_Annual_Maintenance__c}"
+										attrCurrencyCode="{!dContractAsset.TheContractAsset.CurrencyIsoCode}"
+										attrColor="Teal"
+									/>
+								</div>
+								<apex:repeat value="{!dContractAsset.LocationsOfUse}" var="dLou">
+									<div><a class="LocationOfUse" href="/{!dLou.TheLou.Id}">{!dLou.TheLou.CCRT__r.Name}</a></div>
+								</apex:repeat>
+							</apex:repeat>
+						</apex:repeat>
+					</apex:repeat>
+				</apex:repeat>
+			</apex:repeat>
+		</apex:outputPanel>
+		<hr/>
+		<apex:commandButton action="{!GotoContractPage}" value="Back to the contract"/>
+		<apex:commandButton value="Delete contract artifacts" onclick="return showConfirmDeleteDialog();" />
+	</apex:form>
+	<div id="confirmDeleteDialog">
+		<p>
+		<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+		<div id="messageText">Are you sure you wish to delete all the contract artifacts?</div>
+		</p>
+	</div>
+</apex:page>
